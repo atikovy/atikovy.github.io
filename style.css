@@ -1,9 +1,9 @@
 
 :root{
-    --darker: #232931;
-    --dark: #393E46;
-    --light: #4ECCA3;
-    --text: #EEEEEE;
+    --darker: #2D2424;
+    --dark: #5C3D2E;
+    --light: #B85C38;
+    --text: #E0C097;
     --cubic: cubic-bezier(0.19, 1, 0.22, 1)
 }
 
@@ -104,10 +104,6 @@ p
                        50% 50%);
 }
 
-@media (max-width: 600px) {
-
-}
-
 .lang {
     position: fixed;
     right: 50px;
@@ -187,10 +183,11 @@ p
 .skill-shape {
     position: absolute;
     background-color: var(--dark);
-    clip-path: polygon(10% 10%,
-                       100% 0%,
-                       90% 90%,
-                       0% 100%);
+    animation: pfp-clip 1s 0.7s forwards var(--cubic);
+    clip-path: polygon(50% 50%,
+                        50% 50%,
+                        50% 50%,
+                        50% 50%);
     width: 100%;
     height: 100%;
 }
@@ -206,10 +203,10 @@ p
     background-color: var(--darker);
     color: var(--darker);
     font-family: "Trebuchet MS";
-    width: 100%; height: 2.2vh;
-    left: 0%;
-    text-indent: 0.2vw;
-    font-size: 2vh;
+    margin-left: 5%;
+    line-height: 1.6vh;
+    width: 90%; height: 1.5vh;
+    font-size: 1.8vh;
     font-weight: bolder;
     animation: prog-inset forwards 1s 0.5s var(--cubic);
     clip-path: inset(0% 100% 0% 0%);
@@ -228,8 +225,8 @@ p
     animation: prog-inset forwards 1s 0.6s var(--cubic);
     background:linear-gradient(90deg,
                                var(--light) 0%,
-                               var(--light) 65%,
-                               var(--darker) 65%,
+                               var(--light) 60%,
+                               var(--darker) 60%,
                                var(--darker) 100%);
 }
 
@@ -255,8 +252,8 @@ p
     animation: prog-inset forwards 1s 0.9s var(--cubic);
     background:linear-gradient(90deg,
                                var(--light) 0%,
-                               var(--light) 40%,
-                               var(--darker) 40%,
+                               var(--light) 30%,
+                               var(--darker) 30%,
                                var(--darker) 100%);
 }
 
@@ -264,8 +261,8 @@ p
     animation: prog-inset forwards 1s 1.0s var(--cubic);
     background:linear-gradient(90deg,
                                var(--light) 0%,
-                               var(--light) 50%,
-                               var(--darker) 50%,
+                               var(--light) 40%,
+                               var(--darker) 40%,
                                var(--darker) 100%);
 }
 
@@ -275,5 +272,40 @@ p
     margin: auto;
     font-size: 4vh;
     font-family: "Trebuchet MS";
+    margin-left: 5%;
     font-weight: bolder;
+}
+
+.percent{
+    position: absolute;
+    width: 100%;
+    height: 3.5vh;
+    margin-top: 38vh;
+}
+
+#pc-left, #pc-right{
+    position: absolute;
+    color: var(--light);
+    font-family: "Trebuchet MS";
+    font-size: 2vh;
+    display: inline-block;
+    margin-left: 5%;
+    width: 90%;
+    font-weight: bolder;
+}
+
+#pc-left {
+    animation: inset-down forwards 1s 1s var(--cubic);
+    clip-path: inset(100% 0% 0% 0%);
+    text-align: left;
+}
+
+#pc-right {
+    animation: inset-down forwards 1s 1.2s var(--cubic);
+    clip-path: inset(100% 0% 0% 0%);
+    text-align: right;
+}
+
+.portfolio-parent {
+
 }
