@@ -168,7 +168,7 @@ p
     width: 20vw;
     height: 40vh;
     border: solid red 0px;
-    margin-top: 60vh;
+    margin-top: 55vh;
     left: 5vw;
 
     &:hover .skill-shape-2 {
@@ -356,7 +356,7 @@ p
     width: 20vw;
     height: 30vh;
     border: solid red 0px;
-    margin-top: 30vh;
+    margin-top: 25vh;
     left: 5vw;
 
     &:hover .about-shape-2 {
