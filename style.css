@@ -428,7 +428,7 @@ p
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--dark);
+    background-color: var(--light);
 }
 
 video {
