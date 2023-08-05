@@ -162,6 +162,10 @@ p
     clip-path: inset(0 0 0 100%);
 }
 
+.portfolio {
+    margin-left: 3vw;
+}
+
 .about-parent {
     position: absolute;
     width: 20vw;
