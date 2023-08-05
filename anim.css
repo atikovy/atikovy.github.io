@@ -14,8 +14,8 @@
 }
 
 @keyframes header-clip {
-    0%      {clip-path: inset(0% 0% 0% 100%); left: -20px;}
-    100%    {clip-path: inset(0% 0% 0% 0%); left: 0px;}
+    0%      {clip-path: inset(0% 0% 0% 100%); translate: -50%;}
+    100%    {clip-path: inset(0% 0% 0% 0%); translate: 0%;}
 }
 
 @keyframes name-shape-clip {
@@ -64,7 +64,7 @@
                                 0% 100%)}
     100%    {clip-path: polygon(0% 0%,
                                 100% 0%,
-                                80% 100%,
+                                90% 100%,
                                 0% 100%)}
 }
 
