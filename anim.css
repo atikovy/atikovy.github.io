@@ -109,3 +109,8 @@
                                 95% 95%,
                                 10% 100%)}
 }
+
+@keyframes square-in {
+    0%      {clip-path: inset(100% 100% 100% 100%);}
+    100%    {clip-path: inset(0% 0% 0% 0%);}
+}
