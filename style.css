@@ -416,9 +416,6 @@ video, .ng-img {
     border-radius: 50%;
     width: 1.1vh; height: 1.1vh;
     top: 14%; left: 62%;
-    &:hover {
-        background-color: var(--dark);
-    }
 }
 
 .egg {
