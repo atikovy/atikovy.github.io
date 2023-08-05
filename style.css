@@ -107,6 +107,7 @@ p
 }
 
 .lang {
+    visibility: hidden;
     position: fixed;
     right: 50px;
     top: 10px;
@@ -378,6 +379,8 @@ video, .ng-img {
     border: none;
     width: 22vw;
     transition: al 0.5s var(--cubic);
+    clip-path: inset(100% 100% 100% 100%);
+    animation: square-in 1s 0.5s forwards var(--cubic);
 }
 
 .contact-parent {
@@ -416,10 +419,6 @@ video, .ng-img {
     &:hover {
         background-color: var(--dark);
     }
-    &:hover .egg {
-        opacity: 1;
-        transform: translate(0, -2vh);
-    }
 }
 
 .egg {
@@ -436,16 +435,17 @@ video, .ng-img {
 ::-webkit-scrollbar-thumb {background-color: var(--light);}
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     body {
         overflow-y: scroll;
+        overflow-x: hidden;
         height: 100%;
     }
 
     #wall-1, #wall-2 {
         position: absolute;
-        height: 100%;
+        height: 214vh;
         width: 80vw;
     }
     
@@ -504,18 +504,36 @@ video, .ng-img {
 
     .description {
         width: 90%;
+        top: 5vh;
     }
 
     .skill-parent {
         width: 90vw;
         top: 8vh;
         left: 5vw;
+
+        &:hover .percent td {
+            translate: -1vw 0vh;
+        }
+    }
+
+    .percent {
+        width: 90vw;
+        border: solid red 0px;
+        clip-path: inset(0 5vw 0 0);
+    }
+
+    .percent td {
+        translate: 6vw 0vw;
     }
 
     .portfolio-parent {
         width: 90vw;
-        left: 5vw;
-        top: 103vh;
+        left: 5vw; top: 103vh;
+    }
+
+    .media-container {
+        height: 100vh;
     }
 
     video, .ng-img {
@@ -523,8 +541,8 @@ video, .ng-img {
     }
 
     .contact-parent{
-        width: 90vw;
-        top: 195vh;
+        width: 85vw; height: 10vh;
+        top: 195vh; left: -2vw;
     }
 
     .contact-shape {
