@@ -1,22 +1,16 @@
 
 :root{
-    --darker: #2D2424;
-    --dark: #5C3D2E;
-    --light: #B85C38;
-    --text: #E0C097;
+    --darker: #F3F3F3;
+    --dark: #E9DCBE;
+    --light: #8E8B82;
+    --text: #343434;
     --cubic: cubic-bezier(0.19, 1, 0.22, 1)
 }
 
 body {
     margin: 10px;
-    height: 100%;
-    overflow: hidden;
-    animation: bg-gradient 1s 0s forwards var(--cubic);
-    background: linear-gradient(10deg,
-                                var(--dark) 0%,
-                                var(--darker) 100%);
-    background-size: 200%;
-    background-position: 0%;
+    height: 240vh;
+    background-color: var(--darker);
 }
 
 p
@@ -28,9 +22,10 @@ p
 
 .name-tab {
     position: absolute;
-    margin-left: 3vw;
-    margin-top: 3vh;
-    width: 28vw;
+    margin-left: 50vw;
+    transform: translate(-50%);
+    margin-top: 10vh;
+    width: 22vw;
     height: 20vh;
 }
 
@@ -44,7 +39,6 @@ p
     position: absolute;
     text-align: left;
     margin-top: 1vh;
-    margin-left: 0.5vw;
     font-size: 3.1vw;
     width: 12vw;
     font-weight: bolder;
@@ -61,12 +55,11 @@ p
 
 .surname2 {
     position: absolute;
-    text-align: center;
+    left: 3vw;
     width: 12vw;
     font-family: "Trebuchet MS";
     margin-top: 4.3vw;
     font-size: 1vw;
-    margin-right: -1vw;
     font-weight: bolder;
     color: var(--text);
     animation: name-mask-2 1.7s 0.5s forwards var(--cubic);
@@ -76,13 +69,9 @@ p
 .name-shape-1 {
     position: absolute;
     background-color: var(--dark);
-    width: 12vw;
-    height: 16vh;
-    animation: name-shape-clip 1s 0.5s forwards var(--cubic);
-    clip-path: polygon(50% 50%,
-                       50% 50%,
-                       100% 80%,
-                       100% 80%);
+    width: 100%; height: 100%;
+    margin: none;
+    clip-path: inset(0 35% 0 20%);
 }
 
 .name-bg-full {
@@ -96,14 +85,16 @@ p
 
 .face {
     position: absolute;
-    margin-left: 50%;
-    margin-top: 3%;
-    height: 100%;
-    animation: pfp-clip 1s 0.5s forwards var(--cubic);
-    clip-path: polygon(50% 50%,
-                       50% 50%,
-                       50% 50%,
-                       50% 50%);
+    width: 100%; height: 100%;
+    margin-left: 0;
+    border-right: 1vw var(--text) solid;
+}
+
+.face-bg {
+    position: absolute;
+    width: 20vh; height: 20vh;
+    right: 0;
+    background-color: none;
 }
 
 .lang {
@@ -135,7 +126,7 @@ p
     background-color: var(--dark);
     position: absolute;
     top: 0%;
-    opacity: 20%;
+    opacity: 0%;
     left: 0px;
     width: 32vw;
     height: 100vh;
@@ -167,6 +158,7 @@ p
 }
 
 .about-parent {
+    opacity: 0;
     position: absolute;
     width: 20vw;
     height: 30vh;
@@ -222,6 +214,7 @@ p
 }
 
 .skill-parent{
+    opacity: 0;
     position: absolute;
     width: 20vw;
     height: 40vh;
@@ -362,15 +355,16 @@ p
 }
 
 .portfolio-parent {
+    opacity: 1;
     position: absolute;
-    width: 48vw; height: 20vh;
+    width: 48vw;
     border: solid red 0px;
-    margin-top: 3vh;
-    left: 35vw;
+    margin-top: 45vh;
+    margin-left: 50vw;
+    transform: translate(-50%);
 }
 
 .media-container {
-    overflow-y: scroll;
     margin-top: 3vh;
     width: 100%;
     height: 80vh;
@@ -391,45 +385,31 @@ video, .ng-img {
     position: absolute;
     width: 12vw;
     height: 20vh;
-    bottom: 4vh;
+    top: 210vh;
     border: solid red 0px;
-    right: 14vw;
-    translate: 10vw;
+    margin-left: 50vw;
+    transform: translate(-50%);
+
+    &:hover .contact-shape {
+        width: 290%;
+    }
+
 }
 .contact-shape {
     position: absolute;
-    width: 13vw;
+    margin-left: 50%;
+    transform: translate(-50%);
+    width: 4vw;
     height: 15vh;
     background-color: var(--dark);
-    animation: about-shape-clip 1s 0.7s forwards var(--cubic);
-    clip-path: polygon(5% 80%,
-                       100% 0%,
-                       100% 90%,
-                       0% 100%);
+    transition: all 0.5s var(--cubic);
 }
 
 .info {
     position: relative;
     width: 100%;
-    text-align: right;
+    text-align: center;
     font-size: 1.8vh;
-}
-
-.egg-hitbox{
-    position: absolute;
-    border-radius: 50%;
-    width: 1.1vh; height: 1.1vh;
-    top: 14%; left: 62%;
-}
-
-.egg {
-    opacity: 0;
-    position: absolute;
-    top: 0.15vh; left: 0.15vh;
-    width: 0.85vh; height: 0.85vh;
-    border-radius: 50%;
-    background-color: var(--text);
-    transition: all 0.1s var(--cubic);
 }
 
 ::-webkit-scrollbar {width: 0.5vw;}
