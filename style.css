@@ -10,6 +10,7 @@
 body {
     margin: 10px;
     height: 100%;
+    overflow: hidden;
     animation: bg-gradient 1s 0s forwards var(--cubic);
     background: linear-gradient(10deg,
                                 var(--dark) 0%,
@@ -136,7 +137,7 @@ p
     opacity: 20%;
     left: 0px;
     width: 32vw;
-    height: 200vh;
+    height: 100vh;
     animation: wall-1 forwards 1s 0s var(--cubic);
     clip-path: polygon(0% 0%,
                        100% 0%,
@@ -148,19 +149,71 @@ p
     animation: wall-2 forwards 1.5s 0s var(--cubic);
 }
 
-.ae-1 {
-    height: 400px;
-    width: 400px;
-    transition: clip-path 0.5s var(--cubic);
-    clip-path: polygon(10% 0%,
-                       100% 0%,
-                       90% 100%,
-                       0% 100%);
+.knowledge, .about, .contact, .portfolio {
+    position: relative;
+    color: var(--text);
+    margin: auto;
+    font-size: 4vh;
+    font-family: "Trebuchet MS";
+    margin-left: 1vw;
+    font-weight: bolder;
+    animation: header-clip forwards 1s 0.5s var(--cubic);
+    clip-path: inset(0 0 0 100%);
+}
 
-    &:hover {clip-path: polygon(0% 0%,
-                                100% 0%,
-                                100% 100%,
-                                0% 100%)}
+.about-parent {
+    position: absolute;
+    width: 20vw;
+    height: 30vh;
+    border: solid red 0px;
+    margin-top: 25vh;
+    left: 5vw;
+
+    &:hover .about-shape-2 {
+    clip-path: polygon(0% 0%,
+                       100% 0%,
+                       100% 100%,
+                       0% 100%)}
+}
+
+.about-shape {
+    position: absolute;
+    width: 100%; height: 21vh;
+    top: 6vh;
+    background-color: var(--dark);
+    animation: about-clip 1s 0.7s forwards var(--cubic);
+    transition: all 0.5s var(--cubic);
+    clip-path: polygon(50% 50%,
+                       50% 50%,
+                       50% 50%,
+                       50% 50%);
+}
+
+.about-shape-2 {
+    position: absolute;
+    width: 100%; height: 21vh;
+    top: 6vh;
+    opacity: 0%;
+    background-color: var(--dark);
+    transition: all 0.5s var(--cubic);
+    animation: opacity-in 0s 1.7s forwards var(--cubic);
+    clip-path: polygon(10% 0%,
+                       85% 10%,
+                       95% 95%,
+                       10% 100%);
+}
+
+.description {
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 5%;
+    height: 75%;
+    width: 18vw;
+    left: 2vh;
+    font-size: 1.8vh;
+    animation: desc-mask forwards 1.5s 1s linear;
+    clip-path: inset(0 0 100% 0);
 }
 
 .skill-parent{
@@ -176,6 +229,9 @@ p
                        100% 0%,
                        100% 100%,
                        0% 100%)}
+    &:hover .percent td {
+        translate: 0.8vw 0vh;
+    }
 }
 
 .skill-shape {
@@ -280,135 +336,29 @@ p
                                var(--darker) 100%);
 }
 
-.knowledge, .about, .contact, .portfolio {
-    position: relative;
+.percent {
+    position: absolute;
+    text-align: right;
+    width: 19vw; height: 34vh;
+    border-spacing: 3vh;
+    top: 4.5vh;
+    border: solid red 0px;
+    clip-path: inset(0 0.1vw 0 0);
+}
+
+.percent td {
+    background: none;
+    font-family: "Trebuchet MS";
     color: var(--text);
-    margin: auto;
-    font-size: 4vh;
-    font-family: "Trebuchet MS";
-    margin-left: 1vw;
     font-weight: bolder;
-    animation: header-clip forwards 1s 0.5s var(--cubic);
-    clip-path: inset(0 0 0 100%);
-}
-
-.percent{
-    opacity: 0%;
-    position: absolute;
-    width: 100%;
-    height: 3.5vh;
-    margin-top: 29vh;
-}
-
-#pc-left, #pc-right{
-    position: absolute;
-    color: var(--light);
-    font-family: "Trebuchet MS";
-    font-size: 2vh;
-    display: inline-block;
-    margin-left: 5%;
-    width: 90%;
-    font-weight: bolder;
-}
-
-#pc-left {
-    animation: inset-down forwards 1s 1s var(--cubic);
-    clip-path: inset(100% 0% 0% 0%);
-    text-align: left;
-}
-
-#pc-right {
-    animation: inset-down forwards 1s 1.2s var(--cubic);
-    clip-path: inset(100% 0% 0% 0%);
-    text-align: right;
-}
-
-.contact-parent {
-    position: absolute;
-    width: 20vw;
-    height: 20vh;
-    border: solid red 0px;
-    margin-top: 105vh;
-    left: 5vw;
-}
-
-.contact-shape {
-    position: absolute;
-    background-color: var(--dark);
-    animation: about-shape-clip 1s 0.7s forwards var(--cubic);
-    clip-path: polygon(0% 5%,
-                       100% 30%,
-                       100% 100%,
-                       5% 100%);
-    width: 100%;
-    height: 100%;
-}
-
-.info {
-    position: absolute;
-    text-align: right;
-    margin-top: 2vh;
-    font-size: 2vh;
-}
-
-.about-parent {
-    position: absolute;
-    width: 20vw;
-    height: 30vh;
-    border: solid red 0px;
-    margin-top: 25vh;
-    left: 5vw;
-
-    &:hover .about-shape-2 {
-    clip-path: polygon(0% 0%,
-                       100% 0%,
-                       100% 100%,
-                       0% 100%)}
-}
-
-.about-shape {
-    position: absolute;
-    width: 100%; height: 21vh;
-    top: 6vh;
-    background-color: var(--dark);
-    animation: about-clip 1s 0.7s forwards var(--cubic);
+    translate: 2.5vw 0vw;
+    font-size: 1.5vh;
     transition: all 0.5s var(--cubic);
-    clip-path: polygon(50% 50%,
-                       50% 50%,
-                       50% 50%,
-                       50% 50%);
-}
-
-.about-shape-2 {
-    position: absolute;
-    width: 100%; height: 21vh;
-    top: 6vh;
-    opacity: 0%;
-    background-color: var(--dark);
-    transition: all 0.5s var(--cubic);
-    animation: opacity-in 0s 1.7s forwards var(--cubic);
-    clip-path: polygon(10% 0%,
-                       85% 10%,
-                       95% 95%,
-                       10% 100%);
-}
-
-.description {
-    position: absolute;
-    overflow: hidden;
-    text-align: center;
-    margin-top: 5%;
-    height: 75%;
-    width: 18vw;
-    left: 2vh;
-    font-size: 1.8vh;
-    animation: desc-mask forwards 1.5s 1s linear;
-    clip-path: inset(0 0 100% 0);
 }
 
 .portfolio-parent {
     position: absolute;
-    width: 50vw; height: 20vh;
+    width: 48vw; height: 20vh;
     border: solid red 0px;
     margin-top: 3vh;
     left: 35vw;
@@ -423,22 +373,166 @@ p
     text-align: center;
 }
 
-::-webkit-scrollbar {
-    width: 0.5vw;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--light);
-}
-
-video {
+video, .ng-img {
     position: relative;
     border: none;
-    opacity: 1;
-    width: 24vw;
+    width: 22vw;
     transition: al 0.5s var(--cubic);
 }
 
-.ng-img {
-    height: 24vw;
+.contact-parent {
+    position: absolute;
+    width: 12vw;
+    height: 20vh;
+    bottom: 4vh;
+    border: solid red 0px;
+    right: 14vw;
+    translate: 10vw;
+}
+.contact-shape {
+    position: absolute;
+    width: 13vw;
+    height: 15vh;
+    background-color: var(--dark);
+    animation: about-shape-clip 1s 0.7s forwards var(--cubic);
+    clip-path: polygon(5% 80%,
+                       100% 0%,
+                       100% 90%,
+                       0% 100%);
+}
+
+.info {
+    position: relative;
+    width: 100%;
+    text-align: right;
+    font-size: 1.8vh;
+}
+
+.egg-hitbox{
+    position: absolute;
+    border-radius: 50%;
+    width: 1.1vh; height: 1.1vh;
+    top: 14%; left: 62%;
+    &:hover {
+        background-color: var(--dark);
+    }
+    &:hover .egg {
+        opacity: 1;
+        transform: translate(0, -2vh);
+    }
+}
+
+.egg {
+    opacity: 0;
+    position: absolute;
+    top: 0.15vh; left: 0.15vh;
+    width: 0.85vh; height: 0.85vh;
+    border-radius: 50%;
+    background-color: var(--text);
+    transition: all 0.1s var(--cubic);
+}
+
+::-webkit-scrollbar {width: 0.5vw;}
+::-webkit-scrollbar-thumb {background-color: var(--light);}
+
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: scroll;
+        height: 100%;
+    }
+
+    #wall-1, #wall-2 {
+        position: absolute;
+        height: 100%;
+        width: 80vw;
+    }
+    
+    .name-tab {
+        margin: 0;
+        top: 6vh;
+        width: 100%;
+    }
+
+    .face {
+        height: 34vw;
+        top: 1vh;right: 10vw;
+    }
+
+    .name-shape-1 {
+        margin: 1vh;
+        left: 3vw;
+        width: 90%;
+        height: 90%;
+    }
+
+    .surname-full{
+        width: 100%;
+        left: 3vw;
+    }
+
+    .surname1{
+        margin: 0;
+        width: 100%;
+        top: 2vh;
+        text-align: center;
+        font-size: 12vw;
+    }
+    
+    .surname2 {
+        width: 100%;
+        font-size: 4vw;
+        top: 6.5vh; left: 4vw;
+    }
+
+    .about-parent {
+        width: 90%;
+        top: 5vh; left: 5%;
+
+    }
+
+    .knowledge, .about, .contact, .portfolio {
+        margin: none;
+        margin-left: 0;
+        left: 3vw;
+    }
+
+    p .about {
+        width: 100%;
+    }
+
+    .description {
+        width: 90%;
+    }
+
+    .skill-parent {
+        width: 90vw;
+        top: 8vh;
+        left: 5vw;
+    }
+
+    .portfolio-parent {
+        width: 90vw;
+        left: 5vw;
+        top: 103vh;
+    }
+
+    video, .ng-img {
+        width: 43vw;
+    }
+
+    .contact-parent{
+        width: 90vw;
+        top: 195vh;
+    }
+
+    .contact-shape {
+        width: 100%;
+    }
+
+    .info {
+        right: 3vw;
+    }
+
 }
