@@ -8,6 +8,7 @@
     0%      {clip-path: inset(0% 0% 0% 100%); left: -60px;}
     100%    {clip-path: inset(0% 0% 0% 0%); left: 0px;}
 }
+
 @keyframes name-mask-2{
     0%      {clip-path: inset(0% 100% 0% 0%); right: -60px;}
     100%    {clip-path: inset(0% 0% 0% 0%); right: 0px;}
@@ -19,14 +20,8 @@
 }
 
 @keyframes name-shape-clip {
-    0%      {clip-path: polygon(50% 0%,
-                                90% 50%,
-                                80% 80%,
-                                60% 90%);}
-    100%    {clip-path: polygon(0% 0%,
-                                90% 10%,
-                                100% 80%,
-                                35% 100%);}
+    0%      {clip-path: inset(0 100% 0 20%)}
+    100%    {clip-path: inset(0 35% 0 20%)}
 }
 
 @keyframes pfp-clip {
