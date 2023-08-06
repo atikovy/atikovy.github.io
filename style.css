@@ -32,6 +32,7 @@ p
 .surname-full {
     position: absolute;
     height: 100%;
+    left: -1vw;
     width: 12vw;
 }
 
@@ -69,8 +70,9 @@ p
 .name-shape-1 {
     position: absolute;
     background-color: var(--dark);
-    width: 100%; height: 100%;
-    margin: none;
+    width: 100%; height: 20vh;
+    top: -2vh;
+    left: -1vw;
     clip-path: inset(0 100% 0 20%);
     animation: name-shape-clip 1s 0.5s var(--cubic) forwards;
 }
@@ -86,16 +88,17 @@ p
 
 .face {
     position: absolute;
-    width: 100%; height: 100%;
-    margin-left: 0;
-    border-right: 1vw var(--text) solid;
+    height: 100%;
+    border-right: 0vw var(--text) solid;
+    animation: pfp-clip 1s 1s var(--cubic) forwards,
+               pfp-border 0.5s 2s var(--cubic) forwards;
+    clip-path: inset(0 100% 0 0);
 }
 
 .face-bg {
     position: absolute;
-    width: 20vh; height: 20vh;
+    width: 22vh; height: 20vh;
     right: 0;
-    background-color: none;
 }
 
 .lang {
@@ -378,7 +381,7 @@ video, .ng-img {
     border: none;
     width: 22vw;
     clip-path: inset(100% 100% 100% 100%);
-    animation: square-in 1s 1s forwards var(--cubic);
+    animation: square-in 1s 1.5s forwards var(--cubic);
 }
 
 .contact-parent {
