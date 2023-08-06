@@ -20,7 +20,7 @@
 }
 
 @keyframes name-shape-clip {
-    0%      {clip-path: inset(0 100% 0 20%)}
+    0%      {clip-path: inset(100% 35% 0 20%)}
     100%    {clip-path: inset(0 35% 0 20%)}
 }
 
@@ -107,4 +107,15 @@
 @keyframes square-in {
     0%      {clip-path: inset(100% 100% 100% 100%);}
     100%    {clip-path: inset(0% 0% 0% 0%);}
+}
+
+@keyframes pfp-border-mobile {
+    0%      {border-right: 0vw var(--text) solid;}
+    100%    {border-right: 2vw var(--text) solid;}
+
+}
+
+@keyframes pfp-border {
+    0%      {clip-path: inset(0 0 100% 0);}
+    100%    {clip-path: inset(0 0 0 0);}
 }
