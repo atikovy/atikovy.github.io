@@ -67,14 +67,14 @@ p
     clip-path: inset(0% 0% 0% 100%);
 }
 
-.name-shape-1 {
+.name-shape {
     position: absolute;
     background-color: var(--dark);
     width: 100%; height: 20vh;
     top: -2vh;
     left: -1vw;
     clip-path: inset(0 100% 0 20%);
-    animation: name-shape-clip 1s 0.5s var(--cubic) forwards;
+    animation: name-shape-clip 1s 0.7s var(--cubic) forwards;
 }
 
 .name-bg-full {
@@ -89,15 +89,23 @@ p
 .face {
     position: absolute;
     height: 100%;
-    border-right: 0vw var(--text) solid;
-    animation: pfp-clip 1s 1s var(--cubic) forwards,
-               pfp-border 0.5s 2s var(--cubic) forwards;
+    animation: pfp-clip 1s 1s var(--cubic) forwards;
     clip-path: inset(0 100% 0 0);
+}
+
+.face-shape {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 60%;
+    clip-path: inset(0 0 100% 0);
+    background-color: var(--text);
+    animation: pfp-border 1s 1.4s forwards var(--cubic);
 }
 
 .face-bg {
     position: absolute;
-    width: 22vh; height: 20vh;
+    width: 20vh; height: 20vh;
     right: 0;
 }
 
@@ -153,7 +161,7 @@ p
     font-family: "Trebuchet MS";
     margin-left: 1vw;
     font-weight: bolder;
-    animation: header-clip forwards 1s 0.5s var(--cubic);
+    animation: header-clip forwards 1s 0.7s var(--cubic);
     clip-path: inset(0 0 0 100%);
 }
 
@@ -426,15 +434,16 @@ video, .ng-img {
     }
 
     .name-tab {
+        top: 2vh;
         width: 80vw; height: 35vw;
         margin-left: 50vw;
         transform: translate(-50%);
         left: 0vw;
     }
 
-    .name-shape-1 {
-        height: 25vw; width: 41vw;
-        top: 1vh; left: -2vw;
+    .name-shape {
+        height: 35vw; width: 41vw;
+        top: -2vh; left: -3vw;
     }
 
     .surname-full {
@@ -454,9 +463,19 @@ video, .ng-img {
     }
 
     .face {
-        right: 0;
+        left: -2vw;
         height: 35vw; width: 35vw;
-        border-right: solid var(--text) 2vw;
+        animation: pfp-clip 1s 1s var(--cubic) forwards;
+    }
+
+    .face-bg {
+        height: 35vw; width: 35vw;
+    }
+
+    .face-shape {
+        position: inherit;
+        width: 50%;
+        left: 50%;
     }
 
     .portfolio-parent {
