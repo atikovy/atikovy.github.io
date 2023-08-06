@@ -8,8 +8,12 @@
 }
 
 body {
-    margin: 10px;
-    height: 240vh;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 230vh;
     background-color: var(--darker);
 }
 
@@ -21,7 +25,7 @@ p
 }
 
 .name-tab {
-    position: absolute;
+    position: relative;
     margin-left: 50vw;
     transform: translate(-50%);
     margin-top: 10vh;
@@ -153,24 +157,19 @@ p
     animation: wall-2 forwards 1.5s 0s var(--cubic);
 }
 
-.knowledge, .about, .contact, .portfolio {
+.portfolio {
     position: relative;
     color: var(--text);
     margin: auto;
     font-size: 4vh;
     font-family: "Trebuchet MS";
-    margin-left: 1vw;
+    margin-left: 3vw;
     font-weight: bolder;
     animation: header-clip forwards 1s 0.7s var(--cubic);
     clip-path: inset(0 0 0 100%);
 }
 
-.portfolio {
-    margin-left: 3vw;
-}
-
 .about-parent {
-    opacity: 0;
     position: absolute;
     width: 20vw;
     height: 30vh;
@@ -225,153 +224,11 @@ p
     clip-path: inset(0 0 100% 0);
 }
 
-.skill-parent{
-    opacity: 0;
-    position: absolute;
-    width: 20vw;
-    height: 40vh;
-    border: solid red 0px;
-    margin-top: 55vh;
-    left: 5vw;
-
-    &:hover .skill-shape-2 {
-    clip-path: polygon(0% 0%,
-                       100% 0%,
-                       100% 100%,
-                       0% 100%)}
-    &:hover .percent td {
-        translate: 0.8vw 0vh;
-    }
-}
-
-.skill-shape {
-    position: absolute;
-    width: 100%; height: 32vh;
-    margin-top: 1vh;
-    background-color: var(--dark);
-    animation: pfp-clip 1s 0.7s forwards var(--cubic);
-    transition: all 0.5s var(--cubic);
-    clip-path: polygon(50% 50%,
-                        50% 50%,
-                        50% 50%,
-                        50% 50%);
-}
-
-.skill-shape-2 {
-    position: absolute;
-    width: 100%; height: 32vh;
-    margin-top: 1vh;
-    opacity: 0%;
-    background-color: var(--dark);
-    animation: opacity-in 0s 1.7s forwards var(--cubic);
-    transition: all 0.5s var(--cubic);
-    clip-path: polygon(10% 5%,
-                       100% 0%,
-                       90% 90%,
-                       0% 100%);
-}
-
-.table-prog-bars{
-    border-spacing: 3vh;
-    width: 100%;
-    height: 34vh;
-}
-
-.tr, td {
-    position: absolute;
-    background-color: var(--darker);
-    color: var(--darker);
-    font-family: "Trebuchet MS";
-    margin-left: 5%;
-    line-height: 2vh;
-    width: 90%; height: 1.8vh;
-    font-size: 1.7vh;
-    text-indent: 0.2vw;
-    font-weight: bolder;
-    animation: prog-inset forwards 1s 0.5s var(--cubic);
-    clip-path: inset(0% 100% 0% 0%);
-}
-
-#b-1 {
-    animation: prog-inset forwards 1s 0.5s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 80%,
-                               var(--darker) 80%,
-                               var(--darker) 100%);
-}
-
-#b-2 {
-    animation: prog-inset forwards 1s 0.6s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 60%,
-                               var(--darker) 60%,
-                               var(--darker) 100%);
-}
-
-#b-3 {
-    animation: prog-inset forwards 1s 0.7s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 50%,
-                               var(--darker) 50%,
-                               var(--darker) 100%);
-}
-
-#b-4 {
-    animation: prog-inset forwards 1s 0.8s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 60%,
-                               var(--darker) 60%,
-                               var(--darker) 100%);
-}
-
-#b-5 {
-    animation: prog-inset forwards 1s 0.9s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 30%,
-                               var(--darker) 30%,
-                               var(--darker) 100%);
-}
-
-#b-6 {
-    animation: prog-inset forwards 1s 1.0s var(--cubic);
-    background:linear-gradient(90deg,
-                               var(--light) 0%,
-                               var(--light) 40%,
-                               var(--darker) 40%,
-                               var(--darker) 100%);
-}
-
-.percent {
-    position: absolute;
-    text-align: right;
-    width: 19vw; height: 34vh;
-    border-spacing: 3vh;
-    top: 4.5vh;
-    border: solid red 0px;
-    clip-path: inset(0 0.1vw 0 0);
-}
-
-.percent td {
-    background: none;
-    font-family: "Trebuchet MS";
-    color: var(--text);
-    font-weight: bolder;
-    translate: 2.5vw 0vw;
-    font-size: 1.5vh;
-    transition: all 0.5s var(--cubic);
-}
-
 .portfolio-parent {
-    opacity: 1;
-    position: absolute;
-    width: 48vw;
+    position: relativea;
+    width: 48vw; height: auto;
     border: solid red 0px;
-    margin-top: 45vh;
+    margin-top: 10vh;
     margin-left: 50vw;
     transform: translate(-50%);
 }
@@ -379,7 +236,7 @@ p
 .media-container {
     margin-top: 3vh;
     width: 100%;
-    height: 80vh;
+    height: auto;
     border: solid red 0px;
     text-align: center;
 }
@@ -393,16 +250,16 @@ video, .ng-img {
 }
 
 .contact-parent {
-    position: absolute;
+    position: relative;
     width: 12vw;
     height: 20vh;
-    top: 210vh;
     border: solid red 0px;
+    margin-top: 10vh;
     margin-left: 50vw;
     transform: translate(-50%);
 
     &:hover .contact-shape {
-        width: 290%;
+        width: 40vw;
     }
 
 }
@@ -417,8 +274,7 @@ video, .ng-img {
 }
 
 .info {
-    top: 0;
-    position: relative;
+    position: absolute;
     width: 100%;
     text-align: center;
     font-size: 1.8vh;
@@ -428,10 +284,6 @@ video, .ng-img {
 ::-webkit-scrollbar-thumb {background-color: var(--light);}
 
 @media (max-width: 600px) {
-
-    body {
-        height: 125vh;
-    }
 
     .name-tab {
         top: 2vh;
@@ -496,10 +348,6 @@ video, .ng-img {
         height: 20vh; width: 90vw;
         left: 0;
         top: 100vh;
-
-        &:hover .contact-shape {
-            width: 90vw;
-        }
     }
 
     .info {
