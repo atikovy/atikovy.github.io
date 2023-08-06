@@ -43,7 +43,7 @@ p
     width: 12vw;
     font-weight: bolder;
     color: var(--text);
-    animation: name-mask 1s 0.5s forwards var(--cubic), dot 2s 3s step-start infinite;
+    animation: name-mask 1s 0.5s forwards var(--cubic), dot 2s 1.5s step-start infinite;
     clip-path: polygon(0% 0%,
                        30% 0%,
                        30% 31%,
@@ -71,7 +71,8 @@ p
     background-color: var(--dark);
     width: 100%; height: 100%;
     margin: none;
-    clip-path: inset(0 35% 0 20%);
+    clip-path: inset(0 100% 0 20%);
+    animation: name-shape-clip 1s 0.5s var(--cubic) forwards;
 }
 
 .name-bg-full {
@@ -376,9 +377,8 @@ video, .ng-img {
     position: relative;
     border: none;
     width: 22vw;
-    transition: al 0.5s var(--cubic);
     clip-path: inset(100% 100% 100% 100%);
-    animation: square-in 1s 0.5s forwards var(--cubic);
+    animation: square-in 1s 1s forwards var(--cubic);
 }
 
 .contact-parent {
@@ -400,12 +400,13 @@ video, .ng-img {
     margin-left: 50%;
     transform: translate(-50%);
     width: 4vw;
-    height: 15vh;
+    height: 14vh;
     background-color: var(--dark);
     transition: all 0.5s var(--cubic);
 }
 
 .info {
+    top: 0;
     position: relative;
     width: 100%;
     text-align: center;
@@ -422,10 +423,10 @@ video, .ng-img {
     }
 
     .name-tab {
-        width: 80vw;
+        width: 80vw; height: 35vw;
         margin-left: 50vw;
         transform: translate(-50%);
-        left: -1vw;
+        left: 0vw;
     }
 
     .name-shape-1 {
@@ -452,6 +453,7 @@ video, .ng-img {
     .face {
         right: 0;
         height: 35vw; width: 35vw;
+        border-right: solid var(--text) 2vw;
     }
 
     .portfolio-parent {
