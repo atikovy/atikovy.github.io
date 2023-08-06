@@ -415,123 +415,71 @@ video, .ng-img {
 ::-webkit-scrollbar {width: 0.5vw;}
 ::-webkit-scrollbar-thumb {background-color: var(--light);}
 
-
-@media (max-width: 800px) {
+@media (max-width: 600px) {
 
     body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        height: 100%;
+        height: 125vh;
     }
 
-    #wall-1, #wall-2 {
-        position: absolute;
-        height: 214vh;
-        width: 80vw;
-    }
-    
     .name-tab {
-        margin: 0;
-        top: 6vh;
-        width: 100%;
-    }
-
-    .face {
-        height: 34vw;
-        top: 1vh;right: 10vw;
+        width: 80vw;
+        margin-left: 50vw;
+        transform: translate(-50%);
+        left: -1vw;
     }
 
     .name-shape-1 {
-        margin: 1vh;
-        left: 3vw;
-        width: 90%;
-        height: 90%;
+        height: 25vw; width: 41vw;
+        top: 1vh; left: -2vw;
     }
 
-    .surname-full{
-        width: 100%;
-        left: 3vw;
+    .surname-full {
+        top: 1vw;
+        width: 40vw;
     }
 
-    .surname1{
-        margin: 0;
+    .surname1 {
         width: 100%;
-        top: 2vh;
-        text-align: center;
-        font-size: 12vw;
+        font-size: 10vw;
     }
-    
+
     .surname2 {
         width: 100%;
         font-size: 4vw;
-        top: 6.5vh; left: 4vw;
+        top: 5vh; left: 8vw;
     }
 
-    .about-parent {
-        width: 90%;
-        top: 5vh; left: 5%;
-
-    }
-
-    .knowledge, .about, .contact, .portfolio {
-        margin: none;
-        margin-left: 0;
-        left: 3vw;
-    }
-
-    p .about {
-        width: 100%;
-    }
-
-    .description {
-        width: 90%;
-        top: 5vh;
-    }
-
-    .skill-parent {
-        width: 90vw;
-        top: 8vh;
-        left: 5vw;
-
-        &:hover .percent td {
-            translate: -1vw 0vh;
-        }
-    }
-
-    .percent {
-        width: 90vw;
-        border: solid red 0px;
-        clip-path: inset(0 5vw 0 0);
-    }
-
-    .percent td {
-        translate: 6vw 0vw;
+    .face {
+        right: 0;
+        height: 35vw; width: 35vw;
     }
 
     .portfolio-parent {
         width: 90vw;
-        left: 5vw; top: 103vh;
-    }
-
-    .media-container {
-        height: 100vh;
+        left: 0vw;
+        top: -20vw;
     }
 
     video, .ng-img {
-        width: 43vw;
-    }
-
-    .contact-parent{
-        width: 85vw; height: 10vh;
-        top: 195vh; left: -2vw;
+        width: 35vw;
     }
 
     .contact-shape {
-        width: 100%;
+        width: 10vw; height: 32vw;
+    }
+
+    .contact-parent {
+        height: 20vh; width: 90vw;
+        left: 0;
+        top: 100vh;
+
+        &:hover .contact-shape {
+            width: 90vw;
+        }
     }
 
     .info {
-        right: 3vw;
+        width: 100%;
     }
 
 }
