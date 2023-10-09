@@ -42,11 +42,12 @@ p
     position: absolute;
     text-align: left;
     margin-top: 1vh;
+    margin-left: -1vw;
     font-size: 3.1vw;
     width: 12vw;
     font-weight: bolder;
     color: var(--text);
-    animation: name-mask 1s 0.5s forwards var(--cubic), dot 2s 1.5s step-start infinite;
+    animation: name-mask 1s 0.5s forwards var(--cubic), dot 2.5s 1.5s step-start infinite;
     clip-path: polygon(0% 0%,
                        30% 0%,
                        30% 31%,
@@ -62,7 +63,7 @@ p
     width: 12vw;
     font-family: "Trebuchet MS";
     margin-top: 4.3vw;
-    font-size: 1vw;
+    font-size: 2vw;
     font-weight: bolder;
     color: var(--text);
     animation: name-mask-2 1.7s 0.5s forwards var(--cubic);
@@ -92,17 +93,17 @@ p
     position: absolute;
     height: 100%;
     animation: pfp-clip 1s 1s var(--cubic) forwards;
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(100% 100% 100% 100%);
 }
 
 .face-shape {
     position: absolute;
     height: 100%;
-    width: 50%;
-    left: 60%;
+    width: 100%;
+    left: 0.5vw;
     clip-path: inset(0 0 100% 0);
     background-color: var(--text);
-    animation: pfp-border 1s 1.4s forwards var(--cubic);
+    animation: pfp-border 1s 2s forwards var(--cubic);
 }
 
 .face-bg {
@@ -132,21 +133,6 @@ p
     transform: translate(-50%);
 }
 
-.media-container {
-    margin-top: 3vh;
-    width: 100%;
-    height: auto;
-    border: solid red 0px;
-    text-align: center;
-}
-
-video, .ng-img {
-    position: relative;
-    border: none;
-    width: 22vw;
-    clip-path: inset(100% 100% 100% 100%);
-    animation: square-in 1s 1.5s forwards var(--cubic);
-}
 
 .contact-parent {
     position: relative;
@@ -179,10 +165,15 @@ video, .ng-img {
     font-size: 1.8vh;
 }
 
+.screenshot {
+    margin-top: 2vh;
+    width: 40vh;
+}
+
 ::-webkit-scrollbar {width: 0.5vw;}
 ::-webkit-scrollbar-thumb {background-color: var(--light);}
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 
     .name-tab {
         top: 2vh;
@@ -204,12 +195,13 @@ video, .ng-img {
 
     .surname1 {
         width: 100%;
+        margin-left: 0vw;
         font-size: 10vw;
     }
 
     .surname2 {
         width: 100%;
-        font-size: 4vw;
+        font-size: 6vw;
         top: 40%; left: 8vw;
     }
 
