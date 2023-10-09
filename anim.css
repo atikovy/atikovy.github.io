@@ -5,23 +5,28 @@
 }
 
 @keyframes name-mask{
-    0%      {clip-path: inset(0% 0% 0% 100%); left: -60px;}
-    100%    {clip-path: inset(0% 0% 0% 0%); left: 0px;}
+    0%      {clip-path: inset(0% 0% 0% 100%); translate: -20%;}
+    100%    {clip-path: inset(0% 0% 0% 0%); translate: 0%;}
 }
 
 @keyframes name-mask-2{
-    0%      {clip-path: inset(0% 100% 0% 0%); right: -60px;}
-    100%    {clip-path: inset(0% 0% 0% 0%); right: 0px;}
+    0%      {clip-path: inset(0% 100% 0% 0%); translate: 20%;}
+    100%    {clip-path: inset(0% 0% 0% 0%); translate: 0%;}
+}
+
+@keyframes name-shape-clip {
+    0%      {clip-path: polygon(90% 20%,
+                                90% 20%,
+                                90% 20%);}
+    100%    {clip-path: polygon(10%  5%,
+                                90% 20%,
+                                70% 90%);}
+    
 }
 
 @keyframes header-clip {
     0%      {clip-path: inset(0% 0% 0% 100%); translate: -50%;}
     100%    {clip-path: inset(0% 0% 0% 0%); translate: 0%;}
-}
-
-@keyframes name-shape-clip {
-    0%      {clip-path: inset(100% 35% 0 20%)}
-    100%    {clip-path: inset(0 35% 0 20%)}
 }
 
 @keyframes pfp-clip {
