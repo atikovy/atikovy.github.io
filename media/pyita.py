@@ -23,6 +23,8 @@ BRIGHT_DARK = '#e8d9c9'
 BRIGHT = '#FAF0E6'
 WATER_DARK = '#c1daf0'
 WATER_BRIGHT = '#adcdeb'
+SMOKE_DARK = '#5d576b'
+SMOKE_BRIGHT = '#888198'
 
 scale = 6 # resolution
 tick = 60 # fps lock
@@ -32,6 +34,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 sim_surface = pygame.Surface((WIDTH//scale, HEIGHT//scale))
 sim_surface.fill(BACKGROUND)
 pygame.display.set_caption('Pyita')
+
 
 class Particle():
 
@@ -48,18 +51,17 @@ class Particle():
     def update(self):
         global particles_set
         match self.type:
-            case 'sand':
 
-                if self.y < HEIGHT//scale-1:
-                    # Generates 3 places below it's own position + some zeros
-                    # Offset is basically left/right direction, more zeros = higher chance to go down
-                    # Shuffle the whole thing to make the movement more nautral
-                    rand_move = [0, 0, 0, 0, 0, 0, 0, 0, -1, 1]
-                    np.random.shuffle(rand_move)
-                    for offset in rand_move:
-                        if (self.x + offset, self.y + 1) not in particles_set: # checks if any of these are occupied
-                            self.x += offset
-                            self.y = self.y+1
+            case 'sand':
+                # Generates 3 places below it's own position + some zeros
+                # Offset is basically left/right direction, more zeros = higher chance to go down
+                # Shuffle the whole thing to make the movement more nautral
+                rand_move = [0, 0, 0, 0, 0, 0, 0, 0, -1, 1]
+                np.random.shuffle(rand_move)
+                for offset in rand_move:
+                    if (self.x + offset, self.y + 1) not in particles_set: # checks if any of these are occupied
+                        self.x += offset
+                        self.y = self.y+1
 
             case 'water':
                 # bunch of rules for water movement, looks trivial but it does the job
@@ -79,16 +81,33 @@ class Particle():
 
                 self.x += self.direction
 
+            case 'smoke':
+                # same logic as water but goes up (y-1)
+                self.chaos = random.randrange(-1, 2, step=1)
+
+                self.color = choice([SMOKE_BRIGHT, SMOKE_DARK])
+                if (self.x, self.y-1) not in particles_set:
+                    self.y -= 1
+                    self.direction = random.randrange(-1, 2, step=2)
+                else:
+                    if (self.x + self.chaos, self.y) not in particles_set:
+                        self.x += self.chaos
+
+                if (self.x + self.direction, self.y) in particles_set:
+                    # check if there's abstacle, then change direction
+                    self.direction *= -1
+
+                self.x += self.direction
 
     def draw(self):
         pygame.draw.rect(sim_surface, self.color, (self.x, self.y, 1, 1))
 
-
 def change_brush():
     global brush
     match brush:
-        case 'sand' : brush = 'water'
-        case 'water': brush = 'sand'
+        case 'sand'  : brush = 'water'
+        case 'water' : brush = 'smoke'
+        case 'smoke' : brush = 'sand'
 
 
 def spawn(x, y):
@@ -101,10 +120,13 @@ def spawn(x, y):
         match brush:
             case 'sand':
                 for size in range(0, brush_size+1, 1):
-                    particles_arr = np.append(particles_arr, Particle('sand', x, y-size, color=choice([BRIGHT,BRIGHT_DARK])))
+                    particles_arr.append(Particle('sand', x, y-size, color=choice([BRIGHT,BRIGHT_DARK])))
             case 'water':
                 for size in range(0, brush_size+1, 1):
-                    particles_arr = np.append(particles_arr, Particle('water', x, y-size, color=choice([WATER_BRIGHT, WATER_DARK])))
+                    particles_arr.append(Particle('water', x, y-size, color=WATER_BRIGHT))
+            case 'smoke':
+                for size in range(0, brush_size+1, 1):
+                    particles_arr.append(Particle('smoke', x, y-size, color=DARK))
 
 
 # NOT USED
@@ -120,6 +142,9 @@ def despawn(x, y):
 def update_particles():
     global particles_arr
     for p in particles_arr:
+        if p.type == 'smoke':
+            if perf_counter() - p.age > 10:
+                particles_arr.remove(p)
         #if p.type == 'sand':
             #if perf_counter() - p.age < 3:
                 # If time of particle gets above 3 seconds it stops calculating which stops it from any movement
@@ -143,7 +168,7 @@ def main():
     while run:
         clock.tick(tick)
         text_fps     = my_font.render(f'FPS: {int(clock.get_fps())}', False, BRIGHT)
-        text_counter = my_font.render(f'PIXELS: {len(particles_arr)}', False, BRIGHT)
+        text_counter = my_font.render(f'PIXELS: {len(particles_arr)-4000}', False, BRIGHT)
         text_tool    = my_font.render(f'TOOL: {brush.upper()} (click to change)', False, BRIGHT)
 
 
@@ -189,15 +214,16 @@ def main():
 
 brush = 'sand'
 particles_set = set()
-particles_arr = np.array([], dtype=object)
+particles_arr = []
 water_level = 0
-brush_size = 10
+brush_size = 5
 
 for y in range(HEIGHT):
-    particles_arr = np.append(particles_arr, Particle('solid', 0, y, color=DARKER))
-    particles_arr = np.append(particles_arr, Particle('solid', WIDTH//scale-1, y, color=DARKER))
+    particles_arr.append(Particle('solid', 0, y, color=DARKER))
+    particles_arr.append(Particle('solid', WIDTH//scale-1, y, color=DARKER))
 for x in range(WIDTH):
-    particles_arr = np.append(particles_arr, Particle('solid', x, HEIGHT//scale-1, color=DARKER))
+    particles_arr.append(Particle('solid', x, HEIGHT//scale-1, color=DARKER))
+    particles_arr.append(Particle('solid', x, 0, color=DARKER))
 
 #spawn(WIDTH // 2, HEIGHT // 2)
 
