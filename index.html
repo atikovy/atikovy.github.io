@@ -10,56 +10,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="anim.css" />
-  <title>Analyst - Gracjan</title>
+  <link rel="stylesheet" href="mobile.css" />
+  <script src="scripts.js"></script>
+  <title>Gracjan Pawłowski</title>
 </head>
 
 <body>
   <div class="name-tab">
-    <div class="shadow"></div>
-    <div class="name-bg-full">
-      <div class="name-shape"></div>
-      <div class="surname-full">
-        <p class="surname1">gracjan</p>
-        <p class="surname2">analyst</p>
-      </div>
-    </div>
-    <div class="face-bg">
-      <div class="face-shape"></div>
-      <img class="face" src="face-resized.jpg">
+    <div class="surname">
+      <p>
+        Gracjan :<br>
+        > Portfolio
+      </p>
     </div>
   </div>
-
-  <div class="portfolio-parent">
-    <h2>!this_site_is_in_progress</h2>
-    <h2>.projects</h2>
-    <div class="media-container">
-      <div class="project_container">
-        <img class="screenshot" src="media/pyita.jpg">
-        <h1>Pyita</h1>
-        <p>
-          Inspired by famous games like Noita and The Powder Toy I decided to code basic particle simulator in PyGame<br>
-          This is very demanding in terms of the amount of computation that Python has to do.
-          Unless you decide to use Cython or Multiprocessing. Work remains in progress.
-          <a href="https://github.com/gracjan-p/gracjan-p.github.io/blob/main/media/pyita.py">[code]</a>
+  <div class="line"></div>
+  <div class="project-tab">
+    <div class="project-page">
+      <video class="project-demo" src="media/python_balls.mp4" autoplay loop muted></video>
+        <h1>>balls</h1>
+        <p class="normal-text">
+          Simulation of collisions between round objects, based on vector quantities, made with PyGame. <br>
+          Suppose that there is no air resistance, floor has zero friction and returns 100% of kinetic energy. <br>
+          <a href="https://github.com/gracjan-p/balls">[code]</a>
         </p>
-      </div>
+    </div>
+    <div class="project-page">
+      <video class="project-demo" src="media/pyita.mp4" autoplay loop muted></video>
+        <h1>>pyita</h1>
+        <p class="normal-text"> Inspired by famous games like The Powder Toy and Noita
+          I decided to recreate some kind of engine to simulate behaviour of elements such like sand, water, etc. <br>
+          <a href="https://github.com/gracjan-p/pyita">[code]</a>
+        </p>
     </div>
   </div>
-  <div class="skill-parent">
-    <h2 class="knowledge">.knowledge</h2>
-
-  </div>
-  <div class="contact-parent">
-    <div class="contact-shape"></div>
-    <p class="info">
-      Gracjan Pawłowski<br>
-      Wrocław, Poland<br>
-      <br>
-      g.pawlowski2346@gmail.com<br>
-      793 263 939<br>
-    </p>
-  </div>
-
 </body>
 
 </html>
