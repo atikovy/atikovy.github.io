@@ -1,277 +1,114 @@
 
 :root {
-    --darker: #1A1A2E;
-    --dark: #16213E;
-    --light: #0F3460;
-    --text: #E94560;
+    --black: #000000;
+    --darker: #1f212d;
+    --dark: #282A3A;
+    --light: #735F32;
+    --text: #EEEEEE;
     --cubic: cubic-bezier(0.19, 1, 0.22, 1)
 }
 
 body {
-    position: absolute;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0;
     background-color: var(--darker);
+    overflow-x: clip;
 }
 
-p, h1{
-    font-family: "Trebuchet MS";
+p {
+    afont-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    margin-top: 0;
+}
+
+a {
     color: var(--text);
-    font-size: 1vw;
-    font-weight: normal;
 }
 
 h1 {
-    font-size: 1.5vw;
+    font-family: monospace;
+    color: var(--text);
+    margin-left: 5%;
+    margin-top: 2vw;
+    margin-bottom: 0;
     font-weight: bolder;
+    width: 90%;
+    font-size: 2vw;
 }
 
-h2 {
-    font-family: "Trebuchet MS";
-    font-size: 2vw;
+.normal-text {
+    font-family: monospace;
     color: var(--text);
-    font-weight: bold;
+    width: 90%;
+    padding: 5%;
+    font-size: 1vw;
+}
+
+.line {
+    height: 0.5vw; width: 45%;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    margin-left: 50%;
+    transform: translate(-50%);
+    background-color: var(--dark);
+    border-radius: 1vw;
+}
+
+.project-tab {
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.project-page {
+    width: 100%;
+    margin-bottom: 1vw;
+    background: var(--dark);
+    border-radius: 5vw;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+}
+
+.project-demo {
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 1vw;
+    border-bottom-left-radius: 0vw;
+    border-bottom-right-radius: 0vw;
 }
 
 .name-tab {
-    position: relative;
-    margin-left: 50vw;
-    transform: translate(-50%);
-    margin-top: 10vh;
-    width: 22vw;
-    height: 20vh;
-}
-
-.surname-full {
-    position: absolute;
-    height: 100%;
-    left: -1vw;
-    width: 12vw;
-}
-
-.surname1 {
-    position: absolute;
     text-align: left;
-    margin-top: 1vh;
-    margin-left: -1vw;
-    font-size: 3.1vw;
-    width: 12vw;
-    font-weight: bolder;
-    color: var(--text);
-    animation: name-mask 1s 0.5s forwards var(--cubic), dot 2.5s 1.5s step-start infinite;
-    clip-path: polygon(0% 0%,
-                       30% 0%,
-                       30% 31%,
-                       100% 31%,
-                       100% 100%,
-                       0% 100%);
-    clip-path: inset(0% 0% 0% 100%);
+    height: 4.5vw;
+    width: 50%;
+    display: flex;
+    margin: 1vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
-.surname2 {
-    position: absolute;
-    left: 3vw;
-    width: 12vw;
-    font-family: "Trebuchet MS";
-    margin-top: 4.3vw;
+.surname {
+    font-family: monospace;
     font-size: 2vw;
     font-weight: bolder;
     color: var(--text);
-    animation: name-mask-2 1s 1s forwards var(--cubic);
-    clip-path: inset(0% 0% 0% 100%);
+    animation: dot-2 2s step-end infinite;
+    clip-path: polygon(0% 0%,
+               30% 0%,
+               30% 17%,
+               100% 17%,
+               100% 100%,
+               0% 100%);
 }
 
-.name-shape {
-    position: absolute;
-    background-color: var(--dark);
-    width: 100%; height: 20vh;
-    top: -2vh;
-    left: -1vw;
-    clip-path: polygon(50% 50%,
-                       50% 50%,
-                       50% 50%);
-    animation: name-shape-clip 1s 0.7s var(--cubic) forwards;
-}
-
-.name-bg-full {
-    position: absolute;
-    margin-top: 5%;
-    margin-right: 50%;
-    transform: translate(-50% -50%);
-    width: 50%;
-    height: 80%;
+#face-jpg {
+    height: 100%;
+    border-radius: 100%;
 }
 
 .face {
-    position: absolute;
-    height: 100%;
-    animation: pfp-clip 1s 1s var(--cubic) forwards;
-    clip-path: inset(100% 100% 100% 100%);
-}
-
-.face-shape {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0.5vw;
-    clip-path: inset(0 0 100% 0);
-    background-color: var(--text);
-    animation: pfp-border 1s 2s forwards var(--cubic);
-}
-
-.face-bg {
-    position: absolute;
-    width: 20vh; height: 20vh;
-    right: 0;
-}
-
-h2 {
-    position: relative;
-    color: var(--text);
-    margin: auto;
-    font-size: 4vh;
-    font-family: "Trebuchet MS";
-    font-weight: bolder;
-    animation: header-clip forwards 1s 0.7s var(--cubic);
-    clip-path: inset(0 0 0 100%);
-}
-
-.portfolio-parent, .skill-parent {
-    position: relativea;
-    width: 48vw; height: auto;
-    border: solid red 0px;
-    margin-top: 10vh;
-    margin-left: 50vw;
-    transform: translate(-50%);
-}
-
-
-.contact-parent {
-    position: relative;
-    width: 12vw; height: 14vh;
-    border: solid red 0px;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    margin-left: 50vw;
-    transform: translate(-50%);
-
-    &:hover .contact-shape {
-        width: 40vw;
-    }
-
-}
-.contact-shape {
-    position: absolute;
-    margin-left: 50%;
-    transform: translate(-50%);
-    width: 4vw;
-    height: 14vh;
-    background-color: var(--dark);
-    transition: all 0.5s var(--cubic);
-}
-
-.info {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-size: 1.8vh;
-}
-
-.screenshot {
-    margin-top: 2vh;
-    margin-left: 50%;
-    transform: translate(-50%);
-    width: 80%;
+    width: 20vw;
+    margin-right: 1vw;
 }
 
 ::-webkit-scrollbar {width: 0.5vw;}
-::-webkit-scrollbar-thumb {background-color: var(--light);}
-
-@media (max-width: 1200px) {
-
-    p, h1{
-        font-size: 2vw;
-        font-weight: normal;
-    }
-    
-    h1 {
-        font-size: 3vw;
-        font-weight: bolder;
-    }
-
-    h2 {
-        font-size: 5vw;
-    }
-
-    .screenshot {
-        width: 90%;
-    }
-
-    .name-tab {
-        top: 2vh;
-        width: 80vw; height: 35vw;
-        margin-left: 50vw;
-        transform: translate(-50%);
-        left: 0vw;
-    }
-
-    .name-shape {
-        height: 35vw; width: 41vw;
-        top: -2vh; left: -3vw;
-    }
-
-    .surname-full {
-        top: 1vw;
-        width: 40vw;
-    }
-
-    .surname1 {
-        width: 100%;
-        margin-left: 0vw;
-        font-size: 10vw;
-    }
-
-    .surname2 {
-        width: 100%;
-        font-size: 6vw;
-        top: 35%; left: 12vw;
-    }
-
-    .face {
-        left: -2vw;
-        height: 35vw; width: 35vw;
-        animation: pfp-clip 1s 1s var(--cubic) forwards;
-    }
-
-    .face-bg {
-        height: 35vw; width: 35vw;
-    }
-
-    .face-shape {
-        position: inherit;
-        width: 50%;
-        left: 50%;
-    }
-
-    .portfolio-parent, .skill-parent {
-        width: 90vw; height: auto;
-    }
-
-    .contact-parent {
-        width: 90vw;
-
-        &:hover .contact-shape {
-            width: 70vw;
-        }
-    }
-
-    .contact-shape {
-        width: 10%; height: 100%;
-    }
-
-    .info {
-        width: 100%;
-    }
-
-}
+::-webkit-scrollbar-thumb {background-color: var(--dark); border-radius: 0.5vw}
