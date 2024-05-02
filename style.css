@@ -231,12 +231,12 @@ h1 {
 
 .portal {
     position: absolute;
-    z-index: 100;
+    z-index: 10;
     background-color: var(--darker);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 1s ease-in-out;
+    transition: all 1s 0s ease-in-out;
     width: 0vw; height: 0vw;
     border-radius: 100%;
 }
@@ -286,8 +286,14 @@ h1 {
 
 @media (orientation: portrait) {
 
+    .surname {
+        clip-path: inset(0 0 0 0);
+        animation: none;
+    }
+
     .name-tab {
-        width: 54vw;
+        margin-top: 5%;
+        width: 80%;
     }
 
     .info-tab {
@@ -295,10 +301,12 @@ h1 {
     }
 
     .line {
-        width: 56vw;
+        width: 80%;
     }
 
     .project-tab {
+        width: 90%;
+        margin-left: 50%;
         transform: translateX(-50%);
     }
 }
