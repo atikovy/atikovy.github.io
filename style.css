@@ -1,0 +1,312 @@
+
+:root {
+    --black: #000000;
+    --darker: #1f212d;
+    --dark: #282A3A;
+    --light: #735F32;
+    --text: #EEEEEE;
+    --cubic: cubic-bezier(0.19, 1, 0.22, 1)
+}
+
+body {
+    background-color: var(--darker);
+    overflow-x: clip;
+    overflow-y: clip;
+}
+
+p {
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    margin-top: 0;
+}
+
+a {
+    color: var(--text);
+}
+
+h1 {
+    font-family: monospace;
+    color: var(--text);
+    margin-left: 5%;
+    margin-top: 2vh;
+    margin-bottom: 0;
+    font-weight: bolder;
+    width: 90%;
+    font-size: 2vh;
+}
+
+.normal-text {
+    font-family: monospace;
+    color: var(--text);
+    width: 90%;
+    padding: 5%;
+    font-size: 16px;
+    animation: tab-in 1s ease-in-out forwards;
+}
+
+.skill-text {
+    font-family: monospace;
+    color: var(--darker);
+    font-weight: bolder;
+    padding: 0;
+    margin-top: 0.1vh;
+    margin-left: 0.5vh;
+    font-size: 16px;
+}
+
+.line {
+    height: 1vh; width: 100vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 50%;
+    transform: translate(-50%);
+    background-color: var(--dark);
+    border-radius: 0.5vw;
+}
+
+.header {
+    font-size: 2vh;
+    margin-top: 0vh;
+    margin-bottom: 2vh;
+    clip-path: inset(0% 0% 0% 0%);
+    animation: header-slide-in 1s var(--cubic) forwards;
+}
+
+.shadow {
+    position: absolute;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    margin-top: -30%;
+    height: 20vh;
+    width: 100%;
+    opacity: 0.2;
+}
+
+.project-tab {
+    position: absolute;
+    margin-left: 50%;
+    float: right;
+    width: 50vh;
+    margin-top: 1vh;
+    border-radius: 0.5vh;
+}
+
+.projects-scroll {
+    height: 80vh;
+    overflow-y: scroll;
+    overflow-x: clip;
+    animation: tab-in 1s ease-in-out forwards;
+}
+
+.project-page {
+    width: 96%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark);
+    margin-bottom: 1vw;
+    border-radius: 5vw;
+    border-bottom-left-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
+}
+
+.project-demo {
+    margin-left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    border-radius: 0.5vh;
+    border-bottom-left-radius: 0vw;
+    border-bottom-right-radius: 0vw;
+}
+
+.name-tab {
+    text-align: left;
+    height: 4.5vh;
+    width: 96vh;
+    display: flex;
+    margin: 1vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.surname {
+    font-family: monospace;
+    font-size: 2vh;
+    font-weight: bolder;
+    color: var(--text);
+    animation: dot-2 2s step-end infinite;
+    clip-path: polygon(0% 0%,
+    30% 0%,
+    30% 17%,
+    100% 17%,
+    100% 100%,
+    0% 100%);
+}
+
+.info-tab {
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-102%);
+    width: 50vh;
+    margin-top: 1vh;
+}
+
+.about {
+    background-color: var(--dark);
+    width: 100%;
+    height: 20vh;
+    margin-bottom: 2vh;
+    border-radius: 0.5vh;
+}
+
+.face {
+    width: 20vh;
+    float: right;
+    clip-path: inset(0% 0% 0% 15%);
+    padding-left: 0vh;
+    border-top-right-radius: 0.5vh;
+    border-bottom-right-radius: 0.5vh;
+}
+
+.skills {
+    background-color: var(--dark);
+    position: absolute;
+    z-index: -3;
+    width: 50vh;
+    border-radius: 0.5vh;
+}
+
+.skill-bar {
+    position: absolute;
+    z-index: -2;
+    margin: 2vh;
+    height: 2vh;
+    width: 46vh;
+    background-color: var(--darker);
+    border-radius: 0.2vh;
+    transition: height 0.5s var(--cubic);
+}
+
+.progress-bar {
+    position: absolute;
+    z-index: -1;
+    background-color: var(--text);
+    height: 100%;
+    width: 100%;
+}
+
+#skill-info {
+    margin-top: 12vh;
+}
+
+#bar-python {
+    width: 0%;
+    animation: b-python 1s 1s var(--cubic) forwards;
+}
+
+#bar-sql {
+    width: 0%;
+    animation: b-sql 1s 1.2s var(--cubic) forwards;
+}
+
+#bar-excel {
+    width: 0%;
+    animation: b-excel 1s 1.4s var(--cubic) forwards;
+}
+
+#SQL {
+    margin-top: 6vh;
+}
+
+#Excel {
+    margin-top: 10vh;
+}
+
+.ruler {
+    position: absolute;
+    background-color: red;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 1px;
+}
+
+.portal {
+    position: absolute;
+    z-index: 10;
+    background-color: var(--darker);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s 0s ease-in-out;
+    width: 0vw; height: 0vw;
+    border-radius: 100%;
+}
+
+.wave {
+    position: absolute;
+    z-index: -5;
+    bottom: -4vh;
+    left: 0;
+    fill: black;
+    opacity: 0.05;
+    width: 4000px;
+    animation: waves 20s -10s ease-in-out alternate infinite;
+}
+
+.wave2 {
+    position: absolute;
+    z-index: -5;
+    bottom: -4vh;
+    left: 0;
+    fill: black;
+    opacity: 0.05;
+    width: 4000px;
+    transform: translateX(-50%);
+    animation: waves2 20s ease-in-out alternate infinite;
+}
+
+.wave3 {
+    position: absolute;
+    z-index: -5;
+    bottom: -20vh;
+    left: 0;
+    fill: black;
+    opacity: 0.05;
+    width: 4000px;
+    transform: translateX(-50%);
+    animation: waves2 20s -5s ease-in-out alternate infinite;
+}
+
+::-webkit-scrollbar {
+    width: 1vh;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--dark);
+    border-radius: 1vh;
+}
+
+@media (orientation: portrait) {
+
+    .surname {
+        clip-path: inset(0 0 0 0);
+        animation: none;
+    }
+
+    .name-tab {
+        margin-top: 5%;
+        width: 80%;
+    }
+
+    .info-tab {
+        display: none;
+    }
+
+    .line {
+        width: 80%;
+    }
+
+    .project-tab {
+        width: 90%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+}
