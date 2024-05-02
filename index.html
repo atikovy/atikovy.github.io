@@ -2,48 +2,120 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="stylesheet", href="style.css">
-<link rel="icon" type="image/x-icon" href="media/favicon.ico">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="anim.css" />
-  <link rel="stylesheet" href="mobile.css" />
-  <script src="scripts.js"></script>
-  <title>Gracjan Pawłowski</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Gracjan Pawłowski</title>
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="anim.css" />
+    <link rel="stylesheet" href="mobile.css" />
+    <script src="script.js"></script>
 </head>
 
 <body>
-  <div class="name-tab">
+
+<div class="portal"></div>
+<svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,224L48,234.7C96,245,192,267,288,256C384,245,480,203,576,202.7C672,203,768,245,864,266.7C960,288,1056,288,1152,266.7C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+<svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,192L48,202.7C96,213,192,235,288,245.3C384,256,480,256,576,234.7C672,213,768,171,864,165.3C960,160,1056,192,1152,202.7C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+<svg class="wave3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,160L48,144C96,128,192,96,288,101.3C384,107,480,149,576,160C672,171,768,149,864,160C960,171,1056,213,1152,224C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+<div class="name-tab">
     <div class="surname">
-      <p>
-        Gracjan :<br>
-        > Portfolio
-      </p>
+        <p>
+            Gracjan :<br>
+            > Portfolio
+        </p>
     </div>
-  </div>
-  <div class="line"></div>
-  <div class="project-tab">
-    <div class="project-page">
-      <video class="project-demo" src="media/python_balls.mp4" autoplay loop muted></video>
-        <h1>>balls</h1>
+</div>
+<div class="line"></div>
+
+<div class="info-tab">
+    <h1 class="header">.about me</h1>
+    <div class="about">
+        <img class="face" src="./face-resized.jpg" alt="">
         <p class="normal-text">
-          Simulation of collisions between round objects, based on vector quantities, made with PyGame. <br>
-          Suppose that there is no air resistance, floor has zero friction and returns 100% of kinetic energy. <br>
-          <a href="https://github.com/gracjan-p/balls">[code]</a>
+            > Gracjan Pawłowski<br><br>
+            Aspiring Data Scientist, who wants to expand knowlende in the fields of<br>
+            Data Analysis and Machine Learning.<br><br>
+            Currently, studying IT at University of Lower Silesia in Wrocław.<br><br>
+            <a href="https://secure.plum.io/en/p/e5lBl3b0yMtak0oq6YMuFQ" target="_blank">Plum.io</a>
+            <a href="https://www.16personalities.com/intp-personality" target="_blank">16Personalities.com</a>
         </p>
     </div>
-    <div class="project-page">
-      <video class="project-demo" src="media/pyita.mp4" autoplay loop muted></video>
-        <h1>>pyita</h1>
-        <p class="normal-text"> Inspired by famous games like The Powder Toy and Noita
-          I decided to recreate some kind of engine to simulate behaviour of elements such like sand, water, etc. <br>
-          <a href="https://github.com/gracjan-p/pyita">[code]</a>
+
+    <h1 class="header">.knowledge</h1>
+
+    <div class="skills">
+        <div class="skill-bar" id="python">
+            <div class="progress-bar" id="bar-python"></div>
+            <p class="skill-text">Python</p>
+        </div>
+        <div class="skill-bar" id="SQL">
+            <div class="progress-bar" id="bar-sql"></div>
+            <p class="skill-text">SQL</p>
+        </div>
+        <div class="skill-bar" id="Excel">
+            <div class="progress-bar" id="bar-excel"></div>
+            <p class="skill-text">Excel</p>
+        </div>
+        <p class="normal-text" id="skill-info">
+            I love analyzing problems and seek for unconventional solutions.<br>
+            Mainly focused in Python, I'm working with libraries like Pandas or SciKit Learn and I started developing my first AI Models.
         </p>
     </div>
-  </div>
+</div>
+
+<div class="project-tab">
+    <h1 class="header">.my projects</h1>
+
+    <div class="projects-scroll">
+        <div class="project-page">
+            <img class="project-demo" src="./media/twitter.jpg" alt="">
+            <h1>> twitter posts analysis</h1>
+            <div class="shadow"></div>
+            <p class="normal-text">
+                Basing on Twitter posts dataset from Kaggle I've compared two different AI Models performance on predicting base emotion in sentence.<br>
+                <br>
+                This project includes: <br>
+                - simple data cleanse, analysis and visualization <br>
+                - testing performance of two different AI models for natural language processing <br>
+                - hyperparameter optimization <br>
+                - predicting sentiment from sentence with rough amount of 91-95% F1 Scoring <br>
+                <br>
+                <a href="javascript:delay('twitter-analysis.html')">
+                    [code]
+                </a>
+            </p>
+        </div>
+
+        <div class="project-page">
+            <video class="project-demo" src="media/python_balls.mp4" autoplay loop muted></video>
+            <h1>> balls</h1>
+            <div class="shadow"></div>
+            <p class="normal-text">
+                Simulation of collisions between round objects, based on vector quantities, made with PyGame. <br>
+                Suppose that there is no air resistance, floor has zero friction and returns 100% of kinetic energy. <br>
+                <br>
+                <a href="https://github.com/gracjan-p/balls" target="_blank">[code]</a>
+            </p>
+        </div>
+
+        <div class="project-page">
+            <video class="project-demo" src="media/pyita.mp4" autoplay loop muted></video>
+            <h1>> pyita</h1>
+            <div class="shadow"></div>
+            <p class="normal-text"> Inspired by famous games like The Powder Toy and Noita
+                I decided to recreate some kind of engine to simulate behaviour of elements such like sand, water, etc. <br>
+                <br>
+                </a>
+                <a href="https://github.com/gracjan-p/pyita" target="_blank">[code]</a>
+            </p>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>
