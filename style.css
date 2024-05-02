@@ -285,6 +285,19 @@ h1 {
 }
 
 @media (orientation: portrait) {
+
+    .name-tab {
+        width: 54vw;
+    }
+
+    .info-tab {
+        display: none;
+    }
+
+    .line {
+        width: 56vw;
+    }
+
     .project-tab {
         transform: translateX(-50%);
     }
