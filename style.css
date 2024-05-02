@@ -39,7 +39,7 @@ h1 {
     color: var(--text);
     width: 90%;
     padding: 5%;
-    font-size: 16px;
+    font-size: 1.3vh;
     animation: tab-in 1s ease-in-out forwards;
 }
 
@@ -50,7 +50,7 @@ h1 {
     padding: 0;
     margin-top: 0.1vh;
     margin-left: 0.5vh;
-    font-size: 16px;
+    font-size: 1.5vh;
 }
 
 .line {
