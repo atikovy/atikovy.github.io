@@ -1,0 +1,196 @@
+
+@media (max-aspect-ratio: 1) {
+
+    :root {
+        --padding: 4rem
+    }
+
+    html {
+        height: 100svh;
+        width: 100vw;
+        overflow-x: clip;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: 100%;
+        width: 100vw;
+        padding: var(--padding);
+        gap: var(--padding);
+        overflow-x: clip;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-flow: row nowrap;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu > button {
+        color: white;
+        display: block;
+        font-size: 6rem;
+        line-height: 6rem;
+        height: 6rem;
+    }
+
+    button:hover {
+        color: white;
+    }
+
+    .menu > button:nth-child(3),
+    .menu > button:nth-child(4),
+    .border,
+    .about,
+    .contact,
+    .icon,
+    .slider {
+        display: none;
+    }
+
+    .container-main {
+        all: initial;
+        display: block;
+        overflow-y: scroll;
+        border-radius: 2rem;
+        gap: 0;
+    }
+
+    .container-horizontal {
+        all: initial;
+        display: block;
+        width: 100%;
+    }
+
+    .portfolio {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        overflow-y: scroll;
+        gap: var(--padding);
+
+        /*background-color: white;*/
+        opacity: 1;
+    }
+
+    .project-preview {
+        all: unset;
+        display: inline-block;
+        width: 100%;
+        /*background-color: green;*/
+        margin: 0;
+        padding: 0;
+        border-radius: 2rem;
+        overflow: clip;
+
+        opacity: 0;
+
+        animation: fade-in-bottom-top 1s calc(var(--n) * 0.5s + 0.5s) var(--bezier) forwards;
+    }
+
+    .project-img {
+        all: unset;
+        position: relative;
+        display: block;
+        width: 100%;
+        overflow: clip;
+    }
+
+    .project-overlay {
+        all: unset;
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        background-color: #202020;
+        padding: 4rem;
+        gap: var(--padding);
+    }
+
+    .project-overlay > div {
+        all: initial;
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        text-align: left;
+        /*background-color: blue;*/
+    }
+
+    .project-overlay > div > h1 {
+        width: 100%;
+        font-size: 5rem;
+        line-height: 5rem;
+        font-weight: 300;
+        color: white;
+    }
+
+    .project-overlay > div > p {
+        width: 100%;
+        font-size: 3rem;
+        line-height: 4rem;
+        color: white;
+        text-wrap: balance;
+    }
+
+    .small-button {
+        font-size: 3rem;
+        font-weight: 400;
+        padding: 1rem 2rem;
+        margin: 2rem 0 0 0;
+    }
+
+    .mobile-contact-button {
+        display: flex;
+        position: absolute;
+        z-index: 20;
+        width: 10rem;
+        height: 10rem;
+        background-color: white;
+        border-radius: 10rem;
+        bottom: 6rem;
+        right: 6rem;
+
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s var(--bezier);
+    }
+
+    .mobile-contact-button > img {
+        display: block;
+        height: 50%;
+        width: 50%;
+    }
+
+    .mobile-contact-overlay > p {
+        text-align: center;
+        display: block;
+        font-size: 3rem;
+        line-height: 4rem;
+        font-weight: 500;
+        color: #101010;
+    }
+
+    .mobile-contact-overlay {
+        display: block;
+        position: absolute;
+        width: calc(100vw - 12rem);
+        bottom: 6rem;
+        right: 50%;
+        transform: translateX(200%);
+
+        border-radius: 2rem;
+        padding: 2rem;
+
+        background-color: white;
+        transition: transform 0.5s var(--bezier);
+    }
+}

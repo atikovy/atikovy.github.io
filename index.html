@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="anim.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="border"></div>
+        <button class="button" onclick="ScrollToSection('portfolio')" style="--n: 0">portfo|io</button>
+        <button class="button" onclick="ScrollToSection('about')" style="--n: 1">about me</button>
+        <button class="button" onclick="ScrollToSection('contact')" style="--n: 2">cont@ct</button>
+    </div>
+    <div class="container-main">
+        <div class="container-horizontal">
+
+            <div class="slider">
+                <div class="slider-thumb"></div>
+            </div>
+
+            <div class="portfolio" id="portfolio">
+                <div class="project-preview" id="project-0" style="--n: 0">
+                    <div class="icon">?</div>
+
+                    <img class="project-img" src="./gallery/mr-hippo.png" alt="">
+                    <div class="project-overlay">
+                        <div>
+                            <h1>Pan Hipopotam</h1>
+                            <p>Competition entry</p>
+                        </div>
+                        <div>
+                            <p>
+                                "Design a logotype of a hippo in polo shirt holding a cigar."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-preview" id="project-1" style="--n: 1">
+                    <div class="icon">?</div>
+                    <img class="project-img" src="./gallery/tradeweb.png" alt="">
+
+                    <div class="project-overlay">
+                        <div>
+                            <h1>[hidden]</h1>
+                            <p>Competition entry</p>
+                        </div>
+                        <div>
+                            <p>
+                                "Design a landing page for trade industry company
+                                in Figma using shadcn/ui."
+                            </p>
+                            <div class="small-button">
+                                <a target="_blank" href="https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/
+                                lorem-version?page-id=113%3A1379&node-id=3-611&node-type=frame&
+                                viewport=4399%2C2367%2C0.96&t=ktz8OrAS9j7lOyxb-1&
+                                scaling=contain&content-scaling=responsive&starting-point-node-id=3%3A611">
+                                    Preview in Figma
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-preview" id="project-2" style="--n: 2">
+                    <div class="icon">?</div>
+                    <img class="project-img" src="./gallery/croppy.png" alt="">
+
+                    <div class="project-overlay">
+                        <div>
+                            <h1>Croppy</h1>
+                            <p>Imaginary project</p>
+                        </div>
+                        <div>
+                            <p>
+                                Name, logotype and landing page for plant-shop. Work in progress.
+                            </p>
+<!--                            <div class="small-button">-->
+<!--                                <a>-->
+<!--                                    unfinished-->
+<!--                                </a>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about" id="about">
+                <div class="about-slide">
+                    <h1>hi! :]</h1>
+                    <p style="--n: 0">My name is Gracjan.</p>
+                    <p style="--n: 1">An aspiring Graphic Designer</p>
+                    <p style="--n: 2">& Front-End Developer.</p>
+                </div>
+                <div class="about-slide">
+                    <h1>minimalist</h1>
+                    <p style="--n: 0">Modern design enthusiast. </p>
+                    <p style="--n: 1">However I'm very flexible, </p>
+                    <p style="--n: 2">I love to learn new stuff.</p>
+                </div>
+                <div class="about-slide">
+                    <h1>passionate</h1>
+                    <p style="--n: 0">I'm not doing it because I have to.</p>
+                    <p style="--n: 1">I want to become better each day.</p>
+                </div>
+                <div class="about-slide">
+                    <h1>thinker</h1>
+                    <p style="--n: 0">I Tend to analyze a lot.</p>
+                    <p style="--n: 1">It can be a snippet of code or a logotype.</p>
+                    <br>
+                    <p style="--n: 2">Visit these websites for more:</p>
+                    <p style="--n: 3">
+                        <a href="https://secure.plum.io/en/p/e5lBl3b0yMtak0oq6YMuFQ" target="_blank">Plum</a>
+                        |
+                        <a href="https://www.16personalities.com/intp-personality" target=“_blank”>16Personalities</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact" id="contact">
+                <p>
+                    Wrocław, Poland <br>
+                    g.pawlowski2346@gmail.com
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="mobile-contact-overlay">
+        <p>
+            Wrocław, Poland <br>
+            g.pawlowski2346@gmail.com
+        </p>
+    </div>
+    <div class="mobile-contact-button">
+        <img src="./svg/phone.svg" alt="">
+    </div>
+
+    <script language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
