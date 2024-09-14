@@ -1,5 +1,5 @@
 
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 4/3) {
 
     :root {
         --padding: 4rem
