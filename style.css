@@ -41,7 +41,8 @@ body {
 
     width: 100vw;
     height: 100vh;
-    background-color: #101010;
+    /*background-color: #101010;*/
+    background: radial-gradient(circle at var(--x) var(--y), #121212 60%, #101010 60%);
     margin-left: 50%;
     transform: translateX(-50%);
 
@@ -107,7 +108,7 @@ a:visited:hover {
     font-size: 4vh;
     font-weight: 100;
 
-    transition: color 0.2s;
+    transition: color 0.2s linear;
     animation: fade-in-right-left 1s calc((var(--n) * 0.2s) + 0.5s) ease forwards;
 }
 
@@ -215,7 +216,7 @@ a:visited:hover {
     padding: calc(var(--padding) * 2);
 
     /*background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);*/
-    background-color: #101010;
+    background-color: #121212;
     border-radius: 0 2vh 2vh 0;
     opacity: 1;
     transform: translateX(0%);
@@ -226,8 +227,8 @@ a:visited:hover {
     font-weight: 100;
     display: flex;
     flex-flow: column nowrap;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: center;
     text-align: left;
     gap: var(--padding);
 }
@@ -264,7 +265,7 @@ a:visited:hover {
     background-color: white;
     text-align: center;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.05rem;
 
     padding: 0.25rem 0.75rem;
@@ -299,7 +300,7 @@ a:visited:hover {
     right: calc((112vh * 2));
     transform: translateY(-50%);
 
-    opacity: 1;
+    opacity: 0;
     background-color: transparent;
     border-radius: 0;
 
@@ -314,7 +315,7 @@ a:visited:hover {
 
     width: 100%;
     height: 33%;
-    background-color: #101010;
+    background-color: #121212;
     border-radius: 2rem 0 0 2rem;
 
     transition: top 1s var(--bezier);
@@ -344,6 +345,20 @@ a:visited:hover {
     color: white;
 }
 
+.about-slide > p > img {
+    transform: scaleY(-1);
+    width: 2rem;
+    height: 2rem;
+    animation: arrow-jump 2s 0s infinite;
+}
+
+.h1 > img {
+    border-radius: 100%;
+    overflow: clip;
+    width: 10rem;
+    height: 10rem;
+}
+
 .about-slide > h1.animate {
     opacity: 0;
     animation: fade-in-bottom-top 1s 1s forwards;
@@ -351,7 +366,7 @@ a:visited:hover {
 
 .about-slide > p.animate {
     opacity: 0;
-    animation: fade-in-bottom-top 1s calc(var(--n) * 0.2s + 2s) forwards;
+    animation: fade-in-bottom-top 1s calc(var(--n) * 1s + 2s) forwards;
 }
 
 .about-slide > h1 {
