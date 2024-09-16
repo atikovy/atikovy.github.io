@@ -22,6 +22,7 @@
         padding: var(--padding);
         gap: var(--padding);
         overflow-x: clip;
+        background: radial-gradient(circle, #202020 -100%, #101010 100%);
     }
 
     .menu {
