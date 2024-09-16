@@ -1,6 +1,8 @@
 
 var aspectRatio = window.innerWidth / window.innerHeight
 
+if (aspectRatio < 1) {$('.small-button > a').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
+
 $(window).resize(function() {
     aspectRatio = window.innerWidth / window.innerHeight
 });
