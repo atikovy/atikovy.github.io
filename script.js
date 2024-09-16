@@ -8,11 +8,20 @@ $(window).resize(function() {
     aspectRatio = window.innerWidth / window.innerHeight
 });
 
-if (aspectRatio > 1 ); {
+// "blob background" following mouse, theres propably way more efficient math formula for that
+if (aspectRatio > 1) {
+    let requestId;
     $(document).on('mousemove', function (e) {
-        $('body').css({'--x': (((e.clientX + window.innerWidth/2) + window.innerWidth) / 2) /2 + 'px'});
-        $('body').css({'--y': (((e.clientY + window.innerHeight/2) + window.innerHeight) / 2) /2 + 'px'});
-    })
+        if (!requestId) {
+            requestId = requestAnimationFrame(function () {
+                $('body').css({
+                    '--x': (((e.clientX + window.innerWidth / 2) + window.innerWidth) / 2) / 2 + 'px',
+                    '--y': (((e.clientY + window.innerHeight / 2) + window.innerHeight) / 2) / 2 + 'px'
+                });
+                requestId = null;
+            });
+        }
+    });
 }
 
 // show contact
@@ -46,33 +55,23 @@ function resizeContainer() {
 
 // project info
 $(document).ready(function () {
-    if (aspectRatio < 1) return;
-
-    $('.project-preview > .icon').click(function () {
-        if ($('.project-overlay').css('opacity') == '1') {
-            $('.project-overlay').css({
-                'transform': 'translateX(0%)',
-            })
-            $('.project-preview > .icon').css({
-                'transform': 'translateX(-200%)',
-            })
+    $('.project-img').on('click', function () {
+        if (aspectRatio > 1) {
+            if ($('.project-overlay').css('--visible') == 'true') {
+                $('.project-overlay').css({
+                    'transform': 'translateX(-100%)',
+                    '--visible': false
+                })
+                console.log($('.project-overlay').css('--visible'));
+            }
+            else {
+                $('.project-overlay').css({
+                    'transform': 'translateX(0%)',
+                    '--visible': true
+                })
+                console.log($('.project-overlay').css('--visible'));
+            }
         }
-        else {
-            $('.project-overlay').css({
-                'transform': 'translateX(-205%)',
-            })
-            $('.project-preview > .icon').css({
-                'transform': 'translateX(0%)'
-            })
-        }
-    })
-    $('.project-img').click(function () {
-        $('.project-overlay').css({
-            'transform': 'translateX(-205%)'
-        })
-        $('.project-preview > .icon').css({
-            'transform': 'translateX(0%)'
-        })
     })
 })
 
@@ -110,7 +109,7 @@ $(document).ready(function() {
 
     $(window).resize(function() {
         var $activeButton = $(".button").filter(function() {
-            return $(this).css('color') == 'rgb(255, 255, 255)'; // white
+            return $(this).css('color') == 'white'; // white
         });
 
         if ($activeButton.length) {
@@ -128,6 +127,7 @@ function ScrollToSection(sectionID) {
     if (sectionID == 'portfolio') {
         container.style.transform = 'translateX(0%)';
         $('.slider').css({
+            'transition': 'opacity 0.5s 1s var(--bezier)',
             'opacity': '1'
         })
     }
@@ -138,23 +138,19 @@ function ScrollToSection(sectionID) {
 
         })
         $('.slider').css({
+            'transition': 'opacity 0.2s 0s var(--bezier)',
             'opacity': '0'
         })
     }
     if (sectionID == 'contact') {
         container.style.transform = 'translateX(-66.667%)';
         $('.slider').css({
+            'transition': 'opacity 0.2s 0s var(--bezier)',
             'opacity': '0'
         })
     }
 
-    $('.portfolio').css({
-        'opacity': '0'
-    })
-    $('.about').css({
-        'opacity': '0'
-    })
-    $('.contact').css({
+    $('.portfolio, .about, .contact').css({
         'opacity': '0'
     })
     document.getElementById(sectionID).style.opacity = '1';
@@ -182,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         $('.slider-thumb').css({ // this works
-            'top': 'calc(0.5vh + 33% *' + (portfolioPostion) + ')'
+            'top': 'calc(33.33% *' + (portfolioPostion) + ')'
         })
 
         position = -(portfolioPostion * 63) - (portfolioPostion * 2)
