@@ -1,11 +1,19 @@
 
 var aspectRatio = window.innerWidth / window.innerHeight
 
-if (aspectRatio < 1) {$('.small-button > a').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
+// change link to mobile figma preview
+if (aspectRatio < 1) {$('.small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
 
 $(window).resize(function() {
     aspectRatio = window.innerWidth / window.innerHeight
 });
+
+if (aspectRatio > 1 ); {
+    $(document).on('mousemove', function (e) {
+        $('body').css({'--x': (((e.clientX + window.innerWidth/2) + window.innerWidth) / 2) /2 + 'px'});
+        $('body').css({'--y': (((e.clientY + window.innerHeight/2) + window.innerHeight) / 2) /2 + 'px'});
+    })
+}
 
 // show contact
 $('.mobile-contact-button').click(function() {
@@ -29,7 +37,6 @@ $('.mobile-contact-overlay').click(function() {
     })
 })
 
-// the scripts were made for desktop
 function resizeContainer() {
     const container = document.querySelector('.container-main');
     const footer = document.querySelector('.footer');
@@ -59,7 +66,7 @@ $(document).ready(function () {
             })
         }
     })
-    $('.project-overlay').click(function () {
+    $('.project-img').click(function () {
         $('.project-overlay').css({
             'transform': 'translateX(-205%)'
         })
@@ -120,15 +127,25 @@ function ScrollToSection(sectionID) {
 
     if (sectionID == 'portfolio') {
         container.style.transform = 'translateX(0%)';
+        $('.slider').css({
+            'opacity': '1'
+        })
     }
     if (sectionID == 'about') {
         container.style.transform = 'translateX(-33.334%)';
         $('.about-slide:nth-child(1)').each(function() {
             $(this).find('h1 , p').addClass('animate')
+
+        })
+        $('.slider').css({
+            'opacity': '0'
         })
     }
     if (sectionID == 'contact') {
         container.style.transform = 'translateX(-66.667%)';
+        $('.slider').css({
+            'opacity': '0'
+        })
     }
 
     $('.portfolio').css({
