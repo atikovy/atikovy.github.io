@@ -120,7 +120,7 @@ a:visited:hover {
 .border {
     position: absolute;
     width: 0;
-    height: 0.15rem;
+    height: 0.2vh;
     border-radius: var(--padding);
     background-color: white;
     transition: all 0.3s var(--bezier);
@@ -131,10 +131,9 @@ a:visited:hover {
     width: 112vh;
     margin-bottom: 0;
     height: 0;
-    transition: all 1s var(--bezier);
-    border-radius: var(--padding);
+    transition: all 1s 0.3s var(--bezier);
+    border-radius: 1vh;
     overflow: clip;
-    overflow-clip-margin: 2px;
 }
 
 .container-horizontal {
@@ -179,44 +178,21 @@ a:visited:hover {
 .project-img {
     width: 100%;
     height: 100%;
-    border-radius: var(--padding);
-}
-
-.project-preview > .icon {
-    box-sizing: unset;
-    background-color: #101010;
-    position: absolute;
-    z-index: 5;
-    bottom: var(--padding);
-    left: var(--padding);
-    width: calc(var(--padding)*2);
-    height: calc(var(--padding)*2);
-    border-radius: 10rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-    font-size: 2rem;
-    font-weight: 500;
-    transition: background-color 0.2s var(--bezier), transform 0.5s var(--bezier);
-    transform: translateX(-200%);
-}
-
-.project-preview > .icon:hover {
-    cursor: pointer;
+    border-radius: 1vh;
 }
 
 .project-overlay {
+    --visible: true;
+
     position: absolute;
     left: 0;
     bottom: var(--padding);
-    width: 30%;
+    width: 40%;
     padding: calc(var(--padding) * 2);
 
-    /*background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);*/
-    background-color: #121212;
+    /*background: radial-gradient(circle at top, rgba(18, 18, 18, 0.4) 0%, rgba(18, 18, 18, 0.8) 200%);*/
+    /*background: linear-gradient(0deg, rgba(18, 18, 18, 0.8) 0%, rgba(18, 18, 18, 0.6) 100%);*/
+    background-color: rgba(18, 18, 18, 0.8);
     border-radius: 0 2vh 2vh 0;
     opacity: 1;
     transform: translateX(0%);
@@ -289,35 +265,32 @@ a:visited:hover {
     width: 20%;
 }
 
-.container-horizontal > .slider {
+.slider {
     --slider-height: calc(63vh * 0.9);
     position: absolute;
 
     z-index: 10;
-    width: 2vh;
+    width: 0.2vh;
     height: var(--slider-height);
-    top: 50%;
-    right: calc((112vh * 2));
-    transform: translateY(-50%);
-
+    transform: translateX(calc(56vh + var(--padding)));
     opacity: 0;
-    background-color: transparent;
-    border-radius: 0;
 
-    transition: opacity 0.5s var(--bezier);
+    overflow: visible;
+
+    transition: opacity 0.5s 1s var(--bezier);
     /*border: 1px solid red;*/
 }
 
-.container-horizontal > .slider > .slider-thumb {
+.slider > .slider-thumb {
     position: absolute;
-    top: 0.5vh;
+    top: 0;
     left: 50%;
 
-    width: 100%;
-    height: 33%;
-    background-color: #121212;
-    border-radius: 2rem 0 0 2rem;
-
+    width: 0.2vh;
+    height: 33.33%;
+    background-color: white;
+    /*background-color: #121212;*/
+    border-radius: 1vh;
     transition: top 1s var(--bezier);
 }
 
