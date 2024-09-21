@@ -1,15 +1,20 @@
 
 var aspectRatio = window.innerWidth / window.innerHeight
 
+$('body').css({
+    '--x': window.innerWidth / 2,
+    '--y': window.innerHeight / 2
+})
+
 // change link to mobile figma preview
-if (aspectRatio < 1) {$('.small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
+if (aspectRatio < 3/4) {$('.small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
 
 $(window).resize(function() {
     aspectRatio = window.innerWidth / window.innerHeight
 });
 
 // "blob background" following mouse, theres propably way more efficient math formula for that
-if (aspectRatio > 1) {
+if (aspectRatio > 3/4) {
     let requestId;
     $(document).on('mousemove', function (e) {
         if (!requestId) {
@@ -56,7 +61,7 @@ function resizeContainer() {
 // project info
 $(document).ready(function () {
     $('.project-img').on('click', function () {
-        if (aspectRatio > 1) {
+        if (aspectRatio > 3/4) {
             if ($('.project-overlay').css('--visible') == 'true') {
                 $('.project-overlay').css({
                     'transform': 'translateX(-100%)',
@@ -77,7 +82,7 @@ $(document).ready(function () {
 
 // update button border
 $(document).ready(function() {
-    if (aspectRatio < 1) return;
+    if (aspectRatio < 3/4) return;
 
     function updateBorder($button) {
         var $border = $(".border");
@@ -120,7 +125,7 @@ $(document).ready(function() {
 
 // main menu scroll
 function ScrollToSection(sectionID) {
-    if (aspectRatio < 1) return;
+    if (aspectRatio < 3/4) return;
 
     const container = document.querySelector('.container-horizontal');
 
