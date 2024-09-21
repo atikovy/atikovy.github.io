@@ -2,8 +2,8 @@
 var aspectRatio = window.innerWidth / window.innerHeight
 
 $('body').css({
-    '--x': window.innerWidth / 2,
-    '--y': window.innerHeight / 2
+    '--x': window.innerWidth / 2 + 'px',
+    '--y': window.innerHeight / 2 + 'px',
 })
 
 // change link to mobile figma preview
