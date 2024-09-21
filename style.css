@@ -234,6 +234,7 @@ a:visited:hover {
 
 .small-button {
     margin-top: var(--padding);
+    margin-right: var(--padding);
     display: inline-block;
     box-sizing: unset;
 
@@ -247,7 +248,7 @@ a:visited:hover {
 
     padding: 0.5rem 1rem;
     border-radius: 10rem;
-    transition: background-color 0.2s var(--bezier);
+    transition: background-color 0.2s;
 }
 
 .small-button > a, .small-button > a:visited {
