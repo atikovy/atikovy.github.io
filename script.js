@@ -1,11 +1,6 @@
 
 var aspectRatio = window.innerWidth / window.innerHeight
 
-$('body').css({
-    '--x': window.innerWidth / 2,
-    '--y': window.innerHeight / 2
-})
-
 // change link to mobile figma preview
 if (aspectRatio < 3/4) {$('.small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
 

@@ -6,7 +6,7 @@
 
 :root {
     --padding: 2vh;
-    --bezier: cubic-bezier(0.6,0,0.4,1)
+    --bezier: cubic-bezier(0.6,0,0.4,1);
 }
 
 ::-webkit-scrollbar {
@@ -34,6 +34,8 @@ html {
 }
 
 body {
+    --x: 50vw;
+    --y: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

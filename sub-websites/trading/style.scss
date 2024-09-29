@@ -33,11 +33,11 @@ body {
   padding: 0;
   gap: 0;
   //margin-left: 50%;
-  //translate: -50%;
+  //translate: 0 -50%;
 
   background-color: $darkGrey;
   width: 100vw;
-  overflow-x: clip;
+  overflow-x: hidden;
   text-align: center;
 
   &::-webkit-scrollbar {

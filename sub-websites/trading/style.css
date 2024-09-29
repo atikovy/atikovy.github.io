@@ -15,7 +15,7 @@ body {
   gap: 0;
   background-color: #0F0F0F;
   width: 100vw;
-  overflow-x: clip;
+  overflow-x: hidden;
   text-align: center;
 }
 body::-webkit-scrollbar {
