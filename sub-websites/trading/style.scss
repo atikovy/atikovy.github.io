@@ -25,7 +25,6 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
   color: white;
 }
 
-hr {width: 100%; border-color: $darkWhite}
 
 body {
   @include flexbox(column, start, center);
@@ -38,13 +37,16 @@ body {
 
   background-color: $darkGrey;
   width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
   text-align: center;
 
   &::-webkit-scrollbar {
     display: none;
   }
 }
+
+
+hr {width: 100%; border-color: $darkWhite}
 
 section {
   @include flexbox(column, start, center);
@@ -59,8 +61,19 @@ section {
 }
 
 h1, h2, h3, h4 {margin: 0; line-height: 1em}
-h1 {font-size: 8rem; font-weight: 700; letter-spacing: -0.02em}
-h2 {font-size: 6rem; font-weight: 600; letter-spacing: 0}
+h1 {
+  font-size: 8rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  animation: show-from-bottom 1s forwards;
+  width: 80%;
+  text-wrap: balance;
+}
+h2 {
+  font-size: 6rem;
+  font-weight: 600;
+  letter-spacing: 0;
+
+}
 h3 {font-size: 4rem; font-weight: 500; letter-spacing: 0}
 h4 {font-size: 2rem; font-weight: 500}
 
@@ -70,8 +83,6 @@ h1, h2 {
   background: linear-gradient(-135deg, $lightBlue -100%, white 100%);
   background-clip: text;
   color: transparent;
-
-  text-wrap: pretty;
 }
 
 section:nth-of-type(2n) h2 {
@@ -95,7 +106,9 @@ p {
   font-weight: 200;
   line-height: 1.2em;
   letter-spacing: 0.04em;
-  width: 70%;
+  width: 60%;
+  animation: p-show-from-bottom 1s forwards;
+  text-wrap: pretty;
 }
 
 .p2 {
@@ -276,35 +289,41 @@ button {
 }
 
 .button-subscription-type {
+  @include flexbox(row, start, start);
+  z-index: 2;
   position: relative;
-  background-color: $lightBlue;
-  padding: 0.5rem 0.5rem;
-  width: 3rem;
-  height: 1rem;
+  gap: $main-spacing;
+  //background-color: $darkBlue;
+  background-color: transparent;
+  border: 0.15rem $darkBlue solid;
+  padding: 0.5rem 1.25rem;
+  width: 100%;
+  height: 100%;
   border-radius: 10rem;
   transition: background-color 0.3s;
+  overflow: clip;
 
   &:hover {cursor: pointer;}
 
-  .button-ball {
-    content: '';
-    position: absolute;
+  p {
     z-index: 1;
-    left: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: 0;
-    border-radius: 100%;
-    background-color: white;
-    transition: left 0.3s;
+    user-select: none;
+  }
+
+  .button-ball {
+    position: absolute;
+    z-index: 0;
+    width: calc(50% - 0.5rem);
+    height: calc(100% - 0.5rem);
+    top: 0.25rem;
+    border-radius: 10rem;
+    background: $lightBlue;
+    //background-color: $lightBlue;
+    transition: all 0.3s;
   }
 }
 
 section.welcome {
-  h1 {animation: show-from-bottom 1s forwards;}
-  .p1 {width: 60%; animation: p-show-from-bottom 1s forwards;}
   .img-container {animation: show-from-bottom 1s forwards;}
   .bg {
     width: 200%;
@@ -333,7 +352,7 @@ section.tools {
   }
 
   .header-wrapper {
-    .p2 {width: 70%; text-wrap: pretty}
+    .p2 {width: 60%; text-wrap: pretty}
     h3 {opacity: 0}
   }
   .wrapper-horizontal {
@@ -343,12 +362,12 @@ section.tools {
     .header-wrapper.trading-tools {
       gap: 1rem;
       width: 70%;
-      .p3 {width: 100%;text-wrap: pretty;}
+      .p3 {width: 80%;text-wrap: pretty;}
     }
     .header-wrapper.financial-overview {
       gap: 1rem;
       width: 70%;
-      .p3 {width: 90%; text-wrap: pretty;}
+      .p3 {width: 80%; text-wrap: pretty;}
     }
   }
 }
@@ -367,6 +386,10 @@ section.assistance {
     width: 50%;
     height: 80%;
     bottom: 0;
+  }
+
+  .p2 {
+    width: 60%;
   }
 
   .card {
@@ -416,7 +439,7 @@ section.assistance {
 
 section.statistics {
   .wrapper-horizontal {
-    @include flexbox(row, space-between, center);
+    @include flexbox(row, space-between, stretch);
     gap: $main-spacing;
     padding: 0 $main-spacing;
   }
@@ -427,10 +450,10 @@ section.statistics {
 
   h2 {width: fit-content;}
 
-  text-align: center;
-  text-wrap: pretty;
-
-  .p2 {width: 90%;}
+  .p2 {
+    width: 80%;
+    text-wrap: pretty;
+  }
   img {height: 100%;}
 }
 
@@ -442,7 +465,15 @@ section.subscription {
     bottom: 0;
   }
 
-  h2 {text-wrap: balance}
+  h2 {
+    width: 70%;
+    text-wrap: balance;
+  }
+
+  .header-wrapper {
+    gap: $main-spacing / 2;
+    width: 100%;
+  }
 
   .subscription-container {
     @include flexbox(row, space-between, center);
@@ -451,6 +482,7 @@ section.subscription {
 
   .sub-card {
     @include flexbox();
+    z-index: 5;
     padding: $main-spacing * 1.5;
     gap: $main-spacing / 2;
     border-radius: $main-spacing;
@@ -610,7 +642,6 @@ h2, .p2, .p3, .p5, .img-container, .card {
   opacity: 0;
   transform: translateY(20%);
 }
-
 
 .sub-card {
   &:nth-child(1) {--delay: 0.1s}

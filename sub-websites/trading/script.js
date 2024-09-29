@@ -16,20 +16,23 @@ const observer = new IntersectionObserver((entries) => {
                 case $target.hasClass('right'):
                     $target.addClass('start-animate-right');
                     break;
-                case $target.is('.p1, .p2, .p3'):
+                case $target.is('.p1, .p2, .p3, .p5'):
                     $target.addClass('p-start-animate');
+                    break;
+                case $target.is('.img-container, .card, h2'):
+                    $target.addClass('start-animate');
                     break;
                 case $target.hasClass('sub-card'):
                     $target.addClass('sub-card-animate');
                     break;
                 default:
-                    $target.addClass('start-animate');
+                    $target.addClass('');
             }
         }
     });
 }, {
     rootMargin: '0px 0px -100px 0px',
-    threshold: 0.5
+    threshold: 0.4
 });
 
 class subscriptionPlan {
@@ -115,8 +118,9 @@ $(document).ready(function() {
     function updatePrice (e) {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
-                $('.button-subscription-type .button-ball').css({left: '2.25rem'})
-                $('.button-subscription-type').css({backgroundColor: '#0088CF'})
+                $('.button-subscription-type .button-ball').css({
+                    left: 'calc(50% - 0.25rem)', width: '50%', background: '#0088CF'})
+                // $('.button-subscription-type').css({backgroundColor: '#0088CF'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -130,8 +134,9 @@ $(document).ready(function() {
         }
         else {
             for (let i = 0; i < 3; i++) {
-                $('.button-subscription-type .button-ball').css({left: '0.25rem'})
-                $('.button-subscription-type').css({backgroundColor: '#949494'})
+                $('.button-subscription-type .button-ball').css({
+                    left: '0.25rem', width: 'calc(50% - 0.5rem)', background: '#243c59'})
+                // $('.button-subscription-type').css({backgroundColor: '#949494'})
                 var priceYearNew = subscriptionPlanList[i].priceYear;
                 var priceMonthNew = subscriptionPlanList[i].priceMonth;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')

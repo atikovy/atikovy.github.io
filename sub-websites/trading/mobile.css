@@ -1,6 +1,36 @@
 
-@media (min-aspect-ratio: 21/9) {
+@media (orientation: landscape) {
+
+    @media (min-aspect-ratio: 21/9) {
+        section {width: 50vw;}
+    }
+
+    @media (max-width: 1920px) {
+        :root {font-size: 12px;}
+    }
+
+    @media (max-width: 1280px) {
+        :root {font-size: 8px;}
+    }
+
+}
+
+@media (orientation: portrait) {
+    body {
+        background-color: red;
+    }
+    .navigation-bar-wrapper,
+    body,
+    html,
     section {
-        width: 50vw;
+        width: 100vw;
+        overflow-x: hidden !important;
+    }
+
+    #navigation-buttons {
+        display: none
+    }
+    .menu {
+        width: 90%;
     }
 }
