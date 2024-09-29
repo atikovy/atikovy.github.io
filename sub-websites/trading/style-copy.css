@@ -1,0 +1,305 @@
+
+:root {
+    --bg: #0F0F0F;
+    --lightBlue: #0088CF;
+    --darkBlue: #122246;
+    --spacing: 2rem;
+    --bezier: cubic-bezier(0.6,0,0.4,1);
+
+    --fontsize-h-special: 8rem;
+    --fontsize-h: 6rem;
+    --fontsize-h2: 3rem;
+    --fontsize-p-special: 3rem;
+    --fontsize-p-header: 2rem;
+    --fontsize-p-small: 1rem;
+}
+
+/*thats for animated gradient on primary button*/
+@property --color1 {
+    syntax: '<color>';
+    initial-value: #0088CF;
+    inherits: false;
+}
+
+@property --color2 {
+    syntax: '<color>';
+    initial-value: #0088CF;
+    inherits: false;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    color: white;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    background-color: var(--bg);
+    width: 100vw;
+    height: 200vh;
+    overflow-x: clip;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+
+    width: 100vh;
+    text-align: center;
+    padding: 6rem 6rem;
+    gap: var(--spacing);
+    height: fit-content;
+}
+
+.wrapper-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+    flex: 1;
+}
+
+h1 {
+    font-size: var(--fontsize-h);
+    font-weight: 600;
+    line-height: 1em;
+    text-wrap: pretty;
+    margin: 0;
+    background: linear-gradient(-135deg, var(--lightBlue) -100%, white 100%);
+    background-clip: text;
+    color: transparent;
+    padding: calc(var(--spacing) / 2);
+}
+
+h2 {
+    font-size: var(--fontsize-h2);
+    font-weight: 500;
+    line-height: 1.5em;
+    margin: 0;
+    padding: var(--padding);
+    color: white;
+}
+
+p {
+    font-weight: 100;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    letter-spacing: 0.05em;
+    margin: 0;
+    padding: 0;
+    text-wrap: balance;
+    color: white;
+}
+
+.p-header {
+    font-weight: 200;
+    font-size: var(--fontsize-p-header);
+    line-height: 1.5em;
+    letter-spacing: 0.07em;
+    text-wrap: pretty;
+    width: 80%;
+}
+
+a {
+    text-decoration: none;
+    font-size: var(--fontsize-p-small);
+    transition: color 0.2s;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: #d3d3d3;
+}
+
+.navigation-bar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 3rem;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: calc(var(--spacing) / 2);
+
+    border-bottom: 1px solid rgba(0, 136, 207, 0.2);
+}
+
+.navigation-bar-spacer {
+    position: relative;
+    height: 3rem;
+    padding: calc(var(--spacing) / 2);
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vh;
+
+    /*border: 1px solid red;*/
+    padding: 0 6rem;
+}
+
+.menu > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    /*width: 20vh;*/
+    height: 100%;
+    line-height: 1rem;
+    font-weight: 500;
+    /*border: 1px solid red;*/
+}
+
+#navigation-tab {
+    justify-content: space-between;
+    width: 40vh;
+}
+
+.logo {
+    background: linear-gradient(135deg, var(--lightBlue) 50%, white 50%);
+    width: 12rem;
+    height: 3rem;
+}
+
+button {
+    font-size: var(--fontsize-p-small);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    border-radius: 10rem;
+    padding: 0.25em 1.25em;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button-ghost {
+    background-color: transparent;
+    border: 2px solid var(--lightBlue);
+    transition: background-color 0.2s;
+}
+
+.button-ghost:hover {
+    background-color: var(--lightBlue);
+}
+
+.button-primary {
+    background: linear-gradient(135deg, var(--color1), var(--color2));
+    transition: --color1 0.5s, --color2 0.2s;
+}
+
+.button-primary:hover {
+    --color2: var(--darkBlue);
+}
+
+.welcome h1 {
+    font-size: var(--fontsize-h-special);
+    font-weight: 700;
+}
+
+.welcome .p-header {
+    font-size: var(--fontsize-p-special);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.3em;
+    width: 80%;
+}
+
+.welcome button {
+    font-size: 1.25rem;
+    padding: 0.5em 1.25em;
+    font-weight: 300;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 1.15rem;
+    padding: 0.15rem;
+    background: linear-gradient(0deg, var(--lightBlue), var(--bg));
+
+    opacity: 0;
+    transform: translateY(-5%);
+    animation: image-in 1s var(--bezier) forwards;
+}
+
+.img-container > img {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--bg);
+    padding: 4rem;
+    border-radius: 1rem;
+}
+
+.text-card {
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: var(--bg);
+    /*border: 0.15rem var(--lightBlue) solid;*/
+    text-align: left
+}
+
+.text-card::after {
+    position: absolute;
+    background: linear-gradient(0deg, var(--lightBlue), white);
+    top: 0;
+    left: 0;
+}
+
+.bg {
+    position: absolute;
+    z-index: -1;
+    width: 200%;
+    height: 70vh;
+    opacity: 0;
+    rotate: -20deg;
+    top: -40vh;
+    left: -50vw;
+    filter: blur(10vh);
+    animation: opacity-in 2s forwards var(--bezier);
+}
