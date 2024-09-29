@@ -16,15 +16,12 @@
 }
 
 @media (orientation: portrait) {
-    body {
-        background-color: red;
-    }
     .navigation-bar-wrapper,
     body,
     html,
     section {
         width: 100vw;
-        overflow-x: hidden !important;
+        overflow-x: hidden;
     }
 
     #navigation-buttons {
