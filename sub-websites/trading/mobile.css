@@ -21,7 +21,11 @@
     html,
     section {
         width: 100vw;
-        overflow-x: hidden;
+    }
+
+    section {
+        margin: 0;
+        padding: 6rem 6rem;
     }
 
     #navigation-buttons {

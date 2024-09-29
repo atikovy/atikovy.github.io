@@ -25,6 +25,9 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
   color: white;
 }
 
+html {
+  overflow-x: hidden;
+}
 
 body {
   @include flexbox(column, start, center);
