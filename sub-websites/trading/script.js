@@ -1,6 +1,37 @@
 
 paymentYearly = true
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            const $target = $(entry.target);
+
+            switch (true) {
+                case $target.hasClass('bg'):
+                    $target.addClass('bg-start-animate');
+                    break;
+                case $target.hasClass('left'):
+                    $target.addClass('start-animate-left');
+                    break;
+                case $target.hasClass('right'):
+                    $target.addClass('start-animate-right');
+                    break;
+                case $target.is('.p1, .p2, .p3'):
+                    $target.addClass('p-start-animate');
+                    break;
+                case $target.hasClass('sub-card'):
+                    $target.addClass('sub-card-animate');
+                    break;
+                default:
+                    $target.addClass('start-animate');
+            }
+        }
+    });
+}, {
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.5
+});
+
 class subscriptionPlan {
     constructor(name = 'Basic', price = 19.99,
                 features= 1, special = false, buttonType = 'button-ghost') {
@@ -75,6 +106,12 @@ function generatePlans(plans) {
 
 $(document).ready(function() {
     generatePlans(subscriptionPlanList);
+
+    hiddenElements = $('h2, h3, .p2, .p3, .p5, .bg, .img-container, .card, .sub-card');
+    hiddenElements.each(function(index, el) {
+        observer.observe(el);
+    })
+
     function updatePrice (e) {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
@@ -112,33 +149,3 @@ $(document).ready(function() {
         updatePrice(e)
     })
 });
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const $target = $(entry.target);
-
-            switch (true) {
-                case $target.hasClass('bg'):
-                    $target.addClass('bg-start-animate');
-                    break;
-                case $target.hasClass('left'):
-                    $target.addClass('start-animate-left');
-                    break;
-                case $target.hasClass('right'):
-                    $target.addClass('start-animate-right');
-                    break;
-                case $target.is('.p1, .p2, .p3'):
-                    $target.addClass('p-start-animate');
-                    break;
-                default:
-                    $target.addClass('start-animate');
-            }
-        }
-    });
-});
-
-hiddenElements = $('h1, h2, h3, .p1, .p2, .p3, .bg, .img-container, .card');
-hiddenElements.each(function(index, el) {
-    observer.observe(el);
-})

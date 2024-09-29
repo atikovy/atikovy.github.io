@@ -1,6 +1,6 @@
 
-@media (max-aspect-ratio: 4/3) {
+@media (min-aspect-ratio: 21/9) {
     section {
-        width: 80vw;
+        width: 50vw;
     }
 }
