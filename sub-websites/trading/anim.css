@@ -10,7 +10,7 @@
 }
 
 @keyframes p-show-from-bottom {
-    from    {opacity: 0; transform: translateY(20%); filter: blur(0.1rem)}
+    from    {opacity: 0; transform: translateY(2rem); filter: blur(0.1rem)}
     to      {opacity: 1; transform: translateY(0%); filter: blur(0)}
 }
 

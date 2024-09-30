@@ -58,7 +58,7 @@ section {
   gap: $main-spacing * 2;
   position: relative;
 
-  width: 110vh;
+  width: 100vh;
   text-align: center;
   height: fit-content;
 }
@@ -68,14 +68,14 @@ h1 {
   font-size: 8rem; font-weight: 700;
   letter-spacing: -0.02em;
   animation: show-from-bottom 1s forwards;
-  width: 80%;
+  width: fit-content;
   text-wrap: balance;
 }
 h2 {
   font-size: 6rem;
   font-weight: 600;
   letter-spacing: 0;
-
+  width: fit-content;
 }
 h3 {font-size: 4rem; font-weight: 500; letter-spacing: 0}
 h4 {font-size: 2rem; font-weight: 500}
@@ -119,7 +119,7 @@ p {
   font-weight: 200;
   line-height: 1.5em;
   letter-spacing: 0.07em;
-  width: 70%;
+  width: fit-content;
 }
 
 .p3 {
@@ -190,7 +190,7 @@ a {
 .menu {
   @include flexbox(row, space-between, center);
   padding: 0 6rem;
-  width: 110vh;
+  width: 100vh;
 
   div {
     @include flexbox(row);
@@ -243,7 +243,7 @@ button {
 
 .header-wrapper {
   @include flexbox();
-  gap: 0;
+  gap: $main-spacing / 2;
 }
 
 .img-container {
@@ -291,43 +291,25 @@ button {
   }
 }
 
-.button-subscription-type {
-  @include flexbox(row, start, start);
-  z-index: 2;
-  position: relative;
-  gap: $main-spacing;
-  //background-color: $darkBlue;
-  background-color: transparent;
-  border: 0.15rem $darkBlue solid;
-  padding: 0.5rem 1.25rem;
-  width: 100%;
-  height: 100%;
-  border-radius: 10rem;
-  transition: background-color 0.3s;
-  overflow: clip;
-
-  &:hover {cursor: pointer;}
-
-  p {
-    z-index: 1;
-    user-select: none;
-  }
-
-  .button-ball {
-    position: absolute;
-    z-index: 0;
-    width: calc(50% - 0.5rem);
-    height: calc(100% - 0.5rem);
-    top: 0.25rem;
-    border-radius: 10rem;
-    background: $lightBlue;
-    //background-color: $lightBlue;
-    transition: all 0.3s;
-  }
-}
-
 section.welcome {
-  .img-container {animation: show-from-bottom 1s forwards;}
+  height: calc(100svh - 6rem);
+  //perspective: 50rem;
+  .img-container {
+    position: absolute;
+    z-index: -1;
+    bottom: 16rem;
+    opacity: 1;
+    //transform: rotate3d(1, 0, 0, 10deg);
+    animation: show-from-bottom 1s forwards;
+    //animation: none;
+    border: none;
+    width: 150%;
+    //border: none;
+    img {
+      mask: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+      background-color: transparent;
+    }
+  }
   .bg {
     width: 200%;
     height: 70vh;
@@ -335,6 +317,11 @@ section.welcome {
     top: -40vh;
     left: -50vw;
     animation: opacity-in 2s forwards;
+  }
+  button {
+    padding: 0.5rem 1.25rem;
+    font-size: 1.125rem;
+    font-weight: 400;
   }
 }
 
@@ -355,7 +342,7 @@ section.tools {
   }
 
   .header-wrapper {
-    .p2 {width: 60%; text-wrap: pretty}
+    .p2 {width: 70%; text-wrap: pretty}
     h3 {opacity: 0}
   }
   .wrapper-horizontal {
@@ -442,7 +429,7 @@ section.assistance {
 
 section.statistics {
   .wrapper-horizontal {
-    @include flexbox(row, space-between, stretch);
+    @include flexbox(row, space-between, center);
     gap: $main-spacing;
     padding: 0 $main-spacing;
   }
@@ -469,7 +456,7 @@ section.subscription {
   }
 
   h2 {
-    width: 70%;
+    width: fit-content;
     text-wrap: balance;
   }
 
@@ -587,6 +574,43 @@ section.subscription {
       }
     }
   }
+
+  .button-subscription-type {
+    @include flexbox(row, start, start);
+    z-index: 2;
+    position: relative;
+    gap: $main-spacing;
+    opacity: 0;
+    //background-color: $darkBlue;
+    background-color: transparent;
+    border: 0.15rem $darkBlue solid;
+    padding: 0.5rem 1.25rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    transition: background-color 0.3s;
+    overflow: clip;
+    &:hover {cursor: pointer;}
+
+    p {
+      z-index: 1;
+      user-select: none;
+      font-weight: 400;
+    }
+
+    .button-ball {
+      position: absolute;
+      z-index: 0;
+      width: calc(50% + 0.25rem);
+      height: calc(100% - 0.5rem);
+      top: 0.25rem;
+      border-radius: 10rem;
+      background: $lightBlue;
+      //background-color: $lightBlue;
+      transition: all 0.3s;
+    }
+  }
+
 }
 
 section.footer {
@@ -641,7 +665,7 @@ section.footer {
 
 //animation triggers
 
-h2, .p2, .p3, .p5, .img-container, .card {
+h2, .p2, .p3, .p5, .img-container, .card, .wecome.button-primary {
   opacity: 0;
   transform: translateY(20%);
 }

@@ -16,10 +16,12 @@ const observer = new IntersectionObserver((entries) => {
                 case $target.hasClass('right'):
                     $target.addClass('start-animate-right');
                     break;
-                case $target.is('.p1, .p2, .p3, .p5'):
+                case $target.is('.p1, .p2, .p3, .p5,' +
+                    '.img-container, .card,' +
+                    '.button-subscription-type, .button-primary'):
                     $target.addClass('p-start-animate');
                     break;
-                case $target.is('.img-container, .card, h2'):
+                case $target.is('h2'):
                     $target.addClass('start-animate');
                     break;
                 case $target.hasClass('sub-card'):
@@ -110,7 +112,9 @@ function generatePlans(plans) {
 $(document).ready(function() {
     generatePlans(subscriptionPlanList);
 
-    hiddenElements = $('h2, h3, .p2, .p3, .p5, .bg, .img-container, .card, .sub-card');
+    hiddenElements = $('h2, h3, .p2, .p3, .p5,' +
+        '.bg, .img-container, .card, .sub-card,' +
+        '.button-subscription-type, #create-acc');
     hiddenElements.each(function(index, el) {
         observer.observe(el);
     })
@@ -119,7 +123,7 @@ $(document).ready(function() {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
-                    left: 'calc(50% - 0.25rem)', width: '50%', background: '#0088CF'})
+                    left: 'calc(50% - 0.5rem)', width: 'calc(50% + 0.25rem)', background: '#0088CF'})
                 // $('.button-subscription-type').css({backgroundColor: '#0088CF'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;

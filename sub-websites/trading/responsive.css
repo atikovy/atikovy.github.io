@@ -1,0 +1,52 @@
+@media (orientation: landscape) and (min-aspect-ratio: 21/9) {
+  section {
+    width: 50vw;
+  }
+}
+@media (orientation: landscape) and (max-width: 1920px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media (orientation: landscape) and (max-width: 1280px) {
+  :root {
+    font-size: 8px;
+  }
+}
+@media (orientation: portrait) {
+  .navigation-bar-wrapper,
+  body,
+  html,
+  section {
+    width: 100vw;
+  }
+  section {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
+  }
+  .header-wrapper {
+    width: 100%;
+    gap: 1rem;
+  }
+  section.welcome h1, section.welcome .p1 {
+    width: fit-content;
+    text-wrap: balance;
+  }
+  section.welcome .img-container {
+    width: 200%;
+    bottom: 3rem;
+  }
+  section.welcome .img-container img {
+    opacity: 0.5;
+  }
+  #navigation-buttons {
+    display: none;
+  }
+  .menu {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

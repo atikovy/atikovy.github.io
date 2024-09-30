@@ -1,0 +1,60 @@
+
+@media (orientation: landscape) {
+
+  @media (min-aspect-ratio: 21/9) {
+    section {width: 50vw;}
+  }
+
+  @media (max-width: 1920px) {
+    :root {font-size: 12px;}
+  }
+
+  @media (max-width: 1280px) {
+    :root {font-size: 8px;}
+  }
+
+}
+
+@media (orientation: portrait) {
+
+  $main-spacing: 1rem;
+
+  .navigation-bar-wrapper,
+  body,
+  html,
+  section {
+    width: 100vw;
+  }
+
+  section {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
+  }
+
+  .header-wrapper {
+    width: 100%;
+    gap: $main-spacing;
+  }
+
+  section.welcome {
+    h1, .p1 {
+      width: fit-content;
+      text-wrap: balance;
+    }
+
+    .img-container {
+      width: 200%;
+      bottom: 3rem;
+      img {opacity: 0.5;}
+    }
+  }
+
+  #navigation-buttons {
+    display: none
+  }
+  .menu {
+    width: 90%;
+  }
+}
