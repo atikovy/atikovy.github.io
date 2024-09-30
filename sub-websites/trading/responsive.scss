@@ -38,33 +38,108 @@ $main-spacing: 1rem;
     width: 100vw;
   }
 
-  section {
-    box-sizing: border-box;
-    width: 100%;
+  h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    width: fit-content;
+    text-wrap: pretty;
+    animation: show-from-bottom 1s forwards;
+  }
+
+  h2 {
+    font-size: 7rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    width: fit-content;
+    text-wrap: balance;
+  }
+
+  h3 {font-size: 5rem; font-weight: 500; letter-spacing: 0}
+  h4 {font-size: 2rem; font-weight: 500}
+
+  section:nth-of-type(2n) h2 {
+    background-clip: text;
+    color: transparent;
+  }
+
+  p {
+    font-weight: 100;
+    letter-spacing: 0.05em;
     margin: 0;
-    padding: 3rem 2rem;
+    padding: 0;
+    text-wrap: pretty;
+    color: white;
+  }
+
+  // works the same way as h1, h2, h3...
+  .p1 {
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 1.4em;
+    letter-spacing: 0.04em;
+    width: fit-content;
+    animation: p-show-from-bottom 1s forwards;
+    text-wrap: pretty;
+  }
+
+  .p2 {
+    font-size: 3rem;
+    font-weight: 200;
+    line-height: 1.4em;
+    letter-spacing: 0.07em;
+    width: fit-content;
+  }
+
+  .p3 {
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.75em;
+    letter-spacing: 0.1em;
+    width: fit-content;
+  }
+
+  .p4 {
+    font-size: 1.25rem;
+    font-weight: 200;
+    line-height: 1.75em;
+    letter-spacing: 0.1em;
+    width: 70%;
+  }
+
+  .p5 {
+    font-weight: 100;
+    font-size: 1rem;
+    line-height: 1.75em;
+    letter-spacing: 0.12em;
+  }
+
+  section {
+    @include flexbox(column, start, center);
+    box-sizing: border-box;
+    height: fit-content;
+    width: 100vw;
+    margin: 0;
+    padding: ($main-spacing * 6);
+    gap: ($main-spacing * 4);
   }
 
   section.welcome {
-
-    h1 {
-      width: fit-content;
-      text-wrap: pretty;
-    }
-
-    .p1 {
-      width: fit-content;
-      text-wrap: balance;
-    }
+    height: fit-content;
 
     .img-container {
+      position: absolute;
+      display: inline-block;
+      //display: none;
+      bottom: 0;
       width: 200%;
-      bottom: 20rem;
+      transform-origin: bottom center;
       img {opacity: 0.5;}
     }
 
     .button-primary {
       font-size: 2rem;
+      padding: 1rem 2rem;
     }
   }
 
@@ -72,6 +147,39 @@ $main-spacing: 1rem;
     .footer-container {
       @include flexbox(column, center, start);
       width: 100%;
+    }
+  }
+
+  section.tools {
+
+    @include flexbox(column, start, start);
+
+    .wrapper-horizontal {
+      @include flexbox(column, space-between, center);
+      height: fit-content;
+      width: fit-content;
+      gap: 0;
+      padding: 0;
+
+      .header-wrapper {
+        @include flexbox(column, center, center);
+        all: initial;
+        gap: 0;
+        width: fit-content;
+        padding: 0;
+
+        .p3 {
+          width: 100% !important;
+          text-wrap: pretty;
+        }
+      }
+
+      .img-container {
+        width: 70%;
+        img {
+          height: 100%;
+        }
+      }
     }
   }
 
@@ -83,7 +191,6 @@ $main-spacing: 1rem;
     margin: 0;
     padding: 4rem;
 
-
     .menu {
       @include flexbox(row, space-between, center);
       height: 100%;
@@ -94,10 +201,7 @@ $main-spacing: 1rem;
       #navigation-buttons {display: none}
 
       div {
-        margin: 0;
-        padding: 0;
         display: none;
-        height: 100%;
       }
 
       .button-menu {
@@ -118,13 +222,15 @@ $main-spacing: 1rem;
   }
 
   .navigation-bar-spacer {
+    box-sizing: border-box;
     width: 100vw;
     height: 12rem;
+    padding: 4rem;
   }
 
   .header-wrapper {
     width: 100%;
-    gap: $main-spacing * 4;
+    gap: $main-spacing * 2;
   }
 
 }

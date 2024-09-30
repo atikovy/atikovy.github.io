@@ -346,21 +346,35 @@ section.tools {
   }
 
   .header-wrapper {
-    .p2 {width: 70%; text-wrap: pretty}
-    h3 {opacity: 0}
+    .p2 {
+      width: 70%;
+      text-wrap: pretty
+    }
+    h3 {
+      opacity: 0
+    }
   }
   .wrapper-horizontal {
     width: 80%;
 
     .img-container {width: 40%}
+
     .header-wrapper.trading-tools {
+      @include flexbox(column, center, start);
       gap: 1rem;
       width: 70%;
-      .p3 {width: 80%;text-wrap: pretty;}
+      text-align: left;
+      .p3 {
+        width: 80%;
+        text-wrap: pretty;
+      }
     }
+
     .header-wrapper.financial-overview {
+      @include flexbox(column, center, end);
       gap: 1rem;
       width: 70%;
+      text-align: right;
       .p3 {width: 80%; text-wrap: pretty;}
     }
   }

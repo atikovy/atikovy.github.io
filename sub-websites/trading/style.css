@@ -371,16 +371,26 @@ section.tools .wrapper-horizontal .img-container {
   width: 40%;
 }
 section.tools .wrapper-horizontal .header-wrapper.trading-tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   gap: 1rem;
   width: 70%;
+  text-align: left;
 }
 section.tools .wrapper-horizontal .header-wrapper.trading-tools .p3 {
   width: 80%;
   text-wrap: pretty;
 }
 section.tools .wrapper-horizontal .header-wrapper.financial-overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
   gap: 1rem;
   width: 70%;
+  text-align: right;
 }
 section.tools .wrapper-horizontal .header-wrapper.financial-overview .p3 {
   width: 80%;
