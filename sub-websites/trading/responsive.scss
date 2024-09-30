@@ -1,4 +1,18 @@
 
+@mixin flexbox(
+  $direction: column,
+  $justify: center,
+  $align: center,
+  $wrap: nowrap,
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+$main-spacing: 1rem;
+
 @media (orientation: landscape) {
 
   @media (min-aspect-ratio: 21/9) {
@@ -17,8 +31,6 @@
 
 @media (orientation: portrait) {
 
-  $main-spacing: 1rem;
-
   .navigation-bar-wrapper,
   body,
   html,
@@ -33,28 +45,86 @@
     padding: 3rem 2rem;
   }
 
-  .header-wrapper {
-    width: 100%;
-    gap: $main-spacing;
-  }
-
   section.welcome {
-    h1, .p1 {
+
+    h1 {
+      width: fit-content;
+      text-wrap: pretty;
+    }
+
+    .p1 {
       width: fit-content;
       text-wrap: balance;
     }
 
     .img-container {
       width: 200%;
-      bottom: 3rem;
+      bottom: 20rem;
       img {opacity: 0.5;}
+    }
+
+    .button-primary {
+      font-size: 2rem;
     }
   }
 
-  #navigation-buttons {
-    display: none
+  section.footer {
+    .footer-container {
+      @include flexbox(column, center, start);
+      width: 100%;
+    }
   }
-  .menu {
-    width: 90%;
+
+  .navigation-bar-wrapper {
+    @include flexbox(row, center, center);
+    box-sizing: border-box;
+    width: 100vw;
+    height: 12rem;
+    margin: 0;
+    padding: 4rem;
+
+
+    .menu {
+      @include flexbox(row, space-between, center);
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+      #navigation-buttons {display: none}
+
+      div {
+        margin: 0;
+        padding: 0;
+        display: none;
+        height: 100%;
+      }
+
+      .button-menu {
+        display: block;
+        width: 4rem;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .logo {
+        display: block;
+        height: 4rem;
+        width: 10rem;
+      }
+    }
   }
+
+  .navigation-bar-spacer {
+    width: 100vw;
+    height: 12rem;
+  }
+
+  .header-wrapper {
+    width: 100%;
+    gap: $main-spacing * 4;
+  }
+
 }

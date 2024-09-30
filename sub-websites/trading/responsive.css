@@ -26,26 +26,80 @@
     margin: 0;
     padding: 3rem 2rem;
   }
-  .header-wrapper {
-    width: 100%;
-    gap: 1rem;
+  section.welcome h1 {
+    width: fit-content;
+    text-wrap: pretty;
   }
-  section.welcome h1, section.welcome .p1 {
+  section.welcome .p1 {
     width: fit-content;
     text-wrap: balance;
   }
   section.welcome .img-container {
     width: 200%;
-    bottom: 3rem;
+    bottom: 20rem;
   }
   section.welcome .img-container img {
     opacity: 0.5;
   }
-  #navigation-buttons {
+  section.welcome .button-primary {
+    font-size: 2rem;
+  }
+  section.footer .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+  }
+  .navigation-bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 12rem;
+    margin: 0;
+    padding: 4rem;
+  }
+  .navigation-bar-wrapper .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .navigation-bar-wrapper .menu #navigation-buttons {
     display: none;
   }
-  .menu {
-    width: 90%;
+  .navigation-bar-wrapper .menu div {
+    margin: 0;
+    padding: 0;
+    display: none;
+    height: 100%;
+  }
+  .navigation-bar-wrapper .menu .button-menu {
+    display: block;
+    width: 4rem;
+  }
+  .navigation-bar-wrapper .menu .button-menu img {
+    height: 100%;
+  }
+  .navigation-bar-wrapper .menu .logo {
+    display: block;
+    height: 4rem;
+    width: 10rem;
+  }
+  .navigation-bar-spacer {
+    width: 100vw;
+    height: 12rem;
+  }
+  .header-wrapper {
+    width: 100%;
+    gap: 4rem;
   }
 }
 

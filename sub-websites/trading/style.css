@@ -173,7 +173,7 @@ a:hover {
   top: 0;
   z-index: 10;
   width: 100vw;
-  height: 3rem;
+  height: 4rem;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
@@ -182,7 +182,7 @@ a:hover {
 
 .navigation-bar-spacer {
   position: relative;
-  height: 3rem;
+  height: 4rem;
   padding: 1rem;
 }
 
@@ -209,6 +209,9 @@ a:hover {
 .menu #navigation-buttons {
   justify-content: space-between;
   width: 40%;
+}
+.menu .button-menu {
+  display: none;
 }
 
 .logo {
@@ -315,11 +318,12 @@ section.welcome {
 section.welcome .img-container {
   position: absolute;
   z-index: -1;
-  bottom: 16rem;
+  bottom: 24rem;
   opacity: 1;
-  animation: show-from-bottom 1s forwards;
+  animation: none;
   border: none;
   width: 150%;
+  filter: blur(0.2rem);
 }
 section.welcome .img-container img {
   mask: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
