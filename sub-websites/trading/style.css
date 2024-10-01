@@ -108,7 +108,7 @@ p {
 
 .p1 {
   font-size: 3rem;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.2em;
   letter-spacing: 0.04em;
   width: 60%;
@@ -118,7 +118,7 @@ p {
 
 .p2 {
   font-size: 2rem;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.5em;
   letter-spacing: 0.07em;
   width: fit-content;
@@ -243,15 +243,30 @@ button.button-primary {
   position: relative;
   background-color: #1179ce;
   transition: background-color 0.2s;
-  border: 2px solid #1179ce;
+}
+button.button-primary.big {
+  font-size: 1.5;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0;
+  padding: 0.75rem 1.5rem;
 }
 button.button-primary:hover {
+  background-color: #243c59;
+}
+button.button-primary-white {
+  position: relative;
+  background-color: #1179ce;
+  transition: background-color 0.2s;
+  border: 2px solid white;
+}
+button.button-primary-white:hover {
   background-color: #243c59;
 }
 button.button-ghost {
   background-color: transparent;
   border: 2px solid #1179ce;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 button.button-ghost:hover {
   background-color: #1179ce;
@@ -346,13 +361,6 @@ section.welcome .bg {
   left: -50vw;
   animation: opacity-in 2s forwards;
 }
-section.welcome button {
-  font-size: 1.125;
-  font-weight: 400;
-  line-height: 1em;
-  letter-spacing: 0;
-  padding: 0.5rem 1.25rem;
-}
 
 section.tools .bg:nth-of-type(1) {
   --hue-value: 20deg;
@@ -376,7 +384,13 @@ section.tools .header-wrapper h3 {
   opacity: 0;
 }
 section.tools .wrapper-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
   width: 80%;
+  padding: 0 4rem;
 }
 section.tools .wrapper-horizontal .img-container {
   width: 40%;
@@ -387,11 +401,11 @@ section.tools .wrapper-horizontal .header-wrapper.trading-tools {
   justify-content: center;
   align-items: start;
   gap: 1rem;
-  width: 70%;
+  width: 50%;
   text-align: left;
 }
 section.tools .wrapper-horizontal .header-wrapper.trading-tools .p3 {
-  width: 80%;
+  width: fit-content;
   text-wrap: pretty;
 }
 section.tools .wrapper-horizontal .header-wrapper.financial-overview {
@@ -400,12 +414,12 @@ section.tools .wrapper-horizontal .header-wrapper.financial-overview {
   justify-content: end;
   align-items: end;
   gap: 1rem;
-  width: 70%;
+  width: 50%;
   text-align: right;
 }
 section.tools .wrapper-horizontal .header-wrapper.financial-overview .p3 {
-  width: 80%;
-  text-wrap: pretty;
+  width: fit-content;
+  text-wrap: balance;
 }
 
 section.assistance .bg:nth-of-type(1) {
@@ -475,7 +489,7 @@ section.statistics .wrapper-horizontal {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 0 2rem;
+  padding: 0;
 }
 section.statistics .button-primary {
   margin-top: 2rem;
@@ -484,7 +498,7 @@ section.statistics h2 {
   width: fit-content;
 }
 section.statistics .p2 {
-  width: 80%;
+  width: 90%;
   text-wrap: pretty;
 }
 section.statistics img {
@@ -508,9 +522,10 @@ section.subscription .header-wrapper {
 section.subscription .subscription-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 1rem;
 }
 section.subscription .sub-card {
   display: flex;
@@ -522,17 +537,23 @@ section.subscription .sub-card {
   gap: 1rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 2rem;
-  width: 25%;
+  width: 25% !important;
   opacity: 0;
   transform: scale(0.95);
   box-shadow: rgba(17, 121, 206, 0) 0 4rem 0 -5rem;
   transition: all 0.3s;
+}
+section.subscription .sub-card .button-ghost:hover {
+  background-color: #1179ce;
 }
 section.subscription .sub-card:hover {
   z-index: 5;
   transform: scale(1);
   box-shadow: #1179ce 0 4rem 8rem -5rem;
   background: rgba(0, 0, 0, 0.6);
+}
+section.subscription .sub-card:hover .button-ghost {
+  background-color: #1179ce;
 }
 section.subscription .sub-card.special {
   transform: scale(1);
@@ -637,7 +658,7 @@ section.subscription .button-subscription-type {
   opacity: 0;
   background-color: transparent;
   border: 0.15rem #243c59 solid;
-  padding: 0.5rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   width: 100%;
   height: 100%;
   border-radius: 10rem;

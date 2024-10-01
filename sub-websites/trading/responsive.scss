@@ -1,4 +1,12 @@
 
+$darkGrey: #0F0F0F;
+$lightBlue: #1179ce;
+$darkBlue: #243c59;
+$darkWhite: rgba(255, 255, 255, 0.5);
+$main-spacing: 2rem;
+$bezier: cubic-bezier(0.6,0,0.4,1);
+$neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
+
 @mixin flexbox(
   $direction: column,
   $justify: center,
@@ -63,9 +71,13 @@
     padding: 0;
   }
 
-  h3 {@include font-setup(6rem, 500);}
+  h3 {
+    @include font-setup(6rem, 500);
+  }
 
-  h4 {@include font-setup(2rem, 500);}
+  h4 {
+    @include font-setup(2rem, 500);
+  }
 
   section:nth-of-type(2n) h2 {
     background-clip: text;
@@ -257,9 +269,53 @@
 
     .cards-container {
       @include flexbox(column, center, center);
+      gap: 4rem;
 
       .card {
-        width: fit-content;
+        width: 60%;
+        align-self: end;
+        padding: 3rem;
+        gap: 2rem;
+        border-radius: 3rem;
+
+        h4 {
+          @include font-setup(4rem, 500, 1.2em, 0);
+          width: fit-content;
+        }
+
+        .p4 {
+          @include font-setup(2.5rem, 100, 1.25em, 0.1em);
+          width: fit-content;
+        }
+
+        &:nth-child(1), &:nth-child(3) {align-self: end;}
+
+        &:nth-of-type(2n) {align-self: start;}
+
+        img {
+          width: 80%;
+          height: 80%;
+          right: -20%;
+          bottom: -20%;
+        }
+      }
+      .danger-info {
+        @include flexbox(column, start, start);
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        padding: 4rem;
+        gap: 2rem;
+        width: calc(100vw - 8rem);
+        border-radius: 2rem;
+        background-color: $lightBlue;
+        .p5 {
+          @include font-setup(3rem, 200, 1.5em);
+        }
+        img {
+          width: 4rem;
+          height: 4rem;
+        }
       }
     }
   }
