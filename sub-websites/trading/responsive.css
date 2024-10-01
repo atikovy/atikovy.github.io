@@ -349,7 +349,7 @@
     width: 100%;
     border: 1px solid red;
     overflow-x: scroll;
-    font-size: 2rem;
+    font-size: 1rem;
   }
   section.subscription .subscription-container .sub-card {
     scroll-snap-align: center;
