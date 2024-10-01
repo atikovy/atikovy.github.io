@@ -124,7 +124,6 @@ $(document).ready(function() {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
                     left: 'calc(50% - 0.25rem)', width: 'calc(50%)', background: '#0088CF'})
-                // $('.button-subscription-type').css({backgroundColor: '#0088CF'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -140,7 +139,6 @@ $(document).ready(function() {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
                     left: '0.25rem', width: 'calc(50% - 0.5rem)', background: '#243c59'})
-                // $('.button-subscription-type').css({backgroundColor: '#949494'})
                 var priceYearNew = subscriptionPlanList[i].priceYear;
                 var priceMonthNew = subscriptionPlanList[i].priceMonth;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
