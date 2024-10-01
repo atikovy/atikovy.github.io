@@ -60,7 +60,6 @@ body {
   }
 }
 
-
 hr {width: 100%; border-color: $darkWhite}
 
 section {
@@ -119,19 +118,19 @@ p {
 
 // works the same way as h1, h2, h3...
 .p1 {
-  @include font-setup(3rem, 300, 1.2em, 0.04em);
+  @include font-setup(3rem, 300, 1.1em, 0.04em);
   width: 60%;
   animation: p-show-from-bottom 1s forwards;
   text-wrap: pretty;
 }
 
 .p2 {
-  @include font-setup(2rem, 300, 1.5em, 0.07em);
+  @include font-setup(2.5rem, 300, 1.2em, 0.07em);
   width: fit-content;
 }
 
 .p3 {
-  @include font-setup(1.5rem, 200, 1.75em, 0.1em);
+  @include font-setup(2rem, 200, 1.75em, 0.1em);
   width: 70%;
 }
 
@@ -145,12 +144,9 @@ p {
 }
 
 a {
+  @include font-setup(1.25rem, 200, 2em, 0.05em);
   text-decoration: none;
-  font-size: 1rem;
-  line-height: 3em;
   transition: color 0.2s;
-  font-weight: 200;
-  letter-spacing: 0.05em;
 
   &:visited {color: white;}
   &:hover {color: $darkWhite;}
@@ -204,7 +200,8 @@ a {
 
   #navigation-buttons {
     justify-content: space-between;
-    width: 40%;
+    width: fit-content;
+    gap: $main-spacing;
   }
   .button-menu {
     display: none;
@@ -218,11 +215,9 @@ a {
 }
 
 button {
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 0.03em;
+  @include font-setup(1.25rem, 300, 1em, 0.03em);
   border-radius: 10rem;
-  padding: 0.25em 1.25em;
+  padding: 0.5em 1.5em;
   color: white;
   border: none;
   &:hover {cursor: pointer;}
@@ -231,9 +226,8 @@ button {
     position: relative;
     background-color: $lightBlue;
     transition: background-color 0.2s;
-    //border: 2px solid $lightBlue;
     &.big {
-      @include font-setup(1.5, 400);
+      @include font-setup(1.5rem, 400);
       padding: 0.75rem 1.5rem;
     }
     &:hover {background-color: $darkBlue}
@@ -264,8 +258,6 @@ button {
   @include flexbox();
   box-sizing: border-box;
   width: 100%;
-  border-radius: $main-spacing;
-  border: $darkBlue solid 0.2rem;
   overflow: clip;
 
   img {
@@ -275,6 +267,12 @@ button {
     padding: 4rem;
   }
   .small {width: 50%;}
+}
+
+.img-container, .card {
+  border: solid $darkBlue 0.15rem;
+  box-shadow: 0 2rem 3rem -1rem rgba(black, 0.5);
+  border-radius: $main-spacing;
 }
 
 .wrapper-horizontal {
@@ -320,6 +318,8 @@ section.welcome {
     width: 150%;
     //border: none;
     filter: blur(0.2rem);
+    box-shadow: none;
+
     img {
       mask: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
       background-color: transparent;
@@ -420,7 +420,6 @@ section.assistance {
     border-radius: calc($main-spacing - 0.15rem);
     background-color: rgba(0, 0, 0, 0.7);
     overflow: clip;
-    border: solid $darkBlue 0.15rem;
 
     .p4 {
       text-align: justify;
@@ -441,7 +440,7 @@ section.assistance {
   }
 
   .danger-info {
-    @include flexbox(row, start, start);
+    @include flexbox(row, center, start);
     box-sizing: border-box;
     width: 100%;
     gap: $main-spacing / 2;
@@ -449,6 +448,7 @@ section.assistance {
 
     p {
       text-align: justify;
+      width: fit-content;
     }
 
     img {
@@ -458,6 +458,10 @@ section.assistance {
 }
 
 section.statistics {
+  .bg {
+    --hue-value: 30deg;
+  }
+
   .wrapper-horizontal {
     @include flexbox(row, space-between, center);
     gap: $main-spacing;
@@ -602,14 +606,15 @@ section.subscription {
 
   .button-subscription-type {
     @include flexbox(row, start, start);
+    font-size: 1rem;
     z-index: 2;
     position: relative;
     gap: $main-spacing;
     opacity: 0;
     //background-color: $darkBlue;
     background-color: transparent;
-    border: 0.15rem $darkBlue solid;
-    padding: 0.75rem 1.5rem;
+    border: 0.15em $darkBlue solid;
+    padding: 0.75em 1.25em;
     width: 100%;
     height: 100%;
     border-radius: 10rem;
@@ -626,11 +631,11 @@ section.subscription {
     .button-ball {
       position: absolute;
       z-index: 0;
-      width: calc(50% + 0.25rem);
-      height: calc(100% - 0.5rem);
+      width: calc(50% + 0.25em);
+      height: calc(100% - 0.5em);
       left: 50%;
-      top: 0.25rem;
-      border-radius: 10rem;
+      top: 0.25em;
+      border-radius: 10em;
       background: $lightBlue;
       //background-color: $lightBlue;
       transition: all 0.3s;
@@ -668,7 +673,7 @@ section.footer {
   }
 
   .vr {
-    width: 2px;
+    width: 0.1rem;
     background-color: white;
     opacity: 0.2;
   }

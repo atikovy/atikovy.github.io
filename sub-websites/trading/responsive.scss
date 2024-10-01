@@ -34,7 +34,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 @media (orientation: landscape) {
 
   @media (min-aspect-ratio: 21/9) {
-    section {width: 50vw;}
+    section, .menu {width: 50vw;}
   }
 
   @media (max-width: 1920px) {
@@ -139,6 +139,12 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     z-index: -5;
   }
 
+  button.button-primary.big {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 1.5rem 3rem;
+  }
+
   section {
     @include flexbox(column, start, center);
     box-sizing: border-box;
@@ -161,12 +167,6 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       transform-origin: bottom center;
       img {opacity: 0.5;}
     }
-
-    .button-primary {
-      font-size: 3rem;
-      font-weight: 500;
-      padding: 1.5rem 3rem;
-    }
   }
 
   section.tools {
@@ -188,6 +188,11 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       bottom: -6rem;
       width: 20%;
       height: 50%;
+    }
+
+    .img-container {
+      border: solid $darkBlue 0.2rem;
+      border-radius: 3rem;
     }
 
     .wrapper-horizontal {
@@ -239,8 +244,8 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 
         h3 {width: fit-content;}
         .p3 {
-          width: 70%;
-          text-wrap: balance;
+          width: 90%;
+          text-wrap: pretty;
         }
       }
       .img-container {
@@ -260,7 +265,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
   section.assistance {
     .header-wrapper {
       width: fit-content;
-      text-align: left;
+      text-align: center;
     }
     .p2 {
       width: fit-content;
@@ -272,14 +277,17 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       gap: 4rem;
 
       .card {
-        width: 60%;
         align-self: end;
+        width: 70%;
         padding: 3rem;
         gap: 2rem;
+
+        border: solid $darkBlue 0.2rem;
+        box-shadow: 0 2rem 3rem -2rem rgba(black, 0.5);
         border-radius: 3rem;
 
         h4 {
-          @include font-setup(4rem, 500, 1.2em, 0);
+          @include font-setup(4rem, 400, 1.2em, 0);
           width: fit-content;
         }
 
@@ -316,6 +324,72 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
           width: 4rem;
           height: 4rem;
         }
+      }
+    }
+  }
+
+  section.statistics {
+    .bg {
+      display: none;
+    }
+
+    .wrapper-horizontal {
+      position: relative;
+      flex-direction: column;
+
+      .p2 {
+        width: 80%;
+        text-wrap: pretty;
+      }
+
+      .img-container {
+        position: absolute;
+        z-index: -1;
+        bottom: -12rem;
+        width: 150%;
+        border: none;
+        box-shadow: none;
+        img {
+          opacity: 0.5;
+          background: none;
+          filter: blur(0.5rem);
+        }
+      }
+    }
+  }
+
+  section.subscription {
+    .header-wrapper {
+      gap: 4rem;
+    }
+
+    .button-subscription-type {
+      font-size: 2rem;
+      gap: 2em;
+      border: solid $darkBlue 0.2em;
+      p {
+        @include font-setup(3rem, 500, 1em, 0);
+      }
+    }
+
+    .subscription-container-mobile-swipe {
+    }
+
+    .subscription-container {
+      @include flexbox(row, start, start);
+      position: relative;
+      gap: 2rem;
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      width: 100%;
+      border: 1px solid red;
+      overflow-x: scroll;
+
+      font-size: 2rem;
+      .sub-card {
+        scroll-snap-align: center;
+        border-radius: 3rem;
+        width: 100%;
       }
     }
   }

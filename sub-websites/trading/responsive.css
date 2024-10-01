@@ -1,5 +1,5 @@
 @media (orientation: landscape) and (min-aspect-ratio: 21/9) {
-  section {
+  section, .menu {
     width: 50vw;
   }
 }
@@ -102,6 +102,11 @@
   .bg {
     z-index: -5;
   }
+  button.button-primary.big {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 1.5rem 3rem;
+  }
   section {
     display: flex;
     flex-direction: column;
@@ -127,11 +132,6 @@
   section.welcome .img-container img {
     opacity: 0.5;
   }
-  section.welcome .button-primary {
-    font-size: 3rem;
-    font-weight: 500;
-    padding: 1.5rem 3rem;
-  }
   section.tools {
     display: flex;
     flex-direction: column;
@@ -153,6 +153,10 @@
     bottom: -6rem;
     width: 20%;
     height: 50%;
+  }
+  section.tools .img-container {
+    border: solid #243c59 0.2rem;
+    border-radius: 3rem;
   }
   section.tools .wrapper-horizontal {
     position: relative;
@@ -207,8 +211,8 @@
     width: fit-content;
   }
   section.tools .wrapper-horizontal.right .header-wrapper.financial-overview .p3 {
-    width: 70%;
-    text-wrap: balance;
+    width: 90%;
+    text-wrap: pretty;
   }
   section.tools .wrapper-horizontal.right .img-container {
     mask: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
@@ -223,7 +227,7 @@
   }
   section.assistance .header-wrapper {
     width: fit-content;
-    text-align: left;
+    text-align: center;
   }
   section.assistance .p2 {
     width: fit-content;
@@ -237,15 +241,17 @@
     gap: 4rem;
   }
   section.assistance .cards-container .card {
-    width: 60%;
     align-self: end;
+    width: 70%;
     padding: 3rem;
     gap: 2rem;
+    border: solid #243c59 0.2rem;
+    box-shadow: 0 2rem 3rem -2rem rgba(0, 0, 0, 0.5);
     border-radius: 3rem;
   }
   section.assistance .cards-container .card h4 {
     font-size: 4rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.2em;
     letter-spacing: 0;
     width: fit-content;
@@ -292,6 +298,63 @@
   section.assistance .cards-container .danger-info img {
     width: 4rem;
     height: 4rem;
+  }
+  section.statistics .bg {
+    display: none;
+  }
+  section.statistics .wrapper-horizontal {
+    position: relative;
+    flex-direction: column;
+  }
+  section.statistics .wrapper-horizontal .p2 {
+    width: 80%;
+    text-wrap: pretty;
+  }
+  section.statistics .wrapper-horizontal .img-container {
+    position: absolute;
+    z-index: -1;
+    bottom: -12rem;
+    width: 150%;
+    border: none;
+    box-shadow: none;
+  }
+  section.statistics .wrapper-horizontal .img-container img {
+    opacity: 0.5;
+    background: none;
+    filter: blur(0.5rem);
+  }
+  section.subscription .header-wrapper {
+    gap: 4rem;
+  }
+  section.subscription .button-subscription-type {
+    font-size: 2rem;
+    gap: 2em;
+    border: solid #243c59 0.2em;
+  }
+  section.subscription .button-subscription-type p {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1em;
+    letter-spacing: 0;
+  }
+  section.subscription .subscription-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    gap: 2rem;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    width: 100%;
+    border: 1px solid red;
+    overflow-x: scroll;
+    font-size: 2rem;
+  }
+  section.subscription .subscription-container .sub-card {
+    scroll-snap-align: center;
+    border-radius: 3rem;
+    width: 100%;
   }
   .navigation-bar-wrapper {
     display: flex;
