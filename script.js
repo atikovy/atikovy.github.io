@@ -171,14 +171,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (event.deltaY > 0) {
             //scroll down
-            portfolioPostion = Math.min(portfolioPostion + 1, 2)
+            portfolioPostion = Math.min(portfolioPostion + 1, 3)
         } else {
             //scroll up
             portfolioPostion = Math.max(portfolioPostion - 1, 0)
         }
 
         $('.slider-thumb').css({ // this works
-            'top': 'calc(33.33% *' + (portfolioPostion) + ')'
+            'top': 'calc(25% *' + (portfolioPostion) + ')'
         })
 
         position = -(portfolioPostion * 63) - (portfolioPostion * 2)
