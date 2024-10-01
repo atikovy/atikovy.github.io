@@ -34,7 +34,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, {
     rootMargin: '0px 0px -100px 0px',
-    threshold: 0.4
+    threshold: 0.5
 });
 
 class subscriptionPlan {
@@ -123,7 +123,7 @@ $(document).ready(function() {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
-                    left: 'calc(50% - 0.5rem)', width: 'calc(50% + 0.25rem)', background: '#0088CF'})
+                    left: 'calc(50% - 0.25rem)', width: 'calc(50%)', background: '#0088CF'})
                 // $('.button-subscription-type').css({backgroundColor: '#0088CF'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;

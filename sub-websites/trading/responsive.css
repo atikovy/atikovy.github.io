@@ -23,26 +23,33 @@
   h1 {
     font-size: 8rem;
     font-weight: 700;
+    line-height: 1em;
     letter-spacing: -0.02em;
     width: fit-content;
     text-wrap: pretty;
     animation: show-from-bottom 1s forwards;
+    padding: 0;
   }
   h2 {
     font-size: 7rem;
     font-weight: 600;
+    line-height: 1em;
     letter-spacing: 0;
     width: fit-content;
     text-wrap: balance;
+    padding: 0;
   }
   h3 {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 500;
+    line-height: 1em;
     letter-spacing: 0;
   }
   h4 {
     font-size: 2rem;
     font-weight: 500;
+    line-height: 1em;
+    letter-spacing: 0;
   }
   section:nth-of-type(2n) h2 {
     background-clip: text;
@@ -58,25 +65,25 @@
   }
   .p1 {
     font-size: 3rem;
-    font-weight: 200;
-    line-height: 1.4em;
+    font-weight: 300;
+    line-height: 1.5em;
     letter-spacing: 0.04em;
-    width: fit-content;
+    width: 100%;
     animation: p-show-from-bottom 1s forwards;
     text-wrap: pretty;
   }
   .p2 {
     font-size: 3rem;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 1.4em;
     letter-spacing: 0.07em;
     width: fit-content;
   }
   .p3 {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 200;
-    line-height: 1.75em;
-    letter-spacing: 0.1em;
+    line-height: 1.6em;
+    letter-spacing: 0.04em;
     width: fit-content;
   }
   .p4 {
@@ -91,6 +98,9 @@
     font-size: 1rem;
     line-height: 1.75em;
     letter-spacing: 0.12em;
+  }
+  .bg {
+    z-index: -5;
   }
   section {
     display: flex;
@@ -118,8 +128,91 @@
     opacity: 0.5;
   }
   section.welcome .button-primary {
-    font-size: 2rem;
-    padding: 1rem 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+    padding: 1.5rem 3rem;
+  }
+  section.tools {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    position: relative;
+  }
+  section.tools h2 {
+    text-align: left;
+  }
+  section.tools .bg:nth-child(1) {
+    right: -16rem;
+    top: 6rem;
+    width: 20%;
+    height: 100%;
+  }
+  section.tools .bg:nth-child(2) {
+    left: -36rem;
+    bottom: -8rem;
+    width: 50%;
+    height: 50%;
+  }
+  section.tools .wrapper-horizontal {
+    position: relative;
+    width: fit-content;
+    gap: 0;
+    padding: 0;
+  }
+  section.tools .wrapper-horizontal .img-container {
+    z-index: -1;
+    width: 60%;
+    opacity: 0;
+  }
+  section.tools .wrapper-horizontal .header-wrapper {
+    position: absolute;
+    width: 100% !important;
+    gap: 2rem !important;
+    padding: 0;
+  }
+  section.tools .wrapper-horizontal.left {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+  section.tools .wrapper-horizontal.left .header-wrapper.trading-tools {
+    left: 0;
+    text-align: left;
+  }
+  section.tools .wrapper-horizontal.left .header-wrapper.trading-tools h3 {
+    width: fit-content;
+  }
+  section.tools .wrapper-horizontal.left .header-wrapper.trading-tools .p3 {
+    width: 90%;
+    text-wrap: balance;
+  }
+  section.tools .wrapper-horizontal.left .img-container {
+    mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    right: 0;
+  }
+  section.tools .wrapper-horizontal.right {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+  section.tools .wrapper-horizontal.right .header-wrapper.financial-overview {
+    right: 0;
+    text-align: right;
+    text-wrap: pretty;
+  }
+  section.tools .wrapper-horizontal.right .header-wrapper.financial-overview h3 {
+    width: fit-content;
+  }
+  section.tools .wrapper-horizontal.right .header-wrapper.financial-overview .p3 {
+    width: 80%;
+    text-wrap: balance;
+  }
+  section.tools .wrapper-horizontal.right .img-container {
+    mask: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    left: 0;
   }
   section.footer .footer-container {
     display: flex;
@@ -128,41 +221,13 @@
     align-items: start;
     width: 100%;
   }
-  section.tools {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-  }
-  section.tools .wrapper-horizontal {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: fit-content;
+  section.assistance .header-wrapper {
     width: fit-content;
-    gap: 0;
-    padding: 0;
+    text-align: left;
   }
-  section.tools .wrapper-horizontal .header-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    all: initial;
-    gap: 0;
+  section.assistance .p2 {
     width: fit-content;
-    padding: 0;
-  }
-  section.tools .wrapper-horizontal .header-wrapper .p3 {
-    width: 100% !important;
     text-wrap: pretty;
-  }
-  section.tools .wrapper-horizontal .img-container {
-    width: 70%;
-  }
-  section.tools .wrapper-horizontal .img-container img {
-    height: 100%;
   }
   .navigation-bar-wrapper {
     display: flex;
@@ -171,9 +236,9 @@
     align-items: center;
     box-sizing: border-box;
     width: 100vw;
-    height: 12rem;
+    height: 10rem;
     margin: 0;
-    padding: 4rem;
+    padding: 2rem;
   }
   .navigation-bar-wrapper .menu {
     display: flex;
@@ -193,21 +258,22 @@
   }
   .navigation-bar-wrapper .menu .button-menu {
     display: block;
-    width: 4rem;
+    width: 6rem;
+    height: 6rem;
   }
   .navigation-bar-wrapper .menu .button-menu img {
     height: 100%;
   }
   .navigation-bar-wrapper .menu .logo {
     display: block;
-    height: 4rem;
-    width: 10rem;
+    height: 6rem;
+    width: 12rem;
   }
   .navigation-bar-spacer {
     box-sizing: border-box;
     width: 100vw;
-    height: 12rem;
-    padding: 4rem;
+    height: 10rem;
+    padding: 2rem;
   }
   .header-wrapper {
     width: 100%;

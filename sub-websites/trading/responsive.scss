@@ -11,7 +11,17 @@
   align-items: $align;
 }
 
-$main-spacing: 1rem;
+@mixin font-setup (
+  $size: 1rem,
+  $weight: 100,
+  $height: 1em,
+  $spacing: 0,
+) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
+}
 
 @media (orientation: landscape) {
 
@@ -39,24 +49,23 @@ $main-spacing: 1rem;
   }
 
   h1 {
-    font-size: 8rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    @include font-setup(8rem, 700, 1em, -0.02em);
     width: fit-content;
     text-wrap: pretty;
     animation: show-from-bottom 1s forwards;
+    padding: 0;
   }
 
   h2 {
-    font-size: 7rem;
-    font-weight: 600;
-    letter-spacing: 0;
+    @include font-setup(7rem, 600);
     width: fit-content;
     text-wrap: balance;
+    padding: 0;
   }
 
-  h3 {font-size: 5rem; font-weight: 500; letter-spacing: 0}
-  h4 {font-size: 2rem; font-weight: 500}
+  h3 {@include font-setup(6rem, 500);}
+
+  h4 {@include font-setup(2rem, 500);}
 
   section:nth-of-type(2n) h2 {
     background-clip: text;
@@ -75,27 +84,27 @@ $main-spacing: 1rem;
   // works the same way as h1, h2, h3...
   .p1 {
     font-size: 3rem;
-    font-weight: 200;
-    line-height: 1.4em;
+    font-weight: 300;
+    line-height: 1.5em;
     letter-spacing: 0.04em;
-    width: fit-content;
+    width: 100%;
     animation: p-show-from-bottom 1s forwards;
     text-wrap: pretty;
   }
 
   .p2 {
     font-size: 3rem;
-    font-weight: 200;
+    font-weight: 300;
     line-height: 1.4em;
     letter-spacing: 0.07em;
     width: fit-content;
   }
 
   .p3 {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 200;
-    line-height: 1.75em;
-    letter-spacing: 0.1em;
+    line-height: 1.6em;
+    letter-spacing: 0.04em;
     width: fit-content;
   }
 
@@ -114,14 +123,18 @@ $main-spacing: 1rem;
     letter-spacing: 0.12em;
   }
 
+  .bg {
+    z-index: -5;
+  }
+
   section {
     @include flexbox(column, start, center);
     box-sizing: border-box;
     height: fit-content;
     width: 100vw;
     margin: 0;
-    padding: ($main-spacing * 6);
-    gap: ($main-spacing * 4);
+    padding: 6rem;
+    gap: 4rem;
   }
 
   section.welcome {
@@ -138,8 +151,90 @@ $main-spacing: 1rem;
     }
 
     .button-primary {
-      font-size: 2rem;
-      padding: 1rem 2rem;
+      font-size: 3rem;
+      font-weight: 500;
+      padding: 1.5rem 3rem;
+    }
+  }
+
+  section.tools {
+    @include flexbox(column, start, start);
+    position: relative;
+
+    h2 {
+      text-align: left;
+    }
+
+    .bg:nth-child(1) {
+      right: -16rem;
+      top: 6rem;
+      width: 20%;
+      height: 100%;
+    }
+    .bg:nth-child(2) {
+      left: -36rem;
+      bottom: -8rem;
+      width: 50%;
+      height: 50%;
+    }
+
+    .wrapper-horizontal {
+      position: relative;
+      width: fit-content;
+      gap: 0;
+      padding: 0;
+
+      .img-container {
+        z-index: -1;
+        width: 60%;
+        opacity: 0;
+      }
+
+      .header-wrapper {
+        position: absolute;
+        width: 100% !important;
+        gap: 2rem !important;
+        padding: 0;
+      }
+    }
+
+    .wrapper-horizontal.left {
+      @include flexbox(row, end, center);
+
+      .header-wrapper.trading-tools {
+        left: 0;
+        text-align: left;
+
+
+        h3 {width: fit-content;}
+        .p3 {
+          width: 90%;
+          text-wrap: balance;
+        }
+      }
+      .img-container {
+        mask: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0, 1) 100%);
+        right: 0;
+      }
+    }
+    .wrapper-horizontal.right {
+      @include flexbox(row, start, center);
+
+      .header-wrapper.financial-overview {
+        right: 0;
+        text-align: right;
+        text-wrap: pretty;
+
+        h3 {width: fit-content;}
+        .p3 {
+          width: 80%;
+          text-wrap: balance;
+        }
+      }
+      .img-container {
+        mask: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0, 1) 100%);
+        left: 0;
+      }
     }
   }
 
@@ -150,36 +245,14 @@ $main-spacing: 1rem;
     }
   }
 
-  section.tools {
-
-    @include flexbox(column, start, start);
-
-    .wrapper-horizontal {
-      @include flexbox(column, space-between, center);
-      height: fit-content;
+  section.assistance {
+    .header-wrapper {
       width: fit-content;
-      gap: 0;
-      padding: 0;
-
-      .header-wrapper {
-        @include flexbox(column, center, center);
-        all: initial;
-        gap: 0;
-        width: fit-content;
-        padding: 0;
-
-        .p3 {
-          width: 100% !important;
-          text-wrap: pretty;
-        }
-      }
-
-      .img-container {
-        width: 70%;
-        img {
-          height: 100%;
-        }
-      }
+      text-align: left;
+    }
+    .p2 {
+      width: fit-content;
+      text-wrap: pretty;
     }
   }
 
@@ -187,9 +260,9 @@ $main-spacing: 1rem;
     @include flexbox(row, center, center);
     box-sizing: border-box;
     width: 100vw;
-    height: 12rem;
+    height: 10rem;
     margin: 0;
-    padding: 4rem;
+    padding: 2rem;
 
     .menu {
       @include flexbox(row, space-between, center);
@@ -206,7 +279,8 @@ $main-spacing: 1rem;
 
       .button-menu {
         display: block;
-        width: 4rem;
+        width: 6rem;
+        height: 6rem;
 
         img {
           height: 100%;
@@ -215,8 +289,8 @@ $main-spacing: 1rem;
 
       .logo {
         display: block;
-        height: 4rem;
-        width: 10rem;
+        height: 6rem;
+        width: 12rem;
       }
     }
   }
@@ -224,13 +298,13 @@ $main-spacing: 1rem;
   .navigation-bar-spacer {
     box-sizing: border-box;
     width: 100vw;
-    height: 12rem;
-    padding: 4rem;
+    height: 10rem;
+    padding: 2rem;
   }
 
   .header-wrapper {
     width: 100%;
-    gap: $main-spacing * 2;
+    gap: 2rem;
   }
 
 }

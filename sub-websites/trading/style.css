@@ -47,12 +47,13 @@ section {
 
 h1, h2, h3, h4 {
   margin: 0;
-  line-height: 1em;
+  padding: 0;
 }
 
 h1 {
   font-size: 8rem;
   font-weight: 700;
+  line-height: 1em;
   letter-spacing: -0.02em;
   animation: show-from-bottom 1s forwards;
   width: fit-content;
@@ -62,6 +63,7 @@ h1 {
 h2 {
   font-size: 6rem;
   font-weight: 600;
+  line-height: 1em;
   letter-spacing: 0;
   width: fit-content;
 }
@@ -69,29 +71,34 @@ h2 {
 h3 {
   font-size: 4rem;
   font-weight: 500;
+  line-height: 1em;
   letter-spacing: 0;
 }
 
 h4 {
   font-size: 2rem;
   font-weight: 500;
+  line-height: 1em;
+  letter-spacing: 0;
 }
 
 h1, h2 {
   padding: 1rem;
-  background: linear-gradient(-135deg, #0088CF -100%, white 100%);
+  background: linear-gradient(-135deg, #1179ce -100%, white 100%);
   background-clip: text;
   color: transparent;
 }
 
 section:nth-of-type(2n) h2 {
-  background: linear-gradient(135deg, #0088CF -100%, white 100%);
+  background: linear-gradient(135deg, #1179ce -100%, white 100%);
   background-clip: text;
   color: transparent;
 }
 
 p {
+  font-size: 1rem;
   font-weight: 100;
+  line-height: 1.5em;
   letter-spacing: 0.05em;
   margin: 0;
   padding: 0;
@@ -134,8 +141,8 @@ p {
 }
 
 .p5 {
-  font-weight: 100;
   font-size: 1rem;
+  font-weight: 100;
   line-height: 1.75em;
   letter-spacing: 0.12em;
 }
@@ -175,9 +182,9 @@ a:hover {
   width: 100vw;
   height: 4rem;
   backdrop-filter: blur(20px);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 1rem;
-  border-bottom: 1px solid rgba(0, 136, 207, 0.2);
+  border-bottom: 1px solid rgba(36, 60, 89, 0.2);
 }
 
 .navigation-bar-spacer {
@@ -215,7 +222,7 @@ a:hover {
 }
 
 .logo {
-  background: linear-gradient(135deg, #0088CF 50%, white 50%);
+  background: linear-gradient(135deg, #1179ce 50%, white 50%);
   width: 12rem;
   height: 3rem;
 }
@@ -234,20 +241,20 @@ button:hover {
 }
 button.button-primary {
   position: relative;
-  background-color: #0088CF;
+  background-color: #1179ce;
   transition: background-color 0.2s;
-  border: 2px solid #0088CF;
+  border: 2px solid #1179ce;
 }
 button.button-primary:hover {
   background-color: #243c59;
 }
 button.button-ghost {
   background-color: transparent;
-  border: 2px solid #0088CF;
+  border: 2px solid #1179ce;
   transition: background-color 0.2s;
 }
 button.button-ghost:hover {
-  background-color: #0088CF;
+  background-color: #1179ce;
 }
 
 .header-wrapper {
@@ -294,6 +301,8 @@ button.button-ghost:hover {
   transition: opacity 0.2s;
   font-size: 1.5rem;
   font-weight: 500;
+  line-height: 1em;
+  letter-spacing: 0;
 }
 
 .cards-container {
@@ -338,9 +347,11 @@ section.welcome .bg {
   animation: opacity-in 2s forwards;
 }
 section.welcome button {
-  padding: 0.5rem 1.25rem;
-  font-size: 1.125rem;
+  font-size: 1.125;
   font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0;
+  padding: 0.5rem 1.25rem;
 }
 
 section.tools .bg:nth-of-type(1) {
@@ -386,7 +397,7 @@ section.tools .wrapper-horizontal .header-wrapper.trading-tools .p3 {
 section.tools .wrapper-horizontal .header-wrapper.financial-overview {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: end;
   gap: 1rem;
   width: 70%;
@@ -509,30 +520,27 @@ section.subscription .sub-card {
   z-index: 5;
   padding: 3rem;
   gap: 1rem;
-  border-radius: 2rem;
   background: rgba(0, 0, 0, 0.5);
+  border-radius: 2rem;
   width: 25%;
   opacity: 0;
   transform: scale(0.95);
-  box-shadow: rgba(0, 136, 207, 0) 0 4rem 0 -5rem;
+  box-shadow: rgba(17, 121, 206, 0) 0 4rem 0 -5rem;
   transition: all 0.3s;
 }
 section.subscription .sub-card:hover {
   z-index: 5;
   transform: scale(1);
-  box-shadow: rgb(0, 136, 207) 0 4rem 8rem -5rem;
+  box-shadow: #1179ce 0 4rem 8rem -5rem;
   background: rgba(0, 0, 0, 0.6);
-}
-section.subscription .sub-card:hover .button-ghost {
-  background-color: #0088CF;
 }
 section.subscription .sub-card.special {
   transform: scale(1);
-  background-color: rgba(0, 136, 207, 0.5);
+  background-color: rgba(17, 121, 206, 0.5);
 }
 section.subscription .sub-card.special:hover {
   transform: scale(1.05);
-  background-color: rgba(0, 136, 207, 0.7);
+  background-color: rgba(17, 121, 206, 0.7);
 }
 section.subscription .sub-card h3 {
   font-weight: 600;
@@ -541,6 +549,7 @@ section.subscription .sub-card p {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1em;
+  letter-spacing: 0;
 }
 section.subscription .sub-card .separator {
   background-color: white;
@@ -566,14 +575,15 @@ section.subscription .sub-card .price-tag div:nth-child(1) {
 }
 section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(1) {
   font-size: 4rem;
-  line-height: 1em;
   font-weight: 600;
+  line-height: 1em;
   letter-spacing: 0;
 }
 section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(2) {
   font-size: 2rem;
-  line-height: 1.4em;
   font-weight: 500;
+  line-height: 1.4em;
+  letter-spacing: 0;
 }
 section.subscription .sub-card .price-tag div:nth-child(2) {
   display: flex;
@@ -587,6 +597,7 @@ section.subscription .sub-card .price-tag div:nth-child(2) p {
   font-size: 1.5rem;
   font-weight: 200;
   line-height: 1em;
+  letter-spacing: 0;
   text-align: left;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -612,6 +623,7 @@ section.subscription .sub-card .list-item img {
 section.subscription .sub-card .list-item p {
   font-size: 1.2rem;
   font-weight: 300;
+  line-height: 1em;
   letter-spacing: 0.1em;
 }
 section.subscription .button-subscription-type {
@@ -645,9 +657,10 @@ section.subscription .button-subscription-type .button-ball {
   z-index: 0;
   width: calc(50% + 0.25rem);
   height: calc(100% - 0.5rem);
+  left: 50%;
   top: 0.25rem;
   border-radius: 10rem;
-  background: #0088CF;
+  background: #1179ce;
   transition: all 0.3s;
 }
 
@@ -709,7 +722,9 @@ section.footer svg:hover * {
   fill-opacity: 1;
 }
 
-h2, .p2, .p3, .p5, .img-container, .card, .wecome.button-primary {
+h2, .p2, .p3, .p5,
+.img-container, .card,
+.wecome.button-primary {
   opacity: 0;
   transform: translateY(20%);
 }

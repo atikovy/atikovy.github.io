@@ -1,6 +1,6 @@
 
 $darkGrey: #0F0F0F;
-$lightBlue: #0088CF;
+$lightBlue: #1179ce;
 $darkBlue: #243c59;
 $darkWhite: rgba(255, 255, 255, 0.5);
 $main-spacing: 2rem;
@@ -17,6 +17,18 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin font-setup (
+  $size: 1rem,
+  $weight: 100,
+  $height: 1em,
+  $spacing: 0,
+) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
 }
 
 * {
@@ -63,22 +75,25 @@ section {
   height: fit-content;
 }
 
-h1, h2, h3, h4 {margin: 0; line-height: 1em}
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
-  font-size: 8rem; font-weight: 700;
-  letter-spacing: -0.02em;
+  @include font-setup(8rem, 700, 1em, -0.02em);
   animation: show-from-bottom 1s forwards;
   width: fit-content;
   text-wrap: balance;
 }
+
 h2 {
-  font-size: 6rem;
-  font-weight: 600;
-  letter-spacing: 0;
+  @include font-setup(6rem, 600);
   width: fit-content;
 }
-h3 {font-size: 4rem; font-weight: 500; letter-spacing: 0}
-h4 {font-size: 2rem; font-weight: 500}
+
+h3 {@include font-setup(4rem, 500);}
+h4 {@include font-setup(2rem, 500);}
 
 h1, h2 {
   padding: $main-spacing / 2;
@@ -95,8 +110,7 @@ section:nth-of-type(2n) h2 {
 }
 
 p {
-  font-weight: 100;
-  letter-spacing: 0.05em;
+  @include font-setup(1rem, 100, 1.5em, 0.05em);
   margin: 0;
   padding: 0;
   text-wrap: pretty;
@@ -105,44 +119,29 @@ p {
 
 // works the same way as h1, h2, h3...
 .p1 {
-  font-size: 3rem;
-  font-weight: 200;
-  line-height: 1.2em;
-  letter-spacing: 0.04em;
+  @include font-setup(3rem, 200, 1.2em, 0.04em);
   width: 60%;
   animation: p-show-from-bottom 1s forwards;
   text-wrap: pretty;
 }
 
 .p2 {
-  font-size: 2rem;
-  font-weight: 200;
-  line-height: 1.5em;
-  letter-spacing: 0.07em;
+  @include font-setup(2rem, 200, 1.5em, 0.07em);
   width: fit-content;
 }
 
 .p3 {
-  font-size: 1.5rem;
-  font-weight: 200;
-  line-height: 1.75em;
-  letter-spacing: 0.1em;
+  @include font-setup(1.5rem, 200, 1.75em, 0.1em);
   width: 70%;
 }
 
 .p4 {
-  font-size: 1.25rem;
-  font-weight: 200;
-  line-height: 1.75em;
-  letter-spacing: 0.1em;
+  @include font-setup(1.25rem, 200, 1.75em, 0.1em);
   width: 70%;
 }
 
 .p5 {
-  font-weight: 100;
-  font-size: 1rem;
-  line-height: 1.75em;
-  letter-spacing: 0.12em;
+  @include font-setup(1rem, 100, 1.75em, 0.12em);
 }
 
 a {
@@ -176,9 +175,9 @@ a {
   height: 4rem;
 
   backdrop-filter: blur(20px);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: $main-spacing / 2;
-  border-bottom: 1px solid rgba(0, 136, 207, 0.2);
+  border-bottom: 1px solid rgba($darkBlue, 0.2);
 }
 
 .navigation-bar-spacer {
@@ -275,8 +274,8 @@ button {
     gap: $main-spacing / 2;
     p {
       transition: opacity 0.2s;
-      font-size: 1.5rem;
-      font-weight: 500;}
+      @include font-setup(1.5rem, 500);
+    }
   }
 }
 
@@ -323,9 +322,8 @@ section.welcome {
     animation: opacity-in 2s forwards;
   }
   button {
+    @include font-setup(1.125, 400);
     padding: 0.5rem 1.25rem;
-    font-size: 1.125rem;
-    font-weight: 400;
   }
 }
 
@@ -371,7 +369,7 @@ section.tools {
     }
 
     .header-wrapper.financial-overview {
-      @include flexbox(column, center, end);
+      @include flexbox(column, end, end);
       gap: 1rem;
       width: 70%;
       text-align: right;
@@ -493,40 +491,35 @@ section.subscription {
     z-index: 5;
     padding: $main-spacing * 1.5;
     gap: $main-spacing / 2;
+
+    background: rgba(black, 0.5);
     border-radius: $main-spacing;
-    background: rgba(0, 0, 0, 0.5);
     width: 25%;
     opacity: 0;
     transform: scale(0.95);
-    box-shadow: rgba(0, 136, 207, 0) 0 4rem 0 -5rem;
+    box-shadow: rgba($lightBlue, 0) 0 4rem 0 -5rem;
     transition: all 0.3s;
 
     &:hover {
       z-index: 5;
       transform: scale(1);
-      box-shadow: rgba(0, 136, 207, 1) 0 4rem 8rem -5rem;
-      background: rgba(0, 0, 0, 0.6);
-
-      & .button-ghost {background-color: $lightBlue;}
+      box-shadow: rgba($lightBlue, 1) 0 4rem 8rem -5rem;
+      background: rgba(black, 0.6);
+      //& .button-ghost {background-color: $lightBlue;}
     }
 
     &.special {
       transform: scale(1);
-
-      background-color: rgba(0, 136, 207, 0.5);
+      background-color: rgba($lightBlue, 0.5);
       &:hover {
         transform: scale(1.05);
-        background-color: rgba(0, 136, 207, 0.7);
+        background-color: rgba($lightBlue, 0.7);
       }
     }
 
     h3 {font-weight: 600;}
 
-    p {
-      font-size: 1.5rem;
-      font-weight: 600;
-      line-height: 1em;
-    };
+    p {@include font-setup(1.5rem, 600);};
 
     .separator {
       background-color: white;
@@ -546,15 +539,10 @@ section.subscription {
         gap: $main-spacing / 2;
 
         :nth-child(1) {
-          font-size: 4rem;
-          line-height: 1em;
-          font-weight: 600;
-          letter-spacing: 0;
+          @include font-setup(4rem, 600);
         }
         :nth-child(2) {
-          font-size: 2rem;
-          line-height: 1.4em;
-          font-weight: 500;
+          @include font-setup(2rem, 500, 1.4em);
         }
       }
       div:nth-child(2) {
@@ -563,9 +551,7 @@ section.subscription {
         gap: $main-spacing / 2;
 
         p {
-          font-size: 1.5rem;
-          font-weight: 200;
-          line-height: 1em;
+          @include font-setup(1.5rem, 200);
           text-align: left;
           color: $darkWhite;
         }
@@ -586,9 +572,7 @@ section.subscription {
       img {height: 100%;}
 
       p {
-        font-size: 1.2rem;
-        font-weight: 300;
-        letter-spacing: 0.1em;
+        @include font-setup(1.2rem, 300, 1em, 0.1em);
       }
     }
   }
@@ -621,6 +605,7 @@ section.subscription {
       z-index: 0;
       width: calc(50% + 0.25rem);
       height: calc(100% - 0.5rem);
+      left: 50%;
       top: 0.25rem;
       border-radius: 10rem;
       background: $lightBlue;
@@ -683,7 +668,9 @@ section.footer {
 
 //animation triggers
 
-h2, .p2, .p3, .p5, .img-container, .card, .wecome.button-primary {
+h2, .p2, .p3, .p5,
+.img-container, .card,
+.wecome.button-primary {
   opacity: 0;
   transform: translateY(20%);
 }
