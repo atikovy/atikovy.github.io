@@ -143,14 +143,14 @@
     text-align: left;
   }
   section.tools .bg:nth-child(1) {
-    right: -16rem;
-    top: 6rem;
-    width: 50%;
-    height: 100%;
+    right: -6rem;
+    top: 20rem;
+    width: 20%;
+    height: 50%;
   }
   section.tools .bg:nth-child(2) {
-    left: -36rem;
-    bottom: -8rem;
+    left: -6rem;
+    bottom: -6rem;
     width: 20%;
     height: 50%;
   }
@@ -162,7 +162,7 @@
   }
   section.tools .wrapper-horizontal .img-container {
     z-index: -1;
-    width: 60%;
+    width: 70%;
     opacity: 0;
   }
   section.tools .wrapper-horizontal .header-wrapper {
@@ -185,7 +185,7 @@
     width: fit-content;
   }
   section.tools .wrapper-horizontal.left .header-wrapper.trading-tools .p3 {
-    width: 90%;
+    width: 70%;
     text-wrap: balance;
   }
   section.tools .wrapper-horizontal.left .img-container {
@@ -207,7 +207,7 @@
     width: fit-content;
   }
   section.tools .wrapper-horizontal.right .header-wrapper.financial-overview .p3 {
-    width: 80%;
+    width: 70%;
     text-wrap: balance;
   }
   section.tools .wrapper-horizontal.right .img-container {
@@ -228,6 +228,15 @@
   section.assistance .p2 {
     width: fit-content;
     text-wrap: pretty;
+  }
+  section.assistance .cards-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  section.assistance .cards-container .card {
+    width: fit-content;
   }
   .navigation-bar-wrapper {
     display: flex;

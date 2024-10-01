@@ -34,7 +34,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, {
     rootMargin: '0px 0px -100px 0px',
-    threshold: 0.5
+    threshold: 0.4
 });
 
 class subscriptionPlan {

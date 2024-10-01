@@ -166,14 +166,14 @@
     }
 
     .bg:nth-child(1) {
-      right: -16rem;
-      top: 6rem;
-      width: 50%;
-      height: 100%;
+      right: -6rem;
+      top: 20rem;
+      width: 20%;
+      height: 50%;
     }
     .bg:nth-child(2) {
-      left: -36rem;
-      bottom: -8rem;
+      left: -6rem;
+      bottom: -6rem;
       width: 20%;
       height: 50%;
     }
@@ -186,7 +186,7 @@
 
       .img-container {
         z-index: -1;
-        width: 60%;
+        width: 70%;
         opacity: 0;
       }
 
@@ -208,7 +208,7 @@
 
         h3 {width: fit-content;}
         .p3 {
-          width: 90%;
+          width: 70%;
           text-wrap: balance;
         }
       }
@@ -227,7 +227,7 @@
 
         h3 {width: fit-content;}
         .p3 {
-          width: 80%;
+          width: 70%;
           text-wrap: balance;
         }
       }
@@ -253,6 +253,14 @@
     .p2 {
       width: fit-content;
       text-wrap: pretty;
+    }
+
+    .cards-container {
+      @include flexbox(column, center, center);
+
+      .card {
+        width: fit-content;
+      }
     }
   }
 
