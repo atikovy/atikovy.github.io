@@ -53,7 +53,7 @@ class subscriptionPlan {
 
 const subscriptionPlanList = [
     new subscriptionPlan('Basic', 4.99, 2),
-    new subscriptionPlan('Mid', 14.99, 3, true, 'button-primary'),
+    new subscriptionPlan('Mid', 14.99, 3, true, 'primary'),
     new subscriptionPlan('Pro', 44.99, 4)
 ]
 
@@ -62,7 +62,7 @@ function generatePlans(plans) {
 
     plans.forEach(plan => {
         let specialClass = plan.special ? 'special' : '';
-        let buttonClass = plan.buttonType === 'primary' ? 'button-primary' : 'button-ghost';
+        let buttonClass = specialClass === 'special' ? 'button-ghost' : 'button-ghost';
 
         let card = $(`
                 <div class="sub-card ${specialClass}">
