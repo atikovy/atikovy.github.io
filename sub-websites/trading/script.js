@@ -156,3 +156,15 @@ $(document).ready(function() {
         updatePrice(e)
     })
 });
+
+$('.danger-button').on('click',function (e) {
+    $('.danger-info').css({
+        left: 0,
+    })
+})
+
+$('.danger-info').on('click',function (e) {
+    $('.danger-info').css({
+        left: '120%',
+    })
+})

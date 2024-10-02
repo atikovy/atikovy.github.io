@@ -238,6 +238,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     gap: 4rem;
   }
   section.assistance .cards-container .card {
@@ -261,6 +262,7 @@
     font-weight: 100;
     line-height: 1.25em;
     letter-spacing: 0.1em;
+    word-spacing: 0.25rem;
     width: fit-content;
   }
   section.assistance .cards-container .card:nth-child(1), section.assistance .cards-container .card:nth-child(3) {
@@ -282,12 +284,15 @@
     align-items: start;
     position: absolute;
     bottom: 0;
-    left: -100%;
+    left: 120%;
     padding: 4rem;
     gap: 2rem;
-    width: calc(100vw - 8rem);
+    width: 100%;
     border-radius: 2rem;
     background-color: #1179ce;
+    word-spacing: 0.2rem;
+    hyphens: auto;
+    transition: all 0.3s;
   }
   section.assistance .cards-container .danger-info .p5 {
     font-size: 3rem;
@@ -296,8 +301,22 @@
     letter-spacing: 0;
   }
   section.assistance .cards-container .danger-info img {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
+  }
+  section.assistance .cards-container .danger-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1179ce;
+    padding: 1rem;
+    border-radius: 10rem;
+    align-self: end;
+  }
+  section.assistance .cards-container .danger-button img {
+    width: 6rem;
+    height: 6rem;
   }
   section.statistics .bg {
     display: none;

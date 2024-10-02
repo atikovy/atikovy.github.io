@@ -127,7 +127,7 @@ p {
 .p3 {
   font-size: 2rem;
   font-weight: 200;
-  line-height: 1.75em;
+  line-height: 1.5em;
   letter-spacing: 0.1em;
   width: 70%;
 }
@@ -443,6 +443,9 @@ section.assistance .bg:nth-of-type(2) {
   height: 80%;
   bottom: 0;
 }
+section.assistance .danger-button {
+  display: none;
+}
 section.assistance .p2 {
   width: 60%;
 }
@@ -460,6 +463,8 @@ section.assistance .card {
 }
 section.assistance .card .p4 {
   text-align: justify;
+  word-spacing: 0.25rem;
+  hyphens: auto;
   width: 100%;
 }
 section.assistance .card h4 {
@@ -526,7 +531,7 @@ section.subscription h2 {
   text-wrap: balance;
 }
 section.subscription .header-wrapper {
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
 }
 section.subscription .subscription-container {

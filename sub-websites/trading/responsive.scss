@@ -274,6 +274,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 
     .cards-container {
       @include flexbox(column, center, center);
+      position: relative;
       gap: 4rem;
 
       .card {
@@ -293,6 +294,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 
         .p4 {
           @include font-setup(2.5rem, 100, 1.25em, 0.1em);
+          word-spacing: 0.25rem;
           width: fit-content;
         }
 
@@ -311,18 +313,34 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         @include flexbox(column, start, start);
         position: absolute;
         bottom: 0;
-        left: -100%;
+        left: 120%;
         padding: 4rem;
         gap: 2rem;
-        width: calc(100vw - 8rem);
+        width: 100%;
         border-radius: 2rem;
         background-color: $lightBlue;
+        word-spacing: 0.2rem;
+        hyphens: auto;
+        transition: all 0.3s;
+
         .p5 {
           @include font-setup(3rem, 200, 1.5em);
         }
         img {
-          width: 4rem;
-          height: 4rem;
+          width: 6rem;
+          height: 6rem;
+        }
+      }
+      .danger-button {
+        @include flexbox(column, center, center);
+        background-color: $lightBlue;
+        padding: 1rem;
+        border-radius: 10rem;
+        align-self: end;
+
+        img {
+          width: 6rem;
+          height: 6rem;
         }
       }
     }
