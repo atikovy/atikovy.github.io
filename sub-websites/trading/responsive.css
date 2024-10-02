@@ -292,7 +292,7 @@
     background-color: #1179ce;
     word-spacing: 0.2rem;
     hyphens: auto;
-    transition: all 0.3s;
+    transition: all 0.5s;
   }
   section.assistance .cards-container .danger-info .p5 {
     font-size: 3rem;

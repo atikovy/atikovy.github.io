@@ -144,7 +144,7 @@ p {
 }
 
 a {
-  @include font-setup(1.25rem, 200, 2em, 0.05em);
+  @include font-setup(1rem, 200, 3em, 0.05em);
   text-decoration: none;
   transition: color 0.2s;
 
@@ -168,17 +168,17 @@ a {
   z-index: 10;
 
   width: 100vw;
-  height: 4rem;
+  height: 3rem;
 
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
   padding: $main-spacing / 2;
-  border-bottom: 1px solid rgba($darkBlue, 0.2);
+  border-bottom: 1px solid rgba($darkBlue, 0.5);
 }
 
 .navigation-bar-spacer {
   position: relative;
-  height: 4rem;
+  height: 3rem;
   padding: $main-spacing / 2;
 }
 
@@ -187,35 +187,45 @@ a {
   padding: 0 6rem;
   width: 100vh;
 
+  div:nth-of-type(1), div:nth-of-type(3) {
+    flex: 1;
+  }
+
   div {
     @include flexbox(row);
     padding: 0;
     margin: 0;
     gap: 1rem;
-
     height: 100%;
-    line-height: 1rem;
-    font-weight: 500;
+  }
+
+  .logo {
+    @include flexbox(row, start, center);
+    height: fit-content;
+    width: 12rem;
+
+    img {
+      height: 100%;
+      width: 3rem;
+    }
+  }
+
+  .login-menu {
+    justify-content: end;
   }
 
   #navigation-buttons {
     justify-content: space-between;
-    width: fit-content;
     gap: $main-spacing;
+    flex: 1.5;
   }
   .button-menu {
     display: none;
   }
 }
 
-.logo {
-  background: linear-gradient(135deg, $lightBlue 50%, white 50%);
-  width: 12rem;
-  height: 3rem;
-}
-
 button {
-  @include font-setup(1.25rem, 300, 1em, 0.03em);
+  @include font-setup(1rem, 300, 1em, 0.03em);
   border-radius: 10rem;
   padding: 0.5em 1.5em;
   color: white;
@@ -653,29 +663,79 @@ section.subscription {
 section.footer {
   background-color: $darkGrey;
   width: 100%;
+  overflow: clip;
+  text-align: left;
+  padding: 3rem 0;
+
+  p, a {
+    @include font-setup(1rem, 100, 1.2em, 0.1em);
+  }
 
   .footer-container{
     @include flexbox(row, start, stretch);
+    position: relative;
     height: 100%;
     width: 100vh;
-    gap: $main-spacing * 2;
+    gap: 2rem;
     padding: 0 6rem;
+
+    .logo-medium {
+      height: 10rem;
+      opacity: 0.5;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .social {
+      @include flexbox(column, start, start);
+      gap: $main-spacing / 2;
+    }
+
+    .shortcuts {
+      @include flexbox(column, start, start);
+      gap: $main-spacing / 2;
+
+      div {
+        @include flexbox(column, start, start);
+        gap: 0.5rem;
+      }
+    }
+
+    .contact {
+      @include flexbox(row, start, start);
+      gap: 2rem;
+
+      .contact-wrapper {
+        @include flexbox(column, start, space-between);
+        gap: 1rem;
+        height: 100%;
+
+        .contact-line {
+          @include flexbox(row, start, center);
+          gap: $main-spacing / 2;
+          width: 100% !important;
+          p {
+            width: 100%;
+            height: 100%;
+          }
+          img {
+            display: block;
+            height: 2.5rem;
+            width: 2.5rem;
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 
-  .contact, .shortcuts, .social {
-    @include flexbox(column, start, start);
-    gap: $main-spacing / 2;
-    text-align: left;
-  }
-
-  .contact-line {
-    @include flexbox(row, start, center);
-    gap: $main-spacing / 2;
-  }
 
   .social-icons {
     @include flexbox(row, space-between, center);
     gap: $main-spacing / 2;
+    z-index: 1;
   }
 
   .vr {
@@ -696,6 +756,20 @@ section.footer {
     cursor: pointer;
     * {
       fill-opacity: 1;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    opacity: 0.1;
+    height: 270%;
+    right: 6rem;
+    bottom: 50%;
+    transform: translateY(50%);
+
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }

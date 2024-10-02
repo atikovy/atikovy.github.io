@@ -148,9 +148,9 @@ p {
 }
 
 a {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 200;
-  line-height: 2em;
+  line-height: 3em;
   letter-spacing: 0.05em;
   text-decoration: none;
   transition: color 0.2s;
@@ -180,16 +180,16 @@ a:hover {
   top: 0;
   z-index: 10;
   width: 100vw;
-  height: 4rem;
+  height: 3rem;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1rem;
-  border-bottom: 1px solid rgba(36, 60, 89, 0.2);
+  border-bottom: 1px solid rgba(36, 60, 89, 0.5);
 }
 
 .navigation-bar-spacer {
   position: relative;
-  height: 4rem;
+  height: 3rem;
   padding: 1rem;
 }
 
@@ -201,6 +201,9 @@ a:hover {
   padding: 0 6rem;
   width: 100vh;
 }
+.menu div:nth-of-type(1), .menu div:nth-of-type(3) {
+  flex: 1;
+}
 .menu div {
   display: flex;
   flex-direction: row;
@@ -210,26 +213,33 @@ a:hover {
   margin: 0;
   gap: 1rem;
   height: 100%;
-  line-height: 1rem;
-  font-weight: 500;
+}
+.menu .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: fit-content;
+  width: 12rem;
+}
+.menu .logo img {
+  height: 100%;
+  width: 3rem;
+}
+.menu .login-menu {
+  justify-content: end;
 }
 .menu #navigation-buttons {
   justify-content: space-between;
-  width: fit-content;
   gap: 2rem;
+  flex: 1.5;
 }
 .menu .button-menu {
   display: none;
 }
 
-.logo {
-  background: linear-gradient(135deg, #1179ce 50%, white 50%);
-  width: 12rem;
-  height: 3rem;
-}
-
 button {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1em;
   letter-spacing: 0.03em;
@@ -704,31 +714,88 @@ section.subscription .button-subscription-type .button-ball {
 section.footer {
   background-color: #0F0F0F;
   width: 100%;
+  overflow: clip;
+  text-align: left;
+  padding: 3rem 0;
+}
+section.footer p, section.footer a {
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
 }
 section.footer .footer-container {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: stretch;
+  position: relative;
   height: 100%;
   width: 100vh;
-  gap: 4rem;
+  gap: 2rem;
   padding: 0 6rem;
 }
-section.footer .contact, section.footer .shortcuts, section.footer .social {
+section.footer .footer-container .logo-medium {
+  height: 10rem;
+  opacity: 0.5;
+}
+section.footer .footer-container .logo-medium img {
+  height: 100%;
+  width: 100%;
+}
+section.footer .footer-container .social {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   gap: 1rem;
-  text-align: left;
 }
-section.footer .contact-line {
+section.footer .footer-container .shortcuts {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 1rem;
+}
+section.footer .footer-container .shortcuts div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 0.5rem;
+}
+section.footer .footer-container .contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+}
+section.footer .footer-container .contact .contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: space-between;
+  gap: 1rem;
+  height: 100%;
+}
+section.footer .footer-container .contact .contact-wrapper .contact-line {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
   gap: 1rem;
+  width: 100% !important;
+}
+section.footer .footer-container .contact .contact-wrapper .contact-line p {
+  width: 100%;
+  height: 100%;
+}
+section.footer .footer-container .contact .contact-wrapper .contact-line img {
+  display: block;
+  height: 2.5rem;
+  width: 2.5rem;
+  opacity: 1;
 }
 section.footer .social-icons {
   display: flex;
@@ -736,6 +803,7 @@ section.footer .social-icons {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  z-index: 1;
 }
 section.footer .vr {
   width: 0.1rem;
@@ -757,6 +825,18 @@ section.footer svg:hover {
 }
 section.footer svg:hover * {
   fill-opacity: 1;
+}
+section.footer .logo {
+  position: absolute;
+  opacity: 0.1;
+  height: 270%;
+  right: 6rem;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+section.footer .logo img {
+  width: 100%;
+  height: 100%;
 }
 
 h2, .p2, .p3, .p5,

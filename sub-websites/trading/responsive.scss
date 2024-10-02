@@ -321,7 +321,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         background-color: $lightBlue;
         word-spacing: 0.2rem;
         hyphens: auto;
-        transition: all 0.3s;
+        transition: all 0.5s;
 
         .p5 {
           @include font-setup(3rem, 200, 1.5em);
