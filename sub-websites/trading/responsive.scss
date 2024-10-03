@@ -488,6 +488,8 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         display: block;
         height: 6rem;
         width: 12rem;
+
+        flex: 0;
       }
     }
   }

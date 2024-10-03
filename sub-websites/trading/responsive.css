@@ -447,6 +447,7 @@
     display: block;
     height: 6rem;
     width: 12rem;
+    flex: 0;
   }
   .navigation-bar-spacer {
     box-sizing: border-box;
