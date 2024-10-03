@@ -327,6 +327,9 @@
     background: none;
     filter: blur(0.5rem);
   }
+  section.subscription {
+    width: fit-content;
+  }
   section.subscription .header-wrapper {
     gap: 4rem;
   }
@@ -347,18 +350,64 @@
     justify-content: start;
     align-items: start;
     position: relative;
-    gap: 2rem;
+    gap: 0;
+    height: 100%;
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
-    width: 100%;
     border: 1px solid red;
     overflow-x: scroll;
     font-size: 1rem;
   }
   section.subscription .subscription-container .sub-card {
+    position: relative;
     scroll-snap-align: center;
-    border-radius: 3rem;
+    transform: scale(1);
+    width: 50rem !important;
+    height: 60vh;
+  }
+  section.subscription .subscription-container .sub-card.special {
+    transform: scale(1);
+  }
+  section.subscription .subscription-container .sub-card h3 {
+    font-size: 10rem;
+  }
+  section.subscription .subscription-container .sub-card p {
+    font-size: 3rem;
+  }
+  section.subscription .subscription-container .sub-card .separator {
+    background-color: white;
     width: 100%;
+    height: 0.05rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag {
+    gap: 2rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) {
+    gap: 2rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) :nth-child(1) {
+    font-size: 6rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) :nth-child(2) {
+    font-size: 3rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag div:nth-child(2) {
+    gap: 2rem;
+  }
+  section.subscription .subscription-container .sub-card .price-tag div:nth-child(2) p {
+    text-align: left;
+  }
+  section.subscription .subscription-container .sub-card .sub-items {
+    gap: 2rem;
+  }
+  section.subscription .subscription-container .sub-card .list-item {
+    gap: 2rem;
+  }
+  section.subscription .subscription-container .sub-card .list-item img {
+    height: 100%;
+  }
+  section.subscription .subscription-container .sub-card .list-item p {
+    font-size: 3rem;
   }
   section.footer {
     padding: 0;
