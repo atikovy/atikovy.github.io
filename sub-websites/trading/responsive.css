@@ -382,7 +382,6 @@
     text-align: center;
   }
   section.footer .footer-container .social-icons svg {
-    width: 6rem;
     height: 6rem;
   }
   section.footer .footer-container .contact, section.footer .footer-container .shortcuts, section.footer .footer-container .social {
@@ -399,9 +398,15 @@
     display: none;
   }
   section.footer .logo {
+    height: initial;
+    width: 80%;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(50%);
+  }
+  section.footer .logo img {
     width: 100%;
-    left: 0;
-    bottom: 0;
+    height: 100%;
   }
   .navigation-bar-wrapper {
     display: flex;

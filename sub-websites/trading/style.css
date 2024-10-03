@@ -834,7 +834,7 @@ section.footer svg:hover * {
 }
 section.footer .logo {
   position: absolute;
-  opacity: 0.1;
+  opacity: 0.03;
   height: 250%;
   right: 6rem;
   bottom: 50%;
