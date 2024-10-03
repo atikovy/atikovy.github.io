@@ -255,13 +255,6 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     }
   }
 
-  section.footer {
-    .footer-container {
-      @include flexbox(column, center, start);
-      width: 100%;
-    }
-  }
-
   section.assistance {
     .header-wrapper {
       width: fit-content;
@@ -310,37 +303,33 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         }
       }
       .danger-info {
-        @include flexbox(column, start, start);
-        position: absolute;
-        bottom: 0;
-        left: 120%;
-        padding: 4rem;
-        gap: 2rem;
-        width: 100%;
-        border-radius: 2rem;
-        background-color: $lightBlue;
-        word-spacing: 0.2rem;
-        hyphens: auto;
-        transition: all 0.5s;
-
-        .p5 {
-          @include font-setup(3rem, 200, 1.5em);
-        }
-        img {
-          width: 6rem;
-          height: 6rem;
-        }
+        display: none;
       }
       .danger-button {
-        @include flexbox(column, center, center);
+        @include flexbox(column, start, end);
+        align-self: end;
         background-color: $lightBlue;
         padding: 1rem;
         border-radius: 10rem;
-        align-self: end;
+        overflow: clip;
+        width: 6rem;
+        height: 6rem;
+        gap: 0;
+
+        transition: all 0.5s;
+        box-shadow: 0 2rem 3rem -2rem rgba(black, 0.5);
 
         img {
           width: 6rem;
           height: 6rem;
+        }
+
+        p {
+          @include font-setup(3rem, 200, 1.5em);
+          text-align: justify;
+          width: 100%;
+          word-spacing: 0.2rem;
+          hyphens: auto;
         }
       }
     }
@@ -409,6 +398,52 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         border-radius: 3rem;
         width: 100%;
       }
+    }
+  }
+
+  section.footer {
+    padding: 0;
+
+    p, a {
+      @include font-setup(3rem, 100em, 1.5em, 0.1em);
+    }
+
+
+    .footer-container {
+      @include flexbox(column, center, start);
+      box-sizing: border-box;
+      width: 100vw;
+      height: fit-content;
+      padding: 6rem;
+      gap: 4rem;
+      text-align: center;
+
+      .social-icons {
+        svg {
+          width: 6rem;
+          height: 6rem;
+        }
+      }
+
+      .contact, .shortcuts, .social {
+        width: 100%;
+        gap: 2rem;
+        * {width: 100%;}
+      }
+    }
+
+    .vr {
+      display: none;
+    }
+
+    .logo-medium {
+      display: none;
+    }
+
+    .logo {
+      width: 100%;
+      left: 0;
+      bottom: 0;
     }
   }
 

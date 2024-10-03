@@ -157,14 +157,27 @@ $(document).ready(function() {
     })
 });
 
-$('.danger-button').on('click',function (e) {
-    $('.danger-info').css({
-        left: 0,
-    })
-})
+let dangerOn = false;
 
-$('.danger-info').on('click',function (e) {
-    $('.danger-info').css({
-        left: '120%',
-    })
-})
+$('.danger-button').on('click', function(e) {
+    if (dangerOn === false) {
+        $(this).css({
+            height: '54rem',
+            width: 'calc(100% - 8rem)',
+            borderRadius: '4rem',
+            padding: '4rem',
+            gap: '2rem',
+        });
+        dangerOn = true;
+    }
+    else {
+        $(this).css({
+            height: '6rem',
+            width: '6rem',
+            borderRadius: '10rem',
+            padding: '1rem',
+            gap: '0',
+        })
+        dangerOn = false;
+    }
+});
