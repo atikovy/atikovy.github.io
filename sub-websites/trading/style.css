@@ -1,3 +1,8 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 * {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
@@ -84,13 +89,13 @@ h4 {
 
 h1, h2 {
   padding: 1rem;
-  background: linear-gradient(-135deg, #1179ce -100%, white 100%);
+  background: linear-gradient(-135deg, #0f6fbd -100%, white 100%);
   background-clip: text;
   color: transparent;
 }
 
 section:nth-of-type(2n) h2 {
-  background: linear-gradient(135deg, #1179ce -100%, white 100%);
+  background: linear-gradient(135deg, #0f6fbd -100%, white 100%);
   background-clip: text;
   color: transparent;
 }
@@ -111,7 +116,7 @@ p {
   font-weight: 300;
   line-height: 1.1em;
   letter-spacing: 0.04em;
-  width: 60%;
+  width: 50rem;
   animation: p-show-from-bottom 1s forwards;
   text-wrap: pretty;
 }
@@ -121,13 +126,13 @@ p {
   font-weight: 300;
   line-height: 1.2em;
   letter-spacing: 0.07em;
-  width: fit-content;
+  width: 100%;
 }
 
 .p3 {
   font-size: 2rem;
   font-weight: 200;
-  line-height: 1.5em;
+  line-height: 1.2em;
   letter-spacing: 0.1em;
   width: 70%;
 }
@@ -166,7 +171,7 @@ a:hover {
   --hue-value: 10deg;
   --blur-value: 10rem;
   position: absolute;
-  z-index: -1;
+  z-index: -5;
   opacity: 0;
   filter: blur(20rem) hue-rotate(0deg);
 }
@@ -183,7 +188,7 @@ a:hover {
   height: 3rem;
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  padding: 1.3333333333rem;
   border-bottom: 1px solid rgba(36, 60, 89, 0.5);
 }
 
@@ -193,46 +198,49 @@ a:hover {
   padding: 1rem;
 }
 
-.menu {
+.navigation-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 6rem;
   width: 100vh;
-  height: 3rem;
+  height: 100%;
 }
-.menu div:nth-of-type(1), .menu div:nth-of-type(3) {
-  flex: 1;
-}
-.menu div {
+.navigation-bar .menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0;
   margin: 0;
-  gap: 1rem;
+  gap: 2rem;
   height: 100%;
 }
-.menu .logo {
+.navigation-bar .menu a, .navigation-bar .menu button {
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+.navigation-bar .menu .menu-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.navigation-bar .logo {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
-}
-.menu .logo img {
   height: 100%;
 }
-.menu .login-menu {
-  justify-content: end;
+.navigation-bar .logo img {
+  height: 100%;
 }
-.menu #navigation-buttons {
-  justify-content: space-between;
-  gap: 2rem;
-  flex: 1;
-}
-.menu .button-menu {
+.navigation-bar .button-menu {
   display: none;
 }
 
@@ -241,45 +249,54 @@ button {
   font-weight: 300;
   line-height: 1em;
   letter-spacing: 0.03em;
+  position: relative;
   border-radius: 10rem;
-  padding: 0.5em 1.5em;
-  color: white;
-  border: none;
+  border: 0.15em solid transparent;
+  transition: all 0.2s;
 }
 button:hover {
   cursor: pointer;
 }
 button.button-primary {
-  position: relative;
-  background-color: #1179ce;
-  transition: background-color 0.2s;
-}
-button.button-primary.big {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1em;
   letter-spacing: 0;
-  padding: 0.75rem 1.5rem;
+  background: #0f6fbd;
+  padding: 0.75em 1.25em;
+}
+button.button-primary.special {
+  box-shadow: 0 0 1em #0f6fbd;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+button.button-primary.special::after {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -0.25em;
+  left: -0.25em;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 0.5em);
+  border-radius: 10em;
+  filter: blur(1em);
+  background: conic-gradient(from var(--gradient-angle), rgba(19, 149, 255, 0) 0%, rgba(19, 149, 255, 0) 24.5%, #1395ff 25%, #1395ff 49.5%, rgba(19, 149, 255, 0) 50%, rgba(19, 149, 255, 0) 74.5%, #1371ff 75%, #1371ff 100%);
+  animation: border-rotate 10s infinite linear;
+  transition: all 1s ease-out;
 }
 button.button-primary:hover {
-  background-color: #243c59;
-}
-button.button-primary-white {
-  position: relative;
-  background-color: #1179ce;
-  transition: background-color 0.2s;
-  border: 2px solid white;
-}
-button.button-primary-white:hover {
-  background-color: #243c59;
+  background: #1395ff;
+  border-color: #1395ff;
+  box-shadow: 0 0 1em #0f6fbd;
+  text-shadow: 0 0 1em white;
 }
 button.button-ghost {
   background-color: transparent;
-  border: 2px solid #1179ce;
-  transition: all 0.2s;
+  padding: 0.5em 1.25em;
+  border-color: #0f6fbd;
 }
 button.button-ghost:hover {
-  background-color: #1179ce;
+  background-color: #0f6fbd;
 }
 
 .header-wrapper {
@@ -470,9 +487,8 @@ section.assistance .card {
   overflow: clip;
 }
 section.assistance .card .p4 {
-  text-align: justify;
-  word-spacing: 0.25rem;
-  hyphens: auto;
+  text-align: left;
+  word-spacing: 0.2em;
   width: 100%;
 }
 section.assistance .card h4 {
@@ -563,37 +579,41 @@ section.subscription .sub-card {
   width: 25% !important;
   opacity: 0;
   transform: scale(0.95);
-  box-shadow: rgba(17, 121, 206, 0) 0 4rem 0 -5rem;
+  box-shadow: rgba(15, 111, 189, 0) 0 4rem 0 -5rem;
   transition: all 0.3s;
+  border: 0.1em solid transparent;
+}
+section.subscription .sub-card .button-ghost {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 section.subscription .sub-card .button-ghost:hover {
-  background-color: #1179ce;
+  background-color: #0f6fbd;
+  border-color: rgba(15, 111, 189, 0.5);
 }
 section.subscription .sub-card:hover {
   z-index: 5;
   transform: scale(1);
-  box-shadow: #1179ce 0 4rem 8rem -5rem;
+  box-shadow: #0f6fbd 0 4rem 8rem -5rem;
   background: rgba(0, 0, 0, 0.6);
-}
-section.subscription .sub-card:hover .button-ghost {
-  background-color: #1179ce;
 }
 section.subscription .sub-card.special {
   transform: scale(1);
-  background-color: rgba(17, 121, 206, 0.5);
+  background-color: rgba(15, 111, 189, 0.5);
 }
 section.subscription .sub-card.special:hover {
   transform: scale(1.05);
-  background-color: rgba(17, 121, 206, 0.7);
+  background-color: rgba(15, 111, 189, 0.7);
 }
 section.subscription .sub-card h3 {
   font-weight: 600;
 }
 section.subscription .sub-card p {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1em;
   letter-spacing: 0;
+  text-align: left;
+  width: 100%;
 }
 section.subscription .sub-card .separator {
   background-color: white;
@@ -625,7 +645,7 @@ section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(1) {
 }
 section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(2) {
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4em;
   letter-spacing: 0;
 }
@@ -634,16 +654,31 @@ section.subscription .sub-card .price-tag div:nth-child(2) {
   flex-direction: row;
   justify-content: start;
   align-items: start;
-  width: 100%;
-  gap: 1rem;
+  width: fit-content;
+  gap: 0.5rem;
 }
-section.subscription .sub-card .price-tag div:nth-child(2) p {
+section.subscription .sub-card .price-tag div:nth-child(2) p:nth-child(1) {
   font-size: 1.5rem;
   font-weight: 200;
   line-height: 1em;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
   text-align: left;
-  color: rgba(255, 255, 255, 0.5);
+  text-wrap: nowrap;
+  color: white;
+  text-decoration-color: white;
+  text-decoration: line-through;
+  text-decoration-thickness: 0.1em;
+  display: none;
+  opacity: 0.5;
+}
+section.subscription .sub-card .price-tag div:nth-child(2) p:nth-child(2) {
+  font-size: 1.5rem;
+  font-weight: 200;
+  line-height: 1em;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-wrap: nowrap;
+  color: white;
 }
 section.subscription .sub-card .sub-items {
   display: flex;
@@ -651,7 +686,7 @@ section.subscription .sub-card .sub-items {
   justify-content: start;
   align-items: start;
   width: 100%;
-  gap: 1rem;
+  gap: 0;
 }
 section.subscription .sub-card .list-item {
   display: flex;
@@ -670,6 +705,9 @@ section.subscription .sub-card .list-item p {
   line-height: 1em;
   letter-spacing: 0.1em;
 }
+section.subscription .button-ghost {
+  padding: 0.75em 1.5em;
+}
 section.subscription .button-subscription-type {
   display: flex;
   flex-direction: row;
@@ -682,7 +720,7 @@ section.subscription .button-subscription-type {
   opacity: 0;
   background-color: transparent;
   border: 0.15em #243c59 solid;
-  padding: 0.75em 1.25em;
+  padding: 1em 1.5em;
   width: 100%;
   height: 100%;
   border-radius: 10rem;
@@ -705,7 +743,7 @@ section.subscription .button-subscription-type .button-ball {
   left: 50%;
   top: 0.25em;
   border-radius: 10em;
-  background: #1179ce;
+  background: #0f6fbd;
   transition: all 0.3s;
 }
 
@@ -846,8 +884,7 @@ section.footer .logo img {
 }
 
 h2, .p2, .p3, .p5,
-.img-container, .card,
-.wecome.button-primary {
+.img-container, .card {
   opacity: 0;
   transform: translateY(20%);
 }

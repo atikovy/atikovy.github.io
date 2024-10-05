@@ -1,11 +1,17 @@
 
 $darkGrey: #0F0F0F;
-$lightBlue: #1179ce;
+$lightBlue: #0f6fbd;
+$midBlue: #0c60a4;
 $darkBlue: #243c59;
 $darkWhite: rgba(255, 255, 255, 0.5);
 $main-spacing: 2rem;
 $bezier: cubic-bezier(0.6,0,0.4,1);
 $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 
 @mixin flexbox(
   $direction: column,
@@ -119,18 +125,18 @@ p {
 // works the same way as h1, h2, h3...
 .p1 {
   @include font-setup(3rem, 300, 1.1em, 0.04em);
-  width: 60%;
+  width: 50rem;
   animation: p-show-from-bottom 1s forwards;
   text-wrap: pretty;
 }
 
 .p2 {
   @include font-setup(2.5rem, 300, 1.2em, 0.07em);
-  width: fit-content;
+  width: 100%;
 }
 
 .p3 {
-  @include font-setup(2rem, 200, 1.5em, 0.1em);
+  @include font-setup(2rem, 200, 1.2em, 0.1em);
   width: 70%;
 }
 
@@ -156,7 +162,7 @@ a {
   --hue-value: 10deg;
   --blur-value: 10rem;
   position: absolute;
-  z-index: -1;
+  z-index: -5;
   opacity: 0;
   filter: blur(20rem) hue-rotate(0deg);
 }
@@ -172,7 +178,7 @@ a {
 
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
-  padding: $main-spacing / 2;
+  padding: $main-spacing / 1.5;
   border-bottom: 1px solid rgba($darkBlue, 0.5);
 }
 
@@ -182,41 +188,38 @@ a {
   padding: $main-spacing / 2;
 }
 
-.menu {
+.navigation-bar {
   @include flexbox(row, space-between, center);
   padding: 0 6rem;
   width: 100vh;
-  height: 3rem;
+  height: 100%;
 
-  div:nth-of-type(1), div:nth-of-type(3) {
-    flex: 1;
-  }
-
-  div {
+  .menu {
     @include flexbox(row);
     padding: 0;
     margin: 0;
-    gap: 1rem;
+    gap: 2rem;
     height: 100%;
+
+    a, button {
+      @include font-setup(1rem, 200, 1em, 0.05em);
+    }
+
+    .menu-links {
+      @include flexbox(row, space-between, center);
+      gap: 1rem;
+    }
   }
 
   .logo {
     @include flexbox(row, start, center);
+    height: 100%;
 
     img {
       height: 100%;
     }
   }
 
-  .login-menu {
-    justify-content: end;
-  }
-
-  #navigation-buttons {
-    justify-content: space-between;
-    gap: $main-spacing;
-    flex: 1;
-  }
   .button-menu {
     display: none;
   }
@@ -224,35 +227,59 @@ a {
 
 button {
   @include font-setup(1rem, 300, 1em, 0.03em);
+  position: relative;
   border-radius: 10rem;
-  padding: 0.5em 1.5em;
-  color: white;
-  border: none;
+  border: 0.15em solid transparent;
   &:hover {cursor: pointer;}
+  transition: all 0.2s;
 
   &.button-primary {
-    position: relative;
-    background-color: $lightBlue;
-    transition: background-color 0.2s;
-    &.big {
-      @include font-setup(1.5rem, 400);
-      padding: 0.75rem 1.5rem;
-    }
-    &:hover {background-color: $darkBlue}
-  }
+    @include font-setup(1.25rem, 400);
+    background: $lightBlue;
+    padding: 0.75em 1.25em;
 
-  &.button-primary-white {
-    position: relative;
-    background-color: $lightBlue;
-    transition: background-color 0.2s;
-    border: 2px solid white;
-    &:hover {background-color: $darkBlue}
+    &.special {
+      box-shadow: 0 0 1em rgba($lightBlue, 1);
+      text-shadow: 0 0 0 rgba(white, 0);
+
+      &::after {
+        opacity: 1;
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: -0.25em;
+        left: -0.25em;
+        width: calc(100% + 0.5em);
+        height: calc(100% + 0.5em);
+        border-radius: 10em;
+        filter: blur(1em);
+        background: conic-gradient(from var(--gradient-angle),
+                rgba(#1395ff, 0) 0%,
+                rgba(#1395ff, 0) 24.5%,
+                rgba(#1395ff, 1) 25%,
+                rgba(#1395ff, 1) 49.5%,
+                rgba(#1395ff, 0) 50%,
+                rgba(#1395ff, 0) 74.5%,
+                rgba(#1371ff, 1) 75%,
+                rgba(#1371ff, 1) 100%,
+        );
+        animation: border-rotate 10s infinite linear;
+        transition: all 1s ease-out;
+      }
+    }
+
+    &:hover {
+      background: #1395ff;
+      border-color: #1395ff;
+      box-shadow: 0 0 1em rgba($lightBlue, 1);
+      text-shadow: 0 0 1em rgba(white, 1);
+    }
   }
 
   &.button-ghost {
     background-color: transparent;
-    border: 2px solid $lightBlue;
-    transition: all 0.2s;
+    padding: 0.5em 1.25em;
+    border-color: $lightBlue;
     &:hover {background-color: $lightBlue}
   }
 }
@@ -434,9 +461,8 @@ section.assistance {
     overflow: clip;
 
     .p4 {
-      text-align: justify;
-      word-spacing: 0.25rem;
-      hyphens: auto;
+      text-align: left;
+      word-spacing: 0.2em;
       width: 100%;
     }
 
@@ -532,9 +558,15 @@ section.subscription {
     transform: scale(0.95);
     box-shadow: rgba($lightBlue, 0) 0 4rem 0 -5rem;
     transition: all 0.3s;
+    border: 0.1em solid transparent;
 
-    & .button-ghost:hover {
-      background-color: $lightBlue;
+    .button-ghost {
+      border-color: rgba(white, 0.5);
+
+      &:hover {
+        background-color: $lightBlue;
+        border-color: rgba($lightBlue, 0.5);
+      }
     }
 
     &:hover {
@@ -543,9 +575,9 @@ section.subscription {
       box-shadow: rgba($lightBlue, 1) 0 4rem 8rem -5rem;
       background: rgba(black, 0.6);
 
-      & .button-ghost {
-        background-color: $lightBlue;
-      }
+      //& .button-ghost {
+      //  background-color: $lightBlue;
+      //}
     }
 
     &.special {
@@ -560,7 +592,11 @@ section.subscription {
 
     h3 {font-weight: 600;}
 
-    p {@include font-setup(1.5rem, 600);};
+    p {
+      @include font-setup(1.5rem, 400);
+      text-align: left;
+      width: 100%;
+    };
 
     .separator {
       background-color: white;
@@ -583,18 +619,30 @@ section.subscription {
           @include font-setup(4rem, 600);
         }
         :nth-child(2) {
-          @include font-setup(2rem, 500, 1.4em);
+          @include font-setup(2rem, 600, 1.4em);
         }
       }
       div:nth-child(2) {
         @include flexbox(row, start, start);
-        width: 100%;
-        gap: $main-spacing / 2;
+        width: fit-content;
+        gap: $main-spacing / 4;
 
-        p {
-          @include font-setup(1.5rem, 200);
+        p:nth-child(1) {
+          @include font-setup(1.5rem, 200, 1em, 0.04em);
           text-align: left;
-          color: $darkWhite;
+          text-wrap: nowrap;
+          color: white;
+          text-decoration-color: white;
+          text-decoration: line-through;
+          text-decoration-thickness: 0.1em;
+          display: none;
+          opacity: 0.5;
+        }
+        p:nth-child(2) {
+          @include font-setup(1.5rem, 200, 1em, 0.04em);
+          text-align: left;
+          text-wrap: nowrap;
+          color: white;
         }
       }
     }
@@ -602,7 +650,7 @@ section.subscription {
     .sub-items {
       @include flexbox(column, start, start);
       width: 100%;
-      gap: $main-spacing / 2;
+      gap: 0;
     }
 
     .list-item {
@@ -618,6 +666,10 @@ section.subscription {
     }
   }
 
+  .button-ghost {
+    padding: 0.75em 1.5em;
+  }
+
   .button-subscription-type {
     @include flexbox(row, start, start);
     font-size: 1rem;
@@ -628,7 +680,7 @@ section.subscription {
     //background-color: $darkBlue;
     background-color: transparent;
     border: 0.15em $darkBlue solid;
-    padding: 0.75em 1.25em;
+    padding: 1em 1.5em;
     width: 100%;
     height: 100%;
     border-radius: 10rem;
@@ -784,8 +836,7 @@ section.footer {
 //animation triggers
 
 h2, .p2, .p3, .p5,
-.img-container, .card,
-.wecome.button-primary {
+.img-container, .card {
   opacity: 0;
   transform: translateY(20%);
 }

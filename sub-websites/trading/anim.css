@@ -33,3 +33,8 @@
     from        {opacity: 0; transform: translateY(5%);}
     to          {opacity: 1; transform: translateY(0%);}
 }
+
+@keyframes border-rotate {
+    from    {--gradient-angle: 0deg;}
+    to      {--gradient-angle: 360deg;}
+}

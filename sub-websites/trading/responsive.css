@@ -1,6 +1,9 @@
 @media (orientation: landscape) and (min-aspect-ratio: 21/9) {
-  section, .menu {
-    width: 50vw;
+  section, .navigation-bar {
+    width: 100vh;
+  }
+  body {
+    background-color: #481f1f;
   }
 }
 @media (orientation: landscape) and (max-width: 1920px) {
@@ -327,9 +330,6 @@
     background: none;
     filter: blur(0.5rem);
   }
-  section.subscription {
-    width: fit-content;
-  }
   section.subscription .header-wrapper {
     gap: 4rem;
   }
@@ -344,70 +344,17 @@
     line-height: 1em;
     letter-spacing: 0;
   }
-  section.subscription .subscription-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-    position: relative;
-    gap: 0;
-    height: 100%;
-    scroll-snap-type: x mandatory;
-    scroll-snap-stop: always;
-    border: 1px solid red;
-    overflow-x: scroll;
-    font-size: 1rem;
-  }
   section.subscription .subscription-container .sub-card {
-    position: relative;
-    scroll-snap-align: center;
-    transform: scale(1);
-    width: 50rem !important;
-    height: 60vh;
+    transform: none;
+  }
+  section.subscription .subscription-container .sub-card:hover {
+    transform: none;
   }
   section.subscription .subscription-container .sub-card.special {
-    transform: scale(1);
+    transform: none;
   }
-  section.subscription .subscription-container .sub-card h3 {
-    font-size: 10rem;
-  }
-  section.subscription .subscription-container .sub-card p {
-    font-size: 3rem;
-  }
-  section.subscription .subscription-container .sub-card .separator {
-    background-color: white;
-    width: 100%;
-    height: 0.05rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag {
-    gap: 2rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) {
-    gap: 2rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) :nth-child(1) {
-    font-size: 6rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag div:nth-child(1) :nth-child(2) {
-    font-size: 3rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag div:nth-child(2) {
-    gap: 2rem;
-  }
-  section.subscription .subscription-container .sub-card .price-tag div:nth-child(2) p {
-    text-align: left;
-  }
-  section.subscription .subscription-container .sub-card .sub-items {
-    gap: 2rem;
-  }
-  section.subscription .subscription-container .sub-card .list-item {
-    gap: 2rem;
-  }
-  section.subscription .subscription-container .sub-card .list-item img {
-    height: 100%;
-  }
-  section.subscription .subscription-container .sub-card .list-item p {
-    font-size: 3rem;
+  section.subscription .subscription-container .sub-card.special:hover {
+    transform: none;
   }
   section.footer {
     padding: 0;

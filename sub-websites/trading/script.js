@@ -74,13 +74,13 @@ function generatePlans(plans) {
                             <p>/mo</p>
                         </div>
                         <div>
-                            <p class="price-year" style="text-decoration: line-through; display: none">$${plan.priceYear}</p>
+                            <p class="price-year">$${plan.priceYear}</p>
                             <p class="price-year">$${plan.priceYear} /yr</p>
                         </div>
                     </div>
                     <hr>
+                    <p>This plan includes:</p>
                     <div class="sub-items">
-                        <p>This plan includes:</p>
                     </div>
                     <hr>
                     <button class="${buttonClass}" style="width: 100%">Select</button>
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
     hiddenElements = $('h2, h3, .p2, .p3, .p5,' +
         '.bg, .img-container, .card, .sub-card,' +
-        '.button-subscription-type, #create-acc');
+        '.button-subscription-type');
     hiddenElements.each(function(index, el) {
         observer.observe(el);
     })
@@ -123,7 +123,7 @@ $(document).ready(function() {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
-                    left: 'calc(50% - 0.25em)', width: 'calc(50%)', background: '#0088CF'})
+                    left: 'calc(50% - 0.5em)', width: 'calc(50% + 0.25em)', background: '#0088CF'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -138,7 +138,7 @@ $(document).ready(function() {
         else {
             for (let i = 0; i < 3; i++) {
                 $('.button-subscription-type .button-ball').css({
-                    left: '0.25em', width: 'calc(50% - 0.5em)', background: '#243c59'})
+                    left: '0.25em', width: 'calc(50% - 0.25em)', background: '#243c59'})
                 var priceYearNew = subscriptionPlanList[i].priceYear;
                 var priceMonthNew = subscriptionPlanList[i].priceMonth;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -181,3 +181,10 @@ $('.danger-button').on('click', function(e) {
         dangerOn = false;
     }
 });
+
+
+$('.button-primary').animate({
+    rotate: '360deg',
+}, duration(1000), function () {
+    //nthng
+})
