@@ -16,12 +16,14 @@ const observer = new IntersectionObserver((entries) => {
                 case $target.hasClass('right'):
                     $target.addClass('start-animate-right');
                     break;
-                case $target.is('.p1, .p2, .p3, .p5,' +
-                    '.img-container, .card,' +
+                case $target.is('.p1, .p2, .p3, .p5, ' +
                     '.button-subscription-type, .button-primary'):
                     $target.addClass('p-start-animate');
                     break;
-                case $target.is('h2'):
+                case $target.is('.card'):
+                    $target.addClass('card-start-animate');
+                    break;
+                case $target.is('h2, .img-container'):
                     $target.addClass('start-animate');
                     break;
                 case $target.hasClass('sub-card'):
@@ -69,11 +71,11 @@ function generatePlans(plans) {
                     <h3>${plan.name}</h3>
                     <hr>
                     <div class="price-tag">
-                        <div>
+                        <div class="month">
                             <p class="price-month">$${plan.priceMonth}</p>
                             <p>/mo</p>
                         </div>
-                        <div>
+                        <div class="year">
                             <p class="price-year">$${plan.priceYear}</p>
                             <p class="price-year">$${plan.priceYear} /yr</p>
                         </div>
@@ -113,8 +115,8 @@ $(document).ready(function() {
     generatePlans(subscriptionPlanList);
 
     hiddenElements = $('h2, h3, .p2, .p3, .p5,' +
-        '.bg, .img-container, .card, .sub-card,' +
-        '.button-subscription-type');
+        '.bg, .card, .sub-card, .left, .wrapper-horizontal,' +
+        '.button-subscription-type, .button-primary, .img-container');
     hiddenElements.each(function(index, el) {
         observer.observe(el);
     })
@@ -122,8 +124,8 @@ $(document).ready(function() {
     function updatePrice (e) {
         if (paymentYearly == true) {
             for (let i = 0; i < 3; i++) {
-                $('.button-subscription-type .button-ball').css({
-                    left: 'calc(50% - 0.5em)', width: 'calc(50% + 0.25em)', background: '#0088CF'})
+                $('.button-subscription-type .button-subscription-type-stroke').css({
+                    left: 'calc(50% - 0.5em)', width: 'calc(50% + 0.25em)'})
                 var priceMonthNew = subscriptionPlanList[i].priceMonthDiscount;
                 var priceYearNew = subscriptionPlanList[i].priceYearDiscount;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -137,8 +139,8 @@ $(document).ready(function() {
         }
         else {
             for (let i = 0; i < 3; i++) {
-                $('.button-subscription-type .button-ball').css({
-                    left: '0.25em', width: 'calc(50% - 0.25em)', background: '#243c59'})
+                $('.button-subscription-type .button-subscription-type-stroke').css({
+                    left: '0.25em', width: 'calc(50% - 0.25em)'})
                 var priceYearNew = subscriptionPlanList[i].priceYear;
                 var priceMonthNew = subscriptionPlanList[i].priceMonth;
                 var target = $('.sub-card:nth-of-type(' + (i + 1) + ')')
@@ -162,7 +164,7 @@ let dangerOn = false;
 $('.danger-button').on('click', function(e) {
     if (dangerOn === false) {
         $(this).css({
-            height: '54rem',
+            height: '50rem',
             width: 'calc(100% - 8rem)',
             borderRadius: '4rem',
             padding: '4rem',

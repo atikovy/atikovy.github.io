@@ -34,6 +34,11 @@
     to          {opacity: 1; transform: translateY(0%);}
 }
 
+@keyframes card-show {
+    from    {transform: rotateY(-45deg); opacity: 0; translate: 0 20%;}
+    to      {transform: rotateY(0deg); opacity: 1; translate: 0 0;}
+}
+
 @keyframes border-rotate {
     from    {--gradient-angle: 0deg;}
     to      {--gradient-angle: 360deg;}

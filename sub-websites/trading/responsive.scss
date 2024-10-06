@@ -33,13 +33,6 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 
 @media (orientation: landscape) {
 
-  @media (min-aspect-ratio: 21/9) {
-    section, .navigation-bar {width: 100vh;}
-    body {
-      background-color: #481f1f;
-    }
-  }
-
   @media (max-width: 1920px) {
     :root {font-size: 12px;}
   }
@@ -64,7 +57,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     width: fit-content;
     text-wrap: pretty;
     animation: show-from-bottom 1s forwards;
-    padding: 1rem 0;
+    //padding: 1rem 0;
   }
 
   h2 {
@@ -142,7 +135,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     z-index: -5;
   }
 
-  button.button-primary.big {
+  button.button-primary {
     font-size: 3rem;
     font-weight: 500;
     padding: 1.5rem 3rem;
@@ -282,6 +275,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         border: solid $darkBlue 0.2rem;
         box-shadow: 0 2rem 3rem -2rem rgba(black, 0.5);
         border-radius: 3rem;
+        animation-delay: 0s;
 
         h4 {
           @include font-setup(4rem, 400, 1.2em, 0);
@@ -289,8 +283,8 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         }
 
         .p4 {
-          @include font-setup(2.5rem, 100, 1.25em, 0.1em);
-          word-spacing: 0.25rem;
+          @include font-setup(2.5rem, 100, 1.5em, 0.1em);
+          word-spacing: 0.1rem;
           width: fit-content;
         }
 
@@ -331,7 +325,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
           @include font-setup(3rem, 200, 1.5em);
           text-align: justify;
           width: 100%;
-          word-spacing: 0.2rem;
+          word-spacing: 0.1rem;
           hyphens: auto;
         }
       }
@@ -376,38 +370,100 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     .button-subscription-type {
       font-size: 2rem;
       gap: 2em;
-      border: solid $darkBlue 0.2em;
       p {
         @include font-setup(3rem, 500, 1em, 0);
       }
     }
 
-    .subscription-container {
+    .subscription-container-clip {
+      width: 100%;
+      height: fit-content;
+      //border: 1px solid red;
+      overflow-x: scroll;
+      overflow-y: clip;
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      border-radius: 4rem;
 
-      .sub-card {
-        transform: none;
-        &:hover {
-          transform: none
-        }
+      .subscription-container {
+        @include flexbox(row, start, start);
+        width: 300%;
+        height: fit-content;
+        padding: 0 10rem;
+        gap: 4rem;
 
-        &.special {
-          transform: none;
-          &:hover {
-            transform: none;
+        .sub-card {
+          font-size: 2rem;
+          transform: scale(1);
+          scroll-snap-align: center;
+          width: 100%;
+          height: 100%;
+          box-shadow: none;
+          border-width: 0.2em;
+          border-radius: 2em;
+          border-color: transparent;
+          background: rgba(black, 0.6);
+          gap: 1em;
+          padding: 2em;
+
+          &.special {
+            transform: scale(1);
+            background: rgba($darkBlue, 0.5);
+          }
+
+          hr {
+          }
+
+          .button-ghost {
+            font-size: 1em;
+          }
+
+          h3 {font-size: 5em;}
+          p {
+            @include font-setup(1.5em, 500, 1em, 0.05em);
+          }
+
+          .price-tag {
+            font-size: 3em;
+
+            .month {
+              font-size: 1em;
+              p:nth-child(1) {font-size: 1.3em;}
+              p:nth-child(2) {
+                font-size: 0.8em;
+                line-height: 1.3em;
+              }
+            }
+
+            .year {
+              gap: 2rem;
+              p:nth-child(1), p:nth-child(2) {font-size: 0.5em;}
+            }
+          }
+
+          .sub-items {
+            gap: 1em;
+
+            .list-item {
+              gap: 1em;
+
+              img {
+                width: 1em;
+              }
+
+              p {@include font-setup(1.25em, 200, 1em, 0.05em);}
+            }
           }
         }
       }
-
     }
   }
 
   section.footer {
     padding: 0;
 
-    p, a {
-      @include font-setup(3rem, 100em, 1.5em, 0.1em);
-    }
-
+    p, a {@include font-setup(3rem, 100em, 1.4em, 0.1em);}
+    p:nth-child(1) {font-size: 4rem;}
 
     .footer-container {
       @include flexbox(column, center, start);
@@ -415,10 +471,11 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       width: 100vw;
       height: fit-content;
       padding: 6rem;
-      gap: 4rem;
-      text-align: center;
+      gap: 8rem;
+      text-align: left;
 
       .social-icons {
+        @include flexbox(row, start, start);
         svg {
           height: 6rem;
         }
@@ -426,7 +483,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
 
       .contact, .shortcuts, .social {
         width: 100%;
-        gap: 2rem;
+        gap: 1rem;
         * {width: 100%;}
       }
     }
@@ -461,7 +518,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     margin: 0;
     padding: 2rem;
 
-    .menu {
+    .navigation-bar {
       @include flexbox(row, space-between, center);
       height: 100%;
       width: 100%;
@@ -490,6 +547,10 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
         width: 12rem;
 
         flex: 0;
+
+        img {
+          content: url("./media/logo.svg");
+        }
       }
     }
   }

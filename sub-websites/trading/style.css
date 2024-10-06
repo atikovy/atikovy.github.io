@@ -24,7 +24,7 @@ body {
   gap: 0;
   background-color: #0F0F0F;
   width: 100vw;
-  overflow-x: hidden;
+  overflow: clip;
   text-align: center;
 }
 body::-webkit-scrollbar {
@@ -174,6 +174,7 @@ a:hover {
   z-index: -5;
   opacity: 0;
   filter: blur(20rem) hue-rotate(0deg);
+  user-select: none;
 }
 
 .navigation-bar-wrapper {
@@ -189,7 +190,7 @@ a:hover {
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1.3333333333rem;
-  border-bottom: 1px solid rgba(36, 60, 89, 0.5);
+  border-bottom: 1px solid rgba(47, 94, 150, 0.5);
 }
 
 .navigation-bar-spacer {
@@ -248,7 +249,7 @@ button {
   font-size: 1rem;
   font-weight: 300;
   line-height: 1em;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
   position: relative;
   border-radius: 10rem;
   border: 0.15em solid transparent;
@@ -261,9 +262,10 @@ button.button-primary {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1em;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   background: #0f6fbd;
   padding: 0.75em 1.25em;
+  opacity: 0;
 }
 button.button-primary.special {
   box-shadow: 0 0 1em #0f6fbd;
@@ -304,7 +306,7 @@ button.button-ghost:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0;
 }
 
 .img-container {
@@ -327,7 +329,7 @@ button.button-ghost:hover {
 }
 
 .img-container, .card {
-  border: solid #243c59 0.15rem;
+  border: solid #2f5e96 0.15rem;
   box-shadow: 0 2rem 3rem -1rem rgba(0, 0, 0, 0.5);
   border-radius: 2rem;
 }
@@ -474,6 +476,9 @@ section.assistance .danger-button {
 section.assistance .p2 {
   width: 60%;
 }
+section.assistance .cards-container {
+  perspective: 500rem;
+}
 section.assistance .card {
   display: flex;
   flex-direction: column;
@@ -485,6 +490,8 @@ section.assistance .card {
   border-radius: 1.85rem;
   background-color: rgba(0, 0, 0, 0.7);
   overflow: clip;
+  transform: rotateY(90deg);
+  opacity: 0;
 }
 section.assistance .card .p4 {
   text-align: left;
@@ -531,7 +538,7 @@ section.statistics .wrapper-horizontal {
   padding: 0;
 }
 section.statistics .button-primary {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 section.statistics h2 {
   width: fit-content;
@@ -555,10 +562,10 @@ section.subscription h2 {
   text-wrap: balance;
 }
 section.subscription .header-wrapper {
-  gap: 2rem;
   width: 100%;
+  gap: 1rem;
 }
-section.subscription .subscription-container {
+section.subscription .subscription-container-clip .subscription-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -576,15 +583,16 @@ section.subscription .sub-card {
   gap: 1rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 2rem;
-  width: 25% !important;
+  width: 20rem;
   opacity: 0;
   transform: scale(0.95);
-  box-shadow: rgba(15, 111, 189, 0) 0 4rem 0 -5rem;
+  box-shadow: rgba(47, 94, 150, 0) 0 4rem 0 -5rem;
   transition: all 0.3s;
-  border: 0.1em solid transparent;
+  border: 0.15em solid transparent;
 }
 section.subscription .sub-card .button-ghost {
   border-color: rgba(255, 255, 255, 0.5);
+  padding: 0.75em 1.5em;
 }
 section.subscription .sub-card .button-ghost:hover {
   background-color: #0f6fbd;
@@ -593,16 +601,16 @@ section.subscription .sub-card .button-ghost:hover {
 section.subscription .sub-card:hover {
   z-index: 5;
   transform: scale(1);
-  box-shadow: #0f6fbd 0 4rem 8rem -5rem;
+  box-shadow: #2f5e96 0 4rem 8rem -5rem;
   background: rgba(0, 0, 0, 0.6);
 }
 section.subscription .sub-card.special {
   transform: scale(1);
-  background-color: rgba(15, 111, 189, 0.5);
+  background: rgba(47, 94, 150, 0.5);
 }
 section.subscription .sub-card.special:hover {
   transform: scale(1.05);
-  background-color: rgba(15, 111, 189, 0.7);
+  background: rgba(47, 94, 150, 0.7);
 }
 section.subscription .sub-card h3 {
   font-weight: 600;
@@ -615,10 +623,9 @@ section.subscription .sub-card p {
   text-align: left;
   width: 100%;
 }
-section.subscription .sub-card .separator {
-  background-color: white;
-  width: 100%;
-  height: 0.05rem;
+section.subscription .sub-card hr {
+  width: 90%;
+  border: 0.01em rgba(255, 255, 255, 0.3) solid;
 }
 section.subscription .sub-card .price-tag {
   display: flex;
@@ -628,7 +635,7 @@ section.subscription .sub-card .price-tag {
   gap: 1rem;
   width: 100%;
 }
-section.subscription .sub-card .price-tag div:nth-child(1) {
+section.subscription .sub-card .price-tag .month {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -637,19 +644,19 @@ section.subscription .sub-card .price-tag div:nth-child(1) {
   padding: 0;
   gap: 1rem;
 }
-section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(1) {
+section.subscription .sub-card .price-tag .month p:nth-child(1) {
   font-size: 4rem;
   font-weight: 600;
   line-height: 1em;
   letter-spacing: 0;
 }
-section.subscription .sub-card .price-tag div:nth-child(1) :nth-child(2) {
+section.subscription .sub-card .price-tag .month p:nth-child(2) {
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.4em;
   letter-spacing: 0;
 }
-section.subscription .sub-card .price-tag div:nth-child(2) {
+section.subscription .sub-card .price-tag .year {
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -657,7 +664,7 @@ section.subscription .sub-card .price-tag div:nth-child(2) {
   width: fit-content;
   gap: 0.5rem;
 }
-section.subscription .sub-card .price-tag div:nth-child(2) p:nth-child(1) {
+section.subscription .sub-card .price-tag .year p:nth-child(1) {
   font-size: 1.5rem;
   font-weight: 200;
   line-height: 1em;
@@ -671,7 +678,7 @@ section.subscription .sub-card .price-tag div:nth-child(2) p:nth-child(1) {
   display: none;
   opacity: 0.5;
 }
-section.subscription .sub-card .price-tag div:nth-child(2) p:nth-child(2) {
+section.subscription .sub-card .price-tag .year p:nth-child(2) {
   font-size: 1.5rem;
   font-weight: 200;
   line-height: 1em;
@@ -705,9 +712,6 @@ section.subscription .sub-card .list-item p {
   line-height: 1em;
   letter-spacing: 0.1em;
 }
-section.subscription .button-ghost {
-  padding: 0.75em 1.5em;
-}
 section.subscription .button-subscription-type {
   display: flex;
   flex-direction: row;
@@ -719,7 +723,6 @@ section.subscription .button-subscription-type {
   gap: 2rem;
   opacity: 0;
   background-color: transparent;
-  border: 0.15em #243c59 solid;
   padding: 1em 1.5em;
   width: 100%;
   height: 100%;
@@ -735,7 +738,7 @@ section.subscription .button-subscription-type p {
   user-select: none;
   font-weight: 400;
 }
-section.subscription .button-subscription-type .button-ball {
+section.subscription .button-subscription-type .button-subscription-type-stroke {
   position: absolute;
   z-index: 0;
   width: calc(50% + 0.25em);
@@ -743,8 +746,21 @@ section.subscription .button-subscription-type .button-ball {
   left: 50%;
   top: 0.25em;
   border-radius: 10em;
-  background: #0f6fbd;
+  background: #2f5e96;
   transition: all 0.3s;
+}
+
+section.career .bg {
+  --hue-value: 20deg;
+  height: 100%;
+  width: 200%;
+  bottom: -70%;
+  transform: scaleY(-1);
+  position: absolute;
+}
+section.career .p2 {
+  width: 50rem;
+  text-wrap: pretty;
 }
 
 section.footer {
@@ -752,13 +768,16 @@ section.footer {
   width: 100%;
   overflow: clip;
   text-align: left;
-  padding: 3rem 0;
+  padding: 6rem 0;
 }
 section.footer p, section.footer a {
   font-size: 1rem;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 1.2em;
   letter-spacing: 0.1em;
+}
+section.footer p:nth-child(1) {
+  font-weight: 400;
 }
 section.footer .footer-container {
   display: flex;
@@ -852,9 +871,6 @@ section.footer .vr {
   background-color: white;
   opacity: 0.2;
 }
-section.footer p:nth-child(1) {
-  font-weight: 400;
-}
 section.footer svg {
   width: 2.5rem;
   height: 2.5rem;
@@ -883,20 +899,27 @@ section.footer .logo img {
   height: 100%;
 }
 
-h2, .p2, .p3, .p5,
-.img-container, .card {
+h2, .p2, .p3, .p5, img.left,
+.img-container, .left, .right {
   opacity: 0;
   transform: translateY(20%);
 }
 
-.sub-card:nth-child(1) {
-  --delay: 0.1s;
+.card:nth-child(odd) {
+  animation-delay: 0s;
 }
-.sub-card:nth-child(2) {
+.card:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+.sub-card:nth-child(1) {
   --delay: 0.2s;
 }
+.sub-card:nth-child(2) {
+  --delay: 0.4s;
+}
 .sub-card:nth-child(3) {
-  --delay: 0.3s;
+  --delay: 0.6s;
 }
 
 .sub-card-animate {
@@ -917,6 +940,10 @@ h2, .p2, .p3, .p5,
 
 .start-animate-right {
   animation: show-from-right 1s forwards;
+}
+
+.card-start-animate {
+  animation: card-show 1s forwards;
 }
 
 .bg-start-animate {
