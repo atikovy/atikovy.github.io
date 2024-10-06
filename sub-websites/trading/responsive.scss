@@ -378,7 +378,6 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     .subscription-container-clip {
       width: 100%;
       height: fit-content;
-      //border: 1px solid red;
       overflow-x: scroll;
       overflow-y: clip;
       scroll-snap-type: x mandatory;
@@ -386,7 +385,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       border-radius: 4rem;
 
       .subscription-container {
-        @include flexbox(row, start, start);
+        @include flexbox(row, center, center);
         width: 300%;
         height: fit-content;
         padding: 0 10rem;
@@ -405,20 +404,18 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
           background: rgba(black, 0.6);
           gap: 1em;
           padding: 2em;
+          animation-delay: 0s;
 
           &.special {
             transform: scale(1);
             background: rgba($darkBlue, 0.5);
           }
 
-          hr {
-          }
-
           .button-ghost {
             font-size: 1em;
           }
 
-          h3 {font-size: 5em;}
+          h3 {font-size: 4em;}
           p {
             @include font-setup(1.5em, 500, 1em, 0.05em);
           }
@@ -430,7 +427,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
               font-size: 1em;
               p:nth-child(1) {font-size: 1.3em;}
               p:nth-child(2) {
-                font-size: 0.8em;
+                font-size: 0.5em;
                 line-height: 1.3em;
               }
             }
@@ -466,7 +463,7 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
     p:nth-child(1) {font-size: 4rem;}
 
     .footer-container {
-      @include flexbox(column, center, start);
+      @include flexbox(column, start, start);
       box-sizing: border-box;
       width: 100vw;
       height: fit-content;
@@ -474,18 +471,21 @@ $neonGradient: linear-gradient(0deg, $lightBlue, transparent 90%);
       gap: 8rem;
       text-align: left;
 
-      .social-icons {
-        @include flexbox(row, start, start);
-        svg {
-          height: 6rem;
-        }
-      }
 
       .contact, .shortcuts, .social {
         width: 100%;
         gap: 1rem;
         * {width: 100%;}
       }
+
+      .social-icons {
+        padding: 2rem 0;
+        gap: 0;
+        svg {
+          height: 8rem;
+        }
+      }
+
     }
 
     .vr {

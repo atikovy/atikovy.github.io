@@ -347,8 +347,8 @@
   section.subscription .subscription-container-clip .subscription-container {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
     width: 300%;
     height: fit-content;
     padding: 0 10rem;
@@ -367,6 +367,7 @@
     background: rgba(0, 0, 0, 0.6);
     gap: 1em;
     padding: 2em;
+    animation-delay: 0s;
   }
   section.subscription .subscription-container-clip .subscription-container .sub-card.special {
     transform: scale(1);
@@ -376,7 +377,7 @@
     font-size: 1em;
   }
   section.subscription .subscription-container-clip .subscription-container .sub-card h3 {
-    font-size: 5em;
+    font-size: 4em;
   }
   section.subscription .subscription-container-clip .subscription-container .sub-card p {
     font-size: 1.5em;
@@ -394,7 +395,7 @@
     font-size: 1.3em;
   }
   section.subscription .subscription-container-clip .subscription-container .sub-card .price-tag .month p:nth-child(2) {
-    font-size: 0.8em;
+    font-size: 0.5em;
     line-height: 1.3em;
   }
   section.subscription .subscription-container-clip .subscription-container .sub-card .price-tag .year {
@@ -433,7 +434,7 @@
   section.footer .footer-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: start;
     box-sizing: border-box;
     width: 100vw;
@@ -442,21 +443,19 @@
     gap: 8rem;
     text-align: left;
   }
-  section.footer .footer-container .social-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
-  }
-  section.footer .footer-container .social-icons svg {
-    height: 6rem;
-  }
   section.footer .footer-container .contact, section.footer .footer-container .shortcuts, section.footer .footer-container .social {
     width: 100%;
     gap: 1rem;
   }
   section.footer .footer-container .contact *, section.footer .footer-container .shortcuts *, section.footer .footer-container .social * {
     width: 100%;
+  }
+  section.footer .footer-container .social-icons {
+    padding: 2rem 0;
+    gap: 0;
+  }
+  section.footer .footer-container .social-icons svg {
+    height: 8rem;
   }
   section.footer .vr {
     display: none;
