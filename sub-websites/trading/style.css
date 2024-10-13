@@ -476,9 +476,6 @@ section.assistance .danger-button {
 section.assistance .p2 {
   width: 60%;
 }
-section.assistance .cards-container {
-  perspective: 500rem;
-}
 section.assistance .card {
   display: flex;
   flex-direction: column;
@@ -490,8 +487,8 @@ section.assistance .card {
   border-radius: 1.85rem;
   background-color: rgba(0, 0, 0, 0.7);
   overflow: clip;
-  transform: rotateY(90deg);
   opacity: 0;
+  translate: 0 10%;
 }
 section.assistance .card .p4 {
   text-align: left;

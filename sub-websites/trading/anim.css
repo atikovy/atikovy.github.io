@@ -35,7 +35,6 @@
 }
 
 @keyframes card-show {
-    from    {transform: rotateY(-45deg); opacity: 0; translate: 0 20%;}
     to      {transform: rotateY(0deg); opacity: 1; translate: 0 0;}
 }
 

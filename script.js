@@ -2,7 +2,7 @@
 var aspectRatio = window.innerWidth / window.innerHeight
 
 // change link to mobile figma preview
-if (aspectRatio < 3/4) {$('.small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/ggE3nCyHQSDY5j0HrEiGlO/lorem-version?node-id=121-856');}
+if (aspectRatio < 3/4) {$('#project-0 .small-button > .figma-preview').attr('href', 'https://www.figma.com/proto/OKXMxzrX3pqYVzZALghq4H/LandingPage?page-id=113%3A1379&node-id=121-856&node-type=frame&viewport=1344%2C440%2C0.13&t=KCnsxP5gOgDcjMHc-8&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=121%3A856&share=1&show-proto-sidebar=1&hide-ui=1');}
 
 $(window).resize(function() {
     aspectRatio = window.innerWidth / window.innerHeight
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         setTimeout(function() {
             isScrolling = false;
-        }, 500);
+        }, 1000);
     });
 });
 
