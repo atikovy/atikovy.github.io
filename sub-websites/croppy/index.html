@@ -3,9 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <title>Croppy</title>
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="anim.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
-    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/56sajFgHNpijcqiY7QXGZi/website?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+<!--    didn't used wrapper for both imgs because multiply blending didn't worked here    -->
+<!--    <img class="ivy-bg-shadow" src="./media/ivy-nobg.png" alt="">-->
+<!--    <img class="ivy-bg-cutoff" src="./media/ivy-cutoff.png" alt="">-->
+    <img class="ivy-bg right" src="./media/ivy-bg-1_upscayl_4x_realesrgan-x4plus.png" alt="">
+    <img class="ivy-bg left" src="./media/ivy-bg-1_upscayl_4x_realesrgan-x4plus.png" alt="">
+
+    <div class="nav-bar">
+        <div class="menu">
+            <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M21.5937 4.89548C21.8741 7.03912 22.6384 9.18821 23.3531 11.2064C24.4033 14.1628 25.4919 17.2228 24.9201 19.6337C24.3483 22.05 21.8192 24.1937 17.4097 26.0318C12.7748 24.3082 10.4985 21.0628 10.9769 16.7864C11.3068 13.83 12.9727 10.7918 15.5568 8.44639C16.8983 7.23003 18.8832 5.82821 21.5992 4.89548M26.3881 0.0900269C7.05122 1.36639 -1.00902 24.6846 17.5306 30.09C40.4083 21.5318 20.824 7.21912 26.3881 0.0900269Z"/>
+                <path d="M19.4495 35.91C17.3217 35.91 15.6008 34.2028 15.6008 32.0919V27.5482H19.4495V35.91Z"/>
+            </svg>
+            <p>Home Page</p>
+            <p>Products</p>
+            <p>About us</p>
+            <p>Contact</p>
+        </div>
+    </div>
+
+    <section class="main-header">
+
+        <div class="logo">
+            <svg fill="none" viewBox="0.01 0 241.98 66">
+                <path d="m9.76,49.51c-3.05-1.68-5.44-4-7.16-6.95-1.73-2.95-2.59-6.3-2.59-10.04s.86-7.09,2.59-10.04,4.12-5.26,7.16-6.91c3.05-1.66,6.52-2.48,10.4-2.48,3.46,0,6.54.7,9.25,2.09.35.18.7.37,1.03.58,3.27,1.99,3.24,6.78.01,8.86h0c-1.2-1.82-2.69-3.19-4.46-4.1-1.78-.91-3.74-1.37-5.9-1.37-2.5,0-4.74.55-6.73,1.66-1.99,1.1-3.55,2.68-4.68,4.72-1.13,2.04-1.69,4.38-1.69,7.02s.56,5.05,1.69,7.09c1.13,2.04,2.69,3.61,4.68,4.72,1.99,1.1,4.24,1.66,6.73,1.66,2.16,0,4.13-.46,5.9-1.37,1.77-.91,3.26-2.28,4.46-4.1h0c3.21,2.03,3.28,6.76.05,8.77-.35.22-.72.43-1.1.63-2.71,1.42-5.8,2.12-9.25,2.12-3.89,0-7.36-.84-10.4-2.52Z"/>
+                <path d="m54.43,14.8c.17-.09.35-.17.53-.25,3.78-1.66,8.04,1.08,8.04,5.21h0c-.38-.05-.91-.07-1.58-.07-3.74,0-6.68,1.12-8.82,3.35-2.14,2.23-3.2,5.41-3.2,9.54v12.1c0,3.82-3.09,6.91-6.91,6.91h0v-31.54c0-3.66,2.97-6.62,6.62-6.62h0v6.41c1.2-2.21,2.98-3.89,5.33-5.04Z"/>
+                <path d="m142.7,15.52c2.93,1.63,5.22,3.91,6.88,6.84,1.66,2.93,2.48,6.31,2.48,10.15s-.83,7.24-2.48,10.19c-1.66,2.95-3.95,5.24-6.88,6.88-2.93,1.63-6.24,2.45-9.94,2.45-2.74,0-5.25-.53-7.52-1.58-2.28-1.06-4.21-2.59-5.8-4.61v12.82c0,3.82-3.09,6.91-6.91,6.91h0V13.43h.58c3.34,0,6.05,2.71,6.05,6.05h0c1.54-2.11,3.48-3.71,5.83-4.79,2.35-1.08,4.94-1.62,7.78-1.62,3.7,0,7.01.82,9.94,2.45Zm-3.92,28.76c1.94-1.13,3.48-2.71,4.61-4.75,1.13-2.04,1.69-4.38,1.69-7.02s-.56-4.98-1.69-7.02c-1.13-2.04-2.66-3.61-4.61-4.72-1.94-1.1-4.14-1.66-6.59-1.66s-4.57.56-6.52,1.69c-1.94,1.13-3.48,2.7-4.61,4.72-1.13,2.02-1.69,4.34-1.69,6.98s.55,4.98,1.66,7.02c1.1,2.04,2.64,3.62,4.61,4.75,1.97,1.13,4.15,1.69,6.55,1.69s4.64-.56,6.59-1.69Z"/>
+                <path d="m189.65,15.52c2.93,1.63,5.22,3.91,6.88,6.84,1.66,2.93,2.48,6.31,2.48,10.15s-.83,7.24-2.48,10.19c-1.66,2.95-3.95,5.24-6.88,6.88-2.93,1.63-6.24,2.45-9.94,2.45-2.74,0-5.25-.53-7.52-1.58-2.28-1.06-4.21-2.59-5.8-4.61v12.82c0,3.82-3.09,6.91-6.91,6.91h0V13.43h.58c3.34,0,6.05,2.71,6.05,6.05h0c1.54-2.11,3.48-3.71,5.83-4.79,2.35-1.08,4.94-1.62,7.78-1.62,3.7,0,7.01.82,9.94,2.45Zm-3.92,28.76c1.94-1.13,3.48-2.71,4.61-4.75,1.13-2.04,1.69-4.38,1.69-7.02s-.56-4.98-1.69-7.02c-1.13-2.04-2.66-3.61-4.61-4.72-1.94-1.1-4.14-1.66-6.59-1.66s-4.57.56-6.52,1.69c-1.94,1.13-3.48,2.7-4.61,4.72-1.13,2.02-1.69,4.34-1.69,6.98s.55,4.98,1.66,7.02c1.1,2.04,2.64,3.62,4.61,4.75,1.97,1.13,4.15,1.69,6.55,1.69s4.64-.56,6.59-1.69Z"/>
+                <path d="m241.99,13.43v32.98c0,6.67-1.56,11.6-4.68,14.8-3.12,3.19-7.8,4.79-14.04,4.79-3.41,0-6.66-.49-9.76-1.48-3.1-.98-5.63-2.39-7.6-4.21h0c1.68-2.65,5.06-3.67,7.92-2.36.5.23,1.01.44,1.55.63,2.38.86,4.88,1.3,7.52,1.3,4.18,0,7.25-1.04,9.22-3.13,1.97-2.09,2.95-5.29,2.95-9.61v-2.81c-1.39,1.82-3.19,3.23-5.4,4.21-2.21.98-4.61,1.48-7.2,1.48-5.09,0-9.1-1.39-12.02-4.18-2.93-2.78-4.39-6.91-4.39-12.38V13.43h0c3.82,0,6.91,3.09,6.91,6.91v12.31c0,3.65.89,6.42,2.66,8.32,1.78,1.9,4.32,2.84,7.63,2.84,3.65,0,6.53-1.1,8.64-3.31,2.11-2.21,3.17-5.33,3.17-9.36v-10.8c0-3.82,3.09-6.91,6.91-6.91h0Z"/>
+
+                <path d="m92.39,8.81c.51,3.93,1.9,7.87,3.2,11.57,1.91,5.42,3.89,11.03,2.85,15.45-1.04,4.43-5.64,8.36-13.66,11.73-8.43-3.16-12.57-9.11-11.7-16.95.6-5.42,3.63-10.99,8.33-15.29,2.44-2.23,6.05-4.8,10.99-6.51M101.11,0c-35.17,2.34-49.83,45.09-16.11,55,41.61-15.69,5.99-41.93,16.11-55h0Z"/>
+                <path d="m88.49,65.67h0c-3.87,0-7-3.13-7-7v-8.33h7v15.33Z"/>
+            </svg>
+            <p>plant shop</p>
+        </div>
+    </section>
+
+    <section class="welcome section-special">
+        <div class="header-wrapper">
+            <div>
+                <h1>
+                    giving space <br>
+                    more
+                </h1>
+                <h1>life</h1>
+            </div>
+            <p>
+                Bring vitality to your space with lush and vibrant plants.
+            </p>
+        </div>
+    </section>
+
+    <section class="passion">
+        <div class="wrap-horizontally">
+            <div class="img-container">
+                <img src="media/taking%20care%20ove%20dc6c1de9-a013-4481-b3ed-2f0be8fa472c.png" alt="">
+            </div>
+
+            <div class="header-wrapper">
+                <h1>cropping with passion</h1>
+                <p>
+                    15 years of pure love has lead us to become
+                    one of the biggest producers in the indrustry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quality">
+        <div class="wrap-horizontally">
+            <div class="header-wrapper">
+                <h1>naturally selected</h1>
+                <p>
+                    Grown with care and precision.
+                    Because nature needs natural process.
+                </p>
+            </div>
+
+            <div class="img-container">
+                <img src="media/bg-2.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="choice">
+        <div class="wrap-horizontally">
+            <div class="img-container">
+                <img src="media/bg-1.png" alt="">
+            </div>
+
+            <div class="header-wrapper">
+
+                <h1>variety of choice</h1>
+                <p>
+                    Hundreds of products to fit different places.
+                    Find the one that fit yours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="download section-special">
+        <div class="header-wrapper">
+            <div>
+                <h1>all </h1> <h1>plants</h1> <br>
+                <h1>one </h1> <h1>place</h1>
+            </div>
+            <p>
+                Download free app and access all products
+                and special offers with just a click.
+            </p>
+        </div>
+    </section>
+
 </body>
 </html>
