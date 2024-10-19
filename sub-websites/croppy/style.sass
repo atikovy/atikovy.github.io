@@ -9,6 +9,9 @@ $jumpyEasing: cubic-bezier(0, 1.5, 0.8, 1)
 *
   font-family: 'Agenor Neue', sans-serif
 
+p
+  font-family: 'Quicksand Medium', sans-serif
+
 
 @mixin font-setup ($fontSize: 1em, $fontWeight: 100, $lineHeight: 1em, $letterSpacing: 0em, $wordSpacing: 0em)
   font-size: $fontSize
@@ -41,20 +44,34 @@ body
 
 
 h1
-  @include font-setup(6rem, 600, 1.1em, -0.03em, 0.1em)
+  @include font-setup(8rem, 600, 1.1em, -0.03em, 0.1em)
   display: inline
-  padding: 0
   margin: 0
-  color: $greenMid
-  width: 80%
+  color: white
   text-align: center
 
 
 p
-  @include font-setup(3rem, 100, 1.3em)
+  @include font-setup(3.125rem, 100, 1.3em, 0em)
   margin: 0
   padding: 0
-  color: $greenDark
+  color: white
+  word-spacing: 0.1em
+
+
+button
+  border: none
+  background-color: $greenMid
+  border-radius: 0.2em 1em
+  color: white
+  box-sizing: border-box
+  padding: 0.5em 1em
+  transition: all 0.3s ease
+
+  @include font-setup(2rem, 300)
+
+  &:hover
+    cursor: pointer
 
 
 .header-wrapper
@@ -75,6 +92,7 @@ p
   backdrop-filter: grayscale(0) blur(6px)
   padding: 2rem 32rem
   border-bottom: 1px solid rgba(white, 0.5)
+  display: none
 
   .logo-icon
     height: 2rem
@@ -85,7 +103,7 @@ p
     @include flexbox(row, space-between, center)
     gap: 2rem
     p
-      @include font-setup(1.25rem, 300)
+      @include font-setup(1.5rem, 400)
       color: $greenDark
       user-select: none
       transition: color 0.2s
@@ -95,13 +113,50 @@ p
         color: $greenMid
 
 
+.ivy-bg
+  position: absolute
+  z-index: 5
+  user-select: none
+  right: -24vw
+  top: 0
+  height: 120vh
+  scale: -1 1
+  --parallax-y: -30%
+  --parallax-x: 0
+  animation: parallax 1s 0s linear
+  animation-timeline: scroll()
+
+  &.left
+    --parallax-y: -10%
+    --parallax-x: 0
+    top: -10vh
+    left: -46vw
+
+
+.bg-img
+  position: fixed
+  z-index: -5
+  width: 100%
+  left: 0
+  top: 0
+  overflow: clip
+  scale: 2
+  filter: blur(3px)
+  --parallax-x: 0
+  --parallax-y: 5%
+  animation: parallax 1s linear
+  animation-timeline: scroll()
+
+
 section
   @include flexbox
   position: relative
   box-sizing: border-box
   width: 100%
   margin: 0
-  padding: 8rem 32rem
+  padding: 6rem 32rem
+  gap: 2rem
+  background-color: $greenMid
 
   .wrap-horizontally
     @include flexbox (row, space-between, center)
@@ -112,12 +167,13 @@ section
       width: 50rem
       height: 50rem
       scale: -1 1
+      --angle: 15deg
 
       &::after
         position: absolute
         content: ''
         z-index: -1
-        --angle: 4deg
+        --angle: 10deg
         width: 100%
         height: 100%
         transform-origin: bottom left
@@ -125,18 +181,18 @@ section
         left: 0
         background: $greenMid
         border-radius: 40rem 0
-        animation: leaf-rotate 1s forwards
+        animation: leaf-anim 1s forwards paused
 
       img
         --angle: 0deg
         width: 100%
-        transform-origin: bottom left
         border-radius: 40rem 0
-        animation: leaf-rotate 1s forwards
+        transform-origin: bottom left
+        animation: leaf-anim 1s forwards paused
 
     .header-wrapper
-      font-size: 6rem
-      width: 50rem
+      font-size: 8rem
+      width: 10ch
       text-align: center
 
       p
@@ -155,26 +211,26 @@ section
         transform: translateX(-50%) translateY(-50%)
         width: 30rem
         height: 30rem
-        animation: leaf-rotate 1s forwards
+        animation: leaf-anim 1s forwards paused
 
 
 section.main-header
   align-items: start
   width: 100%
-  margin-top: 4rem
+  background-color: rgba(black, 0.8)
 
   p
     @include font-setup(3rem, 500)
     width: 100%
     text-align: right
-    color: $greenMid
+    color: white
 
   .logo
     gap: 0.5rem
 
     svg
       height: 8rem
-      fill: $greenMid
+      fill: white
 
 
 section.welcome
@@ -182,28 +238,9 @@ section.welcome
     align-items: start
     width: 50%
     p
-      width: 80%
+      width: 100%
       text-wrap: pretty
-      color: white
-
-
-.ivy-bg
-  position: absolute
-  z-index: 5
-  right: -24vw
-  top: 0
-  height: 120vh
-  scale: -1 1
-  --parallax-y: 10%
-  --parallax-x: 0
-  animation: parallax 1s 0s linear
-  animation-timeline: scroll()
-
-  &.left
-    --parallax-y: 30%
-    --parallax-x: 0
-    top: -10vh
-    left: -46vw
+      color: $greenMid
 
 
 section.quality
@@ -220,14 +257,14 @@ section.quality
 
 .section-special
   @include flexbox(column, start, start)
-  background-color: $greenMid
+  background-color: white
 
   .header-wrapper
     @include flexbox(column, start, start)
     width: 50%
 
   p, h1
-    color: white
+    color: $greenMid
 
   h1
     font-weight: 300
@@ -235,3 +272,14 @@ section.quality
     &:nth-of-type(even)
       font-weight: 500
       letter-spacing: 0
+
+
+.animate-on-scroll
+  &::after, img
+    opacity: 0
+    transition: opacity 1s
+
+.trigger-animation
+  &::after, img
+    opacity: 1
+    animation-play-state: running !important
