@@ -191,7 +191,7 @@ a {
 .navigation-bar {
   @include flexbox(row, space-between, center);
   padding: 0 6rem;
-  width: 100vh;
+  width: 60vw;
   height: 100%;
 
   .menu {
