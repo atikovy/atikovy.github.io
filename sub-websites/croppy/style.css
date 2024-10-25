@@ -1,9 +1,5 @@
 * {
-  font-family: "Agenor Neue", sans-serif;
-}
-
-p {
-  font-family: "Quicksand Medium", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
@@ -17,7 +13,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 200vh;
-  background-color: white;
+  background-color: #7E9156;
   overflow-x: clip;
 }
 body::-webkit-scrollbar {
@@ -26,11 +22,11 @@ body::-webkit-scrollbar {
 
 h1 {
   font-size: 8rem;
-  font-weight: 600;
-  line-height: 1.1em;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  line-height: 1.5ch;
+  letter-spacing: -0.01em;
   word-spacing: 0.1em;
-  display: inline;
+  font-family: "Agenor Neue", sans-serif;
   margin: 0;
   color: white;
   text-align: center;
@@ -38,7 +34,7 @@ h1 {
 
 p {
   font-size: 3.125rem;
-  font-weight: 100;
+  font-weight: 300;
   line-height: 1.3em;
   letter-spacing: 0em;
   word-spacing: 0em;
@@ -55,9 +51,8 @@ button {
   color: white;
   box-sizing: border-box;
   padding: 0.5em 1em;
-  transition: all 0.3s ease;
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1em;
   letter-spacing: 0em;
   word-spacing: 0em;
@@ -88,16 +83,15 @@ button:hover {
   box-sizing: border-box;
   width: 100%;
   height: 2rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: white;
   backdrop-filter: grayscale(0) blur(6px);
   padding: 2rem 32rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  display: none;
+  box-shadow: 0 0 6rem 1rem rgba(0, 0, 0, 0.2);
 }
 .nav-bar .logo-icon {
   height: 2rem;
   width: 2rem;
-  fill: #58643D;
+  fill: #6F804C;
 }
 .nav-bar .menu {
   display: flex;
@@ -109,17 +103,26 @@ button:hover {
 }
 .nav-bar .menu p {
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1em;
   letter-spacing: 0em;
   word-spacing: 0em;
-  color: #58643D;
+  color: #536039;
   user-select: none;
   transition: color 0.2s;
 }
 .nav-bar .menu p:hover {
   cursor: pointer;
-  color: #7E9156;
+  color: #6F804C;
+}
+
+.bg-img {
+  position: fixed;
+  z-index: -5;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: clip;
 }
 
 .ivy-bg {
@@ -142,21 +145,6 @@ button:hover {
   left: -46vw;
 }
 
-.bg-img {
-  position: fixed;
-  z-index: -5;
-  width: 100%;
-  left: 0;
-  top: 0;
-  overflow: clip;
-  scale: 2;
-  filter: blur(3px);
-  --parallax-x: 0;
-  --parallax-y: 5%;
-  animation: parallax 1s linear;
-  animation-timeline: scroll();
-}
-
 section {
   display: flex;
   flex-direction: column;
@@ -167,11 +155,11 @@ section {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  padding: 6rem 32rem;
+  padding: 8rem 32rem;
   gap: 2rem;
-  background-color: #7E9156;
 }
-section .wrap-horizontally {
+
+.wrap-horizontally {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -179,49 +167,23 @@ section .wrap-horizontally {
   flex-wrap: nowrap;
   gap: 4rem;
 }
-section .wrap-horizontally .img-container {
-  position: relative;
-  width: 50rem;
-  height: 50rem;
-  scale: -1 1;
-  --angle: 15deg;
-}
-section .wrap-horizontally .img-container::after {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  --angle: 10deg;
-  width: 100%;
-  height: 100%;
-  transform-origin: bottom left;
-  bottom: 0;
-  left: 0;
-  background: #7E9156;
-  border-radius: 40rem 0;
-  animation: leaf-anim 1s forwards paused;
-}
-section .wrap-horizontally .img-container img {
-  --angle: 0deg;
-  width: 100%;
-  border-radius: 40rem 0;
-  transform-origin: bottom left;
-  animation: leaf-anim 1s forwards paused;
-}
-section .wrap-horizontally .header-wrapper {
+.wrap-horizontally .header-wrapper {
   font-size: 8rem;
   width: 10ch;
   text-align: center;
 }
-section .wrap-horizontally .header-wrapper p {
+.wrap-horizontally .header-wrapper p {
   font-size: 0.4em;
-  width: 34rem;
+  width: 100%;
+  text-wrap: balance;
 }
-section .wrap-horizontally .header-wrapper::after {
+.wrap-horizontally .header-wrapper::after {
   content: "";
   position: absolute;
   --angle: 0deg;
   z-index: -1;
-  background: #EBEBEB;
+  background: #6F804C;
+  opacity: 1;
   border-radius: 24rem 0;
   top: 50%;
   left: 50%;
@@ -231,12 +193,42 @@ section .wrap-horizontally .header-wrapper::after {
   animation: leaf-anim 1s forwards paused;
 }
 
-section.main-header {
+.img-container {
+  position: relative;
+  width: 50rem;
+  height: 50rem;
+  scale: -1 1;
+  --angle: 15deg;
+}
+.img-container::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  --angle: 10deg;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom left;
+  bottom: 0;
+  left: 0;
+  background: #6F804C;
+  border-radius: 40rem 0;
+  animation: leaf-anim 1s forwards paused;
+}
+.img-container img {
+  --angle: 0deg;
+  width: 100%;
+  border-radius: 40rem 0;
+  transform-origin: bottom left;
+  animation: leaf-anim 1s forwards paused;
+}
+
+section.logo-header {
   align-items: start;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 10rem;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-section.main-header p {
+section.logo-header p {
   font-size: 3rem;
   font-weight: 500;
   line-height: 1em;
@@ -246,10 +238,10 @@ section.main-header p {
   text-align: right;
   color: white;
 }
-section.main-header .logo {
+section.logo-header .logo {
   gap: 0.5rem;
 }
-section.main-header .logo svg {
+section.logo-header .logo svg {
   height: 8rem;
   fill: white;
 }
@@ -272,7 +264,7 @@ section.quality .wrap-horizontally .img-container {
   transform: scaleX(-1);
 }
 
-.section-special {
+.section-white {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -280,7 +272,7 @@ section.quality .wrap-horizontally .img-container {
   flex-wrap: nowrap;
   background-color: white;
 }
-.section-special .header-wrapper {
+.section-white .header-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -288,19 +280,19 @@ section.quality .wrap-horizontally .img-container {
   flex-wrap: nowrap;
   width: 50%;
 }
-.section-special p, .section-special h1 {
+.section-white p, .section-white h1 {
   color: #7E9156;
+  text-align: left;
 }
-.section-special h1 {
-  font-weight: 300;
-}
-.section-special h1:nth-of-type(even) {
-  font-weight: 500;
-  letter-spacing: 0;
+
+.plant-line {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
 }
 
 .animate-on-scroll::after, .animate-on-scroll img {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 1s;
 }
 

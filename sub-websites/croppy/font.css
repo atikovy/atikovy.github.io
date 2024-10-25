@@ -1,4 +1,6 @@
 
+
+/* Agenor Neue */
 @font-face {
     font-family: 'Agenor Neue';
     src: url('font/agenorneue-thin.otf');
@@ -45,5 +47,41 @@
     font-family: 'Agenor Neue';
     src: url('font/agenorneue-black.otf');
     font-weight: 700;
+    font-style: normal;
+}
+
+/* Quicksand */
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand-Light.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand-Regular.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand-Medium.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand-SemiBold.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand-Bold.ttf');
+    font-weight: 500;
     font-style: normal;
 }

@@ -45,7 +45,7 @@ section {
   margin: 0;
   gap: 4rem;
   position: relative;
-  width: 100vh;
+  width: 60vw;
   text-align: center;
   height: fit-content;
 }

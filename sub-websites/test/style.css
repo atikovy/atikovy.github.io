@@ -1,0 +1,76 @@
+p, button {
+  font-family: "Quicksand SemiBold", sans-serif;
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+body {
+  background-color: #eaeaea;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  container-type: inline-size;
+}
+.cards .card {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  gap: 2rem;
+  outline: 0.2rem #944040 solid;
+  outline-offset: -0.1rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #bd5858 -50%, #944040 150%);
+  box-shadow: 0 2rem 2rem -1rem rgba(0, 0, 0, 0.3);
+  min-height: 20rem;
+}
+.cards .card div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  background-color: #eaeaea;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  flex: 1;
+}
+.cards .card .text-box {
+  background-color: transparent;
+}
+.cards .card:nth-of-type(2) {
+  flex-direction: column;
+}
+.cards .card:nth-of-type(3) p {
+  font-size: 6rem;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 10rem;
+  border: 0.2rem solid #bd5858;
+  box-sizing: border-box;
+  font-size: 2rem;
+  padding: 0.1em 0.75em;
+  transition: background-color 0.5s;
+  width: fit-content;
+  height: fit-content;
+  text-transform: lowercase;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #bd5858;
+  transition: background-color 0.1s;
+}
+
+@container (max-width: 720) {
+  .card {
+    background-color: green;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,16 +1,13 @@
 
 $greenMid: #7E9156
-$greenDark: #58643D
+$greenDark: #6F804C
+$greenDarker: #536039
 $greyLight: #EBEBEB
-
 $jumpyEasing: cubic-bezier(0, 1.5, 0.8, 1)
 
 
 *
-  font-family: 'Agenor Neue', sans-serif
-
-p
-  font-family: 'Quicksand Medium', sans-serif
+  font-family: 'Quicksand', sans-serif
 
 
 @mixin font-setup ($fontSize: 1em, $fontWeight: 100, $lineHeight: 1em, $letterSpacing: 0em, $wordSpacing: 0em)
@@ -36,7 +33,7 @@ body
   margin: 0
   width: 100vw
   height: 200vh
-  background-color: white
+  background-color: $greenMid
   overflow-x: clip
 
   &::-webkit-scrollbar
@@ -44,15 +41,15 @@ body
 
 
 h1
-  @include font-setup(8rem, 600, 1.1em, -0.03em, 0.1em)
-  display: inline
+  @include font-setup(8rem, 500, 1.5ch, -0.01em, 0.1em)
+  font-family: 'Agenor Neue', sans-serif
   margin: 0
   color: white
   text-align: center
 
 
 p
-  @include font-setup(3.125rem, 100, 1.3em, 0em)
+  @include font-setup(3.125rem, 300, 1.3em, 0em)
   margin: 0
   padding: 0
   color: white
@@ -66,9 +63,8 @@ button
   color: white
   box-sizing: border-box
   padding: 0.5em 1em
-  transition: all 0.3s ease
 
-  @include font-setup(2rem, 300)
+  @include font-setup(2rem, 400)
 
   &:hover
     cursor: pointer
@@ -88,11 +84,11 @@ button
   box-sizing: border-box
   width: 100%
   height: 2rem
-  background-color: rgba(white, 0.7)
+  background-color: rgba(white, 1)
   backdrop-filter: grayscale(0) blur(6px)
   padding: 2rem 32rem
-  border-bottom: 1px solid rgba(white, 0.5)
-  display: none
+  //border-bottom: 1px solid rgba($greenDark, 0.1)
+  box-shadow: 0 0 6rem 1rem rgba(black, 0.2)
 
   .logo-icon
     height: 2rem
@@ -103,15 +99,24 @@ button
     @include flexbox(row, space-between, center)
     gap: 2rem
     p
-      @include font-setup(1.5rem, 400)
-      color: $greenDark
+      @include font-setup(1.5rem, 300)
+      color: $greenDarker
       user-select: none
       transition: color 0.2s
 
       &:hover
         cursor: pointer
-        color: $greenMid
+        color: $greenDark
 
+
+.bg-img
+  position: fixed
+  z-index: -5
+  width: 100%
+  left: 0
+  top: 0
+  overflow: clip
+  //filter: blur(3px)
 
 .ivy-bg
   position: absolute
@@ -133,91 +138,81 @@ button
     left: -46vw
 
 
-.bg-img
-  position: fixed
-  z-index: -5
-  width: 100%
-  left: 0
-  top: 0
-  overflow: clip
-  scale: 2
-  filter: blur(3px)
-  --parallax-x: 0
-  --parallax-y: 5%
-  animation: parallax 1s linear
-  animation-timeline: scroll()
-
-
 section
   @include flexbox
   position: relative
   box-sizing: border-box
   width: 100%
   margin: 0
-  padding: 6rem 32rem
+  padding: 8rem 32rem
   gap: 2rem
-  background-color: $greenMid
-
-  .wrap-horizontally
-    @include flexbox (row, space-between, center)
-    gap: 4rem
-
-    .img-container
-      position: relative
-      width: 50rem
-      height: 50rem
-      scale: -1 1
-      --angle: 15deg
-
-      &::after
-        position: absolute
-        content: ''
-        z-index: -1
-        --angle: 10deg
-        width: 100%
-        height: 100%
-        transform-origin: bottom left
-        bottom: 0
-        left: 0
-        background: $greenMid
-        border-radius: 40rem 0
-        animation: leaf-anim 1s forwards paused
-
-      img
-        --angle: 0deg
-        width: 100%
-        border-radius: 40rem 0
-        transform-origin: bottom left
-        animation: leaf-anim 1s forwards paused
-
-    .header-wrapper
-      font-size: 8rem
-      width: 10ch
-      text-align: center
-
-      p
-        font-size: 0.4em
-        width: 34rem
-
-      &::after
-        content: ''
-        position: absolute
-        --angle: 0deg
-        z-index: -1
-        background: $greyLight
-        border-radius: 24rem 0
-        top: 50%
-        left: 50%
-        transform: translateX(-50%) translateY(-50%)
-        width: 30rem
-        height: 30rem
-        animation: leaf-anim 1s forwards paused
 
 
-section.main-header
+.wrap-horizontally
+  @include flexbox (row, space-between, center)
+  gap: 4rem
+
+
+  .header-wrapper
+    font-size: 8rem
+    width: 10ch
+    text-align: center
+
+    p
+      font-size: 0.4em
+      width: 100%
+      text-wrap: balance
+
+    &::after
+      content: ''
+      position: absolute
+      --angle: 0deg
+      z-index: -1
+      background: $greenDark
+      opacity: 1
+      border-radius: 24rem 0
+      top: 50%
+      left: 50%
+      transform: translateX(-50%) translateY(-50%)
+      width: 30rem
+      height: 30rem
+      animation: leaf-anim 1s forwards paused
+
+
+.img-container
+  position: relative
+  width: 50rem
+  height: 50rem
+  scale: -1 1
+  --angle: 15deg
+
+  &::after
+    position: absolute
+    content: ''
+    z-index: -1
+    --angle: 10deg
+    width: 100%
+    height: 100%
+    transform-origin: bottom left
+    bottom: 0
+    left: 0
+    background: $greenDark
+    border-radius: 40rem 0
+    animation: leaf-anim 1s forwards paused
+
+  img
+    --angle: 0deg
+    width: 100%
+    border-radius: 40rem 0
+    transform-origin: bottom left
+    animation: leaf-anim 1s forwards paused
+
+
+section.logo-header
   align-items: start
   width: 100%
-  background-color: rgba(black, 0.8)
+  padding-top: 10rem
+  background-color: rgba(black, 0.7)
 
   p
     @include font-setup(3rem, 500)
@@ -255,7 +250,7 @@ section.quality
       transform: scaleX(-1)
 
 
-.section-special
+.section-white
   @include flexbox(column, start, start)
   background-color: white
 
@@ -265,19 +260,19 @@ section.quality
 
   p, h1
     color: $greenMid
+    text-align: left
 
-  h1
-    font-weight: 300
 
-    &:nth-of-type(even)
-      font-weight: 500
-      letter-spacing: 0
-
+.plant-line
+  position: absolute
+  z-index: -1
+  bottom: 0
 
 .animate-on-scroll
   &::after, img
-    opacity: 0
+    opacity: 1
     transition: opacity 1s
+
 
 .trigger-animation
   &::after, img
