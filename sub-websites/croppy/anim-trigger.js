@@ -1,10 +1,9 @@
 
-$('section').find('.img-container').addClass('animate-on-scroll')
-$('section').find('.header-wrapper').addClass('animate-on-scroll')
+$('section').find('.img-wrapper').addClass('animate-on-scroll')
+$('section').find('.header-container').addClass('animate-on-scroll')
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        console.log(entry)
         if (entry.isIntersecting) {
             $(entry.target).addClass('trigger-animation')
         }

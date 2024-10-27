@@ -13,5 +13,15 @@
     transform: translateY(var(--parallax-y)) translateX(var(--parallax-x));
   }
 }
+@keyframes path-scroll {
+  to {
+    stroke-dashoffset: var(--path-offset);
+  }
+}
+@keyframes clip-circle {
+  to {
+    clip-path: circle(150% at 100% 100%);
+  }
+}
 
 /*# sourceMappingURL=anim.css.map */

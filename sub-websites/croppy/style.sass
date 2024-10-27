@@ -5,9 +5,9 @@ $greenDarker: #536039
 $greyLight: #EBEBEB
 $jumpyEasing: cubic-bezier(0, 1.5, 0.8, 1)
 
-
 *
   font-family: 'Quicksand', sans-serif
+  margin: 0
 
 
 @mixin font-setup ($fontSize: 1em, $fontWeight: 100, $lineHeight: 1em, $letterSpacing: 0em, $wordSpacing: 0em)
@@ -24,36 +24,16 @@ $jumpyEasing: cubic-bezier(0, 1.5, 0.8, 1)
   justify-content: $justify
   align-items: $align
   flex-wrap: $wrap
+  gap: 2rem
 
 
 body
-  @include flexbox (column, start, center)
-  font-size: 16px
-  padding: 0
-  margin: 0
   width: 100vw
-  height: 200vh
   background-color: $greenMid
   overflow-x: clip
 
   &::-webkit-scrollbar
     display: none
-
-
-h1
-  @include font-setup(8rem, 500, 1.5ch, -0.01em, 0.1em)
-  font-family: 'Agenor Neue', sans-serif
-  margin: 0
-  color: white
-  text-align: center
-
-
-p
-  @include font-setup(3.125rem, 300, 1.3em, 0em)
-  margin: 0
-  padding: 0
-  color: white
-  word-spacing: 0.1em
 
 
 button
@@ -70,37 +50,31 @@ button
     cursor: pointer
 
 
-.header-wrapper
-  @include flexbox
-  position: relative
-  margin: 0
-  gap: 2rem
-
-
-.nav-bar
+nav
   @include flexbox(row, start, center)
   position: fixed
-  z-index: 10
+  z-index: 4
   box-sizing: border-box
   width: 100%
   height: 2rem
   background-color: rgba(white, 1)
   backdrop-filter: grayscale(0) blur(6px)
-  padding: 2rem 32rem
+  padding: 3rem 28rem
   //border-bottom: 1px solid rgba($greenDark, 0.1)
-  box-shadow: 0 0 6rem 1rem rgba(black, 0.2)
+  //box-shadow: 0 0 6rem 1rem rgba(black, 0.2)
 
   .logo-icon
-    height: 2rem
-    width: 2rem
+    height: 3rem
+    width: 3rem
     fill: $greenDark
+
 
   .menu
     @include flexbox(row, space-between, center)
-    gap: 2rem
+    gap: 3rem
     p
-      @include font-setup(1.5rem, 300)
-      color: $greenDarker
+      @include font-setup(2rem, 500)
+      color: $greenMid
       user-select: none
       transition: color 0.2s
 
@@ -109,22 +83,130 @@ button
         color: $greenDark
 
 
-.bg-img
-  position: fixed
-  z-index: -5
+section
+  @include flexbox(column, center, center)
+  position: relative
+  box-sizing: border-box
   width: 100%
-  left: 0
-  top: 0
-  overflow: clip
-  //filter: blur(3px)
+  margin: 0
+  padding: 12rem 28rem
+
+  div
+    @include flexbox(row, space-between, center)
+    gap: 8rem
+    width: 100%
+    div
+      flex: 1
+
+
+section.quality
+  .img-wrapper
+    transform: scaleX(-1)
+
+  .header-container::after
+    scale: -1 1
+  .header-container::before
+    scale: -1 1
+    left: -4rem
+    bottom: 0
+    rotate: 12deg
+
+
+section.section-white
+  align-items: start
+  background-color: white
+
+  .header-container
+    width: 60%
+    align-items: start
+
+    p, h1
+      color: $greenMid
+      text-align: left
+      text-wrap: balance
+
+    h1
+      font-size: 8rem
+
+    p
+      font-size: 4rem
+      font-weight: 400
+      width: 100%
+
+
+.header-container
+  @include flexbox(column, center, center)
+  text-align: center
+  position: relative
+
+  h1
+    @include font-setup(8rem, 500, 1em, -0.02em)
+    font-family: 'Agenor Neue', sans-serif
+    color: white
+    text-align: center
+    width: 100%
+
+
+  p
+    @include font-setup(3.125rem, 300, 1.2em, 0.02em)
+    color: white
+    text-wrap: balance
+    animation-delay: 0.2s
+
+
+  &::after, &::before
+    content: ''
+    position: absolute
+    z-index: -1
+    background: $greenDark
+    opacity: 1
+    border-radius: 32rem 0
+    width: 40rem
+    height: 40rem
+
+  &::before
+    //background: red
+    right: -4rem
+    bottom: -6rem
+    width: 16rem
+    height: 12rem
+    rotate: 4deg
+
+
+.img-wrapper
+  position: relative
+  width: 50rem
+  height: 50rem
+  scale: -1 1
+
+  &::after
+    position: absolute
+    content: ''
+    z-index: -1
+    width: 100%
+    height: 100%
+    rotate: 10deg
+    background: $greenDark
+    border-radius: 100rem 0
+
+  img
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 90%
+    border-radius: 32rem 0
+    clip-path: circle(0% at 0% 100%)
+    animation: clip-circle 2s forwards paused
+
 
 .ivy-bg
   position: absolute
   z-index: 5
   user-select: none
-  right: -24vw
+  right: -26rem
   top: 0
-  height: 120vh
+  height: 100rem
   scale: -1 1
   --parallax-y: -30%
   --parallax-x: 0
@@ -134,147 +216,41 @@ button
   &.left
     --parallax-y: -10%
     --parallax-x: 0
-    top: -10vh
-    left: -46vw
+    top: -12rem
+    left: -72rem
 
 
-section
-  @include flexbox
-  position: relative
-  box-sizing: border-box
-  width: 100%
-  margin: 0
-  padding: 8rem 32rem
-  gap: 2rem
-
-
-.wrap-horizontally
-  @include flexbox (row, space-between, center)
-  gap: 4rem
-
-
-  .header-wrapper
-    font-size: 8rem
-    width: 10ch
-    text-align: center
-
-    p
-      font-size: 0.4em
-      width: 100%
-      text-wrap: balance
-
-    &::after
-      content: ''
-      position: absolute
-      --angle: 0deg
-      z-index: -1
-      background: $greenDark
-      opacity: 1
-      border-radius: 24rem 0
-      top: 50%
-      left: 50%
-      transform: translateX(-50%) translateY(-50%)
-      width: 30rem
-      height: 30rem
-      animation: leaf-anim 1s forwards paused
-
-
-.img-container
-  position: relative
-  width: 50rem
-  height: 50rem
-  scale: -1 1
-  --angle: 15deg
-
-  &::after
-    position: absolute
-    content: ''
-    z-index: -1
-    --angle: 10deg
-    width: 100%
-    height: 100%
-    transform-origin: bottom left
-    bottom: 0
-    left: 0
-    background: $greenDark
-    border-radius: 40rem 0
-    animation: leaf-anim 1s forwards paused
-
-  img
-    --angle: 0deg
-    width: 100%
-    border-radius: 40rem 0
-    transform-origin: bottom left
-    animation: leaf-anim 1s forwards paused
-
-
-section.logo-header
-  align-items: start
-  width: 100%
-  padding-top: 10rem
-  background-color: rgba(black, 0.7)
-
-  p
-    @include font-setup(3rem, 500)
-    width: 100%
-    text-align: right
-    color: white
-
-  .logo
-    gap: 0.5rem
-
-    svg
-      height: 8rem
-      fill: white
-
-
-section.welcome
-  .header-wrapper
-    align-items: start
-    width: 50%
-    p
-      width: 100%
-      text-wrap: pretty
-      color: $greenMid
-
-
-section.quality
-  .wrap-horizontally
-    .header-wrapper
-
-      &::after
-        scale: -1 1
-        transform-origin: left bottom
-
-    .img-container
-      transform: scaleX(-1)
-
-
-.section-white
-  @include flexbox(column, start, start)
-  background-color: white
-
-  .header-wrapper
-    @include flexbox(column, start, start)
-    width: 50%
-
-  p, h1
-    color: $greenMid
-    text-align: left
-
-
-.plant-line
+.plant-body
   position: absolute
   z-index: -1
-  bottom: 0
+  left: 50%
+  top: -5%
+  height: 105%
+  transform-origin: top center
+  scale: -3 3
+  translate: -50% 0
+  --path-offset: -128%
+  animation: path-scroll 1s linear
+  animation-timeline: scroll()
+  stroke-dashoffset: 60%
+  stroke-dasharray: 60%
+  stroke-linecap: round
 
-.animate-on-scroll
-  &::after, img
-    opacity: 1
-    transition: opacity 1s
 
+.circle-clip
+  animation: clip-circle 2s ease forwards paused
+
+  &.right
+    clip-path: circle(0% at 100% 100%)
+
+  &.left
+    clip-path: circle(0% at 0% 100%)
+
+
+.text-animate-on-scroll
+  opacity: 0
 
 .trigger-animation
-  &::after, img
-    opacity: 1
+  img, h1, p
     animation-play-state: running !important
+
