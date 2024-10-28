@@ -195,7 +195,7 @@ section.section-white
     left: 50%
     transform: translate(-50%, -50%)
     width: 90%
-    border-radius: 32rem 0
+    border-radius: 34rem 0
     clip-path: circle(0% at 0% 100%)
     animation: clip-circle 2s forwards paused
 
@@ -235,6 +235,17 @@ section.section-white
   stroke-dashoffset: 60%
   stroke-dasharray: 60%
   stroke-linecap: round
+
+
+
+.placeholder
+  @include flexbox
+  @include font-setup(4rem, 400)
+  $color: #8c3a3a
+  border: 0.75rem dotted $color
+  color: $color
+  border-radius: 1rem
+  padding: 4rem 1rem
 
 
 .circle-clip

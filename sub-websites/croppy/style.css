@@ -207,7 +207,7 @@ section.section-white .header-container p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  border-radius: 32rem 0;
+  border-radius: 34rem 0;
   clip-path: circle(0% at 0% 100%);
   animation: clip-circle 2s forwards paused;
 }
@@ -247,6 +247,24 @@ section.section-white .header-container p {
   stroke-dashoffset: 60%;
   stroke-dasharray: 60%;
   stroke-linecap: round;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  border: 0.75rem dotted #8c3a3a;
+  color: #8c3a3a;
+  border-radius: 1rem;
+  padding: 4rem 1rem;
 }
 
 .circle-clip {
