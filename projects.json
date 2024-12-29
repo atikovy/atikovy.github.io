@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Brain tumors",
+    "description": [
+      "F1 Score: 0.95",
+      "Learning: Supervised",
+      "Model&nbsp&nbsp&nbsp: CNN",
+      "",
+      "Includes:",
+      "- Image data analysis",
+      "- Preprocessing image data",
+      "- Tumor type classification"
+    ],
+    "img": "media\\brain-tumors.jpg",
+    "color": "#25405C",
+    "url": "projects\\brain-tumors.html"
+  },
+  {
+    "name": "Twitter posts",
+    "description": [
+      "F1 Score: 0.85",
+      "Learning: Supervised",
+      "Model&nbsp&nbsp&nbsp: SGD",
+      "",
+      "Includes:",
+      "- Text data analysis",
+      "- Natural Language Processing",
+      "- Sentiment classification"
+    ],
+    "color": "#2980CC",
+    "img": "media\\twitter-posts.jpg",
+    "url": "projects\\twitter-posts.html"
+  }
+]
