@@ -21,17 +21,63 @@ html
   font-size: 16px
 
 body
-  @include flexbox
+  @include flexbox(column, start, start)
   box-sizing: border-box
   padding: 1rem
   gap: 1rem
 
-  height: 100vh
-  width: 36rem
   margin-left: 50%
   transform: translateX(-50%)
+
+  height: 100vh
+  width: 32rem
   background-color: #181818
   overflow: clip
+  font-size: 16px
+
+h1, h2
+  width: 1ch
+  font-size: 2rem
+  font-weight: 300
+h2
+  font-weight: 100
+
+h3
+  font-weight: 300
+  font-size: 1.5rem
+
+.description-overlay
+  @include flexbox(column, start, start)
+  position: absolute
+  gap: 1rem
+  padding: 1rem
+  width: 18rem
+  overflow: clip
+  opacity: 0
+  transition: opacity 0.2s 0.1s, transform 0.2s 0.1s
+  box-sizing: content-box
+
+  //border-left: 0.2rem solid $mid-white
+  //border-radius: 0.5rem
+  transform: translateX(0%)
+
+  &::before, &::after
+    position: absolute
+    content: ''
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: 0.2rem solid $mid-white
+    border-radius: 0.5rem
+    box-sizing: border-box
+    clip-path: inset(0 calc(100% - 1rem) 0 0)
+
+  &::after
+    clip-path: inset(0 0 0 calc(100% - 1rem))
+
+  p
+    font-size: 1rem
 
 .surname
   @include flexbox
@@ -45,13 +91,6 @@ body
     width: 100%
     user-select: none
 
-    h1, h2
-      width: 1ch
-      font-size: 2rem
-      font-weight: 300
-    h2
-      font-weight: 100
-
     &.myname
       & :last-child
         animation: dot 2s 0s steps(2) infinite
@@ -59,12 +98,11 @@ body
 nav
   //border: 1px solid blue
   @include flexbox
-  box-sizing: border-box
+  //box-sizing: border-box
   flex-direction: row
   gap: 1rem
   justify-content: space-between
   width: 100%
-  padding-right: 1.5rem
 
   .button
     position: relative
@@ -74,17 +112,16 @@ nav
     cursor: pointer
     flex: calc(1/3)
     transition: flex 0.2s, background-color 0.5s, color 0.5s
-    user-select: none
     font-weight: 200
 
     &::before, &::after
       content: ''
       position: absolute
-      left: 0.2rem
+      left: 0
       bottom: 0
       background-color: $dark-white
       z-index: 0
-      width: calc(100% - 0.2rem)
+      width: 100%
       height: 0.2rem
       border-radius: 10rem
 
@@ -102,32 +139,44 @@ nav
       &::after
         transition: background-color 0.2s, width 0.2s
         background-color: $mid-white
-        width: calc(100% - 0.2rem)
+        width: 100%
 
-.project-container
+.projects-container
   position: relative
-  overflow-y: scroll
-  overflow-x: clip
   width: 100%
   height: 100%
 
   &::-webkit-scrollbar
+    z-index: -1
+    //display: none
     width: 0.2rem
 
   &::-webkit-scrollbar-thumb
-    background-color: $mid-white
+    background-color: $dark-white
     border-radius: 10rem
-    transform: translateX(100%)
 
   .project-card
-    @include flexbox(row, space-between, start)
+    @include flexbox(row, start, start)
     position: relative
-    width: calc(100% - 1rem)
-    height: 19rem
+    width: calc(100%)
+    height: 4.75rem
     margin-bottom: 1rem
     margin-right: 1rem
     border-radius: 0.5rem
     overflow: clip
+    transition: height 0.2s, transform 0.2s
+    cursor: pointer
+    scroll-snap-align: start
+
+    h3::before
+      content: '/ '
+
+    .project-link
+      text-decoration: none
+      position: absolute
+      width: 100%
+      height: 100%
+      z-index: 10
 
     &::after
       content: ''
@@ -143,36 +192,41 @@ nav
       @include flexbox(column, start, start)
       gap: 1rem
       padding: 1.5rem
-      z-index: 1
-      h3
-        font-weight: 300
-        font-size: 1.5rem
-      a
-        text-decoration: none
-        border-radius: 0.25rem
-        border: 0.1rem solid $mid-white
-        padding: 0.25rem 0.5rem
-        font-weight: 300
-        &::before
-          content: '/ '
-        &:hover
-          &::before
-            content: '> '
+      z-index: 2
+
+    &:hover
+      transform: translateX(2%)
+      h3::before
+        content: '> '
+
+      &::before
+        opacity: 1
 
     .img-wrapper
-      position: relative
-      width: 30%
+      position: absolute
       height: 100%
-      overflow: clip
-      clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%)
+      //overflow: clip
       z-index: 1
+      right: 0
+      //border: 1px solid red
       img
         position: absolute
-        top: 0
-        left: 50%
-        height: 100%
-        transform: translateX(-50%)
-        -webkit-user-drag: none
-        -moz-user-drag: none
-        -o-user-drag: none
-        user-drag: none
+        top: 50%
+        right: 0
+        height: 20rem
+        //width: 100%
+        transform: translate(30%, -50%)
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 40% 100%)
+        opacity: 0.7
+        //mask-image: linear-gradient(90deg, rgba(black, 0) 0%, rgba(black, 1) 100%)
+
+*
+  -webkit-user-select: none
+  -moz-user-select: none
+  -o-user-select: none
+  user-select: none
+
+  -webkit-user-drag: none
+  -moz-user-drag: none
+  -o-user-drag: none
+  user-drag: none
