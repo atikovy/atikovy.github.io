@@ -4,12 +4,13 @@
     "description": [
       "F1 Score: 0.95",
       "Learning: Supervised",
-      "Model&nbsp&nbsp&nbsp: CNN",
+      "Model&nbsp&nbsp&nbsp: CNN, U-net CNN",
       "",
       "Includes:",
       "- Image data analysis",
       "- Preprocessing image data",
-      "- Tumor type classification"
+      "- Tumor type classification",
+      "- Tumor localization prediction"
     ],
     "img": "media\\brain-tumors.jpg",
     "color": "#25405C",
