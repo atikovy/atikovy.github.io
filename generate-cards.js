@@ -58,6 +58,7 @@ $(document).ready(function () {
                 const leftPositionInRem = ((cardPosition.left + $(this).outerWidth()) / 16) + 1;  // 50px -> 3.125rem
 
                 // Position overlay next to the hovered card (with rem unit for responsiveness)
+                // $overlay.addClass('overlay-visible')
                 $overlay.css({
                     opacity: 1,
                     transform: 'translateX(2%)',
@@ -69,6 +70,7 @@ $(document).ready(function () {
             projectContainer.on("mouseleave", ".project-card", function () {
                 // Hide the overlay when mouse leaves the card
                 const $overlay = $(this).next(".description-overlay");
+                // $overlay.removeClass('overlay-visible')
                 $overlay.css({
                     opacity: 0,
                     transform: 'translateX(0%)',

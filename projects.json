@@ -9,8 +9,8 @@
       "Includes:",
       "- Image data analysis",
       "- Preprocessing image data",
-      "- Tumor type classification",
-      "- Tumor localization prediction"
+      "- Image classification",
+      "- Binary mask prediction"
     ],
     "img": "media\\brain-tumors.jpg",
     "color": "#25405C",
