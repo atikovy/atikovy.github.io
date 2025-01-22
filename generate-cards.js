@@ -8,7 +8,12 @@ $(document).ready(function () {
             const descriptionHTML = project.description.map(line => `${line}`).join('<br>');
 
             const card = `
-            <div class="project-card" style="background-color: ${project.color}" data-title="${project.title}" data-description="${descriptionHTML}" data-img="${project.img}" data-url="${project.url}">
+            <div class="project-card" style="background-color: ${project.color}"
+            data-title="${project.title}"
+            data-description="${descriptionHTML}"
+            data-img="${project.img}"
+            data-url="${project.url}"
+            data-color="${project.color}">
                 <div class="project-info">
                     <h3 class="project-title">${project.title}</h3>
                 </div>

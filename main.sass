@@ -222,18 +222,21 @@ nav
 
 .background-blur-overlay
   position: absolute
-  width: 200%
+  width: 100vw
   height: 100%
   top: 0
   left: 50%
   transform: translateX(-50%)
   z-index: -1
+  opacity: 0
   transition: opacity 0.2s, backdrop-filter 0.2s, z-index 0s 0.2s
+  background-color: rgba($mid-grey, 0.5)
   backdrop-filter: blur(0rem)
 
   &.apply-overlay
     z-index: 9
-    backdrop-filter: blur(1rem)
+    opacity: 1
+    backdrop-filter: blur(0.5rem)
     transition: opacity 0.2s, backdrop-filter 0.2s, z-index 0s 0s
 
 .project-preview-window
@@ -262,7 +265,7 @@ nav
 
   .title
     @include flexbox(row, space-between, start)
-    padding: 0 1rem
+    padding: 0 2rem
     width: 100%
     box-sizing: border-box
 
@@ -270,6 +273,7 @@ nav
       color: $dark-white
       //color: $mid-white
       cursor: pointer
+      transition: color 0.1s
 
       &::before
         content: '.'
@@ -280,7 +284,7 @@ nav
         color: $mid-white
 
         &::before
-          content: '.'
+          content: '_'
         &::after
           content: ''
 
@@ -289,7 +293,7 @@ nav
     height: 100%
     border-radius: 1rem
     overflow: clip
-    border: 0.1rem solid $mid-grey
+    border: 0rem solid $mid-grey
     box-sizing: border-box
     box-shadow: 0 2em 3em -2em rgba(black, 0.5)
 
