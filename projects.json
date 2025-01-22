@@ -1,6 +1,6 @@
 [
   {
-    "name": "Brain tumors",
+    "title": "Brain tumors",
     "description": [
       "F1 Score: 0.95",
       "Learning: Supervised",
@@ -17,7 +17,7 @@
     "url": "projects\\brain-tumors.html"
   },
   {
-    "name": "Twitter posts",
+    "title": "Twitter posts",
     "description": [
       "F1 Score: 0.85",
       "Learning: Supervised",

@@ -8,14 +8,14 @@ $(document).ready(function () {
             const descriptionHTML = project.description.map(line => `${line}`).join('<br>');
 
             const card = `
-            <div class="project-card" style="background-color: ${project.color}" data-name="${project.name}" data-description="${descriptionHTML}" data-img="${project.img}" data-url="${project.url}">
+            <div class="project-card" style="background-color: ${project.color}" data-title="${project.title}" data-description="${descriptionHTML}" data-img="${project.img}" data-url="${project.url}">
                 <div class="project-info">
-                    <h3 class="project-title">${project.name}</h3>
+                    <h3 class="project-title">${project.title}</h3>
                 </div>
                 <div class="img-wrapper">
-                    <img src="${project.img}" alt="${project.name}" class="project-image" />
+                    <img src="${project.img}" alt="${project.title}" class="project-image" />
                 </div>
-                <a href="${project.url}" class="project-link" target="_blank"></a>
+<!--                <a href="" class="project-link" target="_blank"></a>-->
             </div>`;
 
             // Append the card to the container
