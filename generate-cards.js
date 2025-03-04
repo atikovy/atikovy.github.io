@@ -2,9 +2,12 @@ $(document).ready(function() {
     // Fetch the JSON data from the 'projects.json' file
     $.getJSON("projects.json", function (projects) {
         // Iterate through each project in the JSON data
-        projects.forEach(function(project) {
+        projects.forEach(function(project, index) {
             // Create a new project card
-            let projectCard = $('<div>', { class: 'project-card' });
+            let projectCard = $('<div>', {
+                class: 'project-card',
+                css: { 'animation-delay': (index * 100) + 'ms' } // Delay increases with index
+            });
 
             // Add title and link to the project card
             let projectTitle = $('<h2>').text(project.title);
@@ -26,7 +29,8 @@ $(document).ready(function() {
 
             // clickable
             projectCard.on('click', function() {
-                $('.project-window').attr('src', project.url); // Change iframe src
+                $('.project-window').attr('src', project.url);
+                $('.project-window').addClass('show');
             });
 
             // Append the project card to the project list container

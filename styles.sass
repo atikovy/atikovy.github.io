@@ -42,8 +42,11 @@ h2
   .title
     width: 100%
     .name
+      @include flexbox(row, start, start)
       h1
         font-weight: 300
+        &:last-of-type
+          animation: dot steps(2) 2s 0.5s infinite
     .subtitle
       h1
         font-weight: 100
@@ -62,6 +65,11 @@ h2
     padding: 1rem 1.5rem
     transition: background-color 0.3s, transform 0.3s
     cursor: pointer
+
+    translate: -50% 0
+    opacity: 0
+
+    animation: project-card-slide-in 0.5s 0s ease forwards
 
     &:hover
       background-color: rgba($WHITE-BROWN, 0.03)
@@ -87,6 +95,11 @@ h2
     height: 100%
     width: 100%
     border: none
+    clip-path: circle(0% at 0% 50%)
+    transition: clip-path 1s 0.1s ease
+
+    &.show
+      clip-path: circle(100%)
 
 *
   -webkit-user-select: none
