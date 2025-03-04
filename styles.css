@@ -16,7 +16,7 @@ body {
   padding: 8rem 12rem;
   gap: 8rem;
   overflow: clip;
-  background: radial-gradient(circle, #212121, #171717);
+  background: radial-gradient(circle, #212121, #1c1c1c);
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span {
