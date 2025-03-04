@@ -31,6 +31,7 @@ $(document).ready(function() {
             projectCard.on('click', function() {
                 $('.project-window').attr('src', project.url);
                 $('.project-window').addClass('show');
+                $('.project-preview').addClass('show');
             });
 
             // Append the project card to the project list container
