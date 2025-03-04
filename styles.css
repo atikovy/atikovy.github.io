@@ -118,7 +118,7 @@ h2 {
   width: 100%;
   border: none;
   clip-path: circle(0% at 0% 50%);
-  transition: clip-path 1s 0.1s ease;
+  transition: clip-path 1s 0.2s ease;
 }
 .project-preview .project-window.show {
   clip-path: circle(100%);
