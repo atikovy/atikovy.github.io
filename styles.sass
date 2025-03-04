@@ -14,7 +14,7 @@ $WHITE-BROWN: #DBD1C8
   flex-wrap: $wrap
 
 body
-  background-color: #212121
+  //background-color: #212121
   @include flexbox(row)
   box-sizing: border-box
   width: 100vw
@@ -22,6 +22,8 @@ body
   padding: 8rem 12rem
   gap: 8rem
   overflow: clip
+
+  background: radial-gradient(circle, #212121, #1f1f1f)
 
 h1, h2, h3, h4, h5, h6, p, a, span
   color: $WHITE-BROWN
