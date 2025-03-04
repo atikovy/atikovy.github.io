@@ -1,35 +1,12 @@
 [
   {
     "title": "Brain tumors",
-    "description": [
-      "F1 Score: 0.95",
-      "Learning: Supervised",
-      "Model&nbsp&nbsp&nbsp: CNN, U-net CNN",
-      "",
-      "Includes:",
-      "- Image data analysis",
-      "- Preprocessing image data",
-      "- Image classification",
-      "- Binary mask prediction"
-    ],
-    "img": "media\\brain-tumors.jpg",
-    "color": "#25405C",
-    "url": "projects\\brain-tumors.html"
+    "tags": ["images", "classification", "cnn", "u-net"],
+    "url": "projects/brain-tumors.html"
   },
   {
     "title": "Twitter posts",
-    "description": [
-      "F1 Score: 0.85",
-      "Learning: Supervised",
-      "Model&nbsp&nbsp&nbsp: SGD",
-      "",
-      "Includes:",
-      "- Text data analysis",
-      "- Natural Language Processing",
-      "- Sentiment classification"
-    ],
-    "color": "#2980CC",
-    "img": "media\\twitter-posts.jpg",
-    "url": "projects\\twitter-posts.html"
+    "tags": ["text", "classification", "sgd"],
+    "url": "projects/twitter-posts.html"
   }
 ]

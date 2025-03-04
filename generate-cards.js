@@ -1,88 +1,38 @@
-$(document).ready(function () {
-    // Fetch JSON data
+$(document).ready(function() {
+    // Fetch the JSON data from the 'projects.json' file
     $.getJSON("projects.json", function (projects) {
-        const projectContainer = $(".projects-container");
+        // Iterate through each project in the JSON data
+        projects.forEach(function(project) {
+            // Create a new project card
+            let projectCard = $('<div>', { class: 'project-card' });
 
-        // Loop through the JSON data and create cards
-        projects.forEach(project => {
-            const descriptionHTML = project.description.map(line => `${line}`).join('<br>');
-
-            const card = `
-            <div class="project-card" style="background-color: ${project.color}"
-            data-title="${project.title}"
-            data-description="${descriptionHTML}"
-            data-img="${project.img}"
-            data-url="${project.url}"
-            data-color="${project.color}">
-                <div class="project-info">
-                    <h3 class="project-title">${project.title}</h3>
-                </div>
-                <div class="img-wrapper">
-                    <img src="${project.img}" alt="${project.title}" class="project-image" />
-                </div>
-<!--                <a href="" class="project-link" target="_blank"></a>-->
-            </div>`;
-
-            // Append the card to the container
-            projectContainer.append(card);
-
-            // Create a new overlay specifically for this card
-            const overlay = `
-            <div class="description-overlay">
-                <h3 class="project-title">.info</h3>
-                <p class="project-description"></p>
-            </div>`;
-
-            // Append the individual overlay to the card
-            projectContainer.append(overlay);
-
-            // Attach hover events to show overlay
-            projectContainer.on("mouseenter", ".project-card", function () {
-                // Retrieve project-specific data
-                const name = $(this).data('name');
-                const description = $(this).data('description');
-                const img = $(this).data('img');
-                const url = $(this).data('url');
-                const color = $(this).css('background-color');  // Get the background color of the card
-
-                // Find the overlay corresponding to the current project card
-                const $overlay = $(this).next(".description-overlay");
-
-                // Update the overlay content with the current project details
-                // $overlay.find(".project-title").html(name);
-                $overlay.find(".project-description").html(description);
-
-                // Set the overlay background color to the project card color
-                // $overlay.css('background-color', color);
-
-                // Use .position() to get position relative to parent container
-                const cardPosition = $(this).position();
-
-                // Convert pixel values to rem (assuming 16px base font size)
-                const topPositionInRem = (cardPosition.top / 16) + 0;  // 140px -> 8.75rem
-                const leftPositionInRem = ((cardPosition.left + $(this).outerWidth()) / 16) + 1;  // 50px -> 3.125rem
-
-                // Position overlay next to the hovered card (with rem unit for responsiveness)
-                // $overlay.addClass('overlay-visible')
-                $overlay.css({
-                    opacity: 1,
-                    transform: 'translateX(2%)',
-                    top: 0,  // Positioning using rem
-                    left: 'calc(100% + 2rem)'  // Positioning using rem
-                });
+            // Add title and link to the project card
+            let projectTitle = $('<h2>').text(project.title);
+            let projectLink = $('<a>', {
+                href: project.url,
+                text: 'View Project',
+                target: '_blank'
             });
 
-            projectContainer.on("mouseleave", ".project-card", function () {
-                // Hide the overlay when mouse leaves the card
-                const $overlay = $(this).next(".description-overlay");
-                // $overlay.removeClass('overlay-visible')
-                $overlay.css({
-                    opacity: 0,
-                    transform: 'translateX(0%)',
-                });
+            // Create a div for tags
+            let tagsDiv = $('<div>', { class: 'tags' });
+            project.tags.forEach(function(tag) {
+                let tagElement = $('<span>', { class: 'tag' }).text(tag);
+                tagsDiv.append(tagElement);
             });
+
+            // Append the elements to the project card
+            projectCard.append(projectTitle, tagsDiv);
+
+            // clickable
+            projectCard.on('click', function() {
+                $('.project-window').attr('src', project.url); // Change iframe src
+            });
+
+            // Append the project card to the project list container
+            $('.project-list').append(projectCard);
         });
-    }).fail(function () {
-        console.error("Failed to load project data.");
+    }).fail(function() {
+        console.error("Failed to load the JSON file.");
     });
 });

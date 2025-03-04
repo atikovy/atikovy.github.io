@@ -1,0 +1,99 @@
+
+*
+  font-family: 'DM Mono', monospace
+  font-weight: 100
+  margin: 0
+
+$WHITE-BROWN: #DBD1C8
+
+@mixin flexbox ($direction: column, $justify: center, $align: center, $wrap: nowrap)
+  display: flex
+  flex-direction: $direction
+  justify-content: $justify
+  align-items: $align
+  flex-wrap: $wrap
+
+body
+  background-color: #212121
+  @include flexbox(row)
+  box-sizing: border-box
+  width: 100vw
+  height: 100vh
+  padding: 8rem 12rem
+  gap: 8rem
+  overflow: clip
+
+h1, h2, h3, h4, h5, h6, p, a, span
+  color: $WHITE-BROWN
+
+h1
+  font-size: 3rem
+
+h2
+  font-size: 2rem
+  font-weight: 200
+
+.menu
+  height: 100%
+  flex: 0.25
+  gap: 4rem
+  @include flexbox(column, start, start)
+
+  .title
+    width: 100%
+    .name
+      h1
+        font-weight: 300
+    .subtitle
+      h1
+        font-weight: 100
+
+.project-list
+  @include flexbox(column, start, start)
+  width: 100%
+  gap: 1rem
+  .project-card
+    @include flexbox(column, start, start)
+    box-sizing: border-box
+    border-radius: 1rem
+
+    width: 100%
+    gap: 0.5rem
+    padding: 1rem 1.5rem
+    transition: background-color 0.3s, transform 0.3s
+    cursor: pointer
+
+    &:hover
+      background-color: rgba($WHITE-BROWN, 0.03)
+      transform: translateX(2%)
+      transition: background-color 0.1s, transform 0.1s
+
+    .tags
+      @include flexbox(row, start, start)
+      gap: 1rem
+      .tag
+        padding: 0.25rem 1rem
+        background-color: rgba($WHITE-BROWN, 0.04)
+        border-radius: 0.6rem
+
+.project-preview
+  height: 100%
+  flex: 0.75
+  overflow: clip
+  border-radius: 1rem
+  //border: 1px solid red
+
+  .project-window
+    height: 100%
+    width: 100%
+    border: none
+
+*
+  -webkit-user-select: none
+  -moz-user-select: none
+  -o-user-select: none
+  user-select: none
+  -webkit-user-drag: none
+  -moz-user-drag: none
+  -o-user-drag: none
+  user-drag: none
