@@ -1,0 +1,12 @@
+
+html ::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #111111;
+}
+
+html ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: #DBD1C8;
+    border: 0.4rem solid transparent;
+    background-clip: padding-box;
+}
