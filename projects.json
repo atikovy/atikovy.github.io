@@ -1,6 +1,6 @@
 [
   {
-    "title": "Weather forecastingg",
+    "title": "Weather forecasting",
     "tags": ["numeric", "prediction", "rnn", "lstm"],
     "url": "projects/weather-rnn.html"
   },
