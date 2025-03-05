@@ -1,8 +1,8 @@
 [
   {
-    "title": "Weather forecasting",
+    "title": "Weather forecastingg",
     "tags": ["numeric", "prediction", "rnn", "lstm"],
-    "url": "projects/brain-tumors.html"
+    "url": "projects/weather-rnn.html"
   },
   {
     "title": "Brain tumors",
