@@ -33,6 +33,7 @@ h2 {
 }
 
 .menu {
+  position: relative;
   height: 100%;
   flex: 0.25;
   gap: 4rem;
@@ -126,6 +127,44 @@ h2 {
 }
 .project-preview .project-window.show {
   clip-path: circle(100%);
+}
+
+.github-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  background-color: rgba(219, 209, 200, 0.04);
+  border-radius: 10rem;
+  transition: background-color 0.3s, transform 0.3s;
+  bottom: 0;
+  left: 0;
+  rotate: -90deg;
+  clip-path: circle(0% at center);
+  animation: github-in 2s 0.5s forwards ease;
+}
+.github-wrapper:hover {
+  background-color: rgba(219, 209, 200, 0.1);
+  transition: background-color 0.1s, transform 0.3s;
+  transform: rotateZ(15deg);
+}
+.github-wrapper a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+}
+.github-wrapper img {
+  width: 100%;
+  height: 100%;
 }
 
 * {
