@@ -1,0 +1,110 @@
+* {
+  font-family: "Calibri", sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 100;
+  margin: 0;
+  color: #DBD1C8;
+}
+
+body {
+  position: relative;
+  padding: 4rem;
+  background-color: #111111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  margin-left: 50%;
+  translate: -50% 0;
+  text-align: center;
+  width: 100%;
+  font-family: "DM Mono", monospace;
+  font-size: 3rem;
+  margin-top: 2rem;
+  font-weight: 900;
+  max-width: 100%;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-weight: 100;
+}
+
+p, ul, ol {
+  font-size: 1.2rem;
+  max-width: 60%;
+  font-weight: 100;
+}
+
+ol li {
+  list-style-type: decimal;
+  margin-top: 0.5rem;
+}
+
+ul li {
+  margin-top: 0;
+  list-style-type: "- ";
+}
+
+p.special {
+  margin-left: 50%;
+  translate: -50% 0;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 0.03em;
+  font-size: 1.5rem;
+  text-wrap: pretty;
+  max-width: 80%;
+}
+
+b {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.img-wrap {
+  width: 100%;
+  height: 6rem;
+  overflow: clip;
+  border-radius: 0;
+}
+
+.bg-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 6rem;
+  border-radius: 1rem;
+  overflow: clip;
+}
+.bg-wrap img {
+  width: 100%;
+}
+
+.plot-wrap {
+  box-sizing: content-box;
+  background-color: #141414;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: clip;
+}
+.plot-wrap img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
