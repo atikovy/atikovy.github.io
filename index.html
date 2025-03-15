@@ -5,6 +5,7 @@
     <title>Gracjan Pawłowski - Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script defer language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script defer src="generate-cards.js"></script>
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="styles.css">
@@ -25,7 +26,16 @@
     </div>
 </div>
 <div class="project-preview">
-    <iframe class="project-window" src="" frameborder="0"></iframe>
+    <div class="project-buttons">
+        <div class="button" id="info" style="--nth: 1"><h3>info</h3></div>
+        <div class="button" id="code" style="--nth: 2"><h3>code</h3></div>
+    </div>
+    <div class="project-window">
+        <div class="frame-wrapper">
+            <iframe id="frame-readme" src="" frameborder="0"></iframe>
+            <iframe id="frame-notebook" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 </div>
 </body>
 </html>

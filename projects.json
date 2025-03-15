@@ -2,16 +2,19 @@
   {
     "title": "Weather forecasting",
     "tags": ["numeric", "prediction", "rnn", "lstm"],
-    "url": "projects/weather-rnn.html"
+    "readme": "projects/weather-rnn.html",
+    "notebook": "projects/weather-rnn.html"
   },
   {
     "title": "Brain tumors",
     "tags": ["images", "classification", "cnn", "u-net"],
-    "url": "projects/brain-tumors.html"
+    "readme": "projects/brain-tumors/readme.html",
+    "notebook": "projects/brain-tumors/notebook.html"
   },
   {
     "title": "Twitter posts",
     "tags": ["text", "classification", "sgd"],
-    "url": "projects/twitter-posts.html"
+    "readme": "projects/twitter-posts.html",
+    "notebook": "projects/twitter-posts.html"
   }
 ]

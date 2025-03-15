@@ -109,21 +109,79 @@ h2 {
 }
 
 .project-preview {
+  position: relative;
   height: 100%;
   flex: 0.75;
-  overflow: clip;
-  border-radius: 2rem;
   transition: box-shadow 0.5s 0.5s;
+}
+.project-preview .project-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  transform: translateY(-80%);
+  gap: 1rem;
+}
+.project-preview .project-buttons .button {
+  background-color: rgba(219, 209, 200, 0.04);
+  box-sizing: border-box;
+  height: 3rem;
+  border-radius: 1rem 1rem 0 0;
+  padding: 0.25rem 1rem;
+  transition: background-color 0.1s, transform 0.1s, translate 0.3s calc(1s + var(--nth) * 0.05s), visibility 0s 0.5s;
+  cursor: pointer;
+  translate: 0 100%;
+  visibility: hidden;
+}
+.project-preview .project-buttons .button h3 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+.project-preview .project-buttons .button:hover {
+  transform: translateY(-20%);
+}
+.project-preview .project-buttons .button.active {
+  background-color: rgba(219, 209, 200, 0.1);
+}
+.project-preview .project-buttons .button.show {
+  visibility: visible;
+  translate: 0 0;
 }
 .project-preview.show {
   box-shadow: rgba(0, 0, 0, 0.5) 0rem 2rem 3rem -2rem;
 }
 .project-preview .project-window {
+  z-index: 2;
   height: 100%;
   width: 100%;
   border: none;
+  border-radius: 1rem;
+  overflow: clip;
   clip-path: circle(0% at 0% 50%);
   transition: clip-path 1s 0.2s ease;
+}
+.project-preview .project-window .frame-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  width: 200%;
+  height: 100%;
+  transition: translate 0.5s;
+}
+.project-preview .project-window .frame-wrapper.slide {
+  translate: -50% 0;
+}
+.project-preview .project-window .frame-wrapper #frame-readme, .project-preview .project-window .frame-wrapper #frame-notebook {
+  width: 100%;
+  height: 100%;
+  float: left;
+  translate: 0 0;
 }
 .project-preview .project-window.show {
   clip-path: circle(100%);

@@ -29,10 +29,32 @@ $(document).ready(function() {
 
             // clickable
             projectCard.on('click', function() {
-                $('.project-window').attr('src', project.url);
+                $('#code').removeClass('active')
+                $('#info').addClass('active')
+
+                $('#frame-readme').attr('src', project.readme);
+                $('#frame-notebook').attr('src', project.notebook);
+                $('.frame-wrapper').removeClass('slide')
+
                 $('.project-window').addClass('show');
                 $('.project-preview').addClass('show');
+
+                $('.button').addClass('show');
             });
+
+            $('#info').on('click', function(e) {
+                $('#code').removeClass('active')
+                $('#info').addClass('active')
+                $('.frame-wrapper').removeClass('slide')
+                $('.project-window').attr('src', project.readme);
+            })
+
+            $('#code').on('click', function(e) {
+                $('#info').removeClass('active')
+                $('#code').addClass('active')
+                $('.frame-wrapper').addClass('slide')
+                $('.project-window').attr('src', project.url);
+            })
 
             // Append the project card to the project list container
             $('.project-list').append(projectCard);

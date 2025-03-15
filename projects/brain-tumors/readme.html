@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="../scroll-bar.css">
+<link rel="stylesheet" href="../style.css">
+
+<div class="bg-wrap"><img src="./bg.jpg" alt=""></div>
+
+<h1>Brain tumors</h1>
+<p class="special">
+    In this project I analyzed 'Brain tumor dataset', a T1 weighted image dataset from figshare.
+    The project is in jupyter notebook format (.ipynb) that shows the process of data analysis and building models.
+</p>
+
+<h2>Libraries I've used:</h2>
+<ul>
+    <li><b>tensorflow, keras, sklearn</b> for machine learning</li>
+    <li><b>numpy, scipy, random</b> for numerical operations</li>
+    <li><b>matplotlib, seaborn</b> for plotting</li>
+    <li><b>os, cv2</b> for loading images</li>
+</ul>
+
+<h2>The full process includes:</h2>
+
+<ol>
+    <li>Data exploration</li>
+    <ul>
+        <li>Image extraction</li>
+        <li>Preview images</li>
+        <li>Black/White balance</li>
+        <li>Skull size</li>
+        <li>Class weights</li>
+        <li>Feature scaling</li>
+        <li>Splitting Data</li>
+    </ul>
+
+    <li>1st Model (tumor type)</li>
+    <ul>
+        <li>Building a model</li>
+        <li>Testing the model</li>
+        <li>Visualising results</li>
+    </ul>
+
+    <li>Predicting tumor location</li>
+    <ul>
+        <li>Mask extraction</li>
+        <li>Preview the masks</li>
+        <li>Tumor size</li>
+        <li>Feature scaling</li>
+        <li>Splitting Data</li>
+    </ul>
+
+    <li>2nd Model (tumor location)</li>
+    <li>Conclusion</li>
+</ol>
+
+<h2> What I achieved:</h2>
+<ul>
+    <li>AI model that predicts tumor type with accuracy of roughly 95%</li>
+    <li>AI model that predicts tumor location based on predicted binary mask</li>
+</ul>
+
+<h2> Future ideas:</h2>
+<ul>
+    <li>filter out certain head size</li>
+    <li>border box around predicted tumor localization</li>
+    <li>finish full web/desktop application</li>
+</ul>
+
+<h1>Example features I extracted</h1>
+<h2> Head size</h2>
+<p>
+    I calculated amount of white pixels inside image.
+    In summary this plot returns images where head fills specified % of area in image.
+</p>
+
+<div class="plot-wrap"><img src="./skull-size.png" alt=""></div>
+<div class="plot-wrap"><img src="./skull-size-2.png" alt=""></div>
+
+<h2> Tumor size</h2>
+<p>
+    Similarly to head size I also calculated amount of white pixels inside,
+    but this time I used tumor border coordinates to create binary mask and then counted the white pixels in it.
+</p>
+
+<div class="plot-wrap"><img src="./tumor-size.png" alt=""></div>
+<div class="plot-wrap"><img src="./tumor-size-2.png" alt=""></div>
