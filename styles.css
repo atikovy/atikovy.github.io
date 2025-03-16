@@ -145,7 +145,7 @@ h2 {
   transform: translateY(-20%);
 }
 .project-preview .project-buttons .button.active {
-  background-color: rgba(219, 209, 200, 0.1);
+  background-color: #111111;
 }
 .project-preview .project-buttons .button.show {
   visibility: visible;
@@ -159,7 +159,7 @@ h2 {
   height: 100%;
   width: 100%;
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   overflow: clip;
   clip-path: circle(0% at 0% 50%);
   transition: clip-path 1s 0.2s ease;
