@@ -1,16 +1,16 @@
-@media (min-width: 360px) {
+@media (min-width: 844.8px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (min-width: 1267.2px) {
   html {
     font-size: 12px;
   }
 }
-@media (min-width: 720px) {
+@media (min-width: 1689.6px) {
   html {
     font-size: 16px;
-  }
-}
-@media (min-width: 1920px) {
-  html {
-    font-size: 32px;
   }
 }
 
