@@ -14,7 +14,7 @@
   {
     "title": "Twitter posts",
     "tags": ["text", "classification", "sgd"],
-    "readme": "projects/twitter-posts.html",
-    "notebook": "projects/twitter-posts.html"
+    "readme": "projects/twitter-posts/readme.html",
+    "notebook": "projects/twitter-posts/notebook.html"
   }
 ]

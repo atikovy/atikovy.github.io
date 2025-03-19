@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="../scroll-bar.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../responsive.css">
+
+<div class="bg-wrap"><img src="./bg.jpg" alt=""></div>
+
+<h1>{ Introduction }</h1>
+<p class="special">
+    In this project I took a look at 'Twitter posts' dataset from Kaggle.
+    The project is in jupyter notebook format (.ipynb) that shows the process of data analysis and building models.
+</p>
+
+<h2>Libraries I've used:</h2>
+<ul>
+    <li><b>sklearn</b> for machine learning</li>
+    <li><b>pandas</b> for data analysis</li>
+    <li><b>numpy, scipy, random</b> for numerical operations</li>
+    <li><b>matplotlib, seaborn</b> for plotting</li>
+    <li><b>nltk, string, emoji</b> for text processing</li>
+</ul>
+
+<h2>The full process includes:</h2>
+<ol>
+    <li>Dataset overview</li>
+    <li>Processing text data</li>
+    <ul>
+        <li>Removing duplicates</li>
+        <li>Balancing the data</li>
+        <li>Length of sentences</li>
+    </ul>
+    <li>Creating the Model</li>
+    <ul>
+        <li>Class weighting</li>
+        <li>Text tokenizing</li>
+        <li>Training the model</li>
+        <li>Hyperparameter tuning</li>
+        <li>Testing in practice</li>
+    </ul>
+    <li>Conclusion</li>
+</ol>
+
+<h1>{ Example features I extracted }</h1>
+<h2>Negative sentences length</h2>
+<p>
+    After extracting length of each sentence I've noticed that red peak in negative subgroup.<br>
+    It's actual fact that people tend to write longer sentences for negative reviews.
+</p>
+<div class="plot-wrap"><img src="./sentence-len.png" alt="Sentence Length"></div>
+
+<h1>{ Summary }</h1>
+<h2>Model comparison</h2>
+<p>
+    The white vertical indicates the deviation from the average score, the smaller the line is the more class balanced predictions are.
+    So we can clearly notice that the last model has the highest and most balanced score.
+</p>
+<div class="plot-wrap plot-small"><img src="./model-comparison.png" alt="Model Comparison"></div>
+
+<h2>What I achieved:</h2>
+<ul>
+    <li>I learned a lot about natural language processing</li>
+    <li>An AI model that predicts sentiment from text with an accuracy of roughly 85%</li>
+</ul>
+
+<h2>Significant improvement noticed after:</h2>
+<ul>
+    <li>Applying text tokenizing function</li>
+    <li>Downsampling dataset to achieve more balanced class ratio</li>
+</ul>
+
+<h2>Future ideas:</h2>
+<ul>
+    <li>Filter out certain head size</li>
+    <li>Border box around predicted tumor localization</li>
+    <li>Finish full web/desktop application</li>
+</ul>
+<br>
+<p>
+    The custom tokenizer works way better in practice and actually has some kind of impact.<br>
+    I think that after more tweaking it has potential to be used in social media websites such as: Instagram, Twitter or YouTube.
+</p>
