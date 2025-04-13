@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="../scroll-bar.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../responsive.css">
+
+<div class="bg-wrap"><img src="./media/bg.jpg" alt=""></div>
+
+<h1>{ Introduction }</h1>
+<p class="special">
+    In this small project we will take a look at Seattle weather dataset from Kaggle to extract important features
+    and use them to test functionality of Recurrent Neural Network.
+</p>
+
+<h2>Libraries I've used:</h2>
+<ul>
+    <li><b>pytorch, sklearn</b> for machine learning</li>
+    <li><b>numpy, scipy, random</b> for numerical and statistical operations</li>
+    <li><b>matplotlib, seaborn</b> for data visualization</li>
+</ul>
+
+<h2>The full process includes:</h2>
+<ol>
+    <li>Data exploration</li>
+    <ul>
+        <li>Overview</li>
+        <li>Anomalies</li>
+        <li>Visualization</li>
+        <li>Preparing data for model</li>
+    </ul>
+
+    <li>Building model</li>
+    <ul>
+        <li>Train / test split</li>
+        <li>Sequencing datasets</li>
+        <li>Class LSTM</li>
+        <li>Training function</li>
+        <li>Testing function</li>
+        <li>Training and Testing the RNN models</li>
+    </ul>
+
+    <li>Conclusion</li>
+</ol>
+
+<h1>{ Extracted features }</h1>
+<h2>Average temperature</h2>
+<p>
+    The maximum and minimum temperature series changes over time with a very stable vertical shift.
+    Basing on this strong correlation I've decided to replace them with <i><b>average temperature</b></i>
+    which is basically mean value of these two series.
+    This reduced the number of values fed into the model in the calculations resulting with more efficient training.
+</p>
+
+<div class="plot-wrap plot-tiny"><img src="./media/corr.png" alt=""></div>
+<div class="plot-wrap"><img src="./media/temp-avg.png" alt=""></div>
+
+<h1>{ Summary }</h1>
+<div class="plot-wrap"><img src="./media/summary.png" alt=""></div>
+
+<h2>What I achieved:</h2>
+<ul>
+    <li>I learned a lot about recurrent neural networks and how to work with time series data</li>
+    <li>LSTM model that recognizes patterns within time series data</li>
+</ul>
+
+<h2>Future ideas:</h2>
+<ul>
+    <li>Remove chaotic data and compare new results with previous predictions.</li>
+    <li>Apply Granger causality</li>
+</ul>

@@ -115,6 +115,9 @@ b {
 .plot-wrap img {
   width: 100%;
 }
+.plot-wrap.plot-tiny {
+  width: 30%;
+}
 .plot-wrap.plot-small {
   width: 60%;
 }

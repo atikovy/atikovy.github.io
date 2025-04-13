@@ -127,7 +127,7 @@ h2 {
   gap: 1rem;
 }
 .project-preview .project-buttons .button {
-  background-color: rgba(219, 209, 200, 0.04);
+  background-color: #111111;
   box-sizing: border-box;
   height: 3rem;
   border-radius: 1rem 1rem 0 0;
@@ -139,13 +139,17 @@ h2 {
 }
 .project-preview .project-buttons .button h3 {
   font-size: 1.5rem;
-  font-weight: 200;
+  font-weight: 300;
+  transition: color 0.1s;
 }
 .project-preview .project-buttons .button:hover {
   transform: translateY(-20%);
 }
 .project-preview .project-buttons .button.active {
-  background-color: #111111;
+  background-color: #DBD1C8;
+}
+.project-preview .project-buttons .button.active h3 {
+  color: #111111;
 }
 .project-preview .project-buttons .button.show {
   visibility: visible;

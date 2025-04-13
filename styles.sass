@@ -102,7 +102,7 @@ h2
     gap: 1rem
 
     .button
-      background-color: rgba($WHITE-BROWN, 0.04)
+      background-color: #111111
       box-sizing: border-box
       height: 3rem
       border-radius: 1rem 1rem 0 0
@@ -113,13 +113,16 @@ h2
       visibility: hidden
       h3
         font-size: 1.5rem
-        font-weight: 200
+        font-weight: 300
+        transition: color 0.1s
 
       &:hover
         transform: translateY(-20%)
 
       &.active
-        background-color: #111111
+        background-color: $WHITE-BROWN
+        h3
+          color: #111111
 
       &.show
         visibility: visible

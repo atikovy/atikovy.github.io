@@ -2,8 +2,8 @@
   {
     "title": "Weather forecasting",
     "tags": ["numeric", "prediction", "rnn", "lstm"],
-    "readme": "projects/weather-rnn.html",
-    "notebook": "projects/weather-rnn.html"
+    "readme": "projects/weather-rnn/readme.html",
+    "notebook": "projects/weather-rnn/notebook.html"
   },
   {
     "title": "Brain tumors",
