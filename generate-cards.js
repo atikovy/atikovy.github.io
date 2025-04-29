@@ -32,6 +32,8 @@ $(document).ready(function() {
                 $('#code').removeClass('active')
                 $('#info').addClass('active')
 
+                $('.loading').addClass('active')
+
                 $('#frame-readme').attr('src', project.readme);
                 $('#frame-notebook').attr('src', project.notebook);
                 $('.frame-wrapper').removeClass('slide')

@@ -22,5 +22,13 @@
     clip-path: circle(100% at center);
   }
 }
+@keyframes loading {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
 
 /*# sourceMappingURL=anim.css.map */
