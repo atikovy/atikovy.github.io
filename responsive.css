@@ -17,5 +17,17 @@ html {
     font-size: 16px;
   }
 }
+@media (max-aspect-ratio: 1) {
+  * {
+    display: none;
+  }
+  html, body {
+    display: block;
+  }
+  .warning {
+    display: block;
+    font-size: 10rem;
+  }
+}
 
 /*# sourceMappingURL=responsive.css.map */

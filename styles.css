@@ -240,4 +240,8 @@ h2 {
   user-drag: none;
 }
 
+.warning {
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
