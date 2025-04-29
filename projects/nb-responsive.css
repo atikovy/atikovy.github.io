@@ -1,0 +1,25 @@
+html {
+  font-size: 4px !important;
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 8px !important;
+    background-color: red;
+  }
+}
+@media (min-width: 1152px) {
+  html {
+    font-size: 12px !important;
+    background-color: blue;
+  }
+}
+@media (min-width: 1536px) {
+  html {
+    font-size: 16px !important;
+    background-color: green;
+  }
+}
+
+/*# sourceMappingURL=nb-responsive.css.map */
