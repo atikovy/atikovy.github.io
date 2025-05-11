@@ -29,6 +29,8 @@ $(document).ready(function() {
 
             // clickable
             projectCard.on('click', function() {
+                $('.button').addClass('show')
+
                 $('#code').removeClass('active')
                 $('#info').addClass('active')
 
@@ -40,8 +42,6 @@ $(document).ready(function() {
 
                 $('.project-window').addClass('show');
                 $('.project-preview').addClass('show');
-
-                $('.button').addClass('show');
             });
 
             $('#info').on('click', function(e) {

@@ -106,6 +106,7 @@ h2 {
   padding: 0.25rem 1rem;
   background-color: rgba(219, 209, 200, 0.04);
   border-radius: 0.6rem;
+  color: rgba(219, 209, 200, 0.8);
 }
 
 .project-preview {
@@ -148,29 +149,28 @@ h2 {
   align-items: start;
   flex-wrap: nowrap;
   position: absolute;
+  z-index: 5;
   top: 0;
-  left: 2rem;
-  transform: translateY(-80%);
+  left: 3rem;
   gap: 1rem;
+  transform: translateY(-50%);
 }
 .project-preview .project-buttons .button {
   background-color: #111111;
   box-sizing: border-box;
-  height: 3rem;
-  border-radius: 1rem 1rem 0 0;
-  padding: 0.25rem 1rem;
-  transition: background-color 0.1s, transform 0.1s, translate 0.3s calc(1s + var(--nth) * 0.05s), visibility 0s 0.5s;
+  border: 0.15rem solid rgba(219, 209, 200, 0.3);
+  border-radius: 5rem;
+  padding: 0.3rem 1.5rem;
+  clip-path: circle(0% at center);
+  transition: clip-path 0.5s calc(1s + var(--nth) * 0.2s), visibility 0s 1s, background-color 0.1s;
   cursor: pointer;
-  translate: 0 100%;
-  visibility: hidden;
 }
 .project-preview .project-buttons .button h3 {
+  color: rgba(219, 209, 200, 0.3);
   font-size: 1.5rem;
   font-weight: 300;
   transition: color 0.1s;
-}
-.project-preview .project-buttons .button:hover {
-  transform: translateY(-20%);
+  transform: translateY(-5%);
 }
 .project-preview .project-buttons .button.active {
   background-color: #DBD1C8;
@@ -179,8 +179,7 @@ h2 {
   color: #111111;
 }
 .project-preview .project-buttons .button.show {
-  visibility: visible;
-  translate: 0 0;
+  clip-path: circle(100% at center);
 }
 .project-preview.show {
   box-shadow: rgba(0, 0, 0, 0.5) 0rem 2rem 3rem -2rem;
@@ -189,10 +188,10 @@ h2 {
   z-index: 2;
   height: 100%;
   width: 100%;
-  border: none;
+  border: 0.15rem solid rgba(219, 209, 200, 0.3);
   border-radius: 2rem;
   overflow: clip;
-  clip-path: circle(0% at 0% 50%);
+  clip-path: circle(0% at center);
   transition: clip-path 1s 0.2s ease;
 }
 .project-preview .project-window .frame-wrapper {
