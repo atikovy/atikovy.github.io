@@ -6,63 +6,104 @@
 
 <h1>{ Introduction }</h1>
 <p class="special">
-    In this small project we will take a look at Seattle weather dataset from Kaggle to extract important features
+    In this small project I've touched on Seattle weather dataset from Kaggle to extract important features
     and use them to test functionality of Recurrent Neural Network.
 </p>
 
 <h2>Libraries I've used:</h2>
 <ul>
-    <li><b>pytorch, sklearn</b> for machine learning</li>
-    <li><b>numpy, scipy, random</b> for numerical and statistical operations</li>
+    <li><b>torch, sklearn</b> for machine learning</li>
+    <li><b>pandas</b> for data manipulation and analysis</li>
+    <li><b>numpy, scipy, statsmodels</b> for numerical and statistical operations</li>
     <li><b>matplotlib, seaborn</b> for data visualization</li>
 </ul>
 
-<h2>The full process includes:</h2>
+<h2>Process includes:</h2>
 <ol>
-    <li>Data exploration</li>
-    <ul>
-        <li>Overview</li>
-        <li>Anomalies</li>
-        <li>Visualization</li>
-        <li>Preparing data for model</li>
-    </ul>
-
-    <li>Building model</li>
-    <ul>
-        <li>Train / test split</li>
-        <li>Sequencing datasets</li>
-        <li>Class LSTM</li>
-        <li>Training function</li>
-        <li>Testing function</li>
-        <li>Training and Testing the RNN models</li>
-    </ul>
-
-    <li>Conclusion</li>
+    <li><b>Data exploration</b>
+        <ul>
+            <li>Overview</li>
+            <li>Visualization</li>
+            <li>Data seasonality</li>
+            <li>Granger causality</li>
+        </ul>
+    </li>
+    <li><b>Preparing dataset</b>
+        <ul>
+            <li>Load data</li>
+            <li>Feature scaling</li>
+            <li>Train / test split</li>
+            <li>Data loader</li>
+        </ul>
+    </li>
+    <li><b>Building model</b>
+        <ul>
+            <li>Class RNN</li>
+            <li>Training</li>
+            <li>Testing</li>
+            <li>Second model</li>
+            <li>Cross-validation (single & multiple features)</li>
+            <li>Model comparison</li>
+        </ul>
+    </li>
+    <li><b>Conclusion</b></li>
 </ol>
 
-<h1>{ Extracted features }</h1>
+<h1>{ Insights }</h1>
+
 <h2>Average temperature</h2>
+<div class="plot-wrap"><img src="./media/temp-avg.png" alt=""></div>
+<br>
 <p>
     The maximum and minimum temperature series changes over time with a very stable vertical shift.
-    Basing on this strong correlation I've decided to replace them with <i><b>average temperature</b></i>
-    which is basically mean value of these two series.
+    Basing on this strong correlation, <i><b>maximum temperature</b></i> and <i><b>minimum temperature</b></i>
+    have been swapped with <i><b>average temperature</b></i>.
     This reduced the number of values fed into the model in the calculations resulting with more efficient training.
 </p>
 
-<div class="plot-wrap plot-tiny"><img src="./media/corr.png" alt=""></div>
-<div class="plot-wrap"><img src="./media/temp-avg.png" alt=""></div>
+<h2>Weather condition balance</h2>
+<div class="plot-wrap"><img src="./media/balance.png" alt=""></div>
+
+<br><br>
+
+<h2>Features</h2>
+<div class="plot-wrap"><img src="./media/granger.png" alt=""></div>
+<br>
+<p>
+    Despite Granger causality test is mainly used for linear models, it shows interesting information about features.
+    Although the trend was kind of similar for both features, the precipitation was way above 0.05 threshold,
+    this indicated a low predictive impact for average temperature feature prediction.
+</p>
+<br>
+<p>
+    The model has been tested within different configurations.
+    First configuration contained one feature (average temperature),
+    in second configuration wind and precipitation features have been added
+    to see if it actually helps in predicting average temperature.
+</p>
 
 <h1>{ Summary }</h1>
+
+<h2>Prediction errors</h2>
+<div class="plot-wrap"><img src="./media/pred-1.png" alt=""></div>
+<br>
+<p>
+    White '+' marks are the predicted values returned by model.
+    The red lines in the first plot indicate the deviation of the error from the true values.
+</p>
+
+<br><br>
+
+<h2>Cross-validation</h2>
 <div class="plot-wrap"><img src="./media/summary.png" alt=""></div>
-
-<h2>What I achieved:</h2>
-<ul>
-    <li>I learned a lot about recurrent neural networks and how to work with time series data</li>
-    <li>LSTM model that recognizes patterns within time series data</li>
-</ul>
-
-<h2>Future ideas:</h2>
-<ul>
-    <li>Remove chaotic data and compare new results with previous predictions.</li>
-    <li>Apply Granger causality</li>
-</ul>
+<br>
+<p>
+    First plot contains scoring per fold. While second one is mean of all folds per model.
+</p>
+<br>
+<p>
+    Models have been tested with different parameter combinations like <i>hidden_size</i>, <i>batch_size</i> and <i>sequence_length</i>.
+    Every time the model that used 3 features had slightly lower loss and error.
+    It turned out that using model with 3 features results in better accuracy of predicting average temperature.
+    Overall I think this project gives quite simple fundamentals to understand the functionality of Recurrent Neural Networks.
+</p>
