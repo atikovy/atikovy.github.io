@@ -7539,9 +7539,9 @@ a.anchor-link {
 <h4 id="Process-includes:">Process includes:<a class="anchor-link" href="#Process-includes:">¶</a></h4><ol>
 <li><strong>Data</strong> <br/>
  1.1 Overview <br/>
- 1.2 Anomalies <br/>
- 1.3 Visualization <br/>
- 1.4 Preparing data for model <br/></li>
+ 1.2 Visualization <br/>
+ 1.3 Data seasonality <br/>
+ 1.4 Granger causality <br/></li>
 <li><strong>Preparing Dataset</strong> <br/>
  2.1 Load data<br/>
  2.2 Feature scaling <br/>
@@ -7567,7 +7567,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Setup">Setup<a class="anchor-link" href="#Setup">¶</a></h4><p>Matplotlib color scheme.</p>
+<h4 id="Setup">Setup<a class="anchor-link" href="#Setup">¶</a></h4><p>Matplotlib color scheme and random seeds.</p>
 </div>
 </div>
 </div>
@@ -8935,26 +8935,12 @@ Global MAE (in °C) for 5 folds: 0.670182
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="V---Conclusion">V - Conclusion<a class="anchor-link" href="#V---Conclusion">¶</a></h1><p>The chaos in the <em>precipitation</em> and <em>wind</em> series doesn't seem to provide much valuable information for the model predict the average temperature. <br/>
+<h1 id="IV---Conclusion">IV - Conclusion<a class="anchor-link" href="#IV---Conclusion">¶</a></h1><p>The chaos in the <em>precipitation</em> and <em>wind</em> series doesn't seem to provide much valuable information for the model predict the average temperature. <br/>
 However, the model that uses 3 features (wind, precipitation and temp_avg) instead of just 1 (temp_avg) got slightly lower loss and error. <br/>
 I did tests on different combinations, changing parameters of both the model (hidden_size) and dataset (batch_size, sequence length). <br/>
 It turned out that using model with 3 features results in better accuracy of predicting average temperature. <br/>
 Overall I think this project gives quiet simple fundamentals to understand the functionality of Recurrent Neural Networks.</p>
 <h4 id="Thank-you-for-reading-my-project,-I-hope-you-enjoyed-the-process-:%5D">Thank you for reading my project, I hope you enjoyed the process :]<a class="anchor-link" href="#Thank-you-for-reading-my-project,-I-hope-you-enjoyed-the-process-:%5D">¶</a></h4><p><em>- Gracjan Pawłowski, 2025</em></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1fd1f08e9979c6b6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
