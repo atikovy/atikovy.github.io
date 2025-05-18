@@ -94,28 +94,34 @@ h2
   flex: 0.75
   transition: box-shadow 0.5s 0.5s
 
+  #loading-svg
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    stroke: red
+    stroke-width: 3rem
+    width: 6rem
+    height: 6rem
+
+    vector-effect: non-scaling-stroke
+
   .loading
     position: absolute
-    border-radius: 100%
-    border: 0.4rem solid $WHITE-BROWN
-    width: 4rem
-    height: 4rem
+    stroke: $WHITE-BROWN
+    width: 6rem
+    height: 6rem
     z-index: 0
     top: 50%
     left: 50%
     translate: -50% -50%
-    clip-path: inset(50% 50% 0 0)
-    animation: loading 1s ease-in-out infinite
+    animation: loading 1s ease infinite
     visibility: hidden
     &.active
       visibility: visible
 
     &:nth-of-type(1)
-      border-color: $WHITE-BROWN
-      translate: -50% -50%
-      clip-path: inset(0 0 50% 50%)
-      visibility: hidden
-      animation-delay: -0.2s
+      animation-delay: -0.1s
       &.active
         visibility: visible
 
