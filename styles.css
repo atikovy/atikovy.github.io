@@ -141,12 +141,6 @@ h2 {
 .project-preview .loading.active {
   visibility: visible;
 }
-.project-preview .loading:nth-of-type(1) {
-  animation-delay: -0.1s;
-}
-.project-preview .loading:nth-of-type(1).active {
-  visibility: visible;
-}
 .project-preview .project-buttons {
   display: flex;
   flex-direction: row;
