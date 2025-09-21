@@ -80,7 +80,7 @@ h1 {
   border-radius: 0.5rem;
   display: grid;
   grid-template-columns: repeat(5, calc(20% - 0.8rem));
-  grid-template-rows: repeat(5, 20%);
+  grid-template-rows: repeat(5, calc(20% - 0.8rem));
   gap: 1rem;
   padding: 0;
   overflow: clip;

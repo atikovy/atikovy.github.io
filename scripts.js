@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // TYLKO dla początkowych elementów dodajemy opóźnienie
     visibleWrappers.forEach((wrapper, index) => {
-        const delay = 1 + index * 500;
+        const delay = 1000 + index * 200;
         setTimeout(() => {
             wrapper.classList.add('show');
         }, delay);
