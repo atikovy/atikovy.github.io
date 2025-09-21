@@ -1,241 +1,117 @@
 
+$dark-grey: #212121
+$mid-white: #cccccc
+
+::-webkit-scrollbar
+  display: none
+
 *
-  font-family: 'DM Mono', monospace
-  font-weight: 100
   margin: 0
-
-$WHITE-BROWN: #DBD1C8
-
-@mixin flexbox ($direction: column, $justify: center, $align: center, $wrap: nowrap)
-  display: flex
-  flex-direction: $direction
-  justify-content: $justify
-  align-items: $align
-  flex-wrap: $wrap
+  padding: 0
+  font-family: "Quicksand", sans-serif
+  user-select: none
 
 body
-  //background-color: #212121
-  @include flexbox(row)
-  box-sizing: border-box
-  width: 100vw
-  height: 100vh
-  padding: 8rem 12rem
-  gap: 8rem
-  overflow: clip
-
-  background: radial-gradient(circle, #212121, #1c1c1c)
-
-h1, h2, h3, h4, h5, h6, p, a, span
-  color: $WHITE-BROWN
+  background-color: $dark-grey
+  position: absolute
+  margin-left: 50%
+  transform: translateX(-50%)
+  aspect-ratio: 1
+  padding: 4rem
+  display: flex
+  flex-direction: row
+  gap: 2rem
+  height: calc(100vh - 8rem)
 
 h1
+  color: $mid-white
+  font-weight: 400
+  letter-spacing: 0.3rem
   font-size: 3rem
 
-h2
-  font-size: 2rem
-  font-weight: 200
-
-.menu
+.surname
   position: relative
+  overflow: clip
+  writing-mode: vertical-lr
+  transform: rotate(180deg)
+  white-space: nowrap
   height: 100%
-  flex: 0.25
-  gap: 4rem
-  @include flexbox(column, start, start)
+  //display: flex
+  align-items: center
+  justify-content: center
+  letter-spacing: 0
+  text-align: right
 
-  .title
-    width: 100%
-    .name
-      @include flexbox(row, start, start)
-      h1
-        font-weight: 300
-        &:last-of-type
-          animation: dot steps(2) 2s 0.5s infinite
-    .subtitle
-      h1
-        font-weight: 100
+.surname-letter
+  display: inline-block
+  animation-fill-mode: forwards
+  animation-name: letter-in
+  animation-timing-function: cubic-bezier(0, 1, 1, 1)
+  animation-duration: 0.5s
+  //opacity: 0
+  translate: 150% 0
 
-.project-list
-  @include flexbox(column, start, start)
-  width: 100%
+.grid-small
+  grid-column: span 1
+  grid-row: span 1
+
+.grid-tall
+  grid-column: span 1
+  grid-row: span 2
+
+.grid-wide
+  grid-column: span 2
+  grid-row: span 1
+
+.grid-mid
+  grid-column: span 2
+  grid-row: span 2
+
+.grid-big
+  grid-column: span 3
+  grid-row: span 3
+
+.project-grid
+  //border: 1px solid red
+  border-radius: 0.5rem
+  display: grid
+  grid-template-columns: repeat(5, calc(20% - 0.8rem))
+  grid-template-rows: repeat(5, 20%)
   gap: 1rem
-  .project-card
-    @include flexbox(column, start, start)
-    box-sizing: border-box
-    border-radius: 1rem
+  padding: 0
+  overflow: clip
+  overflow-y: scroll
 
-    width: 100%
-    gap: 0.5rem
-    padding: 1rem 1.5rem
-    transition: background-color 0.3s, transform 0.3s
-    cursor: pointer
-
-    translate: -50% 0
-    opacity: 0
-
-    animation: project-card-slide-in 0.5s 0s ease forwards
-
-    &:hover
-      background-color: rgba($WHITE-BROWN, 0.03)
-      transform: translateX(2%)
-      transition: background-color 0.1s, transform 0.1s
-
-    .tags
-      @include flexbox(row, start, start)
-      gap: 1rem
-      .tag
-        padding: 0.25rem 1rem
-        background-color: rgba($WHITE-BROWN, 0.04)
-        border-radius: 0.6rem
-        color: rgba($WHITE-BROWN, 0.8)
-
-.project-preview
+.img-wrapper
   position: relative
-  height: 100%
-  flex: 0.75
-  transition: box-shadow 0.5s 0.5s
-
-  #loading-svg
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    stroke: red
-    stroke-width: 3rem
-    width: 6rem
-    height: 6rem
-
-    vector-effect: non-scaling-stroke
-
-  .loading
-    position: absolute
-    stroke: $WHITE-BROWN
-    width: 6rem
-    height: 6rem
-    z-index: 0
-    top: 50%
-    left: 50%
-    translate: -50% -50%
-    animation: loading 1s ease infinite
-    visibility: hidden
-    &.active
-      visibility: visible
-
-    //&:nth-of-type(1)
-    //  animation-delay: -0.1s
-    //  &.active
-    //    visibility: visible
-
-  .project-buttons
-    @include flexbox(row, start, start)
-    position: absolute
-    z-index: 5
-    top: 0
-    left: 3rem
-    gap: 1rem
-    transform: translateY(-50%)
-
-    .button
-      background-color: #111111
-      box-sizing: border-box
-      border: 0.1rem solid rgba($WHITE-BROWN, 0.3)
-      border-radius: 5rem
-      padding: 0.3rem 1.5rem
-      clip-path: circle(0% at center)
-      transition: clip-path 0.5s calc(1s + var(--nth) * 0.2s), visibility 0s 1s, background-color 0.1s
-      cursor: pointer
-      h3
-        color: rgba($WHITE-BROWN, 0.3)
-        font-size: 1.5rem
-        font-weight: 300
-        transition: color 0.1s
-        transform: translateY(-5%)
-
-      &.active
-        background-color: $WHITE-BROWN
-
-        h3
-          color: #111111
-
-      &.show
-        clip-path: circle(100% at center)
-
-  &.show
-    box-shadow: rgba(black, 0.5) 0 2rem 3rem -2rem
-
-  .project-window
-    z-index: 2
-    height: 100%
-    width: 100%
-    border: 0.1rem solid rgba($WHITE-BROWN, 0.3)
-    border-radius: 2rem
-    overflow: clip
-    clip-path: circle(0% at center)
-    transition: clip-path 1s 0.2s ease
-    //background-color: #111111
-
-    .frame-wrapper
-      @include flexbox(row, start, start)
-      width: 200%
-      height: 100%
-      transition: translate 0.5s
-
-      &.slide
-        translate: -50% 0
-
-      #frame-readme, #frame-notebook
-        width: 100%
-        height: 100%
-        float: left
-        translate: 0 0
-
-    &.show
-      clip-path: circle(100%)
-
-.github-wrapper
-  @include flexbox(row, start, start)
-  position: absolute
-  width: 5rem
-  height: 5rem
-  padding: 0.75rem
-  box-sizing: border-box
-
-  background-color: rgba($WHITE-BROWN, 0.04)
-  border-radius: 10rem
-  transition: background-color 0.3s, transform 0.3s
-
-  bottom: 0
-  left: 0
-
-  rotate: -90deg
-  clip-path: circle(0% at center)
-  animation: github-in 2s 0.5s forwards ease
+  overflow: clip
+  border-radius: 0.5rem
+  cursor: pointer
+  opacity: 0
+  translate: 0 1rem
 
   &:hover
-    background-color: rgba($WHITE-BROWN, 0.1)
-    transition: background-color 0.1s, transform 0.3s
-    transform: rotateZ(15deg)
+    img, video
+      scale: 0.96
+      filter: saturate(1)
+      transition: scale 0.1s ease-out, filter 0.1s ease-out
 
-  a
-    position: absolute
-    left: 0
-    top: 0
-    width: 100%
+  img, video
+    display: block
+    filter: saturate(0.3)
     height: 100%
-    border-radius: 10rem
-
-  img
     width: 100%
-    height: 100%
+    border-radius: 0.5rem
+    //margin-left: 50%
+    //transform: translateX(-50%)
+    object-fit: cover
+    image-rendering: high-quality
+    -ms-interpolation-mode: bicubic
+    transition: scale 0.3s ease-out, filter 0.3s ease-out
 
-*
-  -webkit-user-select: none
-  -moz-user-select: none
-  -o-user-select: none
-  user-select: none
-  -webkit-user-drag: none
-  -moz-user-drag: none
-  -o-user-drag: none
-  user-drag: none
+.img-wrapper.filler
+  background-color: #383838
+  cursor: default
 
-.warning
-  display: none
+.show
+  animation: card-in 0.5s 0s forwards cubic-bezier(0, 1, 1, 1)

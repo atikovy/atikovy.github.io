@@ -6,41 +6,32 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <script defer language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script defer src="generate-cards.js"></script>
+    <script src="./scripts.js"></script>
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="anim.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
 </head>
-<body>
-<p class="warning">Sorry but the website does not support mobile devices yet. You can visit it on desktop :]</p>
-<div class="menu">
-    <div class="title">
-        <div class="name"><h1>gracjan.pawłowsk</h1><h1>i</h1></div>
-        <div class="subtitle"><h1>/projects</h1></div>
-    </div>
-    <div class="project-list">
-    </div>
-    <div class="github-wrapper">
-        <a href="https://github.com/gracjan-p" target="_blank"></a>
-        <img src="./github-mark-white.svg" alt="">
-    </div>
-</div>
-<div class="project-preview">
-    <svg class="loading" width="726" height="726" viewBox="0 0 726 726" fill="none" xmlns="http://www.w3.org/2000/svg">
-<!--        <rect width="726" height="726" fill="white"/>-->
-        <path d="M363 118C227.69 118 118 227.69 118 363C118 428.772 143.917 488.49 186.096 532.5" stroke-width="50" stroke-linecap="round"/>
-    </svg>
-    <div class="project-buttons">
-        <div class="button" id="info" style="--nth: 1"><h3>info</h3></div>
-        <div class="button" id="code" style="--nth: 2"><h3>code</h3></div>
-    </div>
-    <div class="project-window">
-        <div class="frame-wrapper">
-            <iframe id="frame-readme" src="" frameborder="0"></iframe>
-            <iframe id="frame-notebook" src="" frameborder="0"></iframe>
+    <body>
+        <h1 class="surname" id="surname">
+            gracjan's portfolio
+        </h1>
+        <div class="project-grid">
+            <div class="img-wrapper grid-mid">
+                <video src="./media/bumper1.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="img-wrapper grid-big">
+                <video src="./media/logo-creating.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="img-wrapper grid-wide">
+                <video src="./media/bumper2.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="img-wrapper grid-big"><img src="./media/hippo.png" alt=""></div>
+            <div class="img-wrapper grid-wide"><img src="./media/100opon.png" alt=""></div>
+<!--            <div class="img-wrapper grid-tall filler"></div>-->
+            <div class="img-wrapper grid-mid"><img src="./media/lumpeks1.png" alt=""></div>
+            <div class="img-wrapper grid-mid"><img src="./media/czysta-lazienka.jpg" alt=""></div>
+            <div class="img-wrapper grid-big"><img src="./media/lumpeks2.png" alt=""></div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>
