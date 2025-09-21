@@ -1,0 +1,124 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #212121;
+  position: absolute;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  aspect-ratio: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  height: calc(100vh - 8rem);
+}
+
+h1 {
+  color: #cccccc;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  font-size: 3rem;
+}
+
+.surname {
+  position: relative;
+  overflow: clip;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+.surname-letter {
+  display: inline-block;
+  animation-fill-mode: forwards;
+  animation-name: letter-in;
+  animation-timing-function: cubic-bezier(0, 1, 1, 1);
+  animation-duration: 0.5s;
+  translate: 150% 0;
+}
+
+.grid-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.grid-tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.grid-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.grid-mid {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-big {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+
+.project-grid {
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, calc(20% - 0.8rem));
+  grid-template-rows: repeat(5, 20%);
+  gap: 1rem;
+  padding: 0;
+  overflow: clip;
+  overflow-y: scroll;
+}
+
+.img-wrapper {
+  position: relative;
+  overflow: clip;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  opacity: 0;
+  translate: 0 1rem;
+}
+.img-wrapper:hover img, .img-wrapper:hover video {
+  scale: 0.96;
+  filter: saturate(1);
+  transition: scale 0.1s ease-out, filter 0.1s ease-out;
+}
+.img-wrapper img, .img-wrapper video {
+  display: block;
+  filter: saturate(0.3);
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  image-rendering: high-quality;
+  -ms-interpolation-mode: bicubic;
+  transition: scale 0.3s ease-out, filter 0.3s ease-out;
+}
+
+.img-wrapper.filler {
+  background-color: #383838;
+  cursor: default;
+}
+
+.show {
+  animation: card-in 0.5s 0s forwards cubic-bezier(0, 1, 1, 1);
+}
+
+/*# sourceMappingURL=styles.css.map */
