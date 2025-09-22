@@ -6,15 +6,5 @@
     translate: 0 0;
   }
 }
-@keyframes card-in {
-  from {
-    opacity: 0;
-    translate: 0 1rem;
-  }
-  to {
-    opacity: 1;
-    translate: 0 0;
-  }
-}
 
 /*# sourceMappingURL=anim.css.map */

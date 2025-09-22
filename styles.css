@@ -29,17 +29,26 @@ h1 {
   font-size: 3rem;
 }
 
+.surname-wrap {
+  position: relative;
+  height: 96%;
+  margin-top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: flex-start;
+}
+
 .surname {
   position: relative;
-  overflow: clip;
+  overflow-x: clip;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   white-space: nowrap;
-  height: 100%;
   align-items: center;
   justify-content: center;
   letter-spacing: 0;
   text-align: right;
+  height: fit-content;
 }
 
 .surname-letter {
@@ -49,6 +58,9 @@ h1 {
   animation-timing-function: cubic-bezier(0, 1, 1, 1);
   animation-duration: 0.5s;
   translate: 150% 0;
+}
+.surname-letter:nth-child(1) {
+  display: none;
 }
 
 .grid-small {
@@ -92,23 +104,16 @@ h1 {
   overflow: clip;
   border-radius: 0.5rem;
   cursor: pointer;
-  opacity: 0;
-  translate: 0 1rem;
-}
-.img-wrapper:hover img, .img-wrapper:hover video {
-  scale: 0.96;
-  filter: saturate(1);
-  transition: scale 0.1s ease-out, filter 0.1s ease-out;
+  clip-path: circle(0% at center);
+  transition: clip-path 1s cubic-bezier(0, 1, 1, 1);
+  transition-delay: 0s;
 }
 .img-wrapper img, .img-wrapper video {
   display: block;
-  filter: saturate(0.3);
   height: 100%;
   width: 100%;
   border-radius: 0.5rem;
   object-fit: cover;
-  image-rendering: high-quality;
-  -ms-interpolation-mode: bicubic;
   transition: scale 0.3s ease-out, filter 0.3s ease-out;
 }
 
@@ -118,7 +123,7 @@ h1 {
 }
 
 .show {
-  animation: card-in 0.5s 0s forwards cubic-bezier(0, 1, 1, 1);
+  clip-path: circle(100% at center);
 }
 
 /*# sourceMappingURL=styles.css.map */

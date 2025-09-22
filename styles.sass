@@ -29,18 +29,27 @@ h1
   letter-spacing: 0.3rem
   font-size: 3rem
 
+.surname-wrap
+  position: relative
+  height: 96%
+  margin-top: 50%
+  transform: translateY(-50%)
+  display: flex
+  align-items: flex-start // Start od góry
+
 .surname
   position: relative
-  overflow: clip
+  overflow-x: clip
   writing-mode: vertical-lr
   transform: rotate(180deg)
   white-space: nowrap
-  height: 100%
-  //display: flex
   align-items: center
   justify-content: center
   letter-spacing: 0
   text-align: right
+  //border: 1px solid red
+  height: fit-content
+  //height: 100%
 
 .surname-letter
   display: inline-block
@@ -48,8 +57,10 @@ h1
   animation-name: letter-in
   animation-timing-function: cubic-bezier(0, 1, 1, 1)
   animation-duration: 0.5s
-  //opacity: 0
   translate: 150% 0
+
+  &:nth-child(1)
+    display: none
 
 .grid-small
   grid-column: span 1
@@ -87,26 +98,26 @@ h1
   overflow: clip
   border-radius: 0.5rem
   cursor: pointer
-  opacity: 0
-  translate: 0 1rem
+  //opacity: 0
+  //translate: 0 1rem
+  //transition: scale 0.3s ease-out
+  clip-path: circle(0% at center)
+  transition: clip-path 1s cubic-bezier(0, 1, 1, 1)
+  transition-delay: 0s
 
-  &:hover
+  //&:hover
+    //scale: 1.02
+    //transition: scale 0.1s ease-out
     img, video
-      scale: 0.96
-      filter: saturate(1)
+      //scale: 0.98
       transition: scale 0.1s ease-out, filter 0.1s ease-out
 
   img, video
     display: block
-    filter: saturate(0.3)
     height: 100%
     width: 100%
     border-radius: 0.5rem
-    //margin-left: 50%
-    //transform: translateX(-50%)
     object-fit: cover
-    image-rendering: high-quality
-    -ms-interpolation-mode: bicubic
     transition: scale 0.3s ease-out, filter 0.3s ease-out
 
 .img-wrapper.filler
@@ -114,4 +125,5 @@ h1
   cursor: default
 
 .show
-  animation: card-in 0.5s 0s forwards cubic-bezier(0, 1, 1, 1)
+  //animation: card-in 1s 0s forwards cubic-bezier(0, 1, 1, 1)
+  clip-path: circle(100% at center)
