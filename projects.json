@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "ecobloom-1",
+      "description": "Opis pierwszego projektu",
+      "thumbnail": "./media/thumb/projekt1_thumb.jpg",
+      "hq_preview": "./media/full/projekt1_full.jpg",
+      "category": "grafika"
+    },
+    {
+      "id": 2,
+      "title": "Projekt 2",
+      "description": "Opis drugiego projektu",
+      "thumbnail": "./media/thumb/projekt2_thumb.png",
+      "hq_preview": "./media/full/projekt2_full.png",
+      "category": "fotografia"
+    },
+    {
+      "id": 3,
+      "title": "Projekt 3",
+      "description": "Opis trzeciego projektu",
+      "thumbnail": "./media/thumb/projekt3_thumb.webp",
+      "hq_preview": "./media/full/projekt3_full.webp",
+      "category": "web design"
+    },
+    {
+      "id": 4,
+      "title": "Projekt 4",
+      "description": "Opis czwartego projektu",
+      "thumbnail": "./media/thumb/projekt4_thumb.jpg",
+      "hq_preview": "./media/full/projekt4_full.jpg",
+      "category": "animacja"
+    }
+  ]
+}

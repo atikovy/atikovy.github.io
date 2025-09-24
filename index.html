@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Gracjan Pawłowski - Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <script defer language="JavaScript" type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>-->
     <script src="./scripts.js"></script>
+    <script src="./project-overlay.js"></script>
+<!--    <script src="./figma-button.js"></script>-->
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="anim.css">
     <link rel="stylesheet" href="styles.css">
@@ -19,21 +21,46 @@
             </h1>
         </div>
         <div class="project-grid">
-            <div class="img-wrapper grid-mid">
-                <video src="./media/webm/bumper1.webm" autoplay muted loop playsinline></video>
+            <div class="img-wrapper grid-big"><video src="./media/vid/ecobloom-1.mp4" autoplay muted loop playsinline></video></div>
+            <div class="img-wrapper grid-mid"><video src="./media/vid/ecobloom-2.mp4" autoplay muted loop playsinline></video></div>
+            <div class="img-wrapper grid-wide"><video src="./media/vid/100opon-2.mp4" autoplay muted loop playsinline></video></div>
+
+
+            <div class="img-wrapper grid-wide"><img src="./media/lumpeks2.jpg" alt=""></div>
+
+            <div class="img-wrapper grid-big figma">
+                <a class="figma-button" href="
+                https://www.figma.com/proto/On8kdyzBu8ynaacCaj6orJ/
+                -shadcn-ui---Design-System--Community-?node-id=115-7799&t=LCTwnmVIk1Bmryda-
+                1%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&scaling=contain&content-scaling=responsive&starting-point-node-id=115%3A7799" target="_blank">
+                    figma preview
+                </a>
+                <img src="./media/lockedtrade.jpg" alt="">
             </div>
-            <div class="img-wrapper grid-big">
-                <video src="./media/logo-creating.mp4" autoplay muted loop playsinline></video>
+
+            <div class="img-wrapper grid-wide"><img src="./media/100opon-1.jpg" alt=""></div>
+            <div class="img-wrapper grid-wide"><img src="./media/lumpeks1.jpg" alt=""></div>
+
+            <div class="img-wrapper grid-big figma">
+                <a class="figma-button" href="
+                https://www.figma.com/proto/jXX428TzGGabgW2Kwq1t1i/Untitled?page-id=0%3A1&node-id=16-361&starting-point-node-id=16%3A361&scaling=min-zoom&content-scaling=fixed&t=3E2qyusM6Oe9toIv-1" target="_blank">
+                    figma preview
+                </a>
+                <img src="./media/croppy.jpg" alt="">
             </div>
-            <div class="img-wrapper grid-wide">
-                <video src="./media/webm/bumper2.webm" autoplay muted loop playsinline></video>
+
+<!--            <div class="img-wrapper grid-mid"><img src="./media/czysta-lazienka.jpg" alt=""></div>-->
+            <div class="img-wrapper grid-mid"><img src="./media/hippo.jpg" alt=""></div>
+            <div class="img-wrapper grid-wide filler">
+                more coming soon :]
             </div>
-            <div class="img-wrapper grid-big"><img src="./media/webp/hippo.webp" alt=""></div>
-            <div class="img-wrapper grid-wide"><img src="./media/100opon.png" alt=""></div>
-<!--            <div class="img-wrapper grid-tall filler"></div>-->
-            <div class="img-wrapper grid-mid"><img src="./media/webp/lumpeks1.webp" alt=""></div>
-            <div class="img-wrapper grid-mid"><img src="./media/czysta-lazienka.jpg" alt=""></div>
-            <div class="img-wrapper grid-big"><img src="./media/webp/lumpeks2.webp" alt=""></div>
         </div>
+            <div id="overlay" class="overlay">
+                <span class="overlay-close">&times;</span>
+                <div class="overlay-content">
+                    <img id="overlayImage" alt="">
+                    <video id="overlayVideo" controls muted></video>
+                </div>
+            </div>
     </body>
 </html>
