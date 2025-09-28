@@ -36,7 +36,8 @@ h1 {
   position: relative;
   overflow-y: clip;
   height: 6rem;
-  width: 98%;
+  width: 100%;
+  padding-left: 2rem;
   display: flex;
   align-items: flex-end;
 }
