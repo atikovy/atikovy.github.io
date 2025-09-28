@@ -113,7 +113,7 @@ h1 {
   padding: 0.5rem 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 99;
   border: 0.25rem solid #e8e3dc;
   opacity: 0;
 }
@@ -122,7 +122,7 @@ h1 {
   transition-duration: 0.1s;
 }
 .img-wrapper.filler {
-  background-color: rgba(232, 227, 220, 0.05);
+  background-color: rgba(232, 227, 220, 0.1);
   color: #1f1c1a;
   font-size: 3rem;
   font-weight: 500;
