@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Obsługa kliknięcia w obrazek/wideo
-    $('.img-wrapper').click(function(e) {
+    $('.img-wrapper:not(.figma)').click(function(e) {
         e.stopPropagation();
 
         const $content = $(this).find('img, video');
@@ -19,6 +19,13 @@ $(document).ready(function() {
 
     // Zamknij nakładkę po kliknięciu w tło
     $('#overlayImage').click(function(e) {
+        if (e.target === this) {
+            closeOverlay();
+        }
+    });
+
+    // Zamknij nakładkę po kliknięciu w tło
+    $('#overlay').click(function(e) {
         if (e.target === this) {
             closeOverlay();
         }

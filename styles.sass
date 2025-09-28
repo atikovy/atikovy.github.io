@@ -1,6 +1,6 @@
 
-$dark-grey: #212121
-$mid-white: #cccccc
+$dark-grey: #1f1c1a
+$mid-white: #e8e3dc
 
 ::-webkit-scrollbar
   display: none
@@ -10,39 +10,47 @@ $mid-white: #cccccc
   padding: 0
   font-family: "Quicksand", sans-serif
   user-select: none
+  -webkit-user-drag: none
+  box-sizing: border-box
 
 body
   background-color: $dark-grey
-  position: absolute
-  margin-left: 50%
-  transform: translateX(-50%)
+  position: relative
+  width: 100vw
+  height: 100vh
+  //margin-left: 50%
+  //transform: translateX(-50%)
   aspect-ratio: 1
-  padding: 4rem
+  padding: 2rem 4rem 4rem 4rem
   display: flex
-  flex-direction: row
+  flex-direction: column
+  align-items: flex-start
   gap: 2rem
-  height: calc(100vh - 8rem)
   overflow: hidden
 
 h1
   color: $mid-white
-  font-weight: 400
+  font-weight: 500
   letter-spacing: 0.3rem
   font-size: 3rem
 
 .surname-wrap
   position: relative
-  height: 96%
-  margin-top: 50%
-  transform: translateY(-50%)
+  overflow-y: clip
+  height: 6rem
+  width: 98%
+  //margin-top: 50%
+  //transform: translateY(-50%)
   display: flex
-  align-items: flex-start // Start od góry
+  align-items: flex-end
 
 .surname
   position: relative
-  overflow-x: clip
-  writing-mode: vertical-lr
-  transform: rotate(180deg)
+  //overflow-y: clip
+  overflow-clip-margin: content-box 2rem
+  //writing-mode: vertical-lr
+  //transform: rotate(180deg)
+  margin-bottom: 0.5rem
   white-space: nowrap
   align-items: center
   justify-content: center
@@ -56,121 +64,134 @@ h1
   display: inline-block
   animation-fill-mode: forwards
   animation-name: letter-in
-  animation-timing-function: cubic-bezier(0, 1, 1, 1)
+  animation-timing-function: ease
   animation-duration: 0.5s
-  translate: 150% 0
+  translate: 0 100%
 
-  &:nth-child(1)
-    display: none
+  //text-shadow: rgba($mid-white, 0.1) 0.2rem 0.2rem 0rem
 
-.grid-small
-  grid-column: span 1
-  grid-row: span 1
-
-.grid-tall
-  grid-column: span 1
-  grid-row: span 2
-
-.grid-wide
-  grid-column: span 2
-  grid-row: span 1
-
-.grid-mid
-  grid-column: span 2
-  grid-row: span 2
-
-.grid-big
-  grid-column: span 3
-  grid-row: span 3
+  //&:nth-child(1), &:last-child
+  //  display: none
+  //&:last-child
+  //  display: none
 
 .project-grid
-  //border: 1px solid red
-  border-radius: 0.5rem
+  position: relative
+  //border: 0.1rem solid $mid-white
+  height: 100%
+  width: 100%
+  border-radius: 2rem
   display: grid
-  grid-template-columns: repeat(5, calc(20% - 0.8rem))
-  grid-template-rows: repeat(5, calc(20% - 0.8rem))
+  grid-auto-flow: column
+  grid-template-columns: repeat(12, minmax(24rem, 1fr))
+  grid-template-rows: repeat(2, calc(50% - 0.5rem))
   gap: 1rem
-  padding: 0
-  overflow: clip
-  overflow-y: scroll
-  //background-color: rgba($mid-white, 0.1)
+  overflow-x: scroll
+  overflow-y: visible
 
 .img-wrapper
   position: relative
   overflow: clip
-  border-radius: 1rem
+  border-radius: 2rem
   cursor: pointer
   clip-path: circle(0% at center)
-  transition: clip-path 1s cubic-bezier(0, 1, 1, 1)
-  transition-delay: 0s
-  //background-color: $mid-white
-  //border: 0.1rem solid rgba(white, 0.2)
+  transition: clip-path 1s ease
+
+  &.figma
+    a
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 100
+      width: 100%
+      height: 100%
+    &:hover
+      img
+        filter: brightness(0.3)
+      &:before
+        opacity: 1
+    &:before
+      content: 'figma preview'
+      text-decoration: none
+      position: absolute
+      letter-spacing: 0.13rem
+      top: 50%
+      left: 50%
+      translate: -50% -50%
+      font-size: 2rem
+      font-weight: 500
+      color: $mid-white
+      //background-color: $dark-grey
+      border-radius: 10rem
+      padding: 0.5rem 2rem
+      cursor: pointer
+      transition: all 0.3s ease
+      z-index: 1000
+      border: 0.25rem solid $mid-white
+      opacity: 0
 
   &:hover
     img, video
       scale: 1.03
-      filter: saturate(1)
       transition-duration: 0.1s
+
+  &.filler
+    background-color: rgba($mid-white, 0.05)
+    color: $dark-grey
+    font-size: 3rem
+    font-weight: 500
+    letter-spacing: 0.1rem
+    text-align: center
+    cursor: default
+    padding: 4rem
+    display: flex
+    justify-content: center
+    align-items: center
+
   img, video
-    display: block
+    border: 0rem solid $mid-white
+    //border-radius: 2rem
+    transition: all 0.3s ease
     height: 100%
     width: 100%
-    //border-radius: 1rem
     object-fit: cover
     transition: all 0.3s ease
-    //transform: translateY(-0.5rem)
-    filter: saturate(0.7)
+    scale: 1
+    filter: brightness(1)
 
-    //&:hover
-      scale: 1.03
-      filter: saturate(1)
-      transition-duration: 0.1s
-
-.figma-button
-  text-decoration: none
-  position: absolute
-  letter-spacing: 0.13rem
-  bottom: 2rem
-  left: 0
-  font-size: 1rem
-  font-weight: 500
-  color: $mid-white
-  background-color: $dark-grey
-  border-radius: 0 0.5rem 0.5rem 0
-  padding: 0.5rem 1rem
-  cursor: pointer
-  transition: all 0.3s ease
-  z-index: 1000
-
-  &::before
-    content: '>'
+  &::after
+    display: none
+    content: ''
     position: absolute
-    top: 50%
-    left: -100%
-    transform: translateY(-50%)
-
-  &:hover
-    padding: 0.5rem 1rem 0.5rem 2rem
-    //letter-spacing: 0.05rem
-    transition-duration: 0.1s
-    //background-color: $dark-grey
-    //color: $mid-white
-    //transform: translateY(-0.5rem)
-    //box-shadow: 0 0.5rem 0 rgba($dark-grey, 1)
-
-  &:hover::before
+    font-size: 2rem
+    top: 1rem
     left: 1rem
+    z-index: 100000
+    color: red
 
-.img-wrapper.filler
-  background-color: #383838
-  color: $dark-grey
-  font-size: 2rem
-  font-weight: 500
-  letter-spacing: 0.1rem
-  cursor: default
-  display: flex
-  justify-content: center
-  align-items: center
+  &.grid-small
+    grid-column: span 1
+    grid-row: span 1
+    &::after
+      content: 'small'
+
+  &.grid-tall
+    grid-column: span 1
+    grid-row: span 1
+    &::after
+      content: 'tall'
+
+  &.grid-wide
+    grid-column: span 2
+    grid-row: span 1
+    &::after
+      content: 'wide'
+
+  &.grid-big
+    grid-column: span 2
+    grid-row: span 2
+    &::after
+      content: 'big'
 
 .overlay
   position: fixed
@@ -223,10 +244,6 @@ h1
   transition: all 0.3s 0s cubic-bezier(0, 1, 1, 1)
   //transform: translateY(100%)
 
-  &.active
-    //visibility: visible
-    //transform: translateY(0)
-
 .overlay-close
   //position: absolute
   //margin-left: 50%
@@ -248,5 +265,4 @@ h1
     transition: all 0.1s 0s cubic-bezier(0, 0, 0, 1)
 
 .show
-  //animation: card-in 1s 0s forwards cubic-bezier(0, 1, 1, 1)
   clip-path: circle(100% at center)
