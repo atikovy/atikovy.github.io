@@ -32,6 +32,18 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => wrapper.classList.add('show'), 50);
     });
 
+    // Funkcja sprawdzająca czy smooth scroll powinien działać
+    function shouldUseSmoothScroll() {
+        // Sprawdź czy to urządzenie mobilne
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        // Sprawdź czy mamy aspect ratio przynajmniej 1:1
+        const isLandscape = window.innerWidth >= window.innerHeight;
+
+        // Smooth scroll tylko na desktopie w trybie poziomym
+        return !isMobile && isLandscape;
+    }
+
     // Funkcja aktualizacji pozycji liter w zależności od scrolla
     function updateLettersPosition() {
         const gridScrollLeft = projectGrid.scrollLeft;
@@ -102,8 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Obsługa zdarzeń
+    // Obsługa zdarzeń - tylko gdy smooth scroll powinien działać
     projectGrid.addEventListener('wheel', function(e) {
+        if (!shouldUseSmoothScroll()) return; // Wyjdz jeśli smooth scroll nie powinien działać
+
         e.preventDefault();
         scrollVelocity += e.deltaY * 0.1;
 
@@ -114,6 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: false });
 
     projectGrid.addEventListener('touchstart', function(e) {
+        if (!shouldUseSmoothScroll()) return; // Wyjdz jeśli smooth scroll nie powinien działać
+
         touchStartX = e.touches[0].clientX;
         touchStartScrollLeft = projectGrid.scrollLeft;
 
@@ -125,6 +141,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: true });
 
     projectGrid.addEventListener('touchmove', function(e) {
+        if (!shouldUseSmoothScroll()) {
+            // Na mobile pozwól na normalny scroll
+            return;
+        }
+
         e.preventDefault();
         const touchX = e.touches[0].clientX;
         const diff = touchStartX - touchX;
@@ -133,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: false });
 
     projectGrid.addEventListener('touchend', function(e) {
+        if (!shouldUseSmoothScroll()) return; // Wyjdz jeśli smooth scroll nie powinien działać
+
         const touchX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchX;
         scrollVelocity = diff * 0.3;
@@ -143,9 +166,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, { passive: true });
 
-    // Ręczny scroll też aktualizuje pozycje liter
+    // Ręczny scroll też aktualizuje pozycje liter (działa zawsze)
     projectGrid.addEventListener('scroll', updateLettersPosition);
-    window.addEventListener('resize', updateLettersPosition);
+    window.addEventListener('resize', function() {
+        // Jeśli zmieniamy warunki, zatrzymaj animację smooth scroll
+        if (!shouldUseSmoothScroll() && isSmoothScrolling) {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                isSmoothScrolling = false;
+                scrollVelocity = 0;
+            }
+        }
+        updateLettersPosition();
+    });
 
     // Inicjalizacja
     updateLettersPosition();

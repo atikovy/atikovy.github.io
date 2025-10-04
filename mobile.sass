@@ -1,0 +1,27 @@
+
+@media (max-aspect-ratio: 1)
+  h1
+    font-size: 5rem
+  .project-grid
+    grid-auto-flow: column
+    grid-template-columns: repeat(2, calc(50% - 1rem))
+    grid-template-rows: repeat(10, minmax(calc(50% - 1rem), 1fr))
+    overflow-x: visible
+    overflow-y: scroll
+    gap: 2rem
+
+    .grid-small, .grid-wide, .grid-tall, .grid-big
+      grid-column: span 2
+      grid-row: span 1
+
+  .img-wrapper
+    &.figma
+      .project-preview-buttons
+        gap: 4rem
+        a
+          font-size: 5rem
+          border-width: 0.5rem
+          padding: 1rem 5rem
+
+    &.filler
+      font-size: 6rem
