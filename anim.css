@@ -2,9 +2,6 @@
   0% {
     translate: 0 100%;
   }
-  50% {
-    translate: 0 -10%;
-  }
   100% {
     translate: 0 0;
   }
