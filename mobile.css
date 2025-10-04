@@ -1,22 +1,26 @@
 @media (max-aspect-ratio: 1) {
   body {
     gap: 3rem;
-    padding: 6rem 4rem;
+    padding: 4rem 4rem;
   }
   h1 {
     font-size: 5rem;
   }
   .project-grid {
     grid-auto-flow: column;
-    grid-template-columns: repeat(2, calc(50% - 1rem));
+    grid-template-columns: repeat(1, 100%);
     grid-template-rows: repeat(10, minmax(calc(50% - 1rem), 1fr));
     overflow-x: visible;
     overflow-y: scroll;
     gap: 4rem;
+    border-radius: 4rem;
   }
   .project-grid .grid-small, .project-grid .grid-wide, .project-grid .grid-tall, .project-grid .grid-big {
-    grid-column: span 2;
+    grid-column: span 1;
     grid-row: span 1;
+  }
+  .img-wrapper {
+    border-radius: 4rem;
   }
   .img-wrapper.figma .project-preview-buttons {
     gap: 4rem;
