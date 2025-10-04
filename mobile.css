@@ -1,5 +1,7 @@
 @media (max-aspect-ratio: 1) {
   body {
+    height: 100svh;
+    width: 100svw;
     gap: 3rem;
     padding: 4rem 4rem;
   }
