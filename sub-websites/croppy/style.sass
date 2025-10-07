@@ -8,6 +8,9 @@ $jumpyEasing: cubic-bezier(0, 1.5, 0.8, 1)
 *
   font-family: 'Quicksand', sans-serif
   margin: 0
+  cursor: default
+  -webkit-user-select: none
+  -webkit-user-drag: none
 
 
 @mixin font-setup ($fontSize: 1em, $fontWeight: 100, $lineHeight: 1em, $letterSpacing: 0em, $wordSpacing: 0em)
@@ -107,45 +110,21 @@ section.quality
     scale: -1 1
   .header-container::before
     scale: -1 1
-    left: -4rem
+    right: 0
     bottom: 0
     rotate: 12deg
-
-
-section.section-white
-  align-items: start
-  background-color: white
-
-  .header-container
-    width: 60%
-    align-items: start
-
-    p, h1
-      color: $greenMid
-      text-align: left
-      text-wrap: balance
-
-    h1
-      font-size: 8rem
-
-    p
-      font-size: 4rem
-      font-weight: 400
-      width: 100%
-
 
 .header-container
   @include flexbox(column, center, center)
   text-align: center
   position: relative
 
-  h1
-    @include font-setup(8rem, 500, 1em, -0.02em)
+  h1, span, .button
+    @include font-setup(8rem, 400, 1em, -0.02em)
     font-family: 'Agenor Neue', sans-serif
     color: white
     text-align: center
     width: 100%
-
 
   p
     @include font-setup(3.125rem, 300, 1.2em, 0.02em)
@@ -173,6 +152,30 @@ section.section-white
     rotate: 4deg
 
 
+section.section-white
+  align-items: start
+  background-color: white
+
+  .header-container
+    width: 60%
+    align-items: start
+
+    p, h1, span
+      font-weight: 300
+      color: $greenMid
+      text-align: left
+      text-wrap: balance
+      line-height: 1.05em
+
+    span
+      //color: red
+      font-weight: 500
+
+    p
+      font-size: 4rem
+      font-weight: 400
+      width: 100%
+
 .img-wrapper
   position: relative
   width: 50rem
@@ -185,9 +188,9 @@ section.section-white
     z-index: -1
     width: 100%
     height: 100%
-    rotate: 10deg
+    rotate: 15deg
     background: $greenDark
-    border-radius: 100rem 0
+    border-radius: 34rem 2rem
 
   img
     position: absolute
@@ -195,10 +198,33 @@ section.section-white
     left: 50%
     transform: translate(-50%, -50%)
     width: 90%
-    border-radius: 34rem 0
+    border-radius: 34rem 4rem
     clip-path: circle(0% at 0% 100%)
     animation: clip-circle 2s forwards paused
+    border: 2rem solid $greenDark
 
+.button-wrapper
+  @include flexbox()
+  align-items: flex-start
+
+  .button
+    @include font-setup(2.5rem, 400, 1em, 0em)
+    font-family: "Agenor Neue", sans-serif
+
+    color: white
+    background-color: $greenDark
+    padding: 1rem 2.5rem
+    width: fit-content
+    border-radius: 10rem
+
+  .button:before
+      content: 'aaa'
+      position: absolute
+      top: 1rem
+      left: 0
+      width: 100%
+      height: 100%
+      color: red
 
 .ivy-bg
   position: absolute
@@ -214,11 +240,10 @@ section.section-white
   animation-timeline: scroll()
 
   &.left
-    --parallax-y: -10%
+    --parallax-y: -50%
     --parallax-x: 0
     top: -12rem
     left: -72rem
-
 
 .plant-body
   position: absolute
@@ -236,8 +261,6 @@ section.section-white
   stroke-dasharray: 60%
   stroke-linecap: round
 
-
-
 .placeholder
   @include flexbox
   @include font-setup(4rem, 400)
@@ -245,11 +268,12 @@ section.section-white
   border: 0.75rem dotted $color
   color: $color
   border-radius: 1rem
-  padding: 4rem 1rem
+  text-align: center
+  padding: 4rem 4rem
 
 
 .circle-clip
-  animation: clip-circle 2s ease forwards paused
+  animation: clip-circle 1s ease-in forwards paused
 
   &.right
     clip-path: circle(0% at 100% 100%)

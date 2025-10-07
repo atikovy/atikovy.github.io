@@ -1,6 +1,9 @@
 * {
   font-family: "Quicksand", sans-serif;
   margin: 0;
+  cursor: default;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 body {
@@ -109,31 +112,9 @@ section.quality .header-container::after {
 }
 section.quality .header-container::before {
   scale: -1 1;
-  left: -4rem;
+  right: 0;
   bottom: 0;
   rotate: 12deg;
-}
-
-section.section-white {
-  align-items: start;
-  background-color: white;
-}
-section.section-white .header-container {
-  width: 60%;
-  align-items: start;
-}
-section.section-white .header-container p, section.section-white .header-container h1 {
-  color: #7E9156;
-  text-align: left;
-  text-wrap: balance;
-}
-section.section-white .header-container h1 {
-  font-size: 8rem;
-}
-section.section-white .header-container p {
-  font-size: 4rem;
-  font-weight: 400;
-  width: 100%;
 }
 
 .header-container {
@@ -146,9 +127,9 @@ section.section-white .header-container p {
   text-align: center;
   position: relative;
 }
-.header-container h1 {
+.header-container h1, .header-container span, .header-container .button {
   font-size: 8rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1em;
   letter-spacing: -0.02em;
   word-spacing: 0em;
@@ -185,6 +166,30 @@ section.section-white .header-container p {
   rotate: 4deg;
 }
 
+section.section-white {
+  align-items: start;
+  background-color: white;
+}
+section.section-white .header-container {
+  width: 60%;
+  align-items: start;
+}
+section.section-white .header-container p, section.section-white .header-container h1, section.section-white .header-container span {
+  font-weight: 300;
+  color: #7E9156;
+  text-align: left;
+  text-wrap: balance;
+  line-height: 1.05em;
+}
+section.section-white .header-container span {
+  font-weight: 500;
+}
+section.section-white .header-container p {
+  font-size: 4rem;
+  font-weight: 400;
+  width: 100%;
+}
+
 .img-wrapper {
   position: relative;
   width: 50rem;
@@ -197,9 +202,9 @@ section.section-white .header-container p {
   z-index: -1;
   width: 100%;
   height: 100%;
-  rotate: 10deg;
+  rotate: 15deg;
   background: #6F804C;
-  border-radius: 100rem 0;
+  border-radius: 34rem 2rem;
 }
 .img-wrapper img {
   position: absolute;
@@ -207,9 +212,42 @@ section.section-white .header-container p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  border-radius: 34rem 0;
+  border-radius: 34rem 4rem;
   clip-path: circle(0% at 0% 100%);
   animation: clip-circle 2s forwards paused;
+  border: 2rem solid #6F804C;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.button-wrapper .button {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0em;
+  word-spacing: 0em;
+  font-family: "Agenor Neue", sans-serif;
+  color: white;
+  background-color: #6F804C;
+  padding: 1rem 2.5rem;
+  width: fit-content;
+  border-radius: 10rem;
+}
+.button-wrapper .button:before {
+  content: "aaa";
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: red;
 }
 
 .ivy-bg {
@@ -226,7 +264,7 @@ section.section-white .header-container p {
   animation-timeline: scroll();
 }
 .ivy-bg.left {
-  --parallax-y: -10%;
+  --parallax-y: -50%;
   --parallax-x: 0;
   top: -12rem;
   left: -72rem;
@@ -264,11 +302,12 @@ section.section-white .header-container p {
   border: 0.75rem dotted #8c3a3a;
   color: #8c3a3a;
   border-radius: 1rem;
-  padding: 4rem 1rem;
+  text-align: center;
+  padding: 4rem 4rem;
 }
 
 .circle-clip {
-  animation: clip-circle 2s ease forwards paused;
+  animation: clip-circle 1s ease-in forwards paused;
 }
 .circle-clip.right {
   clip-path: circle(0% at 100% 100%);
