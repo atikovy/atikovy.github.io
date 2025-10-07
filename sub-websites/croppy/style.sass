@@ -95,9 +95,10 @@ section
   padding: 12rem 28rem
 
   div
-    @include flexbox(row, space-between, center)
+    @include flexbox(row, center, center)
     gap: 8rem
     width: 100%
+    height: 100%
     div
       flex: 1
 
@@ -206,25 +207,40 @@ section.section-white
 .button-wrapper
   @include flexbox()
   align-items: flex-start
+  position: relative
+  width: fit-content
+  border-radius: 3rem
 
-  .button
-    @include font-setup(2.5rem, 400, 1em, 0em)
+  &:hover
+    .button
+      transform: translateY(-1rem)
+    .button-shadow
+      visibility: visible
+      height: 3rem
+      transform: translateY(-0.5rem)
+
+  .button, .button-shadow
+    @include font-setup(2.5rem, 300, 1em, 0em)
     font-family: "Agenor Neue", sans-serif
 
+    position: relative
     color: white
     background-color: $greenDark
     padding: 1rem 2.5rem
-    width: fit-content
-    border-radius: 10rem
+    width: 12rem
+    height: 2.5rem
+    border-radius: 3rem
+    z-index: 1
+    transition: all 0.2s 0s ease
+    cursor: pointer
 
-  .button:before
-      content: 'aaa'
-      position: absolute
-      top: 1rem
-      left: 0
-      width: 100%
-      height: 100%
-      color: red
+  .button-shadow
+    background-color: $greenDarker
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 0
+    visibility: hidden
 
 .ivy-bg
   position: absolute
@@ -261,15 +277,20 @@ section.section-white
   stroke-dasharray: 60%
   stroke-linecap: round
 
+section.download
+  .button, .button-shadow
+    width: 16rem
+
 .placeholder
   @include flexbox
   @include font-setup(4rem, 400)
   $color: #8c3a3a
   border: 0.75rem dotted $color
   color: $color
-  border-radius: 1rem
+  border-radius: 2rem
   text-align: center
   padding: 4rem 4rem
+  flex: 0.5 1
 
 
 .circle-clip

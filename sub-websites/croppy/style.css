@@ -93,12 +93,13 @@ section {
 section div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
   gap: 2rem;
   gap: 8rem;
   width: 100%;
+  height: 100%;
 }
 section div div {
   flex: 1;
@@ -226,28 +227,43 @@ section.section-white .header-container p {
   flex-wrap: nowrap;
   gap: 2rem;
   align-items: flex-start;
+  position: relative;
+  width: fit-content;
+  border-radius: 3rem;
 }
-.button-wrapper .button {
+.button-wrapper:hover .button {
+  transform: translateY(-1rem);
+}
+.button-wrapper:hover .button-shadow {
+  visibility: visible;
+  height: 3rem;
+  transform: translateY(-0.5rem);
+}
+.button-wrapper .button, .button-wrapper .button-shadow {
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1em;
   letter-spacing: 0em;
   word-spacing: 0em;
   font-family: "Agenor Neue", sans-serif;
+  position: relative;
   color: white;
   background-color: #6F804C;
   padding: 1rem 2.5rem;
-  width: fit-content;
-  border-radius: 10rem;
+  width: 12rem;
+  height: 2.5rem;
+  border-radius: 3rem;
+  z-index: 1;
+  transition: all 0.2s 0s ease;
+  cursor: pointer;
 }
-.button-wrapper .button:before {
-  content: "aaa";
+.button-wrapper .button-shadow {
+  background-color: #536039;
   position: absolute;
-  top: 1rem;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  color: red;
+  z-index: 0;
+  visibility: hidden;
 }
 
 .ivy-bg {
@@ -287,6 +303,10 @@ section.section-white .header-container p {
   stroke-linecap: round;
 }
 
+section.download .button, section.download .button-shadow {
+  width: 16rem;
+}
+
 .placeholder {
   display: flex;
   flex-direction: column;
@@ -301,9 +321,10 @@ section.section-white .header-container p {
   word-spacing: 0em;
   border: 0.75rem dotted #8c3a3a;
   color: #8c3a3a;
-  border-radius: 1rem;
+  border-radius: 2rem;
   text-align: center;
   padding: 4rem 4rem;
+  flex: 0.5 1;
 }
 
 .circle-clip {
