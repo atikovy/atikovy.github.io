@@ -188,14 +188,12 @@ section.section-white
     position: absolute
     bottom: 0
     right: 0
-    //transform: translate(-50%, -50%)
     width: 100%
     border-radius: 34rem 0
-    clip-path: circle(0% at 0% 100%)
-    //animation: clip-circle 2s forwards paused
     border: 2rem solid $greenMid
     transform-origin: bottom left
-    animation: leaf-rotate 1s 0.2s ease forwards paused, clip-circle 1s 0.2s ease-out forwards paused
+    opacity: 0
+    animation: leaf-rotate 1s 0s ease forwards paused, opacity-in 0.5s 0s ease forwards paused
     transition: transform 0.2s ease
     transform: rotate(-10deg)
 
@@ -209,8 +207,9 @@ section.section-white
     border-radius: 34rem 0
     transform: rotate(-20deg)
     rotate: 10deg
-    clip-path: circle(0% at 0% 100%)
-    animation: leaf-rotate 1s 0s ease forwards paused, clip-circle 1s 0s ease-out forwards paused
+    opacity: 0
+    animation: leaf-rotate 1s 0s ease forwards paused, opacity-in 1s 0s ease forwards paused
+    //animation: leaf-rotate 1s 0s ease forwards paused
 
   .leaf-shadow-right
     transform: rotate(15deg)
@@ -304,21 +303,6 @@ section.download
   padding: 4rem 4rem
   flex: 0.5 1
 
-
-.circle-clip
-  animation: clip-circle 1s ease-in forwards paused
-
-  &.right
-    clip-path: circle(0% at 100% 100%)
-
-  &.left
-    clip-path: circle(0% at 0% 100%)
-
-
-.text-animate-on-scroll
-  opacity: 0
-
 .trigger-animation
   img, p, h1, div
     animation-play-state: running !important
-

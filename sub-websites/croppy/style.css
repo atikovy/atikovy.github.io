@@ -206,10 +206,10 @@ section.section-white .header-container p {
   right: 0;
   width: 100%;
   border-radius: 34rem 0;
-  clip-path: circle(0% at 0% 100%);
   border: 2rem solid #7E9156;
   transform-origin: bottom left;
-  animation: leaf-rotate 1s 0.2s ease forwards paused, clip-circle 1s 0.2s ease-out forwards paused;
+  opacity: 0;
+  animation: leaf-rotate 1s 0s ease forwards paused, opacity-in 0.5s 0s ease forwards paused;
   transition: transform 0.2s ease;
   transform: rotate(-10deg);
 }
@@ -223,8 +223,8 @@ section.section-white .header-container p {
   border-radius: 34rem 0;
   transform: rotate(-20deg);
   rotate: 10deg;
-  clip-path: circle(0% at 0% 100%);
-  animation: leaf-rotate 1s 0s ease forwards paused, clip-circle 1s 0s ease-out forwards paused;
+  opacity: 0;
+  animation: leaf-rotate 1s 0s ease forwards paused, opacity-in 1s 0s ease forwards paused;
 }
 .img-wrapper .leaf-shadow-right {
   transform: rotate(15deg);
@@ -337,20 +337,6 @@ section.download .button, section.download .button-shadow {
   text-align: center;
   padding: 4rem 4rem;
   flex: 0.5 1;
-}
-
-.circle-clip {
-  animation: clip-circle 1s ease-in forwards paused;
-}
-.circle-clip.right {
-  clip-path: circle(0% at 100% 100%);
-}
-.circle-clip.left {
-  clip-path: circle(0% at 0% 100%);
-}
-
-.text-animate-on-scroll {
-  opacity: 0;
 }
 
 .trigger-animation img, .trigger-animation p, .trigger-animation h1, .trigger-animation div {

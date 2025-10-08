@@ -1,20 +1,24 @@
-
-$('section').find('.img-wrapper').addClass('animate-on-scroll')
-$('section').find('.header-container').addClass('animate-on-scroll')
-$('.img-wrapper').find('img').addClass('animate-on-scroll')
-$('.img-wrapper').find('.leaf-shadow').addClass('animate-on-scroll')
+// Zamiast wielokrotnego użycia $(selector).find(), użyj jednego zapytania
+const animatedElements = $('section .img-wrapper, section .header-container, .img-wrapper img, .img-wrapper .leaf-shadow');
+animatedElements.addClass('animate-on-scroll');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            $(entry.target).addClass('trigger-animation')
+            // Użyj requestAnimationFrame dla płynniejszej animacji
+            requestAnimationFrame(() => {
+                $(entry.target).addClass('trigger-animation');
+                // Przestań obserwować element po uruchomieniu animacji
+                observer.unobserve(entry.target);
+            });
         }
-    })
+    });
 }, {
     rootMargin: '0px 0px -50px 0px',
-    threshold: 0.5
-})
+    threshold: 0.5 // Zmniejsz threshold dla szybszej reakcji
+});
 
-$('.animate-on-scroll').each(function () {
-    observer.observe(this)
-})
+// Optymalizacja: ogranicz liczbę obserwowanych elementów
+animatedElements.each(function () {
+    observer.observe(this);
+});
