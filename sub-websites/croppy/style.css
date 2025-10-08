@@ -127,6 +127,8 @@ section.quality .header-container::before {
   gap: 2rem;
   text-align: center;
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .header-container h1, .header-container span, .header-container .button {
   font-size: 8rem;
@@ -197,26 +199,36 @@ section.section-white .header-container p {
   height: 50rem;
   scale: -1 1;
 }
-.img-wrapper::after {
-  position: absolute;
-  content: "";
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  rotate: 15deg;
-  background: #6F804C;
-  border-radius: 34rem 0;
-}
 .img-wrapper img {
+  box-sizing: border-box;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  bottom: 0;
+  right: 0;
+  width: 100%;
   border-radius: 34rem 0;
   clip-path: circle(0% at 0% 100%);
-  animation: clip-circle 2s forwards paused;
-  border: 2rem solid #6F804C;
+  border: 2rem solid #7E9156;
+  transform-origin: bottom left;
+  animation: leaf-rotate 1s 0.2s ease forwards paused, clip-circle 1s 0.2s ease-out forwards paused;
+  transition: transform 0.2s ease;
+  transform: rotate(-10deg);
+}
+.img-wrapper .leaf-shadow, .img-wrapper .leaf-shadow-right {
+  position: absolute;
+  transform-origin: bottom left;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #6F804C;
+  border-radius: 34rem 0;
+  transform: rotate(-20deg);
+  rotate: 10deg;
+  clip-path: circle(0% at 0% 100%);
+  animation: leaf-rotate 1s 0s ease forwards paused, clip-circle 1s 0s ease-out forwards paused;
+}
+.img-wrapper .leaf-shadow-right {
+  transform: rotate(15deg);
+  rotate: 5deg;
 }
 
 .button-wrapper {
@@ -248,7 +260,7 @@ section.section-white .header-container p {
   font-family: "Agenor Neue", sans-serif;
   position: relative;
   color: white;
-  background-color: #6F804C;
+  background-color: #7E9156;
   padding: 1rem 2.5rem;
   width: 12rem;
   height: 2.5rem;
@@ -258,7 +270,7 @@ section.section-white .header-container p {
   cursor: pointer;
 }
 .button-wrapper .button-shadow {
-  background-color: #536039;
+  background-color: #6F804C;
   position: absolute;
   top: 0;
   left: 0;
@@ -341,7 +353,7 @@ section.download .button, section.download .button-shadow {
   opacity: 0;
 }
 
-.trigger-animation img, .trigger-animation h1, .trigger-animation p {
+.trigger-animation img, .trigger-animation p, .trigger-animation h1, .trigger-animation div {
   animation-play-state: running !important;
 }
 

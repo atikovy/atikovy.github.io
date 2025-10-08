@@ -1,23 +1,16 @@
 
-@keyframes leaf-anim
-  from
-    rotate: -10deg
-    opacity: 0
-  to
-    rotate: var(--angle)
-    opacity: 1
-
-
 @keyframes parallax
   to
     transform: translateY(var(--parallax-y)) translateX(var(--parallax-x))
-
 
 @keyframes path-scroll
   to
     stroke-dashoffset: var(--path-offset)
 
-
 @keyframes clip-circle
   to
     clip-path: circle(150% at 100% 100%)
+
+@keyframes leaf-rotate
+  to
+    transform: rotate(0deg)
