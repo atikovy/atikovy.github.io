@@ -127,8 +127,6 @@ section.quality .header-container::before {
   gap: 2rem;
   text-align: center;
   position: relative;
-  width: 100%;
-  height: 100%;
 }
 .header-container h1, .header-container span, .header-container .button {
   font-size: 8rem;
@@ -242,6 +240,7 @@ section.section-white .header-container p {
   position: relative;
   width: fit-content;
   border-radius: 3rem;
+  margin-top: 1rem;
 }
 .button-wrapper:hover .button {
   transform: translateY(-1rem);
@@ -297,6 +296,19 @@ section.section-white .header-container p {
   top: -12rem;
   left: -72rem;
 }
+.ivy-bg.bottom {
+  top: 262rem;
+  right: unset;
+  left: -56rem;
+  --parallax-y: -20%;
+  scale: 1;
+}
+.ivy-bg.bottom.right {
+  left: unset;
+  right: -66rem;
+  --parallax-y: -30%;
+  scale: 1.5;
+}
 
 .plant-body {
   position: absolute;
@@ -315,6 +327,15 @@ section.section-white .header-container p {
   stroke-linecap: round;
 }
 
+section.download .buttons-horizontally {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  width: fit-content;
+}
 section.download .button, section.download .button-shadow {
   width: 16rem;
 }
