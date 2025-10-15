@@ -335,6 +335,7 @@ section.download .buttons-horizontally {
   flex-wrap: nowrap;
   gap: 2rem;
   width: fit-content;
+  z-index: 10;
 }
 section.download .button, section.download .button-shadow {
   width: 16rem;
