@@ -125,7 +125,7 @@ h1 {
   color: #1f1c1a;
   transition-duration: 0.1s;
 }
-.img-wrapper.figma:hover img {
+.img-wrapper.figma:hover img, .img-wrapper.figma:hover video {
   filter: brightness(0.3);
 }
 .img-wrapper.figma:hover a:nth-child(1) {
