@@ -1,284 +1,251 @@
 
-$dark-grey: #1f1c1a
-$mid-white: #e8e3dc
+$white90: #E6E6E6
+$white96: #F5F5F4
 
-::-webkit-scrollbar
-  display: none
+$brown96: #F6F5F4
+$brown90: #E9E6E2
+$brown80: #D2CDC6
+$brown70: #BAB4AB
+$brown50: #878178
+$brown40: #6C6760
+$brown30: #544E45
 
-html
-  background-color: black
+@mixin flexbox($direction: row, $align: center, $justify: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align
+  justify-content: $justify
 
 *
   margin: 0
   padding: 0
-  font-family: "Quicksand", sans-serif
+  box-sizing: border-box
   user-select: none
   -webkit-user-drag: none
-  box-sizing: border-box
+  scrollbar-width: none
+  -ms-overflow-style: none
+  &::-webkit-scrollbar
+    display: none
+
+html
+  background-color: black
+  font-size: 16px
 
 body
-  background-color: $dark-grey
-  border-radius: 4rem
-  position: relative
   width: 100vw
   height: 100vh
-  //margin-left: 50%
-  //transform: translateX(-50%)
-  aspect-ratio: 1
-  padding: 2rem 4rem 4rem 4rem
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-  gap: 2rem
-  overflow: hidden
-
-h1
-  color: $mid-white
-  font-weight: 500
-  letter-spacing: 0.3rem
-  font-size: 3rem
-
-.surname-wrap
-  position: relative
-  overflow-y: clip
-  height: 6rem
-  width: 100%
-  //margin-top: 50%
-  //transform: translateY(-50%)
-  padding-left: 2rem
-  display: flex
-  align-items: flex-end
-
-.surname
-  position: relative
-  //overflow-y: clip
-  overflow-clip-margin: content-box 2rem
-  //writing-mode: vertical-lr
-  //transform: rotate(180deg)
-  margin-bottom: 0.5rem
-  white-space: nowrap
-  align-items: center
-  justify-content: center
-  letter-spacing: 0
-  text-align: right
-  //border: 1px solid red
-  height: fit-content
-  //height: 100%
-
-.surname-letter
-  display: inline-block
-  animation-fill-mode: forwards
-  animation-name: letter-in
-  animation-timing-function: ease
-  animation-duration: 0.5s
-  translate: 0 100%
-
-.project-grid
-  position: relative
-  //border: 0.1rem solid $mid-white
-  height: 100%
-  width: 100%
-  border-radius: 2rem
-  display: grid
-  grid-auto-flow: column
-  grid-template-columns: repeat(12, minmax(24rem, 1fr))
-  grid-template-rows: repeat(2, calc(50% - 0.5rem))
-  gap: 1rem
-  overflow-x: scroll
-  overflow-y: visible
-
-.img-wrapper
-  position: relative
   overflow: clip
-  border-radius: 2rem
-  cursor: pointer
-  clip-path: circle(0% at center)
-  transition: clip-path 0.5s ease-out
+  border-radius: 6rem
+  background: radial-gradient(circle, $brown96 70%, $brown80 170%)
+  @include flexbox(column, center, center)
+  overflow: clip
 
-  &.figma
-    cursor: unset
+//text
+h1, h2, h3, h4, h5, h6, p, a, span, .button
+  font-family: 'Outfit', regular
+  color: $brown30
 
-  &.figma
-    .project-preview-buttons
-      position: absolute
-      top: 50%
-      left: 50%
-      translate: -50% -50%
-      display: flex
+a, h1
+  line-height: 100%
+  font-weight: 600
+  font-size: 4rem
+  color: $brown30
+  text-decoration: none
 
-      gap: 2rem
-      flex-direction: column
-      transition: all 0.3s ease
-      opacity: 0
-      a
-        text-decoration: none
-        text-align: center
-        letter-spacing: 0.13rem
-        font-size: 2rem
-        font-weight: 500
-        color: $mid-white
-        //background-color: $dark-grey
-        border-radius: 10rem
-        padding: 0.5rem 2rem
-        cursor: pointer
-        transition: all 0.3s ease
-        z-index: 99
-        border: 0.25rem solid $mid-white
-        opacity: 1
-        //scale: 1.1
-        //filter: blur(1rem)
-        &:nth-child(1)
-          transform: translateX(-20%)
-        &:nth-child(2)
-          transform: translateX(20%)
-        &:hover
-          background-color: $mid-white
-          color: $dark-grey
-          transition-duration: 0.1s
+p, .button
+  color: $brown40
+
+.navbar
+  height: 0rem
+  opacity: 0
+  bottom: 10rem
+  overflow: clip
+  overflow-clip-margin: 1rem
+  transition: opacity 1.5s 0s cubic-bezier(0.5, 0, 0, 1), height 1.5s 0s cubic-bezier(0.5, 0, 0, 1)
+
+  a
+    cursor: pointer
+    transition: color 0.5s ease
     &:hover
-      img, video
-        filter: brightness(0.3)
-      a
-        &:nth-child(1)
-          transform: translateX(0%)
-        &:nth-child(2)
-          transform: translateX(0%)
-      .project-preview-buttons
-        opacity: 1
-
-  &:hover
-    img, video
-      scale: 1.03
+      color: $brown50
       transition-duration: 0.1s
 
-  &.filler
-    background-color: rgba($mid-white, 0.1)
-    color: $dark-grey
-    font-size: 3rem
-    font-weight: 500
-    letter-spacing: 0.1rem
-    text-align: center
-    cursor: default
-    padding: 4rem
-    display: flex
-    justify-content: center
-    align-items: center
 
-  img, video
-    border: 0rem solid $mid-white
-    //border-radius: 2rem
-    transition: all 0.3s ease
+.slide
+  @include flexbox(row, center, center)
+  //width: 50rem
+  height: 24rem
+  gap: 2rem
+  //border: 1px solid red
+  padding: 2rem
+
+  .scroll-container
+    //position: absolute
+    @include flexbox(column, center, space-between)
+    gap: 0.5rem
+    //top: 0%
+    //left: 0%
+    //transform: translate(48rem, 6rem)
     height: 100%
+    width: 1rem
+    padding: 8rem 0
+
+    .scroll-dot
+      transition: all 0.5s ease
+      width: 1rem
+      height: 1rem
+      transform: scale(0.5)
+      background-color: white
+      border-radius: 1rem
+
+      &.active
+        transform: scale(1)
+
+  .box-slider-wrapper
+    height: 20rem
+    //border: 1px solid red
+
+  .box-slider
+    @include flexbox(column, center, center)
+    width: 20rem
+    height: 64rem
+    gap: 2rem
+    border-radius: 3rem
+    overflow: clip
+
+    .box
+      position: relative
+
+      width: 20rem
+      height: 20rem
+
+      border-radius: 3rem
+
+      background-color: white
+      outline: 0.5rem solid $brown96
+      //border: 1px solid rgba(black, 0.1)
+      box-shadow: 0 2rem 2rem -2rem rgba(black, 0.1)
+
+
+  .text-container
+    @include flexbox(column, flex-start, flex-start)
+
+    width: fit-content
+    height: fit-content
+
+    border-radius: 3rem
+    padding: 2.5rem 3rem
+
+    background-color: white
+    background: linear-gradient(45deg, white 20%, $white96 160%)
+    box-shadow: 0 0 0 0.5rem $brown96, 0 2rem 2rem -2rem rgba(black, 0.1), 0 0 0 0.5rem white inset
+
+
+    .header
+      @include flexbox(row, center, space-between)
+      height: 2.5rem
+      margin-top: -0.25rem
+      margin-bottom: 1rem
+
+      h2
+        transition: transform 1s cubic-bezier(0.5, 0, 0, 1)
+        font-size: 2.5rem
+        font-weight: 600
+        line-height: 100%
+
+      .sliding-headers-container
+        height: 2.5rem
+        @include flexbox(column, flex-start, flex-start)
+        gap: 1rem
+        overflow: clip
+        overflow-clip-margin: 0.5rem
+
+    .p-slider
+      @include flexbox(row, flex-start, flex-start)
+      width: 18rem
+      //border: 1px solid green
+      overflow: clip
+
+      .text-box
+        @include flexbox(column, flex-start, flex-start)
+        //transition: transform 1s 0.2s cubic-bezier(0.5, 0, 0, 1), opacity 1s 1s ease
+        width: 18rem
+        gap: 1rem
+        //margin-bottom: 0.25rem
+
+        p
+          font-size: 1.25rem
+          line-height: 130%
+          letter-spacing: 4%
+          word-spacing: 20%
+          font-weight: 300
+          width: 20rem
+
+
+.skillset-box
+  @include flexbox(column, flex-start, space-between)
+  //border: 1px solid red
+  padding: 2rem
+  gap: 2rem
+
+  .skill-row
+    @include flexbox(row, flex-start, space-between)
+    //border: 1px solid green
+    gap: 1rem
     width: 100%
-    object-fit: cover
-    transition: all 0.3s ease
-    scale: 1
-    filter: brightness(1)
+    flex: 1
 
-  &::after
-    display: none
-    content: ''
-    position: absolute
-    font-size: 2rem
-    top: 1rem
-    left: 1rem
-    z-index: 100000
-    color: red
+  .skill-box
+    @include flexbox(column, flex-start, center)
+    padding: 1rem
+    width: 100%
+    height: 100%
+    border-radius: 1.5rem
+    //background-color: $brown90
+    //box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset, 0 1rem 1rem -0.5rem rgba(black, 0.05)
+    box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset
+    //border: 1px solid $white96
 
-  &.grid-small
-    grid-column: span 1
-    grid-row: span 1
-    &::after
-      content: 'small'
+    h3
+      font-size: 1.25rem
+      font-weight: 500
+      color: $brown80
+      width: 100%
+      text-align: center
 
-  &.grid-tall
-    grid-column: span 1
-    grid-row: span 1
-    &::after
-      content: 'tall'
 
-  &.grid-wide
-    grid-column: span 2
-    grid-row: span 1
-    &::after
-      content: 'wide'
+//.button
+//  pointer-events: auto !important
+//  cursor: pointer
+//
+//  border-radius: 0 10rem 10rem 10rem
+//  background-color: $brown80
+//  //border: 0.2rem $brown80 solid
+//  color: white
+//  font-size: 1.5rem
+//  font-weight: 400
+//  padding: 0.25rem 1.5rem 0.5rem 1.5rem
+//  margin-top: 1rem
+//  //margin-right: 1rem
+//
+//  //box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset, 0 1rem 1rem -0.5rem rgba(black, 0.05)
+//  transition: all 0.3s 0s ease
+//
+//  &:hover
+//    background-color: $brown90
+//    //border-color: $brown80
+//    //color: $brown80
+//    transition-duration: 0.1s
 
-  &.grid-big
-    grid-column: span 2
-    grid-row: span 2
-    &::after
-      content: 'big'
 
-.overlay
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-color: rgba($dark-grey, 0)
-  border-radius: 1rem
-  backdrop-filter: blur(0)
-  visibility: hidden
-  justify-content: center
-  align-items: center
-  z-index: -10
-  cursor: default
-  display: flex
-  flex-direction: column-reverse
-  opacity: 0
-  transform: translateY(10%)
-  transition: all 0.3s 0s ease
+#skill-html
+  flex: 1
 
-  &.active
-    visibility: visible
-    z-index: 100
-    opacity: 1
-    background-color: rgba($dark-grey, 0.95)
-    transform: translateY(0)
-    transition: all 0.3s 0s ease
+#skill-css
+  flex: 1
 
-.overlay-content
-  max-width: 90%
-  max-height: 90%
-  border-radius: 2rem
-  object-fit: contain
-  position: relative
-  transition: all 0.3s 0s cubic-bezier(0, 1, 1, 1)
-  cursor: default
-  //border: 1px solid rgba($mid-white, 0.5)
+#skill-ps
+  flex: 2
 
-#overlayImage, #overlayVideo
-  max-width: 100%
-  max-height: 90vh
-  border-radius: 2rem
-  //opacity: 1
-  //scale: 1
-  //visibility: visible
-  //border: 0.5rem solid rgba($dark-grey, 1)
-  visibility: visible
-  box-shadow: rgba(black, 0.5) 0 2rem 3rem -2rem
-  transition: all 0.3s 0s cubic-bezier(0, 1, 1, 1)
-  //transform: translateY(100%)
-
-.overlay-close
-  //position: absolute
-  //margin-left: 50%
-  //transform: translateX(-50%)
-  //bottom: 2rem
-  color: $mid-white
-  font-size: 4rem
-  font-weight: bold
-  cursor: pointer
-  z-index: 1000
-  transition: all 0.3s 0s cubic-bezier(0, 0, 0, 1)
-  //border-radius: 10rem
-  //padding: 1rem 2rem
-  //background-color: $dark-grey
-
-  &:hover
-    rotate: -15deg
-    color: #ffffff
-    transition: all 0.1s 0s cubic-bezier(0, 0, 0, 1)
-
-.show
-  clip-path: circle(100% at center)
+#skill-ai
+  flex: 1

@@ -1,0 +1,72 @@
+{
+  "projects": [
+    {
+      "id": "going",
+      "name": "Going",
+      "logoPath": "./media/logo-going.png",
+      "description": "College assignment: Focus on a specific UX problem basing on a real website.",
+      "projectTags": ["finished", "non-commercial", "college"],
+      "tags": ["ux-ui-solution"],
+      "buttons": [
+        {
+          "label": "presentation",
+          "link": "./sub-websites/going/presentation-going.pdf"
+        }
+      ]
+    },
+    {
+      "id": "croppy",
+      "name": "Croppy",
+      "logoPath": "./media/logo-croppy.png",
+      "description": "Started as a simple logotype idea for an conceptual brand. Over time, it evolved into mobile app prototype with its own design system.",
+      "projectTags": ["work in progress", "non-commercial", "conceptual"],
+      "tags": ["app-design", "logotype", "mood-board"],
+      "buttons": [
+        {
+          "label": "prototype",
+          "link": "https://www.figma.com/proto/0TXJULSeKWyiEtASl60zgL/Croppy---Main?page-id=0%3A1&node-id=421-1354&p=f&viewport=1224%2C-349%2C0.53&t=CI8OYANCbwo27k93-1&scaling=scale-down&content-scaling=responsive&starting-point-node-id=421%3A1354"
+        },
+        {
+          "label": "project file",
+          "link": "https://www.figma.com/design/0TXJULSeKWyiEtASl60zgL/Untitled?node-id=0-1&t=h0Ml62qZg45hk5Kp-1"
+        }
+      ]
+    },
+    {
+      "id": "pinehideways",
+      "name": "PineHideways",
+      "logoPath": "./media/logo-pinehideways.png",
+      "description": "Landing page for an conceptual brand that owns recreation complex.\nLater on I used this project to create brand book for college assignment.",
+      "projectTags": ["work in progress", "non-commercial", "conceptual", "college"],
+      "tags": ["landing-page", "logotype", "brand-book"],
+      "buttons": [
+        {
+          "label": "prototype",
+          "link": "https://www.figma.com/proto/6dpJGgY77NGe6gbDPE8JV9/Untitled?page-id=0%3A1&node-id=111-153&p=f&viewport=1061%2C82%2C0.33&t=UBWtLCJiTtF5GwVZ-1&scaling=contain&content-scaling=fixed&starting-point-node-id=111%3A153"
+        },
+        {
+          "label": "project file",
+          "link": "https://www.figma.com/design/6dpJGgY77NGe6gbDPE8JV9/Untitled?node-id=0-1&t=gVHJbBqSNsRmKGbz-1"
+        }
+      ]
+    },
+    {
+      "id": "tradecompany",
+      "name": "Trading Company",
+      "logoPath": "./media/logo-trade.png",
+      "description": "An entry for a competition:\nDesign a Landing Page in Figma basing on certain examples.",
+      "projectTags": ["finished", "competition"],
+      "tags": ["landing-page"],
+      "buttons": [
+        {
+          "label": "prototype",
+          "link": "https://www.figma.com/proto/On8kdyzBu8ynaacCaj6orJ/-shadcn-ui---Design-System--Community-?page-id=113%3A1379&node-id=115-7799&starting-point-node-id=115%3A7799&scaling=contain&content-scaling=responsive&t=hWYl3B7DcGb9rszp-1"
+        },
+        {
+          "label": "front-end",
+          "link": "./sub-websites/trading/index.html"
+        }
+      ]
+    }
+  ]
+}
