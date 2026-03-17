@@ -1,0 +1,221 @@
+@charset "UTF-8";
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16rem 52rem;
+  gap: 4rem;
+}
+
+.header {
+  width: 100%;
+  padding: 0rem;
+  opacity: 0.2;
+}
+
+p, span, h2, h3, h4, .tag {
+  color: #878178;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2%;
+  word-spacing: 20%;
+  line-height: 140%;
+}
+
+h4 {
+  color: #6C6760;
+  font-weight: 500;
+}
+
+.type:before {
+  content: "• ";
+}
+
+.projects-window {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3rem;
+  width: 56rem;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 50%;
+  height: fit-content;
+  padding: 0 2rem 0 0;
+  gap: 2rem;
+}
+
+.logo-wrapper {
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 3rem;
+  border-radius: 10rem;
+  background-color: white;
+  outline: 0.3rem solid white;
+  box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(0, 0, 0, 0.05) inset, 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, background-color 0.3s ease, outline-color 0.3s ease;
+}
+.logo-wrapper:hover {
+  transition-duration: 0.1s;
+  background-color: #E9E6E2;
+  outline-color: #F6F5F4;
+}
+.logo-wrapper img {
+  width: 100%;
+}
+
+.logo-wrapper.selected {
+  transform: translateX(2rem);
+  transition-duration: 0.3s;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  padding: 3rem 3.5rem;
+  border-radius: 3rem;
+  background: linear-gradient(45deg, white 0%, #F6F5F4 300%);
+  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  text-wrap: balance;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  gap: 1.5rem;
+  width: fit-content;
+  height: 100%;
+}
+.buttons-wrapper .button {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem 0.6rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(0, 0, 0, 0.05) inset, 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.05);
+  transition: background-color 0.5s ease;
+  outline: 0.2rem solid white;
+  background-color: white;
+}
+.buttons-wrapper .button p {
+  font-weight: 500;
+  transition: color 0.1s ease;
+  line-height: 100%;
+}
+.buttons-wrapper .button:hover {
+  transition-duration: 0.1s;
+  background-color: #E9E6E2;
+}
+.buttons-wrapper .button:hover p {
+  color: #6C6760;
+}
+
+.bg-wrapper {
+  z-index: 0;
+  height: 33.5rem;
+  border: 1px solid red;
+  margin-right: 4rem;
+  margin-top: 4rem;
+}
+.bg-wrapper img {
+  height: 100%;
+  width: unset;
+  float: right;
+  transform: rotate(5deg);
+}
+
+.type-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.type-container .type {
+  color: #6C6760;
+  opacity: 0.5;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.type-container .type:before {
+  content: "#";
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.tag-container .tag:before {
+  color: #878178;
+  content: "∙ ";
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 2rem;
+  padding: 3rem 3.5rem;
+  border-radius: 3rem;
+  background: linear-gradient(45deg, white 0%, #F6F5F4 300%);
+  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
+}
+.project-card.card-exit {
+  animation: slideOut 0.2s forwards ease-in;
+}
+.project-card.card-enter {
+  animation: slideIn 0.2s forwards ease-out;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
