@@ -12,7 +12,13 @@ $(document).ready(function() {
     const $textBoxes = $('.p-slider .text-box');
     const $pSlider = $('.p-slider');
     const $boxes = $('.box-slider .box');
-    const $navbar = $('.navbar'); // Selektor dla navbar
+    const $navbar = $('.navbar');
+
+    // Selektory dla SVG
+    const $flexibleSvgPath = $('#drawing-path'); // Ścieżka w flexible
+    const $thinkerSvgPath = $('#thinker-svg .cls-2'); // Ścieżka w thinker (path z klasą cls-2)
+    const $flexibleSvg = $('#skill-svg');
+    const $thinkerSvg = $('#thinker-svg');
 
     const headerHeight = 40; // 2.5rem = 40px
     const gap = 16; // 1rem gap
@@ -24,18 +30,144 @@ $(document).ready(function() {
     const maxIndex = 2; // 0, 1, 2 (3 pozycje)
     let isScrolling = false;
     let scrollTimeout;
-    let navbarTimeout; // Timeout dla navbar
+    let navbarTimeout;
 
-    // Inicjalizacja navbar - ukryty na starcie
-    // $navbar.css({
-    //     'opacity': '0',
-    //     'transition': 'opacity 1s ease, height 1s ease',
-    //     'pointer-events': 'none'
-    // });
+    // Zmienne do obsługi animacji SVG dla flexible
+    let flexibleSvgAnimated = false;
+    let flexiblePathLength = 0;
+    let flexibleAnimationTimeout;
+
+    // Zmienne do obsługi animacji SVG dla thinker
+    let thinkerSvgAnimated = false;
+    let thinkerPathLength = 0;
+    let thinkerAnimationTimeout;
+
+    // Inicjalizacja SVG flexible - przygotowanie do animacji
+    function initFlexibleSvgAnimation() {
+        if ($flexibleSvgPath.length) {
+            flexiblePathLength = $flexibleSvgPath[0].getTotalLength();
+
+            $flexibleSvgPath.css({
+                'stroke-dasharray': flexiblePathLength,
+                'stroke-dashoffset': flexiblePathLength,
+                'transition': 'none'
+            });
+
+            $flexibleSvgPath[0].getBoundingClientRect();
+        }
+    }
+
+    // Inicjalizacja SVG thinker - przygotowanie do animacji
+    function initThinkerSvgAnimation() {
+        if ($thinkerSvgPath.length) {
+            thinkerPathLength = $thinkerSvgPath[0].getTotalLength();
+
+            $thinkerSvgPath.css({
+                'stroke-dasharray': thinkerPathLength,
+                'stroke-dashoffset': thinkerPathLength,
+                'transition': 'none'
+            });
+
+            $thinkerSvgPath[0].getBoundingClientRect();
+        }
+    }
+
+    // Funkcja animująca rysowanie SVG flexible
+    function animateFlexibleSvgDrawing() {
+        if (!flexibleSvgAnimated && $flexibleSvgPath.length) {
+            if (flexibleAnimationTimeout) {
+                clearTimeout(flexibleAnimationTimeout);
+            }
+
+            flexibleAnimationTimeout = setTimeout(function() {
+                if (flexiblePathLength === 0) {
+                    flexiblePathLength = $flexibleSvgPath[0].getTotalLength();
+                    $flexibleSvgPath.css('stroke-dasharray', flexiblePathLength);
+                }
+
+                $flexibleSvgPath.css({
+                    'transition': 'stroke-dashoffset 2s 0s cubic-bezier(0.5, 0, 0, 1), stroke-width 2s 0s cubic-bezier(0.5, 0, 0, 1)',
+                    'stroke-width': '16px',
+                    'stroke-dashoffset': '0'
+                });
+
+                flexibleSvgAnimated = true;
+            }, 500);
+        }
+    }
+
+    // Funkcja animująca rysowanie SVG thinker
+    function animateThinkerSvgDrawing() {
+        if (!thinkerSvgAnimated && $thinkerSvgPath.length) {
+            if (thinkerAnimationTimeout) {
+                clearTimeout(thinkerAnimationTimeout);
+            }
+
+            thinkerAnimationTimeout = setTimeout(function() {
+                if (thinkerPathLength === 0) {
+                    thinkerPathLength = $thinkerSvgPath[0].getTotalLength();
+                    $thinkerSvgPath.css('stroke-dasharray', thinkerPathLength);
+                }
+
+                $thinkerSvgPath.css({
+                    'transition': 'stroke-dashoffset 2s 0s cubic-bezier(0.5, 0, 0, 1), stroke-width 2s 0s cubic-bezier(0.5, 0, 0, 1)',
+                    'stroke-width': '16px',
+                    'stroke-dashoffset': '0'
+                });
+
+                thinkerSvgAnimated = true;
+            }, 500);
+        }
+    }
+
+    // Funkcja zmywająca SVG flexible
+    function eraseFlexibleSvgDrawing() {
+        if ($flexibleSvgPath.length) {
+            if (flexibleAnimationTimeout) {
+                clearTimeout(flexibleAnimationTimeout);
+                flexibleAnimationTimeout = null;
+            }
+
+            if (flexiblePathLength === 0) {
+                flexiblePathLength = $flexibleSvgPath[0].getTotalLength();
+                $flexibleSvgPath.css('stroke-dasharray', flexiblePathLength);
+            }
+
+            $flexibleSvgPath.css({
+                'transition': 'stroke-dashoffset 0.5s cubic-bezier(0.5, 0, 0, 1), stroke-width 0.5s cubic-bezier(0.5, 0, 0, 1)',
+                'stroke-width': '0px',
+                'stroke-dashoffset': flexiblePathLength
+            });
+
+            flexibleSvgAnimated = false;
+        }
+    }
+
+    // Funkcja zmywająca SVG thinker
+    function eraseThinkerSvgDrawing() {
+        if ($thinkerSvgPath.length) {
+            if (thinkerAnimationTimeout) {
+                clearTimeout(thinkerAnimationTimeout);
+                thinkerAnimationTimeout = null;
+            }
+
+            if (thinkerPathLength === 0) {
+                thinkerPathLength = $thinkerSvgPath[0].getTotalLength();
+                $thinkerSvgPath.css('stroke-dasharray', thinkerPathLength);
+            }
+
+            $thinkerSvgPath.css({
+                'transition': 'stroke-dashoffset 0.5s cubic-bezier(0.5, 0, 0, 1), stroke-width 0.5s cubic-bezier(0.5, 0, 0, 1)',
+                'stroke-width': '0px',
+                'stroke-dashoffset': thinkerPathLength
+            });
+
+            thinkerSvgAnimated = false;
+        }
+    }
 
     // Funkcja pokazująca navbar po 3 sekundach
     function showNavbarWithDelay() {
-        // Wyczyść poprzedni timeout jeśli istnieje
         if (navbarTimeout) {
             clearTimeout(navbarTimeout);
         }
@@ -47,7 +179,7 @@ $(document).ready(function() {
                 'pointer-events': 'auto'
             });
             // console.log("Navbar pokazany!");
-        }, 5000); // 3 sekundy opóźnienia
+        }, 6000);
     }
 
     // Funkcja ukrywająca navbar
@@ -65,20 +197,16 @@ $(document).ready(function() {
 
     // Funkcja aktualizująca pozycję i opacity boxów
     function updateBoxes(index) {
-        // Przesunięcie pionowe boxów
         const newTranslateY = -(index * (boxHeight + boxGap));
         $boxes.css('transform', `translateY(${newTranslateY}px)`);
 
-        // Aktualizacja opacity boxów
         $boxes.each(function(i) {
             if (i === index) {
-                // Aktualny box - pełna widoczność
                 $(this).css({
                     'opacity': '1',
                     'transition': 'transform 1s 0.1s cubic-bezier(0.5, 0, 0, 1), opacity 1s 0.5s cubic-bezier(0.5, 0, 0, 1)',
                 });
             } else {
-                // Pozostałe boxy - niewidoczne
                 $(this).css({
                     'opacity': '0',
                     'transition': 'transform 1s 0s cubic-bezier(0.5, 0, 0, 1), opacity 0.5s 0s cubic-bezier(0.5, 0, 0, 1)'
@@ -89,20 +217,16 @@ $(document).ready(function() {
 
     // Funkcja aktualizująca pozycję i opacity text-boxów
     function updateTextBoxes(index) {
-        // Przesunięcie poziome text-boxów
         const newTranslateX = -(index * textBoxWidth);
         $textBoxes.css('transform', `translateX(${newTranslateX}px)`);
 
-        // Aktualizacja opacity text-boxów
         $textBoxes.each(function(i) {
             if (i === index) {
-                // Aktualny text-box - pełna widoczność
                 $(this).css({
                     'opacity': '1',
                     'transition': 'transform 1s 0.1s cubic-bezier(0.5, 0, 0, 1), opacity 1s 0.5s cubic-bezier(0.5, 0, 0, 1)',
                 });
             } else {
-                // Pozostałe text-boxy - niewidoczne
                 $(this).css({
                     'opacity': '0',
                     'transition': 'transform 1s 0s cubic-bezier(0.5, 0, 0, 1), opacity 0.5s 0s cubic-bezier(0.5, 0, 0, 1)'
@@ -118,18 +242,56 @@ $(document).ready(function() {
     }
 
     // Funkcja aktualizująca wszystko
-    function updatePosition(index) {
+    function updatePosition(index, previousIndex) {
         updateHeaders(index);
         updateTextBoxes(index);
         updateBoxes(index);
         updateActiveDot(index);
 
-        // Sprawdź czy to ostatni slajd (thinker)
+        // Obsługa animacji dla flexible (indeks 1)
+        if (index === 1) {
+            if (previousIndex === 0 || previousIndex === 2) {
+                // Przejście do flexible - animuj rysowanie flexible SVG
+                animateFlexibleSvgDrawing();
+            }
+        }
+
+        // Obsługa animacji dla thinker (indeks 2)
+        if (index === 2) {
+            if (previousIndex === 0 || previousIndex === 1) {
+                // Przejście do thinker - animuj rysowanie thinker SVG
+                animateThinkerSvgDrawing();
+            }
+        }
+
+        // Zmywanie flexible SVG przy opuszczaniu flexible
+        if (previousIndex === 1 && index !== 1) {
+            eraseFlexibleSvgDrawing();
+        }
+
+        // Zmywanie thinker SVG przy opuszczaniu thinker
+        if (previousIndex === 2 && index !== 2) {
+            eraseThinkerSvgDrawing();
+        }
+
+        // Upewnij się, że narysowane SVG pozostają widoczne gdy jesteśmy w ich sekcji
+        if (index === 1 && flexibleSvgAnimated) {
+            $flexibleSvgPath.css({
+                'transition': 'none',
+                'stroke-dashoffset': '0'
+            });
+        }
+
+        if (index === 2 && thinkerSvgAnimated) {
+            $thinkerSvgPath.css({
+                'transition': 'none',
+                'stroke-dashoffset': '0'
+            });
+        }
+
         if (index === maxIndex) {
-            // Jesteśmy na ostatnim slajdzie - pokaż navbar z opóźnieniem
             showNavbarWithDelay();
         } else {
-            // Nie jesteśmy na ostatnim slajdzie - ukryj navbar
             hideNavbar();
         }
     }
@@ -137,8 +299,9 @@ $(document).ready(function() {
     // Obsługa kliknięcia na kropki
     $('.scroll-dot').on('click', function() {
         const index = $(this).index();
+        const previousIndex = currentIndex;
         currentIndex = index;
-        updatePosition(index);
+        updatePosition(index, previousIndex);
     });
 
     // Obsługa scrollowania na całym oknie
@@ -148,22 +311,20 @@ $(document).ready(function() {
         if (isScrolling) return;
 
         const delta = e.originalEvent.deltaY;
+        const previousIndex = currentIndex;
 
         if (delta > 0 && currentIndex < maxIndex) {
-            // Scroll w dół
             currentIndex++;
             isScrolling = true;
-            updatePosition(currentIndex);
+            updatePosition(currentIndex, previousIndex);
         } else if (delta < 0 && currentIndex > 0) {
-            // Scroll w górę
             currentIndex--;
             isScrolling = true;
-            updatePosition(currentIndex);
+            updatePosition(currentIndex, previousIndex);
         } else {
             return;
         }
 
-        // Blokada na szybkie scrollowanie
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(function() {
             isScrolling = false;
@@ -174,12 +335,14 @@ $(document).ready(function() {
     $(document).on('keydown', function(e) {
         if (e.key === 'ArrowDown' && currentIndex < maxIndex) {
             e.preventDefault();
+            const previousIndex = currentIndex;
             currentIndex++;
-            updatePosition(currentIndex);
+            updatePosition(currentIndex, previousIndex);
         } else if (e.key === 'ArrowUp' && currentIndex > 0) {
             e.preventDefault();
+            const previousIndex = currentIndex;
             currentIndex--;
-            updatePosition(currentIndex);
+            updatePosition(currentIndex, previousIndex);
         }
     });
 
@@ -189,8 +352,12 @@ $(document).ready(function() {
         $('.scroll-dot').eq(index).addClass('active');
     }
 
-    // Inicjalizacja
-    updatePosition(0);
+    // Inicjalizacja animacji SVG
+    initFlexibleSvgAnimation();
+    initThinkerSvgAnimation();
+
+    // Inicjalizacja pozycji
+    updatePosition(0, 0);
 
     // Wyłącz hover z CSS
     $pSlider.css('pointer-events', 'none');
