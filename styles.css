@@ -120,6 +120,7 @@ p, .button {
   height: 20rem;
   padding: 4rem;
   border-radius: 3rem;
+  opacity: 0;
   background: linear-gradient(45deg, white 20%, #F5F5F4 160%);
   box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
 }
