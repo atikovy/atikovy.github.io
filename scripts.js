@@ -1,5 +1,11 @@
 $(document).ready(function() {
-    // console.log("Skrypt działa!");
+    // Resetuj pozycję scrolla natychmiast po załadowaniu
+    window.scrollTo(0, 0);
+
+    // Zapobiegaj przywracaniu pozycji scrolla przez przeglądarkę
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
 
     // Zablokuj normalne scrollowanie
     $('body').css({
