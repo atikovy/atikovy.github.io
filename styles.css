@@ -17,7 +17,9 @@
 
 html {
   background-color: black;
-  font-size: 16px;
+  overflow: clip;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
