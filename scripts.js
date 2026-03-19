@@ -15,16 +15,25 @@ $(document).ready(function() {
     const $navbar = $('.navbar');
 
     // Selektory dla SVG
-    const $flexibleSvgPath = $('#drawing-path'); // Ścieżka w flexible
-    const $thinkerSvgPath = $('#thinker-svg .cls-2'); // Ścieżka w thinker (path z klasą cls-2)
+    const $flexibleSvgPath = $('#skill-svg .st0');
+    const $thinkerSvgPath = $('#thinker-svg .cls-2');
     const $flexibleSvg = $('#skill-svg');
     const $thinkerSvg = $('#thinker-svg');
 
-    const headerHeight = 40; // 2.5rem = 40px
-    const gap = 16; // 1rem gap
-    const textBoxWidth = 288; // 20rem = 320px
-    const boxHeight = 320; // 20rem = 320px (wysokość boxa)
-    const boxGap = 32; // 2rem gap między boxami
+    // Pobierz aktualny rozmiar czcionki z html (domyślnie 16px)
+    const baseFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+    // Funkcja pomocnicza do konwersji rem na px
+    function remToPx(rem) {
+        return rem * baseFontSize;
+    }
+
+    // Wszystkie wartości w rem (przeliczone z px)
+    const headerHeight = remToPx(2.5); // 2.5rem = 40px
+    const gap = remToPx(1); // 1rem = 16px
+    const textBoxWidth = remToPx(18); // 18rem = 288px
+    const boxHeight = remToPx(20); // 20rem = 320px
+    const boxGap = remToPx(2); // 2rem = 32px
 
     let currentIndex = 0;
     const maxIndex = 2; // 0, 1, 2 (3 pozycje)
@@ -87,7 +96,7 @@ $(document).ready(function() {
 
                 $flexibleSvgPath.css({
                     'transition': 'stroke-dashoffset 2s 0s cubic-bezier(0.5, 0, 0, 1), stroke-width 2s 0s cubic-bezier(0.5, 0, 0, 1)',
-                    'stroke-width': '16px',
+                    'stroke-width': remToPx(1), // 1rem = 16px
                     'stroke-dashoffset': '0'
                 });
 
@@ -111,7 +120,7 @@ $(document).ready(function() {
 
                 $thinkerSvgPath.css({
                     'transition': 'stroke-dashoffset 2s 0s cubic-bezier(0.5, 0, 0, 1), stroke-width 2s 0s cubic-bezier(0.5, 0, 0, 1)',
-                    'stroke-width': '16px',
+                    'stroke-width': remToPx(1), // 1rem = 16px
                     'stroke-dashoffset': '0'
                 });
 
@@ -135,7 +144,7 @@ $(document).ready(function() {
 
             $flexibleSvgPath.css({
                 'transition': 'stroke-dashoffset 0.5s cubic-bezier(0.5, 0, 0, 1), stroke-width 0.5s cubic-bezier(0.5, 0, 0, 1)',
-                'stroke-width': '0px',
+                'stroke-width': remToPx(1), // 1rem = 16px
                 'stroke-dashoffset': flexiblePathLength
             });
 
@@ -158,7 +167,7 @@ $(document).ready(function() {
 
             $thinkerSvgPath.css({
                 'transition': 'stroke-dashoffset 0.5s cubic-bezier(0.5, 0, 0, 1), stroke-width 0.5s cubic-bezier(0.5, 0, 0, 1)',
-                'stroke-width': '0px',
+                'stroke-width': remToPx(1), // 1rem = 16px
                 'stroke-dashoffset': thinkerPathLength
             });
 
@@ -166,7 +175,7 @@ $(document).ready(function() {
         }
     }
 
-    // Funkcja pokazująca navbar po 3 sekundach
+    // Funkcja pokazująca navbar po 6 sekundach
     function showNavbarWithDelay() {
         if (navbarTimeout) {
             clearTimeout(navbarTimeout);
@@ -175,7 +184,7 @@ $(document).ready(function() {
         navbarTimeout = setTimeout(function() {
             $navbar.css({
                 'opacity': '1',
-                'height': '16rem',
+                'height': remToPx(16), // 16rem
                 'pointer-events': 'auto'
             });
             // console.log("Navbar pokazany!");
@@ -251,7 +260,6 @@ $(document).ready(function() {
         // Obsługa animacji dla flexible (indeks 1)
         if (index === 1) {
             if (previousIndex === 0 || previousIndex === 2) {
-                // Przejście do flexible - animuj rysowanie flexible SVG
                 animateFlexibleSvgDrawing();
             }
         }
@@ -259,7 +267,6 @@ $(document).ready(function() {
         // Obsługa animacji dla thinker (indeks 2)
         if (index === 2) {
             if (previousIndex === 0 || previousIndex === 1) {
-                // Przejście do thinker - animuj rysowanie thinker SVG
                 animateThinkerSvgDrawing();
             }
         }
@@ -278,14 +285,16 @@ $(document).ready(function() {
         if (index === 1 && flexibleSvgAnimated) {
             $flexibleSvgPath.css({
                 'transition': 'none',
-                'stroke-dashoffset': '0'
+                'stroke-dashoffset': '0',
+                'stroke-width': remToPx(1) // 1rem = 16px
             });
         }
 
         if (index === 2 && thinkerSvgAnimated) {
             $thinkerSvgPath.css({
                 'transition': 'none',
-                'stroke-dashoffset': '0'
+                'stroke-dashoffset': '0',
+                'stroke-width': remToPx(1) // 1rem = 16px
             });
         }
 

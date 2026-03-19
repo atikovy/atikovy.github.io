@@ -1,0 +1,16 @@
+@media (max-aspect-ratio: 1) {
+  body {
+    padding: 4rem;
+    border-radius: 4rem;
+  }
+  .slide, .navbar, .scroll-container {
+    display: none;
+  }
+  .no-mobile {
+    display: block;
+    line-height: 130%;
+    color: #878178;
+  }
+}
+
+/*# sourceMappingURL=no-mobile.css.map */

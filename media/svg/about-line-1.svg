@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.55 371.34">
+<svg id="skill-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 225.55 371.34">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
   <defs>
     <style>
-      .cls-1 {
-        fill: #878178;
-      }
-
-      .cls-2 {
+      .st0 {
         fill: none;
-        stroke: #D2CDC6;
+        stroke: #d2cdc6;
         stroke-linecap: round;
         stroke-miterlimit: 10;
         stroke-width: 16px;
       }
+
+      .st1 {
+        fill: #d2cdc6;
+      }
+
+      .st2 {
+        fill: #878178;
+      }
     </style>
   </defs>
-  <path class="cls-2" d="M182.67,32.17c-25.37,18.08-52.26,35.77-76,54.38-24.61,19.74-46.58,44.23-22.95,73.84,17.51,23.67,53.37,39.91,62.78,69.69,5.65,22.16-11.84,39.56-27.87,53.33-23.89,19.48-51.64,37.4-77.72,56.06"/>
-  <circle class="cls-1" cx="213.55" cy="12" r="12"/>
-  <circle class="cls-1" cx="12" cy="359.34" r="12"/>
+  <path class="st0" d="M182.67,32.17c-25.37,18.08-52.26,35.77-76,54.38-24.61,19.74-46.58,44.23-22.95,73.84,17.51,23.67,53.37,39.91,62.78,69.69,5.65,22.16-11.84,39.56-27.87,53.33-23.89,19.48-51.64,37.4-77.72,56.06"/>
+  <circle class="st2" cx="213.55" cy="12" r="12"/>
+  <circle class="st1" cx="35.67" cy="135.67" r="6"/>
+  <circle class="st1" cx="186" cy="239.47" r="6"/>
+  <circle class="st2" cx="12" cy="359.34" r="12"/>
 </svg>
