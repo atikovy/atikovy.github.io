@@ -22,7 +22,7 @@ html {
 body {
   width: 100vw;
   height: 100vh;
-  overflow: clip;
+  overflow: hidden;
   border-radius: 6rem;
   background: radial-gradient(circle, #F6F5F4 70%, #D2CDC6 170%);
   display: flex;
@@ -133,7 +133,6 @@ p, .button {
   height: fit-content;
   border-radius: 3rem;
   padding: 2.5rem 3rem;
-  background-color: white;
   background: linear-gradient(45deg, white 20%, #F5F5F4 160%);
   box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
 }
