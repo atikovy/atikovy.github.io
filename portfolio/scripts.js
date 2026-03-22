@@ -298,7 +298,7 @@ $(document).ready(function() {
             {
                 id: "croppy",
                 name: "Croppy",
-                logoPath: "./media/logo-croppy.png",
+                logoPath: "./media/logo-croppy-2.png",
                 description: "Started as a simple logotype idea for\nan imaginary plant shop.\nOver time, it evolved into mobile app\nprototype with its own design system.",
                 tags: ["work in progress", "non-commercial"],
                 projectTags: ["mobile", "design-system", "conceptual"],
