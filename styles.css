@@ -76,7 +76,7 @@ p, .button {
   align-items: center;
   justify-content: center;
   height: 24rem;
-  gap: 1rem;
+  gap: 2rem;
   padding: 2rem;
 }
 .slide .scroll-container {
@@ -88,6 +88,9 @@ p, .button {
   height: 100%;
   width: 1rem;
   padding: 8rem 0;
+  opacity: 0;
+  transform: translateX(2rem);
+  animation: scroll-container-in 1s 1s ease forwards;
 }
 .slide .scroll-container .scroll-dot {
   transition: all 0.5s ease;
@@ -102,7 +105,6 @@ p, .button {
 }
 .slide .box-slider-wrapper {
   height: 20rem;
-  margin-right: 2rem;
 }
 .slide .box-slider {
   display: flex;
@@ -137,7 +139,7 @@ p, .button {
   box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
   opacity: 0;
   transform: translateY(4rem);
-  animation: text-container-in 1s 0.7s ease forwards;
+  animation: text-container-in 1s 0.75s ease forwards;
 }
 .slide .text-container .header {
   display: flex;
@@ -214,6 +216,16 @@ p, .button {
   from {
     opacity: 0;
     transform: translateY(4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+@keyframes scroll-container-in {
+  from {
+    opacity: 0;
+    transform: translatex(2rem);
   }
   to {
     opacity: 1;

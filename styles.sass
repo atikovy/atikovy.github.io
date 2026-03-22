@@ -81,7 +81,7 @@ p, .button
   @include flexbox(row, center, center)
   //width: 50rem
   height: 24rem
-  gap: 1rem
+  gap: 2rem
   //border: 1px solid red
   padding: 2rem
 
@@ -96,6 +96,10 @@ p, .button
     width: 1rem
     padding: 8rem 0
 
+    opacity: 0
+    transform: translateX(2rem)
+    animation: scroll-container-in 1s 1s ease forwards
+
     .scroll-dot
       transition: all 0.5s ease
       width: 1rem
@@ -104,13 +108,14 @@ p, .button
       background-color: $brown90
       border-radius: 1rem
 
+
       &.active
         transform: scale(1)
 
   .box-slider-wrapper
     height: 20rem
     //border: 1px solid red
-    margin-right: 2rem
+    //margin-right: 2rem
 
   .box-slider
     @include flexbox(column, center, center)
@@ -151,7 +156,7 @@ p, .button
 
     opacity: 0
     transform: translateY(4rem)
-    animation: text-container-in 1s 0.7s ease forwards
+    animation: text-container-in 1s 0.75s ease forwards
 
 
     .header
@@ -218,6 +223,14 @@ p, .button
   from
     opacity: 0
     transform: translateY(4rem)
+  to
+    opacity: 1
+    transform: translateY(0rem)
+
+@keyframes scroll-container-in
+  from
+    opacity: 0
+    transform: translatex(2rem)
   to
     opacity: 1
     transform: translateY(0rem)
