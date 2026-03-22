@@ -87,7 +87,7 @@ p, .button {
   align-items: center;
   justify-content: center;
   height: 24rem;
-  gap: 2rem;
+  gap: 3rem;
   padding: 2rem;
 }
 .slide .scroll-container {
@@ -126,7 +126,6 @@ p, .button {
   height: 68rem;
   gap: 4rem;
   border-radius: 3rem;
-  margin-right: 2rem;
 }
 .slide .box-slider .box {
   position: relative;

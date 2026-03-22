@@ -192,7 +192,7 @@ $(document).ready(function() {
                 'opacity': '1',
                 'height': remToPx(6), // 16rem
                 'padding': '1rem 5rem', // 16rem
-                'transition-duration': '1s',
+                'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease',
                 'pointer-events': 'auto'
             });
             // console.log("Navbar pokazany!");
@@ -209,7 +209,7 @@ $(document).ready(function() {
             'opacity': '0',
             'height': '0',
             'padding': '0rem 5rem', // 16rem
-            'transition-duration': '0.5s',
+            'transition': 'all 0.5s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease',
             'pointer-events': 'none'
         });
     }
