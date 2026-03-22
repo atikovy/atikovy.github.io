@@ -12,6 +12,11 @@ body {
   width: 100%;
   padding: 0rem;
   opacity: 0.2;
+  overflow: clip;
+  overflow-clip-margin: 0.5rem;
+}
+.header h1 {
+  animation: header-in 1s 0s forwards cubic-bezier(0.5, 0, 0, 1);
 }
 
 p, span, h2, h3, h4, .tag {
@@ -216,6 +221,34 @@ h4 {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@keyframes header-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes card-in-vertical {
+  from {
+    translate: 0rem -1rem;
+    opacity: 0;
+  }
+  to {
+    translate: 0rem 0rem;
+    opacity: 1;
+  }
+}
+@keyframes card-in-horizontal {
+  from {
+    translate: -1rem 0;
+    opacity: 0;
+  }
+  to {
+    translate: 0rem 0;
+    opacity: 1;
   }
 }
 

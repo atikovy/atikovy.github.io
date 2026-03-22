@@ -1,8 +1,9 @@
 $(document).ready(function() {
     let projectsData = [];
     let currentProject = null;
-    let isFirstLoad = true; // Flaga dla pierwszego załadowania
-    let isAnimating = false; // Flaga blokady animacji
+    let isFirstLoad = true;
+    let isAnimating = false;
+    let animationQueue = [];
 
     // Load projects from JSON file
     $.getJSON('projects.json', function(data) {
@@ -13,10 +14,12 @@ $(document).ready(function() {
         if (projectsData.length > 0) {
             selectProject(projectsData[0].id);
 
-            // Dodaj klasę selected do pierwszego projektu w liście
+            // Add selected class to first project after a small delay
             setTimeout(function() {
                 $('.project-item').first().addClass('selected');
-            }, 100); // Małe opóźnienie, aby upewnić się że elementy są w DOM
+                // Apply the transform for the selected item
+                $('.project-item.selected').css('transform', 'translateX(2rem)');
+            }, 100);
         }
     }).fail(function() {
         console.error('Failed to load projects.json');
@@ -26,27 +29,42 @@ $(document).ready(function() {
         if (projectsData.length > 0) {
             selectProject(projectsData[0].id);
 
-            // Dodaj klasę selected do pierwszego projektu w liście
             setTimeout(function() {
                 $('.project-item').first().addClass('selected');
+                $('.project-item.selected').css('transform', 'translateX(2rem)');
             }, 100);
         }
     });
 
-    // Function to render the project list (left side)
+    // Function to render the project list (left side) with sequential animation
     function renderProjectList(projects) {
         const listContainer = $('.project-list');
-        listContainer.empty(); // Remove placeholder items
+        listContainer.empty();
 
-        projects.forEach(project => {
+        projects.forEach((project, index) => {
             const projectItem = createProjectListItem(project);
             listContainer.append(projectItem);
+
+            // Add sequential animation with delay based on index
+            setTimeout(() => {
+                projectItem.css({
+                    'opacity': '1',
+                    'transform': 'translateX(0)'
+                });
+            }, 100 + (index * 80));
         });
     }
 
     // Function to create a single project list item
     function createProjectListItem(project) {
         const item = $('<div>').addClass('logo-wrapper project-item').attr('data-project-id', project.id);
+
+        // Set initial styles for animation
+        item.css({
+            'opacity': '0',
+            'transform': 'translateX(-1rem)',
+            'transition': 'opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, outline-color 0.3s ease'
+        });
 
         const img = $('<img>').attr({
             'src': project.logoPath,
@@ -56,18 +74,26 @@ $(document).ready(function() {
 
         item.append(img);
 
-        // Add click handler z blokadą animacji
+        // Add click handler with animation lock
         item.click(function() {
-            // Sprawdź czy animacja jest w toku lub to ten sam projekt
             if (isAnimating || currentProject?.id === project.id) {
-                return; // Blokuj kliknięcie
+                return;
             }
 
             selectProject(project.id);
 
-            // Add visual feedback for selected item
-            $('.project-item').removeClass('selected');
+            // Remove selected class from all items and reset their transform
+            $('.project-item').each(function() {
+                $(this).removeClass('selected');
+                // Reset transform to original position if not animating
+                if (!$(this).hasClass('selected')) {
+                    $(this).css('transform', 'translateX(0)');
+                }
+            });
+
+            // Add selected class to current item and apply transform
             $(this).addClass('selected');
+            $(this).css('transform', 'translateX(2rem)');
         });
 
         return item;
@@ -78,84 +104,64 @@ $(document).ready(function() {
         const project = projectsData.find(p => p.id === projectId);
         if (!project) return;
 
+        // Queue the animation if another is in progress
+        if (isAnimating && !isFirstLoad) {
+            animationQueue.push(project);
+            return;
+        }
+
         currentProject = project;
         updateProjectCard(project);
+    }
+
+    // Function to process queued animations
+    function processQueue() {
+        if (animationQueue.length > 0 && !isAnimating) {
+            const nextProject = animationQueue.shift();
+            selectProject(nextProject.id);
+        }
     }
 
     // Function to update the project card with selected project data with animation
     function updateProjectCard(project) {
         const card = $('.project-card');
 
-        // Jeśli to pierwsze załadowanie, po prostu wypełnij kartę bez animacji
+        // If first load, fill card with vertical entrance animation
         if (isFirstLoad) {
-            // Wypełnij kartę bez animacji
+            // Remove any existing animation classes
+            card.removeClass('card-exit card-enter');
+
+            // Set initial position for entrance animation (from above)
+            card.css({
+                'opacity': '0',
+                'transform': 'translateY(-2rem)',
+                'transition': 'none'
+            });
+
+            // Fill card without animation
             card.empty();
+            fillCardContent(card, project);
 
-            // Create type section (formerly tags) - NOW AT THE TOP
-            const typeDiv = $('<div>').addClass('type-container');
-            project.tags.forEach(tagText => {
-                const type = $('<p>').addClass('type').text(tagText);
-                typeDiv.append(type);
-            });
+            // Trigger reflow to ensure initial styles are applied
+            card[0].offsetHeight;
 
-            // Create description section
-            const descriptionDiv = $('<div>').addClass('project-description');
-            const descriptionTitle = $('<h4>').text('Description:');
-            const descriptionText = $('<p>').html(project.description.replace(/\n/g, '<br>'));
-            descriptionDiv.append(descriptionTitle, descriptionText);
-
-            // Create tags container with individual tags
-            const tagContainer = $('<div>').addClass('tag-container');
-            if (project.projectTags && project.projectTags.length > 0) {
-                project.projectTags.forEach(tagText => {
-                    const tag = $('<p>').addClass('tag').text(tagText);
-                    tagContainer.append(tag);
+            // Add entrance animation with smooth transition
+            setTimeout(() => {
+                card.css({
+                    'transition': 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    'opacity': '1',
+                    'transform': 'translateY(0)'
                 });
-            } else {
-                // Add some default tags based on project properties or leave empty
-                const defaultTags = generateDefaultTags(project);
-                defaultTags.forEach(tagText => {
-                    const tag = $('<p>').addClass('tag').text(tagText);
-                    tagContainer.append(tag);
-                });
-            }
+            }, 50);
 
-            // Create buttons wrapper
-            const buttonsWrapper = $('<div>').addClass('buttons-wrapper');
-
-            // Create buttons based on project data
-            project.buttons.forEach(buttonData => {
-                const button = $('<div>').addClass('button');
-                const buttonText = $('<p>').text(buttonData.label);
-
-                button.append(buttonText);
-
-                // Add click handler if link is provided and not '#'
-                if (buttonData.link && buttonData.link !== '#') {
-                    button.css('cursor', 'pointer');
-                    button.click(function(e) {
-                        e.stopPropagation(); // Prevent event bubbling
-                        window.open(buttonData.link, '_blank');
-                    });
-                }
-
-                buttonsWrapper.append(button);
-            });
-
-            // Assemble the card with type at the top, then description, then tags, then buttons
-            card.append(typeDiv, descriptionDiv, tagContainer, buttonsWrapper);
-
-            // Ustaw flagę, że pierwsze załadowanie się zakończyło
             isFirstLoad = false;
-
             return;
         }
 
-        // Ustaw blokadę animacji
+        // Set animation lock
         isAnimating = true;
 
-        // Dla kolejnych kliknięć - dodajemy animację
-        // Add animation class for slide
+        // Add exit animation
         card.addClass('card-exit');
 
         // Wait for exit animation to complete
@@ -164,39 +170,75 @@ $(document).ready(function() {
             card.empty();
             card.removeClass('card-exit');
 
-            // Create type section (formerly tags) - NOW AT THE TOP
-            const typeDiv = $('<div>').addClass('type-container');
+            // Set initial position for new content entrance (from above)
+            card.css({
+                'opacity': '0',
+                'transform': 'translateY(-2rem)',
+                'transition': 'none'
+            });
+
+            // Fill with new content
+            fillCardContent(card, project);
+
+            // Trigger reflow
+            card[0].offsetHeight;
+
+            // Add enter animation with smooth transition
+            setTimeout(function() {
+                card.css({
+                    'transition': 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    'opacity': '1',
+                    'transform': 'translateY(0)'
+                });
+
+                // Release lock after animation completes
+                setTimeout(function() {
+                    isAnimating = false;
+                    // Process any queued animations
+                    processQueue();
+                }, 500);
+            }, 20);
+
+        }, 200);
+    }
+
+    // Helper function to fill card content
+    function fillCardContent(card, project) {
+        // Create type section (tags at the top)
+        const typeDiv = $('<div>').addClass('type-container');
+        if (project.tags && project.tags.length > 0) {
             project.tags.forEach(tagText => {
                 const type = $('<p>').addClass('type').text(tagText);
                 typeDiv.append(type);
             });
+        }
 
-            // Create description section
-            const descriptionDiv = $('<div>').addClass('project-description');
-            const descriptionTitle = $('<h4>').text('Description:');
-            const descriptionText = $('<p>').html(project.description.replace(/\n/g, '<br>'));
-            descriptionDiv.append(descriptionTitle, descriptionText);
+        // Create description section
+        const descriptionDiv = $('<div>').addClass('project-description');
+        const descriptionTitle = $('<h4>').text('Description:');
+        const descriptionText = $('<p>').html(project.description.replace(/\n/g, '<br>'));
+        descriptionDiv.append(descriptionTitle, descriptionText);
 
-            // Create tags container with individual tags
-            const tagContainer = $('<div>').addClass('tag-container');
-            if (project.projectTags && project.projectTags.length > 0) {
-                project.projectTags.forEach(tagText => {
-                    const tag = $('<p>').addClass('tag').text(tagText);
-                    tagContainer.append(tag);
-                });
-            } else {
-                // Add some default tags based on project properties or leave empty
-                const defaultTags = generateDefaultTags(project);
-                defaultTags.forEach(tagText => {
-                    const tag = $('<p>').addClass('tag').text(tagText);
-                    tagContainer.append(tag);
-                });
-            }
+        // Create tags container with individual tags
+        const tagContainer = $('<div>').addClass('tag-container');
+        if (project.projectTags && project.projectTags.length > 0) {
+            project.projectTags.forEach(tagText => {
+                const tag = $('<p>').addClass('tag').text(tagText);
+                tagContainer.append(tag);
+            });
+        } else {
+            const defaultTags = generateDefaultTags(project);
+            defaultTags.forEach(tagText => {
+                const tag = $('<p>').addClass('tag').text(tagText);
+                tagContainer.append(tag);
+            });
+        }
 
-            // Create buttons wrapper
-            const buttonsWrapper = $('<div>').addClass('buttons-wrapper');
+        // Create buttons wrapper
+        const buttonsWrapper = $('<div>').addClass('buttons-wrapper');
 
-            // Create buttons based on project data
+        // Create buttons based on project data
+        if (project.buttons && project.buttons.length > 0) {
             project.buttons.forEach(buttonData => {
                 const button = $('<div>').addClass('button');
                 const buttonText = $('<p>').text(buttonData.label);
@@ -207,14 +249,11 @@ $(document).ready(function() {
                 if (buttonData.link && buttonData.link !== '#') {
                     button.css('cursor', 'pointer');
                     button.click(function(e) {
-                        e.stopPropagation(); // Prevent event bubbling
+                        e.stopPropagation();
 
-                        // Sprawdź czy to plik PDF
                         if (buttonData.link.toLowerCase().endsWith('.pdf')) {
-                            // Otwórz PDF w nowej karcie
                             window.open(buttonData.link, '_blank');
                         } else {
-                            // Dla innych linków
                             window.open(buttonData.link, '_blank');
                         }
                     });
@@ -222,37 +261,24 @@ $(document).ready(function() {
 
                 buttonsWrapper.append(button);
             });
+        }
 
-            // Assemble the card with type at the top, then description, then tags, then buttons
-            card.append(typeDiv, descriptionDiv, tagContainer, buttonsWrapper);
-
-            // Add enter animation class
-            card.addClass('card-enter');
-
-            // Remove enter animation class and release lock after animation completes
-            setTimeout(function() {
-                card.removeClass('card-enter');
-                isAnimating = false; // Zwolnij blokadę
-            }, 400);
-
-        }, 200); // Match this with CSS transition duration
+        // Assemble the card
+        card.append(typeDiv, descriptionDiv, tagContainer, buttonsWrapper);
     }
 
     // Helper function to generate default tags based on project properties
     function generateDefaultTags(project) {
         const tags = [];
 
-        // Add tag based on project name
         if (project.name) {
             tags.push(project.name.toLowerCase());
         }
 
-        // Add tag based on id
         if (project.id) {
             tags.push(project.id);
         }
 
-        // Add some generic tags based on project properties
         if (project.projectTags && project.projectTags.includes('finished')) {
             tags.push('complete');
         }
@@ -263,7 +289,6 @@ $(document).ready(function() {
             tags.push('personal');
         }
 
-        // Return unique tags (max 3 to avoid overcrowding)
         return [...new Set(tags)].slice(0, 3);
     }
 
