@@ -69,6 +69,7 @@ h4 {
 }
 .logo-wrapper img {
   width: 100%;
+  transform: translateY(0.2rem);
 }
 
 .logo-wrapper.selected {

@@ -39,7 +39,7 @@ $(document).ready(function() {
     const gap = remToPx(1); // 1rem = 16px
     const textBoxWidth = remToPx(18); // 18rem = 288px
     const boxHeight = remToPx(20); // 20rem = 320px
-    const boxGap = remToPx(2); // 2rem = 32px
+    const boxGap = remToPx(4); // 2rem = 32px
 
     let currentIndex = 0;
     const maxIndex = 2; // 0, 1, 2 (3 pozycje)
@@ -190,11 +190,13 @@ $(document).ready(function() {
         navbarTimeout = setTimeout(function() {
             $navbar.css({
                 'opacity': '1',
-                'height': remToPx(16), // 16rem
+                'height': remToPx(6), // 16rem
+                'padding': '1rem 5rem', // 16rem
+                'transition-duration': '1s',
                 'pointer-events': 'auto'
             });
             // console.log("Navbar pokazany!");
-        }, 6000);
+        }, 5000);
     }
 
     // Funkcja ukrywająca navbar
@@ -206,6 +208,8 @@ $(document).ready(function() {
         $navbar.css({
             'opacity': '0',
             'height': '0',
+            'padding': '0rem 5rem', // 16rem
+            'transition-duration': '0.5s',
             'pointer-events': 'none'
         });
     }
@@ -219,12 +223,14 @@ $(document).ready(function() {
             if (i === index) {
                 $(this).css({
                     'opacity': '1',
-                    'transition': 'transform 1s 0.1s cubic-bezier(0.5, 0, 0, 1), opacity 1s 0.5s cubic-bezier(0.5, 0, 0, 1)',
+                    'filter': 'blur(0rem)',
+                    'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1)',
                 });
             } else {
                 $(this).css({
-                    'opacity': '0',
-                    'transition': 'transform 1s 0s cubic-bezier(0.5, 0, 0, 1), opacity 0.5s 0s cubic-bezier(0.5, 0, 0, 1)'
+                    'opacity': '0.8',
+                    'filter': 'blur(0.2rem)',
+                    'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1)'
                 });
             }
         });
