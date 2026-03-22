@@ -207,6 +207,10 @@ p, .button {
 }
 
 @keyframes profile-picture-in {
+  from {
+    clip-path: circle(0%);
+    rotate: 0deg;
+  }
   to {
     clip-path: circle(50%);
     rotate: 0deg;

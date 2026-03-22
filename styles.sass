@@ -215,6 +215,9 @@ p, .button
     animation: profile-picture-in 1s 0.5s cubic-bezier(0.5, 0, 0, 1) forwards
 
 @keyframes profile-picture-in
+  from
+    clip-path: circle(0%)
+    rotate: 0deg
   to
     clip-path: circle(50%)
     rotate: 0deg
