@@ -53,7 +53,7 @@
     {
       "id": "tradecompany",
       "name": "Trading Company",
-      "logoPath": "./media/logo-trade.png",
+      "logoPath": "./media/logo-trade-2.png",
       "description": "An entry for a competition:\nDesign a Landing Page for trading company in Figma basing on certain examples.",
       "projectTags": ["finished", "competition"],
       "tags": ["landing-page"],
