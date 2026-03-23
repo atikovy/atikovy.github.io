@@ -2,13 +2,14 @@
 $white90: #E6E6E6
 $white96: #F5F5F4
 
-$brown96: #F6F5F4
-$brown90: #E9E6E2
-$brown80: #D2CDC6
-$brown70: #BAB4AB
-$brown50: #878178
-$brown40: #6C6760
-$brown30: #544E45
+$brown96: #F7F5F3
+$brown90: #EBE5E0
+$brown80: #D6CBC2
+$brown70: #C2B1A3
+$brown60: #A99889
+$brown50: #8C7F73
+$brown40: #70655C
+$brown30: #544C45
 
 @mixin flexbox($direction: row, $align: center, $justify: center)
   display: flex
@@ -68,59 +69,56 @@ p, .button
   border-radius: 10rem
 
   box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset, 0 1rem 1rem -0.5rem rgba(black, 0.05)
-  //transition: background-color 0.5s ease
   outline: 0.5rem solid white
   background-color: white
 
-  transition: all 1s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.5s ease, outline-color 0.5s ease
+  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease
   cursor: pointer
 
-  a
-    color: $brown50
-    line-height: 90%
-    transition: color 0.5s ease
+  color: $brown40
+  line-height: 90%
   &:hover
     transition-duration: 0.1s
     background-color: $brown90
     outline-color: $brown96
-    a
-      color: $brown40
-      transition-duration: 0.1s
 
 .slide
   @include flexbox(row, center, center)
   //width: 50rem
   height: 24rem
-  gap: 3rem
+  gap: 2rem
   //border: 1px solid red
   padding: 2rem
 
   .scroll-container
     //position: absolute
-    @include flexbox(column, center, space-between)
-    gap: 0.5rem
+    @include flexbox(column, center, center)
+    gap: 2rem
     //top: 0%
     //left: 0%
     //transform: translate(48rem, 6rem)
     height: 100%
-    width: 1rem
-    padding: 8rem 0
+    width: 0.75rem
+    //padding: 8rem 0
 
     opacity: 0
     transform: translateX(2rem)
-    animation: scroll-container-in 1s 1s ease forwards
+    //translate: -0.5rem 0
+    animation: scroll-container-in 1s 1s cubic-bezier(0.5, 0, 0, 1) forwards
 
     .scroll-dot
-      transition: all 0.5s ease
-      width: 1rem
-      height: 1rem
+      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1)
+      width: 1.5rem
+      height: 1.5rem
       transform: scale(0.5)
       background-color: $brown90
+      opacity: 0.5
       border-radius: 1rem
-
 
       &.active
         transform: scale(1)
+        //width: 1rem
+        //height: 3rem
 
   .box-slider-wrapper
     height: 20rem
@@ -214,7 +212,6 @@ p, .button
   border-radius: 3rem !important
   background: white !important
   opacity: 1
-  margin-right: 1rem
   overflow: clip
 
   img

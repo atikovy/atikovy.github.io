@@ -25,7 +25,7 @@ body {
   overflow: hidden;
   border-radius: 6rem;
   gap: 2rem;
-  background: radial-gradient(circle, #F6F5F4 70%, #D2CDC6 170%);
+  background: radial-gradient(circle, #F7F5F3 70%, #D6CBC2 170%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p, a, span, .button {
   font-family: "Outfit", regular;
-  color: #544E45;
+  color: #544C45;
 }
 
 .surname {
@@ -46,12 +46,12 @@ a, h1 {
   line-height: 100%;
   font-weight: 600;
   font-size: 4rem;
-  color: #544E45;
+  color: #544C45;
   text-decoration: none;
 }
 
 p, .button {
-  color: #6C6760;
+  color: #70655C;
 }
 
 .navbar {
@@ -63,22 +63,15 @@ p, .button {
   box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(0, 0, 0, 0.05) inset, 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.05);
   outline: 0.5rem solid white;
   background-color: white;
-  transition: all 1s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.5s ease, outline-color 0.5s ease;
+  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease;
   cursor: pointer;
-}
-.navbar a {
-  color: #878178;
+  color: #70655C;
   line-height: 90%;
-  transition: color 0.5s ease;
 }
 .navbar:hover {
   transition-duration: 0.1s;
-  background-color: #E9E6E2;
-  outline-color: #F6F5F4;
-}
-.navbar:hover a {
-  color: #6C6760;
-  transition-duration: 0.1s;
+  background-color: #EBE5E0;
+  outline-color: #F7F5F3;
 }
 
 .slide {
@@ -87,28 +80,28 @@ p, .button {
   align-items: center;
   justify-content: center;
   height: 24rem;
-  gap: 3rem;
+  gap: 2rem;
   padding: 2rem;
 }
 .slide .scroll-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 2rem;
   height: 100%;
-  width: 1rem;
-  padding: 8rem 0;
+  width: 0.75rem;
   opacity: 0;
   transform: translateX(2rem);
-  animation: scroll-container-in 1s 1s ease forwards;
+  animation: scroll-container-in 1s 1s cubic-bezier(0.5, 0, 0, 1) forwards;
 }
 .slide .scroll-container .scroll-dot {
-  transition: all 0.5s ease;
-  width: 1rem;
-  height: 1rem;
+  transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+  width: 1.5rem;
+  height: 1.5rem;
   transform: scale(0.5);
-  background-color: #E9E6E2;
+  background-color: #EBE5E0;
+  opacity: 0.5;
   border-radius: 1rem;
 }
 .slide .scroll-container .scroll-dot.active {
@@ -135,7 +128,7 @@ p, .button {
   border-radius: 3rem;
   opacity: 0;
   background: linear-gradient(45deg, white 20%, #F5F5F4 160%);
-  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 1rem white inset;
+  box-shadow: 0 0 0 0.5rem #F7F5F3, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 1rem white inset;
 }
 .slide .text-container {
   display: flex;
@@ -147,7 +140,7 @@ p, .button {
   border-radius: 3rem;
   padding: 2.5rem 3rem;
   background: linear-gradient(45deg, white 20%, #F5F5F4 160%);
-  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
+  box-shadow: 0 0 0 0.5rem #F7F5F3, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
   opacity: 0;
   transform: translateY(4rem);
   animation: text-container-in 1s 0.75s ease forwards;
@@ -207,7 +200,6 @@ p, .button {
   border-radius: 3rem !important;
   background: white !important;
   opacity: 1;
-  margin-right: 1rem;
   overflow: clip;
 }
 .profile-box img {

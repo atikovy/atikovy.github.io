@@ -20,7 +20,7 @@ body {
 }
 
 p, span, h2, h3, h4, .tag {
-  color: #878178;
+  color: #8C7F73;
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: 2%;
@@ -29,7 +29,7 @@ p, span, h2, h3, h4, .tag {
 }
 
 h4 {
-  color: #6C6760;
+  color: #70655C;
   font-weight: 500;
 }
 
@@ -69,8 +69,8 @@ h4 {
 }
 .logo-wrapper:hover {
   transition-duration: 0.1s;
-  background-color: #E9E6E2;
-  outline-color: #F6F5F4;
+  background-color: #EBE5E0;
+  outline-color: #F7F5F3;
 }
 .logo-wrapper img {
   width: 100%;
@@ -92,8 +92,8 @@ h4 {
   gap: 2rem;
   padding: 3rem 3.5rem;
   border-radius: 3rem;
-  background: linear-gradient(45deg, white 0%, #F6F5F4 300%);
-  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
+  background: linear-gradient(45deg, white 0%, #F7F5F3 300%);
+  box-shadow: 0 0 0 0.5rem #F7F5F3, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
 }
 
 .project-description {
@@ -131,10 +131,10 @@ h4 {
 }
 .buttons-wrapper .button:hover {
   transition-duration: 0.1s;
-  background-color: #E9E6E2;
+  background-color: #EBE5E0;
 }
 .buttons-wrapper .button:hover p {
-  color: #6C6760;
+  color: #70655C;
 }
 
 .bg-wrapper {
@@ -161,7 +161,7 @@ h4 {
   width: 100%;
 }
 .type-container .type {
-  color: #6C6760;
+  color: #70655C;
   opacity: 0.5;
   font-size: 1.25rem;
   font-weight: 400;
@@ -179,7 +179,7 @@ h4 {
   width: 100%;
 }
 .tag-container .tag:before {
-  color: #878178;
+  color: #8C7F73;
   content: "∙ ";
 }
 
@@ -193,8 +193,8 @@ h4 {
   gap: 2rem;
   padding: 3rem 3.5rem;
   border-radius: 3rem;
-  background: linear-gradient(45deg, white 0%, #F6F5F4 300%);
-  box-shadow: 0 0 0 0.5rem #F6F5F4, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
+  background: linear-gradient(45deg, white 0%, #F7F5F3 300%);
+  box-shadow: 0 0 0 0.5rem #F7F5F3, 0 2rem 2rem -2rem rgba(0, 0, 0, 0.1), 0 0 0 0.5rem white inset;
 }
 .project-card.card-exit {
   animation: slideOut 0.2s forwards ease-in;
