@@ -24,7 +24,7 @@ body {
   height: 100vh;
   overflow: hidden;
   border-radius: 6rem;
-  gap: 2rem;
+  gap: 4rem;
   background: radial-gradient(circle, #F7F5F3 70%, #D6CBC2 170%);
   display: flex;
   flex-direction: column;
@@ -58,20 +58,14 @@ p, .button {
   height: 0rem;
   opacity: 0;
   overflow: clip;
-  padding: 1rem 5rem;
-  border-radius: 10rem;
-  box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(0, 0, 0, 0.05) inset, 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.05);
-  outline: 0.5rem solid white;
-  background-color: white;
-  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease;
+  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1);
   cursor: pointer;
   color: #70655C;
   line-height: 90%;
 }
 .navbar:hover {
   transition-duration: 0.1s;
-  background-color: #EBE5E0;
-  outline-color: #F7F5F3;
+  color: #A99889;
 }
 
 .slide {

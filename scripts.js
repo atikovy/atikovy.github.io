@@ -191,12 +191,12 @@ $(document).ready(function() {
             $navbar.css({
                 'opacity': '1',
                 'height': remToPx(6), // 16rem
-                'padding': '1rem 5rem', // 16rem
-                'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease',
+                // 'padding': '1rem 5rem', // 16rem
+                'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1), color 0.5s 0s cubic-bezier(0.5, 0, 0, 1)',
                 'pointer-events': 'auto'
             });
             // console.log("Navbar pokazany!");
-        }, 5000);
+        }, 4000);
     }
 
     // Funkcja ukrywająca navbar

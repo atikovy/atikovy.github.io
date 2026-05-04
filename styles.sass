@@ -39,7 +39,7 @@ body
   height: 100vh
   overflow: hidden
   border-radius: 6rem
-  gap: 2rem
+  gap: 4rem
   background: radial-gradient(circle, $brown96 70%, $brown80 170%)
   @include flexbox(column, center, center)
   overflow: clip
@@ -65,22 +65,25 @@ p, .button
   height: 0rem
   opacity: 0
   overflow: clip
-  padding: 1rem 5rem
-  border-radius: 10rem
+  //padding: 1rem 5rem
+  //border-radius: 10rem
 
-  box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset, 0 1rem 1rem -0.5rem rgba(black, 0.05)
-  outline: 0.5rem solid white
-  background-color: white
+  //box-shadow: 0 0.75rem 1.25rem -0.5rem rgba(black, 0.05) inset, 0 1rem 1rem -0.5rem rgba(black, 0.05)
+  //outline: 1rem solid white
+  //background-color: white
 
-  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1), background-color 0.2s ease, outline-color 0.2s ease
+  transition: all 0.5s 0s cubic-bezier(0.5, 0, 0, 1)
   cursor: pointer
 
   color: $brown40
   line-height: 90%
+
+
   &:hover
     transition-duration: 0.1s
-    background-color: $brown90
-    outline-color: $brown96
+    //background-color: $brown90
+    color: $brown60
+    //outline-color: $brown96
 
 .slide
   @include flexbox(row, center, center)
