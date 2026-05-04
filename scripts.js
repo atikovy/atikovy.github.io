@@ -222,14 +222,14 @@ $(document).ready(function() {
         $boxes.each(function(i) {
             if (i === index) {
                 $(this).css({
-                    'opacity': '1',
-                    'filter': 'blur(0rem)',
+                    // 'opacity': '1',
+                    // 'filter': 'blur(0rem)',
                     'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1)',
                 });
             } else {
                 $(this).css({
-                    'opacity': '0.8',
-                    'filter': 'blur(0.2rem)',
+                    // 'opacity': '0',
+                    // 'filter': 'blur(0.2rem)',
                     'transition': 'all 1s 0s cubic-bezier(0.5, 0, 0, 1)'
                 });
             }
